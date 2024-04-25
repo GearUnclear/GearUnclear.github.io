@@ -3,26 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Website</title>
+    <title>Housing Hope Data Team Infobase</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            padding: 20px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
             background-color: #f4f4f4;
         }
-        a {
-            color: #007bff;
-            text-decoration: none;
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
         }
-        a:hover {
-            text-decoration: underline;
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #0779e4 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        nav {
+            float: right;
+            margin-top: 10px;
+        }
+        nav a {
+            margin-left: 20px;
+        }
+        article {
+            padding: 20px;
+            background: #fff;
+            border-left: #0779e4 4px solid;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>Please visit the <a href="flowchart.html">ADP Note Updating Process Flowchart</a> page to view the flowchart details.</p>
-    <p>Please visit the <a href="UnitDesignations.html">Unit Designation Dictionary</a> page to view the Unit Designation details.</p>
-    <p>Please visit the <a href="Prog.html">Program Enrollment Identification Guide</a> page to view how to see this information for an individual resident.</p>
+    <header>
+        <div class="container">
+            <h1>Housing Hope Data Team Infobase</h1>
+            <nav>
+                <a href="flowchart.html">ADP Flowchart</a>
+                <a href="UnitDesignations.html">Unit Dictionary</a>
+                <a href="Prog.html">Program Guide</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <article>
+            <p>Welcome to the Housing Hope Data Team Infobase, your home base for accessing a wide range of training guides and tools. Here, you'll find essential resources to assist you with completing tasks in systems like Apricot and ADP, as well as our comprehensive Unit Type Dictionary and other valuable materials provided by the Data Team.</p>
+            <h2>Featured Resources</h2>
+            <p><a href="flowchart.html">ADP Note Updating Process Flowchart</a> - Explore step-by-step instructions to update notes effectively within ADP.</p>
+            <p><a href="UnitDesignations.html">Unit Designation Dictionary</a> - Access detailed explanations of unit designations to enhance your understanding and reporting accuracy.</p>
+            <p><a href="Prog.html">Program Enrollment Identification Guide</a> - Learn how to identify and enroll participants in our programs through this detailed guide.</p>
+        </article>
+    </div>
+    <footer>
+        <p>© 2024 Housing Hope Data Team. All rights reserved.</p>
+    </footer>
 </body>
 </html>
