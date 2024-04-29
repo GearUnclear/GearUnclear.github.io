@@ -4,99 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Housing Hope Data Team Infobase</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #fff; /* Lighter background */
+            padding-top: 5rem;
         }
         .container {
-            width: 90%; /* More width for less crammed content */
-            margin: auto;
-            overflow: hidden;
-            padding: 20px 0; /* Added padding */
+            padding: 2rem 1rem;
         }
-        header {
-            background: #505050; /* Softer color */
-            color: #fff;
-            padding-top: 20px;
-            min-height: 70px;
-            border-bottom: #4c87ed 3px solid; /* Softer blue */
+        .jumbotron {
+            padding: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 0.3rem;
         }
-        header a {
-            color: #d0d0d0; /* Softer color for text */
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
+        /* Custom styles for a cleaner alignment */
+        .bg-dark {
+            margin-bottom: 1rem;
         }
-        nav {
-            float: right;
-            margin-top: 0; /* Align with the title */
-        }
-        nav a {
-            margin: 0 15px; /* Uniform margin */
-            padding: 5px 0; /* Easier to click */
-        }
-        article {
-            padding: 40px; /* Increased padding */
-            background: #fafafa; /* Soft shade of white */
-            border-left: #4c87ed 5px solid; /* Accentuating the border */
-            margin-bottom: 20px; /* Space before footer */
-        }
-        footer {
-            background-color: #505050;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            font-size: 0.8em; /* Smaller font for less prominence */
-        }
-        @media screen and (max-width: 768px) {
-            .container {
-                width: 95%; /* More space on smaller screens */
-            }
-            nav {
-                float: none;
-                text-align: center; /* Center on small screens */
-            }
-            nav a {
-                display: block; /* Stack links */
-                margin: 10px 0;
-            }
-            header {
-                padding-top: 20px; /* Less padding on small screens */
-            }
+        .p-5 {
+            position: relative;
+            padding-right: 1rem !important;
+            padding-left: 1rem !important;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Housing Hope Data Team Infobase</h1>
-            <nav>
-                <a href="flowchart.html">ADP Flowchart</a>
-                <a href="UnitDesignations.html">Unit Dictionary</a>
-                <a href="Prog.html">Program Guide</a>
-            </nav>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">HH Data Team Infobase</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Prog.html">Program Guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="UnitDesignations.html">Unit Dictionary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="flowchart.html">ADP Flowchart</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </header>
-    <div class="container">
-        <article>
-            <p>Welcome to the Housing Hope Data Team Infobase, your home base for accessing a wide range of training guides and tools. Here, you'll find essential resources to assist you with completing tasks in systems like Apricot and ADP, as well as our comprehensive Unit Type Dictionary and other valuable materials provided by the Data Team.</p>
-            <h2>Featured Resources</h2>
-            <p><a href="flowchart.html">ADP Note Updating Process Flowchart</a> - Explore step-by-step instructions to update notes effectively within ADP.</p>
-            <p><a href="UnitDesignations.html">Unit Designation Dictionary</a> - Access detailed explanations of unit designations to enhance your understanding and reporting accuracy.</p>
-            <p><a href="Prog.html">Program Enrollment Identification Guide</a> - Learn how to identify and enroll participants in our programs through this detailed guide.</p>
-        </article>
-    </div>
-    <footer>
-        <p>© 2024 Housing Hope Data Team. All rights reserved.</p>
-    </footer>
+    </nav>
+
+    <main class="container">
+        <div class="jumbotron">
+            <h1>Welcome to the Housing Hope Data Team Infobase</h1>
+            <p class="lead">Your home base for accessing a wide range of training guides and tools. Here, you'll find essential resources to assist you with completing tasks in systems like Apricot and ADP, as well as our comprehensive Unit Type Dictionary and other valuable materials provided by the Data Team.</p>
+        </div>
+
+        <div class="row align-items-md-stretch">
+            <div class="col-md-4">
+                <div class="h-100 p-5 text-white bg-dark rounded-3">
+                    <h2>ADP Note Updating Process Flowchart</h2>
+                    <p>Explore step-by-step instructions to update notes effectively within ADP.</p>
+                    <a href="flowchart.html" class="btn btn-outline-light" type="button">View Flowchart</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="h-100 p-5 bg-light border rounded-3">
+                    <h2>Unit Designation Dictionary</h2>
+                    <p>Access detailed explanations of unit designations to enhance your understanding and reporting accuracy.</p>
+                    <a href="UnitDesignations.html" class="btn btn-dark" type="button">View Dictionary</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="h-100 p-5 text-white bg-primary rounded-3">
+                    <h2>Program Enrollment Identification Guide</h2>
+                    <p>Learn how to identify and enroll participants in our programs through this detailed guide.</p>
+                    <a href="Prog.html" class="btn btn-outline-light" type="button">View Guide</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
