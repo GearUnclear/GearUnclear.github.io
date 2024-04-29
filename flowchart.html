@@ -34,6 +34,30 @@
             max-width: 100%;
             height: auto;
         }
+        .flowchart .box ul {
+            list-style-type: none; /* Removes default bullets */
+            padding: 0;
+            margin: 0 auto; /* Centers the list */
+            text-align: left; /* Aligns the text to the left */
+            display: table; /* Allows the list to shrink to fit content and center */
+        }
+
+        .flowchart .box li::before {
+            content: "• "; /* Adds a bullet before the list item */
+            color: #007bff; /* Bullet color */
+            display: inline-block; /* Align with your text */
+            margin-left: 5px; /* Spacing before bullet */
+        }
+
+        .flowchart .box a {
+            font-family: 'Courier New', Courier, monospace; /* Changes font for links */
+            color: #0654ba; /* Link color */
+            text-decoration: none; /* No underline */
+        }
+
+        .flowchart .box a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
     </style>
 </head>
 <body>
@@ -70,8 +94,7 @@
                 <p>Begin the process when you have time to update your notes.</p>
             </div>
             <div class="arrow">↓</div>
-            <div class="box">
-                <h2>Track Interaction</h2>
+            <div class="track-interaction">
                 <p>Record residents you've worked with and the duration. For each interaction, note:</p>
                 <ul>
                     <li>Property</li>
@@ -79,8 +102,8 @@
                     <li>Program Type</li>
                     <li>Number of Hours</li>
                 </ul>
-                <h3><a href="Prog.html">Click here to see how to find a Resident's Program Enrollment</a></h3>
-                <h4><a href="https://apricot.socialsolutions.com/report/run/report_id/138">Click here for a list of the program enrollment for all of your residents. Click export to download an Excel Spreadsheet.</a></h4>
+                <a href="Prog.html">Click here to see how to find a Resident's Program Enrollment</a><br>
+                <a href="https://apricot.socialsolutions.com/report/run/report_id/138">Click here for a list of the program enrollment for all of your residents. Click export to download an Excel Spreadsheet.</a>
             </div>
             <div class="arrow">↓</div>
             <div class="box">
