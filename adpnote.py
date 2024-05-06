@@ -1,9 +1,27 @@
 import sys
 import pandas as pd
-from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QLineEdit, QLabel, QPushButton, QTextEdit, QCompleter
-from PyQt5.QtGui import QDoubleValidator, QStandardItemModel, QStandardItem, QDesktopServices
-from PyQt5.QtCore import Qt, QUrl
 from collections import defaultdict
+from PyQt5.QtWidgets import (
+    QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QLineEdit, QLabel,
+    QPushButton, QTextEdit, QCompleter
+)
+from PyQt5.QtGui import (
+    QStandardItemModel, QStandardItem, QDesktopServices
+)
+from PyQt5.QtCore import (
+    Qt, QUrl, QEvent, QObject
+)
+
+class FocusEventFilter(QObject):
+    def __init__(self, callback):
+        super().__init__()
+        self.callback = callback
+
+    def eventFilter(self, obj, event):
+        if event.type() == QEvent.FocusIn:
+            self.callback()
+        return False
+
 class MainWindow(QMainWindow):
     def launch_adp_link(self):
         QDesktopServices.openUrl(QUrl("https://workforcenow.adp.com/theme/index.html#/Myself/MyselfTabTimecardsAttendanceSchCategoryTLMWebMyTimecard"))
@@ -15,7 +33,7 @@ class MainWindow(QMainWindow):
 
         # Load CSV data
         self.data = pd.read_csv("C:\\Users\\danewagenhoffer\\Downloads\\FSC_ Client Info - New Section.csv")
-        
+
         # Extract first and last names for autocomplete
         self.first_names = self.data['First'].unique()
         self.last_names = self.data['Last'].unique()
@@ -40,14 +58,15 @@ class MainWindow(QMainWindow):
         # Submission and output
         self.submit_button = QPushButton("Submit")
         self.main_layout.addWidget(self.submit_button)
-        
+
         # Text output area
         self.text_box = QTextEdit()
         self.text_box.setReadOnly(True)
         self.main_layout.addWidget(self.text_box)
-        
+
         self.copy_button = QPushButton("Copy to Clipboard")
         self.main_layout.addWidget(self.copy_button)
+
         # New button to launch ADP link
         self.launch_adp_button = QPushButton("Open ADP Timecard (Click Again After Login)")
         self.launch_adp_button.clicked.connect(self.launch_adp_link)
@@ -75,17 +94,21 @@ class MainWindow(QMainWindow):
         hours_entry = QLineEdit()
 
         # Create completers
-        first_name_completer = QCompleter(self.data['First'].unique())
+        first_name_completer = QCompleter(self.first_names)
         first_name_completer.setCaseSensitivity(Qt.CaseInsensitive)
         first_name_entry.setCompleter(first_name_completer)
 
         # Set last name completer without setting model yet
-        last_name_completer = QCompleter()
+        last_name_completer = CustomCompleter()
         last_name_completer.setCaseSensitivity(Qt.CaseInsensitive)
         last_name_entry.setCompleter(last_name_completer)
 
-        # Connect signal
-        first_name_entry.textChanged.connect(lambda: self.update_last_names(first_name_entry.text(), last_name_completer))
+        # Connect signal for dynamic update of last names based on first name input
+        first_name_entry.textChanged.connect(lambda: self.preload_last_names(first_name_entry.text(), last_name_completer))
+
+        # Focus event filter for last name field
+        last_name_focus_filter = FocusEventFilter(lambda: self.update_last_names(first_name_entry.text(), last_name_completer))
+        last_name_entry.installEventFilter(last_name_focus_filter)
 
         row_layout.addWidget(first_name_label)
         row_layout.addWidget(first_name_entry)
@@ -96,15 +119,36 @@ class MainWindow(QMainWindow):
 
         self.rows_area.addLayout(row_layout)
 
-    def update_last_names(self, first_name, completer):
-        # Filter last names based on first name
+    def preload_last_names(self, first_name, completer):
+        """
+        Preload the possible last names based on the entered first name but
+        do not display them until the last name field is focused.
+        """
         filtered_data = self.data[self.data['First'].str.lower() == first_name.lower()]
         last_names = filtered_data['Last'].unique()
+
         # Update completer model
         model = QStandardItemModel()
         for name in last_names:
             model.appendRow(QStandardItem(name))
         completer.setModel(model)
+
+    def update_last_names(self, first_name, completer):
+        """
+        Update last names to be shown in the completer for the last name field.
+        """
+        filtered_data = self.data[self.data['First'].str.lower() == first_name.lower()]
+        last_names = filtered_data['Last'].unique()
+
+        # Update completer model
+        model = QStandardItemModel()
+        for name in last_names:
+            model.appendRow(QStandardItem(name))
+        completer.setModel(model)
+
+        # Ensure completer popup shows all options
+        completer.complete()
+
     def remove_row(self):
         # This method will remove the last row added to the rows_area
         if self.rows_area.count() > 1:  # Ensure there's more than one row to remove
@@ -127,9 +171,15 @@ class MainWindow(QMainWindow):
             row_layout = self.rows_area.itemAt(i).layout()
             first = row_layout.itemAt(1).widget().text().strip()
             last = row_layout.itemAt(3).widget().text().strip()
-            hours = float(row_layout.itemAt(5).widget().text().strip())  # Convert to float instead of int
+            hours_text = row_layout.itemAt(5).widget().text().strip()
 
-            # Create a key for each unique combination of first, last, site, and assigned_programs
+            # Skip row if first name, last name, and hours are empty
+            if not first and not last and not hours_text:
+                continue  # Skip the rest of the loop and move to the next iteration
+
+            hours = float(hours_text) if hours_text else 0  # Convert to float, default to 0 if empty
+
+            # Check if the row corresponds to existing data in the dataset
             row_data = self.data[(self.data['First'].str.lower() == first.lower()) & (self.data['Last'].str.lower() == last.lower())]
             if not row_data.empty:
                 assigned_programs = row_data['Assigned Programs'].values[0]
@@ -144,13 +194,15 @@ class MainWindow(QMainWindow):
             formatted_text += f"{get_site_name(site)}, Family Support Coach Services, {remove_site_name(site)}, {total_hours:.2f} hours\n"
 
         self.text_box.setText(formatted_text)
+
     def copy_text(self):
         clipboard = QApplication.clipboard()
         clipboard.setText(self.text_box.toPlainText())
+
     def apply_dark_mode(self):
         self.setStyleSheet("""
-            QWidget { background-color: #333; color: #DDD; }
-            QLineEdit, QTextEdit, QPushButton { background-color: #555; color: #DDD; }
+        QWidget { background-color: #333; color: #DDD; }
+        QLineEdit, QTextEdit, QPushButton { background-color: #555; color: #DDD; }
         """)
 
 def get_site_name(site_input):
@@ -189,17 +241,21 @@ def remove_site_name(site_input):
             # Clean up any residual formatting issues like double spaces or leading/trailing connectors
             site_input = site_input.replace('  ', ' ').replace(' - ', ' -').replace('- ', '-')
 
-            # Check if the resulting string is effectively empty
-            if site_input == "" or site_input.isspace():
-                return site_input_original  # Return the original input if the result is empty or only spaces
-            
-            return site_input
+    # Check if the resulting string is effectively empty
+    if site_input == "" or site_input.isspace():
+        return site_input_original  # Return the original input if the result is empty or only spaces
 
-    return site_input  # Return the modified input
+    return site_input
+class CustomCompleter(QCompleter):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
+        self.setCaseSensitivity(Qt.CaseInsensitive)
 
-
-# Helper functions get_site_name and remove_site_name remain the same as in your initial code
-
+    def eventFilter(self, obj, event):
+        if event.type() == QEvent.FocusIn:
+            self.complete()
+        return super().eventFilter(obj, event)
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     main_window = MainWindow()
