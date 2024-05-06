@@ -32,7 +32,29 @@ class MainWindow(QMainWindow):
         self.setGeometry(100, 100, 320, 300)  # Adjusted for potentially more space
 
         # Load CSV data
-        self.data = pd.read_csv("C:\\Users\\danewagenhoffer\\Downloads\\FSC_ Client Info - New Section.csv")
+# Load the latest version of FSC Client Info - New Section CSV file
+        directory = "C:\\Users\\danewagenhoffer\\Downloads"
+        pattern = r"FSC_ Client Info - New Section(?: \((\d+)\))?.csv"
+
+        max_num = -1
+        selected_file = None
+
+        for filename in os.listdir(directory):
+            match = re.search(pattern, filename)
+            if match:
+                num = int(match.group(1)) if match.group(1) else 0
+                if num > max_num:
+                    max_num = num
+                    selected_file = filename
+
+        if selected_file:
+            latest_csv_path = os.path.join(directory, selected_file)
+            print(f"Loading file: {latest_csv_path}")
+            self.data = pd.read_csv(latest_csv_path)
+        else:
+            print("No matching files found.")
+            self.data = pd.DataFrame(columns=["First", "Last", "Assigned Programs", "Site"])
+
 
         # Extract first and last names for autocomplete
         self.first_names = self.data['First'].unique()
