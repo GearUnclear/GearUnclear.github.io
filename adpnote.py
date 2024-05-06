@@ -35,13 +35,15 @@ class MainWindow(QMainWindow):
 
         # Load CSV data
 # Load the latest version of FSC Client Info - New Section CSV file
-        directory = "C:\\Users\\danewagenhoffer\\Downloads"
+        home_directory = os.path.expanduser("~")
+        downloads_directory = os.path.join(home_directory, "Downloads")
         pattern = r"FSC_ Client Info - New Section(?: \((\d+)\))?.csv"
+
 
         max_num = -1
         selected_file = None
 
-        for filename in os.listdir(directory):
+        for filename in os.listdir(downloads_directory):
             match = re.search(pattern, filename)
             if match:
                 num = int(match.group(1)) if match.group(1) else 0
@@ -50,7 +52,7 @@ class MainWindow(QMainWindow):
                     selected_file = filename
 
         if selected_file:
-            latest_csv_path = os.path.join(directory, selected_file)
+            latest_csv_path = os.path.join(downloads_directory, selected_file)
             print(f"Loading file: {latest_csv_path}")
             self.data = pd.read_csv(latest_csv_path)
         else:
