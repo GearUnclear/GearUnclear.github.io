@@ -52,6 +52,9 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Data Entry Application")
         self.setGeometry(100, 100, 320, 300)  # Adjusted for potentially more space
 
+        # Set window always on top
+        self.setWindowFlags(self.windowFlags() | Qt.WindowStaysOnTopHint)
+
         # Load CSV data
         try:
             self.load_csv_data()
@@ -104,7 +107,7 @@ class MainWindow(QMainWindow):
         self.main_layout.addWidget(self.launch_adp_button)
 
         # New maroon update button
-        self.update_button = QPushButton("Update")
+        self.update_button = QPushButton("Update (Click Again After Apricot Login)")
         self.update_button.setStyleSheet("background-color: maroon; color: white;")
         self.update_button.clicked.connect(self.show_gif)
         self.main_layout.addWidget(self.update_button)
