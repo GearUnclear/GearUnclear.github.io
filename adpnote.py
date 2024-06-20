@@ -78,7 +78,10 @@ class MainWindow(QMainWindow):
             self.data = self.data[self.data["Exit Date"].isna()]
         else:
             print("No matching files found.")
+            latest_csv_path = os.path.join(downloads_directory, "FSC_ Client Info - New Section.csv")
             self.data = pd.DataFrame(columns=["First", "Last", "Assigned Programs", "MoveInDate", "Exit Date"])
+            self.data.to_csv(latest_csv_path, index=False)
+            QMessageBox.information(self, "Info", "No matching files found. A new CSV file has been created. Please click the 'Update' button to download the required data.")
 
         # Extract first and last names for autocomplete
         self.first_names = self.data['First'].unique()
@@ -275,8 +278,6 @@ class MainWindow(QMainWindow):
 
     def show_gif(self):
         if os.path.exists(self.gif_path):
-            
-
             # Create a new window for the GIF
             self.gif_window = QWidget()
             self.gif_window.setWindowFlags(Qt.FramelessWindowHint)
@@ -337,8 +338,6 @@ def remove_program_name(program_input):
 
     # Remove "II" from the program input
     program_input = program_input.replace("II", "").strip()
-
-
 
     # Check if the resulting string is effectively empty
     if program_input == "" or program_input.isspace():
