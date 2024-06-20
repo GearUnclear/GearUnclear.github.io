@@ -275,7 +275,7 @@ class MainWindow(QMainWindow):
 
     def show_gif(self):
         if os.path.exists(self.gif_path):
-            QDesktopServices.openUrl(QUrl("https://apricot.socialsolutions.com/report/run/report_id/138"))
+            
 
             # Create a new window for the GIF
             self.gif_window = QWidget()
@@ -293,6 +293,7 @@ class MainWindow(QMainWindow):
 
             # Close the window after 10 seconds
             QTimer.singleShot(10000, self.gif_window.close)
+            QDesktopServices.openUrl(QUrl("https://apricot.socialsolutions.com/report/run/report_id/138"))
         else:
             QMessageBox.critical(self, "Error", "GIF not available. Please try again later.")
 
