@@ -113,6 +113,19 @@ if errorlevel 0 (
     )
 )
 
+"%PYTHON_DIR%\Scripts\pip.exe" show requests >nul 2>&1
+if errorlevel 0 (
+    echo [INFO] requests is already installed.
+) else (
+    echo [INFO] Installing requests...
+    %PYTHON_DIR%\Scripts\pip.exe install requests --only-binary :all: || (
+        echo [ERROR] Failed to install requests.
+        echo Press any key to close this window.
+        pause
+        exit /b
+    )
+)
+
 :: Initialize paths
 set PRIMARY_DOWNLOAD_PATH="%USERPROFILE%\OneDrive - Housing Hope\Desktop\adpnote.py"
 set SECONDARY_DOWNLOAD_PATH="%USERPROFILE%\OneDrive\Desktop\adpnote.py"
@@ -172,7 +185,7 @@ if errorlevel 1 (
     echo [INFO] Copied adpnote.py to the secondary OneDrive desktop.
 )
 
-:: Copy adpnote.py to the physical desktop
+:: Copy adpnote.py to the physical desktop, ensuring it is replaced
 set PHYSICAL_DESKTOP_PATH=C:\Users\%USERNAME%\Desktop\adpnote.py
 if exist %PHYSICAL_DESKTOP_PATH% (
     del %PHYSICAL_DESKTOP_PATH%
