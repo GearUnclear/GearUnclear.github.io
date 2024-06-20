@@ -20,7 +20,7 @@ if not exist "%PYTHON_DIR%" (
 :: Justification: Avoiding redundant installations if Python is already installed
 if exist "%PYTHON_DIR%\python.exe" (
     echo [INFO] Python is already installed at "%PYTHON_DIR%".
-    goto :python_installed
+    goto :check_adpnote
 )
 
 :: URL of the Python installer
@@ -67,7 +67,7 @@ if not exist "%PYTHON_DIR%\python.exe" (
 :: Python installed successfully
 echo [INFO] Python installed successfully at "%PYTHON_DIR%".
 
-:python_installed
+:check_adpnote
 :: Update PATH for this session only
 :: Justification: Ensuring the current session has access to the installed Python
 set PATH=%PYTHON_DIR%;%PYTHON_DIR%\Scripts;%PATH%
@@ -85,15 +85,34 @@ if errorlevel 1 (
     echo [INFO] pip updated successfully.
 )
 
-:: Install Python packages, preferring binary distributions to avoid build issues
-:: Justification: Installing required packages (pandas, PyQt5) using pip
-echo [INFO] Installing required Python packages (pandas, PyQt5)...
-%PYTHON_DIR%\Scripts\pip.exe install pandas PyQt5 --only-binary :all: || (
-    echo [ERROR] Failed to install required Python packages.
-    echo Press any key to close this window.
-    pause
-    exit /b
+:: Check if required packages are installed
+:: Justification: Avoiding redundant installations of packages
+"%PYTHON_DIR%\Scripts\pip.exe" show pandas >nul 2>&1
+if errorlevel 0 (
+    echo [INFO] pandas is already installed.
+) else (
+    echo [INFO] Installing pandas...
+    %PYTHON_DIR%\Scripts\pip.exe install pandas --only-binary :all: || (
+        echo [ERROR] Failed to install pandas.
+        echo Press any key to close this window.
+        pause
+        exit /b
+    )
 )
+
+"%PYTHON_DIR%\Scripts\pip.exe" show PyQt5 >nul 2>&1
+if errorlevel 0 (
+    echo [INFO] PyQt5 is already installed.
+) else (
+    echo [INFO] Installing PyQt5...
+    %PYTHON_DIR%\Scripts\pip.exe install PyQt5 --only-binary :all: || (
+        echo [ERROR] Failed to install PyQt5.
+        echo Press any key to close this window.
+        pause
+        exit /b
+    )
+)
+
 :: Initialize paths
 set PRIMARY_DOWNLOAD_PATH="%USERPROFILE%\OneDrive - Housing Hope\Desktop\adpnote.py"
 set SECONDARY_DOWNLOAD_PATH="%USERPROFILE%\OneDrive\Desktop\adpnote.py"
@@ -112,7 +131,7 @@ if exist "%USERPROFILE%\OneDrive - Housing Hope\Desktop" (
     )
 )
 
-:: Download the Python script using curl
+:: Always download the latest version of adpnote.py
 echo [INFO] Downloading adpnote.py from housinghope.site to %DOWNLOAD_PATH%...
 curl -L http://housinghopedata.site/adpnote.py -o %DOWNLOAD_PATH% || (
     echo [ERROR] Failed to download adpnote.py.
@@ -121,8 +140,56 @@ curl -L http://housinghopedata.site/adpnote.py -o %DOWNLOAD_PATH% || (
     exit /b
 )
 
+:: Copy adpnote.py to the primary OneDrive desktop
+if exist "%PRIMARY_DOWNLOAD_PATH%" (
+    del "%PRIMARY_DOWNLOAD_PATH%"
+)
+copy %DOWNLOAD_PATH% "%PRIMARY_DOWNLOAD_PATH%"
+if errorlevel 1 (
+    :: If the file copy fails, rename the newly downloaded file
+    set TIMESTAMP=%DATE:~-4,4%%DATE:~-10,2%%DATE:~-7,2%_%TIME:~0,2%%TIME:~3,2%%TIME:~6,2%
+    set TIMESTAMP=%TIMESTAMP: =0%
+    set RENAMED_PATH="%USERPROFILE%\OneDrive - Housing Hope\Desktop\adpnote_%TIMESTAMP%.py"
+    rename %DOWNLOAD_PATH% %RENAMED_PATH%
+    echo [INFO] Renamed downloaded adpnote.py to %RENAMED_PATH% due to an access issue.
+) else (
+    echo [INFO] Copied adpnote.py to the primary OneDrive desktop.
+)
+
+:: Copy adpnote.py to the secondary OneDrive desktop
+if exist "%SECONDARY_DOWNLOAD_PATH%" (
+    del "%SECONDARY_DOWNLOAD_PATH%"
+)
+copy %DOWNLOAD_PATH% "%SECONDARY_DOWNLOAD_PATH%"
+if errorlevel 1 (
+    :: If the file copy fails, rename the newly downloaded file
+    set TIMESTAMP=%DATE:~-4,4%%DATE:~-10,2%%DATE:~-7,2%_%TIME:~0,2%%TIME:~3,2%%TIME:~6,2%
+    set TIMESTAMP=%TIMESTAMP: =0%
+    set RENAMED_PATH="%USERPROFILE%\OneDrive\Desktop\adpnote_%TIMESTAMP%.py"
+    rename %DOWNLOAD_PATH% %RENAMED_PATH%
+    echo [INFO] Renamed downloaded adpnote.py to %RENAMED_PATH% due to an access issue.
+) else (
+    echo [INFO] Copied adpnote.py to the secondary OneDrive desktop.
+)
+
+:: Copy adpnote.py to the physical desktop
+set PHYSICAL_DESKTOP_PATH=C:\Users\%USERNAME%\Desktop\adpnote.py
+if exist %PHYSICAL_DESKTOP_PATH% (
+    del %PHYSICAL_DESKTOP_PATH%
+)
+copy %DOWNLOAD_PATH% %PHYSICAL_DESKTOP_PATH%
+if errorlevel 1 (
+    :: If the file copy fails, rename the newly downloaded file
+    set TIMESTAMP=%DATE:~-4,4%%DATE:~-10,2%%DATE:~-7,2%_%TIME:~0,2%%TIME:~3,2%%TIME:~6,2%
+    set TIMESTAMP=%TIMESTAMP: =0%
+    set RENAMED_PATH=C:\Users\%USERNAME%\Desktop\adpnote_%TIMESTAMP%.py
+    rename %DOWNLOAD_PATH% %RENAMED_PATH%
+    echo [INFO] Renamed downloaded adpnote.py to %RENAMED_PATH% due to an access issue.
+) else (
+    echo [INFO] Copied adpnote.py to the physical desktop.
+)
+
 echo [INFO] Installation and setup completed successfully.
 echo Press any key to close this window.
 pause
 endlocal
-
