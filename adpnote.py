@@ -292,8 +292,8 @@ class MainWindow(QMainWindow):
             movie.start()
 
             # Close the window after 10 seconds
-            QTimer.singleShot(10000, self.gif_window.close)
-            QDesktopServices.openUrl(QUrl("https://apricot.socialsolutions.com/report/run/report_id/138"))
+            QTimer.singleShot(12000, self.gif_window.close)
+            QTimer.singleShot(12000, lambda: QDesktopServices.openUrl(QUrl("https://apricot.socialsolutions.com/report/run/report_id/138")))
         else:
             QMessageBox.critical(self, "Error", "GIF not available. Please try again later.")
 
