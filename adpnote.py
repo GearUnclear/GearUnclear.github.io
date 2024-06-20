@@ -5,14 +5,33 @@ import pandas as pd
 from collections import defaultdict
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QLineEdit, QLabel,
-    QPushButton, QTextEdit, QCompleter
+    QPushButton, QTextEdit, QCompleter, QMessageBox
 )
 from PyQt5.QtGui import (
-    QStandardItemModel, QStandardItem, QDesktopServices
+    QStandardItemModel, QStandardItem, QDesktopServices, QMovie
 )
 from PyQt5.QtCore import (
-    Qt, QUrl, QEvent, QObject
+    Qt, QUrl, QEvent, QObject, QTimer, QThread, pyqtSignal
 )
+import requests
+
+class DownloadThread(QThread):
+    download_finished = pyqtSignal(str)
+
+    def __init__(self, url, destination):
+        super().__init__()
+        self.url = url
+        self.destination = destination
+
+    def run(self):
+        response = requests.get(self.url, stream=True)
+        if response.status_code == 200:
+            with open(self.destination, 'wb') as f:
+                for chunk in response.iter_content(1024):
+                    f.write(chunk)
+            self.download_finished.emit(self.destination)
+        else:
+            self.download_finished.emit(None)
 
 class FocusEventFilter(QObject):
     def __init__(self, callback):
@@ -34,11 +53,9 @@ class MainWindow(QMainWindow):
         self.setGeometry(100, 100, 320, 300)  # Adjusted for potentially more space
 
         # Load CSV data
-# Load the latest version of FSC Client Info - New Section CSV file
         home_directory = os.path.expanduser("~")
         downloads_directory = os.path.join(home_directory, "Downloads")
         pattern = r"FSC_ Client Info - New Section(?: \((\d+)\))?.csv"
-
 
         max_num = -1
         selected_file = None
@@ -55,10 +72,13 @@ class MainWindow(QMainWindow):
             latest_csv_path = os.path.join(downloads_directory, selected_file)
             print(f"Loading file: {latest_csv_path}")
             self.data = pd.read_csv(latest_csv_path)
+
+            # Remove rows with no MoveInDate and rows with Exit Date
+            self.data.dropna(subset=["MoveInDate"], inplace=True)
+            self.data = self.data[self.data["Exit Date"].isna()]
         else:
             print("No matching files found.")
-            self.data = pd.DataFrame(columns=["First", "Last", "Assigned Programs", "Site"])
-
+            self.data = pd.DataFrame(columns=["First", "Last", "Assigned Programs", "MoveInDate", "Exit Date"])
 
         # Extract first and last names for autocomplete
         self.first_names = self.data['First'].unique()
@@ -98,6 +118,12 @@ class MainWindow(QMainWindow):
         self.launch_adp_button.clicked.connect(self.launch_adp_link)
         self.main_layout.addWidget(self.launch_adp_button)
 
+        # New maroon update button
+        self.update_button = QPushButton("Update")
+        self.update_button.setStyleSheet("background-color: maroon; color: white;")
+        self.update_button.clicked.connect(self.show_gif)
+        self.main_layout.addWidget(self.update_button)
+
         # Connect signals
         self.add_row_button.clicked.connect(self.add_row)
         self.remove_row_button.clicked.connect(self.remove_row)
@@ -109,6 +135,9 @@ class MainWindow(QMainWindow):
 
         # Apply styles
         self.apply_dark_mode()
+
+        # Start the GIF download
+        self.download_gif()
 
     def add_row(self):
         row_layout = QHBoxLayout()
@@ -209,15 +238,14 @@ class MainWindow(QMainWindow):
             row_data = self.data[(self.data['First'].str.lower() == first.lower()) & (self.data['Last'].str.lower() == last.lower())]
             if not row_data.empty:
                 assigned_programs = row_data['Assigned Programs'].values[0]
-                site = row_data['Site'].values[0]
-                key = (site, assigned_programs)
+                key = (assigned_programs,)
                 # Summing hours for each unique key
                 aggregated_data[key] += hours
 
         formatted_text = ""
-        for (site, assigned_programs), total_hours in aggregated_data.items():
+        for (assigned_programs,), total_hours in aggregated_data.items():
             # Format total hours to always show at most two decimal places
-            formatted_text += f"{get_site_name(site)}, Family Support Coach Services, {remove_site_name(site)}, {total_hours:.2f} hours\n"
+            formatted_text += f"{get_program_name(assigned_programs)}, Family Support Coach Services, {remove_program_name(assigned_programs)}, {total_hours:.2f} hours\n"
 
         self.text_box.setText(formatted_text)
 
@@ -231,25 +259,45 @@ class MainWindow(QMainWindow):
         QLineEdit, QTextEdit, QPushButton { background-color: #555; color: #DDD; }
         """)
 
-def get_site_name(site_input):
-    site_names = [
-        "Aspenwood", "Avondale", "Beachwood", "Commerce", "Crossroads",
-        "Fairview", "Hope Village", "Hope Village Expansion",
-        "Lincoln Hill Village", "Maple Leaf Meadows", "Monroe Family Village",
-        "New Century Village", "New Century House", "Station Place", "Twin Lakes Landing",
-        "Twin Lakes Landing II", "Winters Creek North", "Winters Creek South",
-        "Woods Creek Village"
-    ]
-    site_input = site_input.lower()  # Convert input to lowercase to ensure case-insensitive matching
-    # Sort site names by length in descending order
-    sorted_site_names = sorted(site_names, key=len, reverse=True)
-    for name in sorted_site_names:
-        if name.lower() in site_input:
-            return name
-    return "Unknown Site"  # Return an informative default if no match is found
+    def download_gif(self):
+        gif_url = "https://housinghopedata.site/downloadcsv.gif"
+        self.gif_path = os.path.join(os.path.expanduser("~"), "downloaded_gif.gif")
 
-def remove_site_name(site_input):
-    site_names = [
+        self.download_thread = DownloadThread(gif_url, self.gif_path)
+        self.download_thread.download_finished.connect(self.on_gif_download_finished)
+        self.download_thread.start()
+
+    def on_gif_download_finished(self, gif_path):
+        if gif_path:
+            print("GIF downloaded and ready.")
+        else:
+            QMessageBox.critical(self, "Error", "Failed to download the GIF.")
+
+    def show_gif(self):
+        if os.path.exists(self.gif_path):
+            QDesktopServices.openUrl(QUrl("https://apricot.socialsolutions.com/report/run/report_id/138"))
+
+            # Create a new window for the GIF
+            self.gif_window = QWidget()
+            self.gif_window.setWindowFlags(Qt.FramelessWindowHint)
+            self.gif_window.setGeometry(0, 0, QApplication.desktop().width(), QApplication.desktop().height())
+            
+            layout = QVBoxLayout()
+            label = QLabel(self.gif_window)
+            movie = QMovie(self.gif_path)
+            label.setMovie(movie)
+            layout.addWidget(label)
+            self.gif_window.setLayout(layout)
+            self.gif_window.showFullScreen()
+            movie.start()
+
+            # Close the window after 10 seconds
+            QTimer.singleShot(10000, self.gif_window.close)
+        else:
+            QMessageBox.critical(self, "Error", "GIF not available. Please try again later.")
+
+def get_program_name(program_input):
+    program_names = [
         "Aspenwood", "Avondale", "Beachwood", "Commerce", "Crossroads",
         "Fairview", "Hope Village", "Hope Village Expansion",
         "Lincoln Hill Village", "Maple Leaf Meadows", "Monroe Family Village",
@@ -257,21 +305,46 @@ def remove_site_name(site_input):
         "Twin Lakes Landing II", "Winters Creek North", "Winters Creek South",
         "Woods Creek Village"
     ]
-    site_input_original = site_input  # Preserve the original input for final cleanup
-    # Sort site names by length in descending order
-    sorted_site_names = sorted(site_names, key=len, reverse=True)
-    for name in sorted_site_names:
-        if name.lower() in site_input.lower():
-            # Remove the site name and extra spaces potentially left around the name
-            site_input = site_input.replace(name, '').strip()
-            # Clean up any residual formatting issues like double spaces or leading/trailing connectors
-            site_input = site_input.replace('  ', ' ').replace(' - ', ' -').replace('- ', '-')
+    program_input = program_input.lower()  # Convert input to lowercase to ensure case-insensitive matching
+    # Sort program names by length in descending order
+    sorted_program_names = sorted(program_names, key=len, reverse=True)
+    for name in sorted_program_names:
+        if name.lower() in program_input:
+            return name
+    return "Unknown Program"  # Return an informative default if no match is found
+
+def remove_program_name(program_input):
+    original_input = program_input  # Store the original input
+
+    if "Crossroads" in program_input or "Stanwood House" in program_input:
+        return "Shelter"
+
+    # Remove "Housing -" prefix
+    program_input = program_input.replace("Housing -", "").strip()
+    p_i=program_input
+    # Extract the actual program name after the location name
+    program_names = [
+        "Aspenwood", "Avondale", "Beachwood", "Commerce Bldg", "Crossroads",
+        "Fairview", "Hope Village", "Hope Village Expansion",
+        "Lincoln Hill Village", "Maple Leaf Meadows", "Monroe Family Village",
+        "New Century Village", "New Century House", "Station Place", "Twin Lakes Landing",
+        "Twin Lakes Landing II", "Winters Creek North", "Winters Creek South",
+        "Woods Creek Village"
+    ]
+    for name in program_names:
+        program_input = program_input.replace(name, '').strip()
+
+    # Remove "II" from the program input
+    program_input = program_input.replace("II", "").strip()
+
+
 
     # Check if the resulting string is effectively empty
-    if site_input == "" or site_input.isspace():
-        return site_input_original  # Return the original input if the result is empty or only spaces
+    if program_input == "" or program_input.isspace():
+        return p_i
 
-    return site_input
+    return program_input.strip()
+
 class CustomCompleter(QCompleter):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -282,6 +355,7 @@ class CustomCompleter(QCompleter):
         if event.type() == QEvent.FocusIn:
             self.complete()
         return super().eventFilter(obj, event)
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     main_window = MainWindow()
