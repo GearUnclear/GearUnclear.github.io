@@ -53,35 +53,17 @@ class MainWindow(QMainWindow):
         self.setGeometry(100, 100, 320, 300)  # Adjusted for potentially more space
 
         # Load CSV data
-        home_directory = os.path.expanduser("~")
-        downloads_directory = os.path.join(home_directory, "Downloads")
-        pattern = r"FSC_ Client Info - New Section(?: \((\d+)\))?.csv"
-
-        max_num = -1
-        selected_file = None
-
-        for filename in os.listdir(downloads_directory):
-            match = re.search(pattern, filename)
-            if match:
-                num = int(match.group(1)) if match.group(1) else 0
-                if num > max_num:
-                    max_num = num
-                    selected_file = filename
-
-        if selected_file:
-            latest_csv_path = os.path.join(downloads_directory, selected_file)
-            print(f"Loading file: {latest_csv_path}")
-            self.data = pd.read_csv(latest_csv_path)
-
-            # Remove rows with no MoveInDate and rows with Exit Date
-            self.data.dropna(subset=["MoveInDate"], inplace=True)
-            self.data = self.data[self.data["Exit Date"].isna()]
-        else:
-            print("No matching files found.")
-            latest_csv_path = os.path.join(downloads_directory, "FSC_ Client Info - New Section.csv")
-            self.data = pd.DataFrame(columns=["First", "Last", "Assigned Programs", "MoveInDate", "Exit Date"])
-            self.data.to_csv(latest_csv_path, index=False)
+        try:
+            self.load_csv_data()
+        except FileNotFoundError:
+            self.create_blank_csv()
             QMessageBox.information(self, "Info", "No matching files found. A new CSV file has been created. Please click the 'Update' button to download the required data.")
+        except pd.errors.EmptyDataError:
+            QMessageBox.warning(self, "Warning", "The CSV file is empty. Creating an empty DataFrame.")
+            self.data = pd.DataFrame(columns=["First", "Last", "Assigned Programs", "MoveInDate", "Exit Date"])
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"An error occurred: {str(e)}. Creating an empty DataFrame.")
+            self.data = pd.DataFrame(columns=["First", "Last", "Assigned Programs", "MoveInDate", "Exit Date"])
 
         # Extract first and last names for autocomplete
         self.first_names = self.data['First'].unique()
@@ -141,6 +123,40 @@ class MainWindow(QMainWindow):
 
         # Start the GIF download
         self.download_gif()
+
+    def load_csv_data(self):
+        home_directory = os.path.expanduser("~")
+        downloads_directory = os.path.join(home_directory, "Downloads")
+        pattern = r"FSC_ Client Info - New Section(?: \((\d+)\))?.csv"
+
+        max_num = -1
+        selected_file = None
+
+        for filename in os.listdir(downloads_directory):
+            match = re.search(pattern, filename)
+            if match:
+                num = int(match.group(1)) if match.group(1) else 0
+                if num > max_num:
+                    max_num = num
+                    selected_file = filename
+
+        if selected_file:
+            latest_csv_path = os.path.join(downloads_directory, selected_file)
+            print(f"Loading file: {latest_csv_path}")
+            self.data = pd.read_csv(latest_csv_path)
+
+            # Remove rows with no MoveInDate and rows with Exit Date
+            self.data.dropna(subset=["MoveInDate"], inplace=True)
+            self.data = self.data[self.data["Exit Date"].isna()]
+        else:
+            raise FileNotFoundError("No matching files found.")
+
+    def create_blank_csv(self):
+        home_directory = os.path.expanduser("~")
+        downloads_directory = os.path.join(home_directory, "Downloads")
+        latest_csv_path = os.path.join(downloads_directory, "FSC_ Client Info - New Section.csv")
+        self.data = pd.DataFrame(columns=["First", "Last", "Assigned Programs", "MoveInDate", "Exit Date"])
+        self.data.to_csv(latest_csv_path, index=False)
 
     def add_row(self):
         row_layout = QHBoxLayout()
