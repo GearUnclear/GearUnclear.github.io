@@ -320,6 +320,8 @@ def search_client(search_query, df):
         for index, row in aggregated_data.iterrows()
     ]
     return results
+
+
 def format_unit_numbers(filepath):
     df = pd.read_csv(filepath)
     df = df[df['HMIS client number'].astype(str).map(len) <= 6]
@@ -327,6 +329,7 @@ def format_unit_numbers(filepath):
     df['Line2'] = df['Line2'].astype(str)
     df['Building Number'] = df['Building Number'].fillna('0').astype(str)
     df['Unit Number'] = df['Unit Number'].fillna('').astype(str)
+
     def modify_line2(row):
         site = row['Site']
         line2 = row['Line2']
@@ -344,9 +347,15 @@ def format_unit_numbers(filepath):
                 return line2.replace(' ', '')
             return f"{building_number}{unit_number}".replace(' ', '')
         return line2.replace(' ', '')
+
     df['xvxunit'] = df.apply(modify_line2, axis=1)
+
+    # Get the user's Downloads folder
+    downloads_folder = os.path.join(os.path.expanduser("~"), "Downloads")
+    
     output_file_name = "processed_quicklink_data.csv"
-    output_path = f"C:\\Code - Copy\\__PYPROJECTS\\ApNav\\{output_file_name}"
+    output_path = os.path.join(downloads_folder, output_file_name)
+    
     df.to_csv(output_path, index=False)
     return output_path
 
@@ -408,10 +417,16 @@ def create_main_window(dataframe):
     
     return window, search_entry, record_id_entry, result_label, results_frame
 
-def main():
-    directory = "C:\\Users\\danewagenhoffer\\Downloads"
-    pattern = r"tryingtoquicklinkagain - New Section \((\d+)\).csv"
 
+def main():
+    # Get the user's home directory
+    home_directory = os.path.expanduser("~")
+    
+    # Construct the path to the Downloads folder
+    directory = os.path.join(home_directory, "Downloads")
+    
+    # The pattern remains the same
+    pattern = r"tryingtoquicklinkagain - New Section \((\d+)\).csv"
     max_num = -1
     selected_file = None
 
