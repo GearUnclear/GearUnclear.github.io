@@ -7,6 +7,48 @@ import re
 from datetime import datetime
 from fuzzywuzzy import fuzz
 import requests
+import io
+
+# Global variable to store the GIF
+gif_image = None
+
+def download_gif():
+    global gif_image
+    url = "https://housinghopedata.site/downloadcsv.gif"
+    response = requests.get(url)
+    gif_image = Image.open(io.BytesIO(response.content))
+
+def play_gif_fullscreen():
+    if gif_image:
+        top = tk.Toplevel()
+        top.attributes('-fullscreen', True)
+        
+        frames = []
+        try:
+            for frame in range(0, gif_image.n_frames):
+                gif_image.seek(frame)
+                frames.append(ImageTk.PhotoImage(gif_image.copy()))
+        except EOFError:
+            pass  # End of frames
+
+        label = tk.Label(top)
+        label.pack()
+
+        def update_frame(frame_num):
+            label.config(image=frames[frame_num])
+            next_frame = (frame_num + 1) % len(frames)
+            top.after(100, update_frame, next_frame)  # Adjust delay as needed
+
+        def close_and_redirect():
+            top.destroy()
+            open_in_chrome("https://apricot.socialsolutions.com/report/run/report_id/166")
+        
+        # Start animation
+        update_frame(0)
+        
+        # Schedule window to close and redirect after 12 seconds
+        top.after(12000, close_and_redirect)
+        top.mainloop()
 
 def load_csv_data(filepath):
     df = pd.read_csv(filepath)
@@ -118,7 +160,7 @@ def create_main_window(dataframe):
     open_button = tk.Button(frame, text="Open Record", command=lambda: on_button_click('open', dataframe, search_entry, record_id_entry, result_label, results_frame))
     open_button.grid(row=2, column=1, padx=10, pady=2)
     
-    update_button = tk.Button(window, text="UPDATE", fg='white', bg='blue', font=('Arial', 12, 'bold'), command=lambda: open_in_chrome("https://apricot.socialsolutions.com/report/run/report_id/166"))
+    update_button = tk.Button(window, text="UPDATE", fg='white', bg='blue', font=('Arial', 12, 'bold'), command=play_gif_fullscreen)
     update_button.pack(pady=10)
     
     return window, search_entry, record_id_entry, result_label, results_frame
@@ -288,6 +330,10 @@ def search_client(search_query, df):
     return results
 
 def main():
+    # Download the GIF upon startup
+    download_gif()
+
+    # Load CSV data and create the main window
     home_directory = os.path.expanduser("~")
     directory = os.path.join(home_directory, "Downloads")
     pattern = r"tryingtoquicklinkagain - New Section \((\d+)\).csv"
@@ -301,14 +347,16 @@ def main():
             if num > max_num:
                 max_num = num
                 selected_file = filename
+
     if selected_file:
         original_csv_path = os.path.join(directory, selected_file)
     else:
-        print("No matching files found.")
-        return
+        original_csv_path = r"O:\!Social Services\Snake\bar.csv"
+        messagebox.showwarning("Warning", "No matching files found in Downloads. Using fallback file.", icon="warning")
+
     processed_csv_path = format_unit_numbers(original_csv_path)
     dataframe = load_csv_data(processed_csv_path)
-    window, search_entry, record_id_entry, result_label, fuzzy_match_info = create_main_window(dataframe)
+    window, search_entry, record_id_entry, result_label, results_frame = create_main_window(dataframe)
     window.mainloop()
 
 if __name__ == "__main__":
