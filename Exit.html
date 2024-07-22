@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exiting Families in Apricot</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 5rem;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            padding: 2rem 1rem;
+        }
+        .box {
+            background-color: #ffffff;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .arrow {
+            text-align: center;
+            font-size: 24px;
+            color: #007bff;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .flowchart .box ul {
+            list-style-type: none; /* Removes default bullets */
+            padding: 0;
+            margin: 0 auto; /* Centers the list */
+            text-align: left; /* Aligns the text to the left */
+            display: table; /* Allows the list to shrink to fit content and center */
+        }
+
+        .flowchart .box li::before {
+            content: "• "; /* Adds a bullet before the list item */
+            color: #007bff; /* Bullet color */
+            display: inline-block; /* Align with your text */
+            margin-left: 5px; /* Spacing before bullet */
+        }
+
+        .flowchart .box a {
+            font-family: 'Roboto', sans-serif; /* Changes font to Roboto */
+            color: #0654ba; /* Link color */
+            text-decoration: none; /* No underline */
+        }
+
+        .flowchart .box a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        .alert-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .alert-section .alert-text {
+            color: #d63384;
+            font-size: 1.5rem;
+        }
+        .alert-section .alert-icons {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tabbed-link {
+            display: block;
+            margin-left: 20px; /* Adjust as needed for proper indentation */
+        }
+
+        .scaled-image {
+            width: 20%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">HH Data Team Infobase</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Prog.html">Program Guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="UnitDesignations.html">Unit Dictionary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="flowchart.html">ADP Flowchart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="Exit.html">Exiting Families</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="alert-section">
+            <div class="alert-icons">⚠️⚠️⚠️</div>
+            <div class="alert-text">Guidelines for Exiting Families Coming Soon</div>
+        </div>
+        <div class="mb-5 text-center">
+            <p>We are working to provide detailed guidelines for exiting families. Stay tuned for updates!</p>
+        </div>
+
+        <div class="flowchart">
+            <div class="box">
+                <h2>Step 1: Remove from Apricot Property</h2>
+                <p>Upon receiving this information, the family will be removed from your Apricot property.</p>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="box">
+                <h2>Step 2: Complete Required Forms</h2>
+                <p>In order to complete the exit process for HMIS you must complete:</p>
+                <ul>
+                    <li>Signed HMIS form by parent/self if the family member is an adult (at the time of exit).</li>
+                    <li>Occupancy/Departure Form (available in Apricot under the Household Profile) (at the time of exit).<br>
+                        <a href="https://housinghopedata.site/Occupancy%20Departure%20Guide.pdf" class="tabbed-link">Occupancy/Departure Guide</a>
+                    </li>
+                    <li>Completed Exit Child/Adult Assessment (at time of exit).</li>
+                    <li>Completed Exit from Homeless Housing Datasheet (at time of exit).<br>
+                        <a href="https://housinghopedata.site/Exit%20from%20Homeless%20Housing%20Datasheet%20Guide2.pdf" class="tabbed-link">Exit from Homeless Housing Datasheet Guide</a>
+                    </li>
+                </ul>
+                <p>When these pieces of data are submitted it alerts the Apricot administrators/data team, to ensure information is rapidly entered into HMIS.</p>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="box">
+                <h2>Step 3: Notify the Data Team</h2>
+                <p>When a family is exiting, the data team will be automatically notified.</p>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="box">
+                <h2>Step 4: Confirm HMIS Data</h2>
+                <p>After the submitted data is replicated in the HMIS database, the exit process is complete!</p>
+            </div>
+        </div>
+        
+        <a href="index.html"><p>Home</p></a>
+    </main>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
