@@ -35,28 +35,28 @@
             height: auto;
         }
         .flowchart .box ul {
-            list-style-type: none;
+            list-style-type: none; /* Removes default bullets */
             padding: 0;
-            margin: 0 auto;
-            text-align: left;
-            display: table;
+            margin: 0 auto; /* Centers the list */
+            text-align: left; /* Aligns the text to the left */
+            display: table; /* Allows the list to shrink to fit content and center */
         }
 
         .flowchart .box li::before {
-            content: "• ";
-            color: #007bff;
-            display: inline-block;
-            margin-left: 5px;
+            content: "• "; /* Adds a bullet before the list item */
+            color: #007bff; /* Bullet color */
+            display: inline-block; /* Align with your text */
+            margin-left: 5px; /* Spacing before bullet */
         }
 
         .flowchart .box a {
-            font-family: 'Roboto', sans-serif;
-            color: #0654ba;
-            text-decoration: none;
+            font-family: 'Roboto', sans-serif; /* Changes font to Roboto */
+            color: #0654ba; /* Link color */
+            text-decoration: none; /* No underline */
         }
 
         .flowchart .box a:hover {
-            text-decoration: underline;
+            text-decoration: underline; /* Underline on hover */
         }
 
         .alert-section {
@@ -123,28 +123,24 @@
             <div class="arrow">↓</div>
             <div class="box">
                 <h2>Step 2: Add to Apricot Property</h2>
-                <p>Upon receiving this information, the resident will be added to your Apricot property. To complete the necessary data entry for HMIS, you must:</p>
+                <p>Upon receiving this information, the resident will be added to your Apricot property.</p>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="box">
+                <h2>Step 3: Complete Required Forms</h2>
+                <p>In order to completely enter the necessary data for HMIS you must complete:</p>
                 <ul>
-                    <li>Obtain a signed HMIS form by the parent or self if the entrant is an adult (at the time of entry).</li>
-                    <li>Complete the Occupancy/Departure Form (available in Apricot under the Household Profile) at the time of entry.</li>
-                    <li><a href="https://housinghopedata.site/Occupancy%20Departure%20Guide.pdf">Click here for the Occupancy/Departure Guide</a></li>
+                    <li>Signed HMIS form by parent/self if the entrant is an adult (at the time of entry).</li>
+                    <li>Occupancy/Departure Form (available in Apricot under the Household Profile) (at the time of entry).</li>
+                    <li><a href="https://housinghopedata.site/Occupancy%20Departure%20Guide.pdf">Occupancy/Departure Guide</a></li>
+                    <li>Completed Entry Child/Adult Assessment (as soon as possible after entry).</li>
+                    <li>Submit scanned birth certificate and social security card to Participant Profile Folder (as soon as possible after entry).</li>
                 </ul>
+                <img src="file:///mnt/data/A_person_scanning_documents_using_a_scanner,_with_.png" alt="Submit Documents Image"/>
             </div>
             <div class="arrow">↓</div>
             <div class="box">
-                <h2>Step 3: Complete Entry Assessment</h2>
-                <p>Complete the Entry Child/Adult Assessment as soon as possible after entry.</p>
-                <img src="https://via.placeholder.com/400x200" alt="Entry Assessment Image"/>
-            </div>
-            <div class="arrow">↓</div>
-            <div class="box">
-                <h2>Step 4: Submit Documents</h2>
-                <p>Submit scanned copies of the birth certificate and social security card to the Participant Profile Folder as soon as possible after entry.</p>
-                <img src="/mnt/data/A_person_scanning_documents_using_a_scanner,_with_.png" alt="Submit Documents Image"/>
-            </div>
-            <div class="arrow">↓</div>
-            <div class="box">
-                <h2>Step 5: Confirm HMIS Data</h2>
+                <h2>Step 4: Confirm HMIS Data</h2>
                 <p>After the submitted data is replicated in the HMIS database, the entry process is complete!</p>
             </div>
         </div>
