@@ -15,56 +15,68 @@
         .container {
             padding: 2rem 1rem;
         }
+        .alert-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .alert-section .alert-text {
+            color: #d63384;
+            font-size: 1.5rem;
+        }
+        .alert-section .alert-icons {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
         .box {
             background-color: #ffffff;
             border: 2px solid #007bff;
             border-radius: 5px;
-            padding: 15px;
-            margin: 10px 0;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
             width: 100%;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-align: center;
+        }
+        .box h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .box p {
+            margin-bottom: 1rem;
+        }
+        .box ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .box ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            text-indent: -1rem;
+        }
+        .box ul li::before {
+            content: "• ";
+            color: #007bff;
+        }
+        .box a {
+            font-family: 'Roboto', sans-serif;
+            color: #0654ba;
+            text-decoration: none;
+        }
+        .box a:hover {
+            text-decoration: underline;
         }
         .arrow {
             text-align: center;
             font-size: 24px;
             color: #007bff;
+            margin: 1rem 0;
         }
         img {
             max-width: 100%;
             height: auto;
-        }
-        .flowchart .box ul {
-            list-style-type: none; /* Removes default bullets */
-            padding: 0;
-            margin: 0 auto; /* Centers the list */
-            text-align: left; /* Aligns the text to the left */
-            display: table; /* Allows the list to shrink to fit content and center */
-        }
-
-        .flowchart .box li::before {
-            content: "• "; /* Adds a bullet before the list item */
-            color: #007bff; /* Bullet color */
-            display: inline-block; /* Align with your text */
-            margin-left: 5px; /* Spacing before bullet */
-        }
-
-        .flowchart .box a {
-            font-family: 'Roboto', sans-serif; /* Changes font to Roboto */
-            color: #0654ba; /* Link color */
-            text-decoration: none; /* No underline */
-        }
-
-        .flowchart .box a:hover {
-            text-decoration: underline; /* Underline on hover */
-        }
-
-        .alert-text {
-            color: #ff00ff; /* Florescent text color */
-            font-size: 1.5rem;
-        }
-        .alert-icons {
-            font-size: 2rem;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
@@ -98,29 +110,29 @@
     </nav>
 
     <main class="container">
-        <div class="text-center my-5">
+        <div class="alert-section">
             <div class="alert-icons">⚠️⚠️⚠️</div>
             <div class="alert-text">Adding Family Members Manually Coming Soon</div>
         </div>
-        <div class="text-center mb-5">
+        <div class="mb-5 text-center">
             <p>We are working to iron out a few more kinks before family support coaches can add residents. Stay tuned for updates!</p>
         </div>
-        <div class="flowchart">
-            <div class="box">
-                <h2>Email Christine and Dane</h2>
-                <p>When a newborn joins a family, a child is reunited with a parent, or anyone is added to a lease for any reason, notify the data team promptly. Your notification should include the person's name and birthdate.</p>
-                <img src="https://housinghopedata.site/OUTLOOK_1AuXR9RCC0.png" alt="Email Notification Image"/>
-                <p>Upon receiving this information, the resident will be added to your Apricot property. To complete the necessary data entry for HMIS, you must:</p>
-                <ul>
-                    <li>Obtain a signed HMIS form by the parent or self if the entrant is an adult (at the time of entry).</li>
-                    <li>Complete the Occupancy/Departure Form (available in Apricot under the Household Profile) at the time of entry.</li>
-                    <li><a href="https://housinghopedata.site/Occupancy%20Departure%20Guide.pdf">Click here for the Occupancy/Departure Guide</a></li>
-                    <li>Complete the Entry Child/Adult Assessment as soon as possible after entry.</li>
-                    <li>Submit scanned copies of the birth certificate and social security card to the Participant Profile Folder as soon as possible after entry.</li>
-                </ul>
-                <p>After the submitted data is replicated in the HMIS database, the entry process is complete!</p>
-            </div>
+
+        <div class="box">
+            <h2>Step 1: Email Christine and Dane</h2>
+            <p>When a newborn joins a family, a child is reunited with a parent, or anyone is added to a lease for any reason, notify the data team promptly. Your notification should include the person's name and birthdate.</p>
+            <img src="https://housinghopedata.site/OUTLOOK_1AuXR9RCC0.png" alt="Email Notification Image"/>
+            <p>Upon receiving this information, the resident will be added to your Apricot property. To complete the necessary data entry for HMIS, you must:</p>
+            <ul>
+                <li>Obtain a signed HMIS form by the parent or self if the entrant is an adult (at the time of entry).</li>
+                <li>Complete the Occupancy/Departure Form (available in Apricot under the Household Profile) at the time of entry.</li>
+                <li><a href="https://housinghopedata.site/Occupancy%20Departure%20Guide.pdf">Click here for the Occupancy/Departure Guide</a></li>
+                <li>Complete the Entry Child/Adult Assessment as soon as possible after entry.</li>
+                <li>Submit scanned copies of the birth certificate and social security card to the Participant Profile Folder as soon as possible after entry.</li>
+            </ul>
+            <p>After the submitted data is replicated in the HMIS database, the entry process is complete!</p>
         </div>
+        
         <a href="index.html"><p>Home</p></a>
     </main>
 
