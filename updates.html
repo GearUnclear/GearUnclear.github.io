@@ -51,6 +51,40 @@
       margin-top: 40px;
       color: #777;
     }
+
+    /* Flexbox for Summary Section */
+    .summary-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 40px 0;
+      background-color: #e0f7fa; /* Light background for the summary */
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .summary-content {
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .summary-content h2 {
+      color: #00796b; /* Darker green for heading */
+    }
+
+    .summary-content ul {
+      text-align: left;
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .summary-content ul li {
+      background: #ffffff;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body>
@@ -60,8 +94,7 @@
 
   <div class="container">
     <h1>HUD Assessment Guidelines</h1>
-    <h3>  </h3>
-    <h3>  </h3>
+
     <h2>Move-in Assessment</h2>
     <p>
       There is no requirement to complete a new assessment upon move-in. However, HUD guidelines indicate the need for specific records during the project stay, especially when income or household changes occur.
@@ -104,25 +137,27 @@
       We will be updating the assessment form in Apricot to allow updates for specific elements, eliminating the need to complete the entire form when changes occur.
     </p>
 
-    <h2>Summary</h2>
-    <p>
-      <strong>Must Update:</strong>
-    </p>
-    <ul>
-      <li>Income and Non-Cash Benefits</li>
-      <li>Domestic Violence</li>
-      <li>Health Insurance</li>
-    </ul>
-    <p>
-      <strong>Should Update:</strong>
-    </p>
-    <ul>
-      <li>Substance Use</li>
-      <li>Physical Disability</li>
-      <li>Developmental Disability</li>
-      <li>Chronic Health Condition</li>
-      <li>Mental Health Disorder</li>
-    </ul>
+    <!-- Summary Section in Flexbox -->
+    <div class="summary-container">
+      <div class="summary-content">
+        <h2>Summary</h2>
+        <p><strong>Must Update:</strong></p>
+        <ul>
+          <li>Income and Non-Cash Benefits</li>
+          <li>Domestic Violence</li>
+          <li>Health Insurance</li>
+        </ul>
+        <p><strong>Should Update:</strong></p>
+        <ul>
+          <li>Substance Use</li>
+          <li>Physical Disability</li>
+          <li>Developmental Disability</li>
+          <li>Chronic Health Condition</li>
+          <li>Mental Health Disorder</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 
   <footer>
