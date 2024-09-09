@@ -35,30 +35,26 @@
             height: auto;
         }
         .flowchart .box ul {
-            list-style-type: none; /* Removes default bullets */
+            list-style-type: none;
             padding: 0;
-            margin: 0 auto; /* Centers the list */
-            text-align: left; /* Aligns the text to the left */
-            display: table; /* Allows the list to shrink to fit content and center */
+            margin: 0 auto;
+            text-align: left;
+            display: table;
         }
-
         .flowchart .box li::before {
-            content: "• "; /* Adds a bullet before the list item */
-            color: #007bff; /* Bullet color */
-            display: inline-block; /* Align with your text */
-            margin-left: 5px; /* Spacing before bullet */
+            content: "• ";
+            color: #007bff;
+            display: inline-block;
+            margin-left: 5px;
         }
-
         .flowchart .box a {
-            font-family: 'Roboto', sans-serif; /* Changes font to Roboto */
-            color: #0654ba; /* Link color */
-            text-decoration: none; /* No underline */
+            font-family: 'Roboto', sans-serif;
+            color: #0654ba;
+            text-decoration: none;
         }
-
         .flowchart .box a:hover {
-            text-decoration: underline; /* Underline on hover */
+            text-decoration: underline;
         }
-
         .alert-section {
             background-color: #fff3cd;
             border: 1px solid #ffeeba;
@@ -74,12 +70,10 @@
             font-size: 2rem;
             margin-bottom: 0.5rem;
         }
-
         .tabbed-link {
             display: block;
-            margin-left: 20px; /* Adjust as needed for proper indentation */
+            margin-left: 20px;
         }
-
         .scaled-image {
             width: 20%;
             height: auto;
@@ -87,37 +81,8 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">HH Data Team Infobase</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Prog.html">Program Guide</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="UnitDesignations.html">Unit Dictionary</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="flowchart.html">ADP Flowchart</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Entry.html">Adding Family Members</a>
-                    </li>                    
-                    
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="Exit.html">Exiting Families</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Navbar placeholder where the external navbar will be loaded -->
+    <div id="navbar-placeholder"></div>
 
     <main class="container">
         <div class="alert-section">
@@ -165,5 +130,14 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Load external navbar -->
+    <script>
+        // Fetch and insert the navbar
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            });
+    </script>
 </body>
 </html>
