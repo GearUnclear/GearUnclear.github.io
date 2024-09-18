@@ -10,13 +10,15 @@
         body {
             padding-top: 5rem; /* Same as the template for consistent look */
             font-family: 'Arial', sans-serif; /* Custom font for this page */
+            background-color: #f4f4f4;
         }
         .container {
             padding: 2rem 1rem;
         }
         .card {
             margin-bottom: 20px;
-            background-color: #f8f9fa; /* Card color from template */
+            background-color: #ffffff; /* Changed to white for better contrast */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .navbar {
             background-color: #343a40; /* Dark color for navbar from template */
@@ -27,6 +29,23 @@
         .bg-dark {
             margin-bottom: 1rem;
         }
+        .qualification {
+            border-left: 4px solid #007bff;
+            padding-left: 1rem;
+            background-color: #e9f7fe;
+            height: 100%;
+        }
+        .qualification h5 {
+            margin-bottom: 0.5rem;
+        }
+        @media (max-width: 767.98px) {
+            .qualification {
+                border-left: none;
+                border-top: 4px solid #007bff;
+                padding-left: 0;
+                padding-top: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -34,69 +53,158 @@
     <div id="navbar-placeholder"></div>
 
     <div class="container">
-        <!-- Full card elements from the original page -->
+        <!-- Other Permanent Housing (OPH) -->
         <div class="card" id="oph">
             <div class="card-body">
-                <h2 class="card-title">Other Permanent Housing (OPH)</h2>
-                <p class="card-text">Provides long-term housing that is not classified as Permanent Supportive Housing or Rapid Re-housing, aimed at offering stable housing solutions.</p>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="card-title">Other Permanent Housing (OPH)</h2>
+                        <p class="card-text">Provides long-term housing that is not classified as Permanent Supportive Housing or Rapid Re-housing, aimed at offering stable housing solutions.</p>
+                    </div>
+                    <div class="col-md-4 qualification">
+                        <h5>Qualification</h5>
+                        <span class="badge bg-primary">Homeless</span>
+                        <p class="mt-2">Requires individuals or families experiencing homelessness.</p>
+                    </div>
+                </div>
             </div>
         </div>
         
+        <!-- Permanent Supportive Housing (PSH) -->
         <div class="card" id="psh">
             <div class="card-body">
-                <h2 class="card-title">Permanent Supportive Housing (PSH)</h2>
-                <p class="card-text">Long-term housing with supportive services aimed at homeless individuals with disabilities. Chronic homelessness and a documented disabling condition are required for entry.</p>
-                <p class="card-text"><strong>Locations:</strong> Available at many sites within Housing Hope.</p>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="card-title">Permanent Supportive Housing (PSH)</h2>
+                        <p class="card-text">Long-term housing with supportive services aimed at homeless individuals with disabilities. Chronic homelessness and a documented disabling condition are required for entry.</p>
+                        <p class="card-text"><strong>Locations:</strong> Available at many sites within Housing Hope.</p>
+                    </div>
+                    <div class="col-md-4 qualification">
+                        <h5>Qualification</h5>
+                        <span class="badge bg-danger">Chronically Homeless</span>
+                        <p class="mt-2">Requires chronic homelessness and a disabling condition.</p>
+                    </div>
+                </div>
             </div>
         </div>
         
+        <!-- Mental Health Permanent Supportive Housing (MH PSH) -->
         <div class="card" id="mh_psh">
             <div class="card-body">
-                <h2 class="card-title">Mental Health Permanent Supportive Housing (MH PSH)</h2>
-                <p class="card-text">A subset of PSH providing housing and mental health services, focusing on individuals with significant mental health issues.</p>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="card-title">Mental Health Permanent Supportive Housing (MH PSH)</h2>
+                        <p class="card-text">A subset of PSH providing housing and mental health services, focusing on individuals with significant mental health issues.</p>
+                    </div>
+                    <div class="col-md-4 qualification">
+                        <h5>Qualification</h5>
+                        <span class="badge bg-danger">Chronically Homeless</span>
+                        <p class="mt-2">Requires chronic homelessness and significant mental health challenges.</p>
+                    </div>
+                </div>
             </div>
         </div>
         
+        <!-- Emergency Shelter -->
         <div class="card" id="shelter">
             <div class="card-body">
-                <h2 class="card-title">Emergency Shelter</h2>
-                <p class="card-text">Provides temporary shelter for up to 53 days, offering immediate relief and basic necessities to homeless individuals and families.</p>
-                <p class="card-text"><strong>Locations:</strong> A house in Stanwood and apartment-style shelter units in Everett.</p>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="card-title">Emergency Shelter</h2>
+                        <p class="card-text">Provides temporary shelter for up to 53 days, offering immediate relief and basic necessities to homeless individuals and families.</p>
+                        <p class="card-text"><strong>Locations:</strong> A house in Stanwood and apartment-style shelter units in Everett.</p>
+                    </div>
+                    <div class="col-md-4 qualification">
+                        <h5>Qualification</h5>
+                        <span class="badge bg-primary">Homeless</span>
+                        <p class="mt-2">Open to individuals and families experiencing homelessness.</p>
+                    </div>
+                </div>
             </div>
         </div>
         
+        <!-- Teen and Young Parent -->
         <div class="card" id="teen_parent">
             <div class="card-body">
-                <h2 class="card-title">Teen and Young Parent</h2>
-                <p class="card-text">Focuses on helping teen and young parents aged 16-24 and their children who are enrolled in the Teen and Young Parent program.</p>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="card-title">Teen and Young Parent</h2>
+                        <p class="card-text">Focuses on helping teen and young parents aged 16-24 and their children who are enrolled in the Teen and Young Parent program.</p>
+                    </div>
+                    <div class="col-md-4 qualification">
+                        <h5>Qualification</h5>
+                        <span class="badge bg-primary">Homeless</span>
+                        <p class="mt-2">For teen and young parents experiencing homelessness.</p>
+                    </div>
+                </div>
             </div>
         </div>
         
+        <!-- CoC/Station Place Beachwood CoC -->
         <div class="card" id="coc">
             <div class="card-body">
-                <h2 class="card-title">CoC/Station Place Beachwood CoC</h2>
-                <p class="card-text">Permanent CoC units function similarly to PSH but differ in specific target populations, services provided, and funding structures. A few units designated under the CoC program were moved to Station Place but retain their CoC designation.</p>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="card-title">CoC/Station Place Beachwood CoC</h2>
+                        <p class="card-text">Permanent CoC units function similarly to PSH but differ in specific target populations, services provided, and funding structures. A few units designated under the CoC program were moved to Station Place but retain their CoC designation.</p>
+                    </div>
+                    <div class="col-md-4 qualification">
+                        <h5>Qualification</h5>
+                        <span class="badge bg-danger">Chronically Homeless</span>
+                        <p class="mt-2">Requires chronic homelessness with specific program criteria.</p>
+                    </div>
+                </div>
             </div>
         </div>
         
+        <!-- Families with Children -->
         <div class="card" id="families">
             <div class="card-body">
-                <h2 class="card-title">Families with Children</h2>
-                <p class="card-text">Houses families specifically, sometimes accommodating newborns, emphasizing a stable environment conducive to family growth.</p>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="card-title">Families with Children</h2>
+                        <p class="card-text">Houses families specifically, sometimes accommodating newborns, emphasizing a stable environment conducive to family growth.</p>
+                    </div>
+                    <div class="col-md-4 qualification">
+                        <h5>Qualification</h5>
+                        <span class="badge bg-primary">Homeless</span>
+                        <p class="mt-2">Designed for families experiencing homelessness.</p>
+                    </div>
+                </div>
             </div>
         </div>
         
+        <!-- Veterans (VASH - Veterans Affairs Supportive Housing) -->
         <div class="card" id="vash">
             <div class="card-body">
-                <h2 class="card-title">Veterans (VASH - Veterans Affairs Supportive Housing)</h2>
-                <p class="card-text">Combines HUD housing vouchers with VA supportive services to help veterans who are homeless. Referrals typically come from the VA, and an additional VA staff member helps with case management.</p>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="card-title">Veterans (VASH - Veterans Affairs Supportive Housing)</h2>
+                        <p class="card-text">Combines HUD housing vouchers with VA supportive services to help veterans who are homeless. Referrals typically come from the VA, and an additional VA staff member helps with case management.</p>
+                    </div>
+                    <div class="col-md-4 qualification">
+                        <h5>Qualification</h5>
+                        <span class="badge bg-primary">Homeless</span>
+                        <p class="mt-2">Exclusive to veterans experiencing homelessness.</p>
+                    </div>
+                </div>
             </div>
         </div>
         
+        <!-- Young Adults -->
         <div class="card" id="young_adults">
             <div class="card-body">
-                <h2 class="card-title">Young Adults</h2>
-                <p class="card-text">Houses young adults, aiming to intervene early and provide stability to prevent long-term homelessness.</p>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="card-title">Young Adults</h2>
+                        <p class="card-text">Houses young adults, aiming to intervene early and provide stability to prevent long-term homelessness.</p>
+                    </div>
+                    <div class="col-md-4 qualification">
+                        <h5>Qualification</h5>
+                        <span class="badge bg-primary">Homeless</span>
+                        <p class="mt-2">For young adults experiencing homelessness.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -110,6 +218,15 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-placeholder').innerHTML = data;
+                // After loading the navbar, run the active link script
+                var currentPath = window.location.pathname.split("/").pop();
+                var navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(function(link) {
+                    if(link.getAttribute('href') === currentPath) {
+                        link.classList.add('active');
+                        link.setAttribute('aria-current', 'page');
+                    }
+                });
             });
     </script>
 </body>
