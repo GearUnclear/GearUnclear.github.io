@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homelessness Definitions - HH Data Team Infobase</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 70px; /* Space for fixed navbar */
+            background-color: #f4f4f4;
+        }
+        .content-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .summary {
+            background-color: #e6f7ff;
+            padding: 15px;
+            border-left: 4px solid #0073e6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">HH Data Team Infobase</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" 
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Prog.html">Program Guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="UnitDesignations.html">Unit Dictionary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="flowchart.html">ADP Flowchart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Entry.html">Adding Family Members</a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="Exit.html">Exiting Families</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="updates.html">Move-In/Update Assessments</a>
+                    </li>
+                    <!-- New link added for Homelessness Definitions -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="definitions.html">Homelessness Definitions</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Page Content Start -->
+    <div class="container mt-4">
+        <section id="homeless" class="content-section">
+            <h2>1. Homeless</h2>
+            <h3>Definition:</h3>
+            <p>
+                According to HUD, an individual or family is considered <strong>homeless</strong> if they lack a fixed, regular, and adequate nighttime residence. This broad category includes several subgroups:
+            </p>
+            <ul>
+                <li><strong>Unsheltered:</strong> Individuals living in places not designed for human habitation, such as streets, parks, vehicles, abandoned buildings, or other public spaces.</li>
+                <li><strong>Sheltered:</strong> Individuals residing in emergency shelters, transitional housing programs, or other temporary accommodations provided by shelters.</li>
+                <li><strong>Imminent Risk of Homelessness:</strong> Individuals who are at immediate risk of losing their current housing and becoming homeless (e.g., facing eviction or foreclosure).</li>
+            </ul>
+            <h3>Key Points:</h3>
+            <ul>
+                <li>Homelessness encompasses a variety of living situations, from those with temporary shelter to those living in public or improvised spaces.</li>
+                <li>It includes both individuals and families experiencing homelessness.</li>
+            </ul>
+        </section>
+
+        <section id="chronically-homeless" class="content-section">
+            <h2>2. Chronically Homeless</h2>
+            <h3>Definition:</h3>
+            <p>
+                <strong>Chronically homeless</strong> individuals are those who meet the following criteria as defined by HUD:
+            </p>
+            <ul>
+                <li><strong>Duration:</strong> Have been homeless continuously for at least <strong>one year</strong> or have experienced <strong>four or more episodes</strong> of homelessness in the past <strong>three years</strong>.</li>
+                <li><strong>Disability:</strong> Possess a disability (physical or mental) that substantially impairs their ability to secure or maintain stable housing.</li>
+            </ul>
+            <h3>Key Points:</h3>
+            <ul>
+                <li>Chronic homelessness is characterized by long-term or repeated episodes of homelessness.</li>
+                <li>The presence of a disabling condition is a critical factor in this classification.</li>
+                <li>This designation helps in prioritizing services and support for those with the most persistent and complex housing needs.</li>
+            </ul>
+        </section>
+
+        <section class="summary content-section">
+            <h2>Summary</h2>
+            <ul>
+                <li><strong>Homeless:</strong> A broad category encompassing individuals and families without a stable nighttime residence, including those in shelters, transitional housing, or unsheltered environments.</li>
+                <li><strong>Chronically Homeless:</strong> A subset of the homeless population with long-term or repeated homelessness coupled with a disabling condition that hinders their ability to maintain stable housing.</li>
+            </ul>
+            <p>
+                Understanding these definitions is crucial for policymakers, service providers, and communities to effectively address and support individuals experiencing homelessness.
+            </p>
+        </section>
+    </div>
+    <!-- Page Content End -->
+
+    <!-- Bootstrap JS and dependencies (Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Get the current path and filename
+        var currentPath = window.location.pathname.split("/").pop();
+
+        // Get all the nav links
+        var navLinks = document.querySelectorAll('.nav-link');
+
+        // Loop through the links to find the one that matches the current page
+        navLinks.forEach(function(link) {
+            if(link.getAttribute('href') === currentPath) {
+                link.classList.add('active'); // Add the active class
+                link.setAttribute('aria-current', 'page'); // Set aria-current attribute
+            }
+        });
+    </script>
+</body>
+</html>
