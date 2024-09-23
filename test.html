@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HUD Assessment Guidelines</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Styles -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+      color: #343a40;
+      margin: 0;
+      padding-top: 56px; /* Adjusted for fixed navbar height */
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+    }
+
+    h1 {
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #17a2b8;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      color: #28a745;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #343a40;
+      color: #ffffff;
+    }
+
+    /* Summary Section */
+    .summary-container {
+      background-color: #e9f7ef;
+      padding: 30px;
+      border-left: 5px solid #28a745;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .summary-container h2 {
+      color: #28a745;
+      margin-bottom: 20px;
+    }
+
+    .summary-container ul li {
+      background: #ffffff;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      border-left: 3px solid #28a745;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Housing Hope</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Guidelines</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Assessments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Updates</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacts</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1 class="text-center">HUD Assessment Guidelines</h1>
+
+    <h2>Move-in Assessment</h2>
+    <p>
+      There is no requirement to complete a new assessment upon move-in. However, HUD guidelines indicate the need for updating specific records during the project stay, when income or household changes occur.
+    </p>
+
+    <h3>Income and Sources</h3>
+    <p>
+      An <strong>Income and Sources</strong> record must be created during the project stay if there is any change in income or sources, at any time during the resident's stay at Housing Hope. This includes:
+    </p>
+    <ul>
+      <li>When a minor child enters or leaves the household, leading to a change in household income.</li>
+      <li>When a minor child turns 18, any income associated with the new adult client should be recorded.</li>
+    </ul>
+    <p>
+      If income shifts between household members, an additional record must be created to reflect this. 'Information Date' for these records should match the date of data collection.
+    </p>
+
+    <h3>Additional Required Records</h3>
+    <p>
+      According to HUD's Data Standards Manual for 2024, the following areas also require updates when changes occur:
+    </p>
+    <ul>
+      <li><strong>Domestic Violence:</strong> Records should be updated to ensure swift anonymization in the database.</li>
+      <li><strong>Non-Cash Benefits</strong></li>
+      <li><strong>Health Insurance</strong></li>
+    </ul>
+
+    <h3>Recommended Updates</h3>
+    <p>While not required, it is recommended to update the following records during the project stay:</p>
+    <ul>
+      <li>Substance Use</li>
+      <li>Physical Disability</li>
+      <li>Developmental Disability</li>
+      <li>Chronic Health Condition</li>
+      <li>Mental Health Disorder</li>
+    </ul>
+
+    <h3>Streamlined Assessment Process</h3>
+    <p>
+      We will be updating the assessment form in Apricot to allow updates for specific elements, eliminating the need to complete the entire form when changes occur.
+    </p>
+
+    <!-- Summary Section -->
+    <div class="summary-container">
+      <h2>Summary</h2>
+      <p><strong>Must Update HUD upon any changes:</strong></p>
+      <ul>
+        <li>Income and Non-Cash Benefits</li>
+        <li>Domestic Violence</li>
+        <li>Health Insurance</li>
+      </ul>
+      <p><strong>Recommended to update HUD upon any changes:</strong></p>
+      <ul>
+        <li>Substance Use</li>
+        <li>Physical Disability</li>
+        <li>Developmental Disability</li>
+        <li>Chronic Health Condition</li>
+        <li>Mental Health Disorder</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; Housing Hope Data Team 2024</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+</body>
+</html>
