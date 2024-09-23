@@ -93,31 +93,8 @@
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Housing Hope</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Guidelines</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Assessments</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Updates</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contacts</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- Navbar Placeholder -->
+  <div id="navbar-placeholder"></div>
 
   <!-- Main Content -->
   <div class="container">
@@ -193,5 +170,26 @@
   <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   
+  <!-- Load external navbar -->
+  <script>
+    // Fetch and insert the navbar
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        // Create a temporary element to hold the fetched HTML
+        var tempDiv = document.createElement('div');
+        tempDiv.innerHTML = data;
+
+        // Extract and execute any scripts from the fetched HTML
+        var scripts = tempDiv.querySelectorAll('script');
+        scripts.forEach(function(script) {
+          eval(script.innerText);
+        });
+
+        // Insert the navbar HTML into the placeholder
+        document.getElementById('navbar-placeholder').innerHTML = tempDiv.innerHTML;
+      });
+  </script>
+
 </body>
 </html>
