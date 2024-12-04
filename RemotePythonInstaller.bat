@@ -26,7 +26,7 @@ if not exist "%PYTHON_DIR%" (
 )
 
 :: URL of the Python installer
-set PYTHON_URL=https://www.python.org/ftp/python/3.11.0/python-3.11.0.exe
+set PYTHON_URL=https://www.python.org/ftp/python/3.11.0/python-3.11.0-amd64.exe
 
 :: Path to save the downloaded Python installer
 set PYTHON_INSTALLER_PATH=%PYTHON_DIR%\python-installer.exe
@@ -159,7 +159,25 @@ if errorlevel 1 (
     echo [INFO] PyQt5 is already installed.
 )
 
-"%PYTHON_DIR%\Scripts\pip.exe" install numpy==1.26.4
+:: Check and install tkinterdnd2
+echo [INFO] Checking tkinterdnd2 installation...
+"%PYTHON_DIR%\Scripts\pip.exe" show tkinterdnd2 >nul 2>&1
+if errorlevel 1 (
+    echo [INFO] tkinterdnd2 is not installed. Installing now...
+    "%PYTHON_DIR%\Scripts\pip.exe" install tkinterdnd2 --only-binary :all: || (
+        echo [ERROR] Failed to install tkinterdnd2.
+        echo [INFO] Continuing despite the error...
+    )
+) else (
+    echo [INFO] tkinterdnd2 is already installed.
+)
+
+:: Install numpy with a specific version
+echo [INFO] Installing numpy==1.26.4...
+"%PYTHON_DIR%\Scripts\pip.exe" install numpy==1.26.4 || (
+    echo [ERROR] Failed to install numpy==1.26.4.
+    echo [INFO] Continuing despite the error...
+)
 
 :: Check and install requests
 echo [INFO] Checking requests installation...
@@ -200,6 +218,19 @@ if errorlevel 1 (
     echo [INFO] Pillow is already installed.
 )
 
+:: Check and install openpyxl
+echo [INFO] Checking openpyxl installation...
+"%PYTHON_DIR%\Scripts\pip.exe" show openpyxl >nul 2>&1
+if errorlevel 1 (
+    echo [INFO] openpyxl is not installed. Installing now...
+    "%PYTHON_DIR%\Scripts\pip.exe" install openpyxl --only-binary :all: || (
+        echo [ERROR] Failed to install openpyxl.
+        echo [INFO] Continuing despite the error...
+    )
+) else (
+    echo [INFO] Openpyxl is already installed.
+)
+
 :: Check and install Selenium
 echo [INFO] Checking Selenium installation...
 "%PYTHON_DIR%\Scripts\pip.exe" show selenium >nul 2>&1
@@ -213,7 +244,11 @@ if errorlevel 1 (
     echo [INFO] Selenium is already installed.
 )
 
-:: Initialize paths
+:: Check and install tkinterdnd2 (New Section)
+:: Note: This section has already been added above for tkinterdnd2 installation.
+
+:: Initialize paths for downloading fscpanel.py
+echo [INFO] Initializing download paths for fscpanel.py...
 set PRIMARY_DOWNLOAD_PATH=%USERPROFILE%\OneDrive - Housing Hope\Desktop\fscpanel.py
 set SECONDARY_DOWNLOAD_PATH=%USERPROFILE%\OneDrive\Desktop\fscpanel.py
 set FALLBACK_DOWNLOAD_PATH=%USERPROFILE%\Downloads\fscpanel.py
@@ -233,7 +268,7 @@ if exist "%USERPROFILE%\OneDrive - Housing Hope\Desktop" (
 
 :: Always download the latest version of fscpanel.py
 echo [INFO] Downloading fscpanel.py from housinghope.site to %DOWNLOAD_PATH%...
-curl -L http://housinghopedata.site/fscpanel.py -o %DOWNLOAD_PATH% || (
+curl -L http://housinghopedata.site/fscpanel.py -o "%DOWNLOAD_PATH%" || (
     echo [ERROR] Failed to download fscpanel.py.
     echo Press any key to close this window.
     pause
@@ -244,13 +279,14 @@ curl -L http://housinghopedata.site/fscpanel.py -o %DOWNLOAD_PATH% || (
 if exist "%PRIMARY_DOWNLOAD_PATH%" (
     del "%PRIMARY_DOWNLOAD_PATH%"
 )
-copy %DOWNLOAD_PATH% "%PRIMARY_DOWNLOAD_PATH%"
-if errorlevel 1 (
+copy "%DOWNLOAD_PATH%" "%PRIMARY_DOWNLOAD_PATH%" || (
     :: If the file copy fails, rename the newly downloaded file
     set TIMESTAMP=%DATE:~-4,4%%DATE:~-10,2%%DATE:~-7,2%_%TIME:~0,2%%TIME:~3,2%%TIME:~6,2%
     set TIMESTAMP=%TIMESTAMP: =0%
     set RENAMED_PATH="%USERPROFILE%\OneDrive - Housing Hope\Desktop\fscpanel_%TIMESTAMP%.py"
-    rename %DOWNLOAD_PATH% %RENAMED_PATH%
+    rename "%DOWNLOAD_PATH%" "%RENAMED_PATH%" || (
+        echo [ERROR] Failed to rename fscpanel.py due to unexpected error.
+    )
     echo [INFO] Renamed downloaded fscpanel.py to %RENAMED_PATH% due to an access issue.
 ) else (
     echo [INFO] Copied fscpanel.py to the primary OneDrive desktop.
@@ -260,13 +296,14 @@ if errorlevel 1 (
 if exist "%SECONDARY_DOWNLOAD_PATH%" (
     del "%SECONDARY_DOWNLOAD_PATH%"
 )
-copy %DOWNLOAD_PATH% "%SECONDARY_DOWNLOAD_PATH%"
-if errorlevel 1 (
+copy "%DOWNLOAD_PATH%" "%SECONDARY_DOWNLOAD_PATH%" || (
     :: If the file copy fails, rename the newly downloaded file
     set TIMESTAMP=%DATE:~-4,4%%DATE:~-10,2%%DATE:~-7,2%_%TIME:~0,2%%TIME:~3,2%%TIME:~6,2%
     set TIMESTAMP=%TIMESTAMP: =0%
     set RENAMED_PATH="%USERPROFILE%\OneDrive\Desktop\fscpanel_%TIMESTAMP%.py"
-    rename %DOWNLOAD_PATH% %RENAMED_PATH%
+    rename "%DOWNLOAD_PATH%" "%RENAMED_PATH%" || (
+        echo [ERROR] Failed to rename fscpanel.py due to unexpected error.
+    )
     echo [INFO] Renamed downloaded fscpanel.py to %RENAMED_PATH% due to an access issue.
 ) else (
     echo [INFO] Copied fscpanel.py to the secondary OneDrive desktop.
@@ -274,16 +311,17 @@ if errorlevel 1 (
 
 :: Copy fscpanel.py to the physical desktop
 set PHYSICAL_DESKTOP_PATH=C:\Users\%USERNAME%\Desktop\fscpanel.py
-if exist %PHYSICAL_DESKTOP_PATH% (
-    del %PHYSICAL_DESKTOP_PATH%
+if exist "%PHYSICAL_DESKTOP_PATH%" (
+    del "%PHYSICAL_DESKTOP_PATH%"
 )
-copy %DOWNLOAD_PATH% %PHYSICAL_DESKTOP_PATH%
-if errorlevel 1 (
+copy "%DOWNLOAD_PATH%" "%PHYSICAL_DESKTOP_PATH%" || (
     :: If the file copy fails, rename the newly downloaded file
     set TIMESTAMP=%DATE:~-4,4%%DATE:~-10,2%%DATE:~-7,2%_%TIME:~0,2%%TIME:~3,2%%TIME:~6,2%
     set TIMESTAMP=%TIMESTAMP: =0%
     set RENAMED_PATH=C:\Users\%USERNAME%\Desktop\fscpanel_%TIMESTAMP%.py
-    rename %DOWNLOAD_PATH% %RENAMED_PATH%
+    rename "%DOWNLOAD_PATH%" "%RENAMED_PATH%" || (
+        echo [ERROR] Failed to rename fscpanel.py due to unexpected error.
+    )
     echo [INFO] Renamed downloaded fscpanel.py to %RENAMED_PATH% due to an access issue.
 ) else (
     echo [INFO] Copied fscpanel.py to the physical desktop.
