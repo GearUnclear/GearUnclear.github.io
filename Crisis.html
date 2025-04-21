@@ -33,6 +33,23 @@
     .critical-info p {
         margin-bottom: 1rem;
     }
+    .call-911 {
+      background: #d32f2f; /* Stronger Red */
+      color: white;
+      border: 3px solid #b71c1c; /* Darker Border */
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      border-radius: var(--border-radius);
+    }
+    .call-911 code {
+        background: #fbe9e7; /* Light red background for code */
+        color: #b71c1c; /* Dark red text */
+        padding: 0.2em 0.4em;
+        border-radius: var(--border-radius);
+        font-size: 1.2em;
+    }
     .call-kat {
       background: #ffe5e5;
       border: 2px solid #e53935;
@@ -111,6 +128,10 @@
     <section class="critical-info">
         <h2>Critical Actions & Links</h2>
 
+        <div class="call-911">
+            <strong>🚨 True Emergency? Dial <code>911</code> Immediately!</strong>
+        </div>
+
         <div class="call-kat">
             📞 <strong>FIRST (Non-Emergency): Call Kat at <a href="tel:6194037052">619-403-7052</a></strong>
         </div>
@@ -118,9 +139,7 @@
             📞 <strong>SECOND (Non-Emergency): Call Monica at <a href="tel:2063496854">206-349-6854</a></strong>
         </div>
 
-        <p><strong>🚨 True Emergency? Dial <code>911</code> Immediately!</strong></p>
-        <p>
-            <strong>📝 Report Form:</strong><br>
+        <p><strong>📝 Report Form:</strong><br>
             <a href="https://forms.office.com/r/FR8FJUAYuU" class="button" target="_blank">Open Incident Report Form</a>
         </p>
          <small>Email photos/attachments to <a href="mailto:frontdesk@housinghope.org">frontdesk@housinghope.org</a> referencing the incident report.</small>
