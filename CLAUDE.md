@@ -1,0 +1,55 @@
+# Housing Hope Data Team Infobase
+
+## Project Overview
+This is a GitHub Pages website serving as an internal resource hub for Housing Hope, a non-profit organization providing housing assistance services. The site functions as a centralized information base for staff members working with housing programs and crisis response.
+
+## Purpose
+The website provides training materials, guides, and tools for Housing Hope staff to:
+- Access incident reporting protocols and emergency contacts
+- Understand homelessness definitions and housing program requirements
+- Navigate data systems like ADP (payroll) and Apricot (case management)
+- Reference unit designation dictionaries and program enrollment procedures
+- Access crisis response protocols and safety procedures
+
+## Key Components
+
+### HTML Pages
+- `index.html` - Main landing page with navigation to resources
+- `Crisis.html` - Emergency incident reporting protocols and contact information
+- `definitions.html` - Homelessness definitions (chronic vs literal homelessness)
+- `UnitDesignations.html` - Dictionary of housing unit types and designations
+- `Prog.html` - Program enrollment identification guide
+- `Entry.html` - Guide for adding family members to programs
+- `Exit.html` - Procedures for exiting families from programs
+- `updates.html` - Move-in and update assessment procedures
+- `flowchart.html` - ADP system workflow guide
+- `navbar.html` - Shared navigation component
+
+### Python Tools
+- `fscpanel.py` - Data processing tool with GUI interface for housing data management
+- `adpnote.py` - ADP payroll system integration tool
+- `RemotePythonInstaller.bat` - Automated setup script for Python environment and dependencies
+
+### Resources
+- Various PDF guides for housing processes and grant applications
+- Images and screenshots for training materials
+- CSV download utilities for data export
+
+## Technical Stack
+- Static HTML/CSS/JavaScript website hosted on GitHub Pages
+- Bootstrap CSS framework for responsive design
+- Python tools using tkinter, PyQt5, pandas, and requests
+- Integration with external systems (ADP, Apricot, Office 365)
+
+## Target Audience
+Internal staff at Housing Hope who need access to:
+- Data management procedures
+- Crisis response protocols
+- System training materials
+- Program enrollment guidelines
+- Emergency contact information
+
+## Maintenance Notes
+- Updates to emergency contacts and procedures should be reflected in Crisis.html
+- Python tools are downloaded from housinghopedata.site during installation
+- Site uses external CDN resources for Bootstrap and other dependencies

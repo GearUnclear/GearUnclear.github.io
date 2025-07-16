@@ -10,27 +10,53 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Prog.html">Program Guide</a>
+                
+                <!-- Apricot Help Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="apricotDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Apricot Help
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="apricotDropdown">
+                        <li><a class="dropdown-item" href="Prog.html">Enrollment Guide</a></li>
+                        <li><a class="dropdown-item" href="Entry.html">Add Members</a></li>
+                        <li><a class="dropdown-item" href="Exit.html">Exit Process</a></li>
+                        <li><a class="dropdown-item" href="updates.html">Updates</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="UnitDesignations.html">Unit Dictionary</a>
+
+                <!-- Policies & Procedures Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="policiesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Policies & Procedures
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="policiesDropdown">
+                        <li><a class="dropdown-item" href="Crisis.html">Crisis Response</a></li>
+                        <li><a class="dropdown-item" href="flowchart.html">ADP Guide (Outdated)</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="flowchart.html">ADP Flowchart</a>
+
+                <!-- Knowledge Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="knowledgeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Knowledge
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="knowledgeDropdown">
+                        <li><a class="dropdown-item" href="definitions.html">Definitions</a></li>
+                        <li><a class="dropdown-item" href="UnitDesignations.html">Unit Types</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Entry.html">Adding Family Members</a>
-                </li>                    
-                <li class="nav-item">
-                    <a class="nav-link" href="Exit.html">Exiting Families</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="updates.html">Move-In/Update Assessments</a>
-                </li>
-                <!-- New link added for Homelessness Definitions -->
-                <li class="nav-item">
-                    <a class="nav-link" href="definitions.html">What is Chronic Homelessness?</a>
+
+                <!-- Documents Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="documentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Documents
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="documentsDropdown">
+                        <li><a class="dropdown-item" href="2024-IMAGINE-Grant-Proposal-Guidelines-US.pdf" target="_blank">2024 IMAGINE Grant Proposal Guidelines US</a></li>
+                        <li><a class="dropdown-item" href="Exit from Homeless Housing Datasheet Guide2.pdf" target="_blank">Exit from Homeless Housing Datasheet Guide2</a></li>
+                        <li><a class="dropdown-item" href="HMISROI.pdf" target="_blank">HMISROI</a></li>
+                        <li><a class="dropdown-item" href="Occupancy Departure Guide.pdf" target="_blank">Occupancy Departure Guide</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -41,14 +67,23 @@
     // Get the current path and filename
     var currentPath = window.location.pathname.split("/").pop();
 
-    // Get all the nav links
-    var navLinks = document.querySelectorAll('.nav-link');
+    // Get all the nav links (both nav-link and dropdown-item)
+    var navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
 
     // Loop through the links to find the one that matches the current page
     navLinks.forEach(function(link) {
         if(link.getAttribute('href') === currentPath) {
             link.classList.add('active'); // Add the active class
             link.setAttribute('aria-current', 'page'); // Set aria-current attribute
+            
+            // If it's a dropdown item, also mark the parent dropdown as active
+            var parentDropdown = link.closest('.dropdown');
+            if(parentDropdown) {
+                var dropdownToggle = parentDropdown.querySelector('.dropdown-toggle');
+                if(dropdownToggle) {
+                    dropdownToggle.classList.add('active');
+                }
+            }
         }
     });
 </script>
