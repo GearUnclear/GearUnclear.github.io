@@ -53,3 +53,43 @@ Internal staff at Housing Hope who need access to:
 - Updates to emergency contacts and procedures should be reflected in Crisis.html
 - Python tools are downloaded from housinghopedata.site during installation
 - Site uses external CDN resources for Bootstrap and other dependencies
+
+## CRITICAL: Content Editing Guidelines
+
+**⚠️ ABSOLUTE REQUIREMENT: PRESERVE ALL MEANING AND ACCURACY ⚠️**
+
+This is a critical knowledge base that Housing Hope staff rely on for:
+- Emergency response procedures and contact information
+- Compliance with housing regulations and reporting requirements
+- Accurate program enrollment and data management processes
+- Crisis intervention protocols that could impact safety
+
+### When Editing Content:
+
+1. **NEVER change, infer, or modify the meaning of any text**
+2. **NEVER make assumptions about procedures, contacts, or requirements**
+3. **ALWAYS preserve exact wording of:**
+   - Emergency contact information and phone numbers
+   - Program requirements and deadlines
+   - Compliance procedures and regulations
+   - System-specific instructions and workflows
+   - Any safety or crisis response protocols
+
+4. **When in doubt, ASK QUESTIONS rather than making changes**
+5. **Only make structural/formatting improvements - never content changes**
+6. **Verify any updates with Housing Hope staff before implementation**
+
+### Acceptable Changes:
+- HTML structure and CSS styling improvements
+- Navigation and user experience enhancements
+- Image optimization and broken link fixes
+- Performance and accessibility improvements
+
+### NEVER Acceptable:
+- Changing phone numbers, email addresses, or contact information
+- Modifying procedure steps or requirements
+- Altering program names, definitions, or criteria
+- Updating timelines, deadlines, or compliance information
+- Changing any text that could impact staff understanding or safety
+
+**Remember: Staff depend on this information for critical housing and safety decisions. Accuracy is paramount.**
