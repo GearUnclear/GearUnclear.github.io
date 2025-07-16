@@ -7,14 +7,18 @@
   <title>HUD Assessment Guidelines</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Styles -->
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
-      color: #000000;
-      margin: 0;
-      padding-top: 5rem; /* Adding padding to the top of the page to create space between navbar and content */
+      padding-top: 5rem;
+      background: linear-gradient(to right, #66BB6A, #2E7D32);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #333;
     }
 
     h1 {
@@ -22,68 +26,243 @@
     }
 
     .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: white;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 2rem 1rem;
+      max-width: 900px;
     }
-
-    h2, h3 {
-      color: #4CAF50;
+    
+    /* Page Header - Professional Card Style */
+    .page-header {
+      margin-bottom: 3rem;
+      padding: 2rem;
     }
-
-    p {
-      line-height: 1.6;
-      font-size: 16px;
-    }
-
-    ul {
-      margin-left: 20px;
-    }
-
-    ul li {
-      margin-bottom: 10px;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      color: #777;
-    }
-
-    /* Flexbox for Summary Section */
-    .summary-container {
+    .header-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
       display: flex;
-      justify-content: center;
       align-items: center;
-      margin: 40px 0;
-      background-color: #dbffd9; /* Light background for the summary */
-      padding: 20px;
-      border-radius: 10px;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .header-icon-area {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #66BB6A, #2E7D32);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(102, 187, 106, 0.3);
+    }
+    .header-icon-area i {
+      font-size: 2.2rem;
+      color: white;
+    }
+    .header-text-area {
+      flex: 1;
+    }
+    .header-text-area h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1a202c;
+      margin: 0 0 0.5rem 0;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+    }
+    .header-text-area .subtitle {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #4a5568;
+      margin: 0;
+      line-height: 1.5;
+    }
+    
+    /* Process Steps */
+    .process-step {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 5px solid #4CAF50;
+    }
+    .process-step:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .process-step h2 {
+      color: #4CAF50;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    .step-number {
+      background: #4CAF50;
+      color: white;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 1rem;
+      font-size: 1.1rem;
+    }
+    .process-step h3 {
+      color: #4CAF50;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    .process-step p {
+      color: #495057;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+    .process-step ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    .process-step li {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    .process-step li:hover {
+      background: #e9ecef;
+      border-color: #4CAF50;
+    }
+    .process-step li::before {
+      content: "• ";
+      color: #4CAF50;
+      font-weight: bold;
+      margin-right: 0.5rem;
     }
 
+    /* Updated Summary Section */
+    .summary-container {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 3rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 5px solid #4CAF50;
+    }
     .summary-content {
-      max-width: 600px;
+      max-width: 100%;
+    }
+    .summary-content h2 {
+      color: #4CAF50;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
       text-align: center;
     }
-
-    .summary-content h2 {
-      color: #000000; /* Darker green for heading */
-    }
-
     .summary-content ul {
       text-align: left;
       list-style-type: none;
       padding-left: 0;
+      margin-bottom: 1.5rem;
     }
-
     .summary-content ul li {
-      background: #ffffff;
-      padding: 10px;
-      margin: 5px 0;
-      border-radius: 5px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      background: #f1f8e9;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 6px;
+      border-left: 3px solid #4CAF50;
+      transition: all 0.3s ease;
+    }
+    .summary-content ul li:hover {
+      background: #e8f5e8;
+      transform: translateX(3px);
+    }
+    .summary-content ul li::before {
+      content: "✓ ";
+      color: #4CAF50;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    .summary-content p {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: #2E7D32;
+    }
+    
+    /* Navigation */
+    .nav-home {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    .nav-home a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid white;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .nav-home a:hover {
+      background: white;
+      color: #4CAF50;
+      transform: translateY(-2px);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      .page-header {
+        padding: 1rem;
+      }
+      .header-card {
+        padding: 2rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+      }
+      .header-icon-area {
+        width: 70px;
+        height: 70px;
+      }
+      .header-icon-area i {
+        font-size: 2rem;
+      }
+      .header-text-area h1 {
+        font-size: 1.75rem;
+      }
+      .header-text-area .subtitle {
+        font-size: 1rem;
+      }
+      .process-step {
+        padding: 1.5rem;
+      }
+      .process-step h2 {
+        font-size: 1.3rem;
+      }
+      .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -92,54 +271,93 @@
   <!-- Navbar placeholder -->
   <div id="navbar-placeholder"></div>
 
-  <div class="container">
-    <h1>HUD Assessment Guidelines</h1>
-    <h2>Move-in Assessment</h2>
-    <p>
-      There is no requirement to complete a new assessment upon move-in. However, HUD guidelines indicate the need for updating specific records during the project stay, when income or household changes occur.
-    </p>
+  <main class="container">
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="header-card">
+        <div class="header-icon-area">
+          <i class="fas fa-edit"></i>
+        </div>
+        <div class="header-text-area">
+          <h1>HUD Assessment Guidelines</h1>
+          <div class="subtitle">Move-in and update assessment procedures according to HUD standards</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Process Flow -->
+    <div class="process-flow">
+      <!-- Step 1 -->
+      <div class="process-step">
+        <h2>
+          <span class="step-number">1</span>
+          Move-in Assessment Overview
+        </h2>
+        <p>
+          There is no requirement to complete a new assessment upon move-in. However, HUD guidelines indicate the need for updating specific records during the project stay, when income or household changes occur.
+        </p>
+        
+        <h3>Income and Sources</h3>
+        <p>
+          An <strong>Income and Sources</strong> record must be created during the project stay if there is any change in income or sources, at any time during the resident's stay at Housing Hope. This includes:
+        </p>
+        <ul>
+          <li>When a minor child enters or leaves the household, leading to a change in household income.</li>
+          <li>When a minor child turns 18, any income associated with the new adult client should be recorded.</li>
+        </ul>
+        <p>
+          If income shifts between household members, an additional record must be created to reflect this. 'Information Date' for these records should match the date of data collection.
+        </p>
+        <p>
+          <strong>Important:</strong> Whenever the Income and Sources section is updated, the Employment section must also be completed to ensure all related information is current and accurate.
+        </p>
+      </div>
+      
+      <!-- Step 2 -->
+      <div class="process-step">
+        <h2>
+          <span class="step-number">2</span>
+          Additional Required Records
+        </h2>
+        <p>
+          According to HUD's Data Standards Manual for 2024, the following areas also require updates when changes occur:
+        </p>
+        <ul>
+          <li><strong>Domestic Violence:</strong> Records should be updated to ensure swift anonymization in the database.</li>
+          <li><strong>Non-Cash Benefits</strong></li>
+          <li><strong>Health Insurance</strong></li>
+        </ul>
+      </div>
+      
+      <!-- Step 3 -->
+      <div class="process-step">
+        <h2>
+          <span class="step-number">3</span>
+          Recommended Updates
+        </h2>
+        <p>While not required, it is recommended to update the following records during the project stay:</p>
+        <ul>
+          <li>Substance Use</li>
+          <li>Physical Disability</li>
+          <li>Developmental Disability</li>
+          <li>Chronic Health Condition</li>
+          <li>Mental Health Disorder</li>
+        </ul>
+      </div>
+      
+      <!-- Step 4 -->
+      <div class="process-step">
+        <h2>
+          <span class="step-number">4</span>
+          Streamlined Assessment Process
+        </h2>
+        <p>
+          We will be updating the assessment form in Apricot to allow updates for specific elements, eliminating the need to complete the entire form when changes occur.
+        </p>
+      </div>
+    </div>
 
-    <h3>Income and Sources</h3>
-    <p>
-      An <strong>Income and Sources</strong> record must be created during the project stay if there is any change in income or sources, at any time during the resident's stay at Housing Hope. This includes:
-    </p>
-    <ul>
-      <li>When a minor child enters or leaves the household, leading to a change in household income.</li>
-      <li>When a minor child turns 18, any income associated with the new adult client should be recorded.</li>
-    </ul>
-    <p>
-      If income shifts between household members, an additional record must be created to reflect this. 'Information Date' for these records should match the date of data collection.
-    </p>
-    <p>
-      <strong>Important:</strong> Whenever the Income and Sources section is updated, the Employment section must also be completed to ensure all related information is current and accurate.
-    </p>
-
-    <h3>Additional Required Records</h3>
-    <p>
-      According to HUD's Data Standards Manual for 2024, the following areas also require updates when changes occur:
-    </p>
-    <ul>
-      <li><strong>Domestic Violence:</strong> Records should be updated to ensure swift anonymization in the database.</li>
-      <li><strong>Non-Cash Benefits</strong></li>
-      <li><strong>Health Insurance</strong></li>
-    </ul>
-
-    <h3>Recommended Updates</h3>
-    <p>While not required, it is recommended to update the following records during the project stay:</p>
-    <ul>
-      <li>Substance Use</li>
-      <li>Physical Disability</li>
-      <li>Developmental Disability</li>
-      <li>Chronic Health Condition</li>
-      <li>Mental Health Disorder</li>
-    </ul>
-
-    <h3>Streamlined Assessment Process</h3>
-    <p>
-      We will be updating the assessment form in Apricot to allow updates for specific elements, eliminating the need to complete the entire form when changes occur.
-    </p>
-
-    <!-- Summary Section in Flexbox -->
+    <!-- Summary Section -->
     <div class="summary-container">
       <div class="summary-content">
         <h2>Summary</h2>
@@ -160,11 +378,12 @@
       </div>
     </div>
 
-  </div>
-
-  <footer>
-    <p>&copy; Housing Hope Data Team 2024</p>
-  </footer>
+    
+    <!-- Navigation -->
+    <div class="nav-home">
+      <a href="index.html">← Return to Home</a>
+    </div>
+  </main>
 
   <!-- Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
