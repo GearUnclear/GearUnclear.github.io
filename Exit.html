@@ -9,74 +9,180 @@
     <style>
         body {
             padding-top: 5rem;
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
         }
         .container {
             padding: 2rem 1rem;
+            max-width: 900px;
         }
-        .box {
-            background-color: #ffffff;
-            border: 2px solid #007bff;
-            border-radius: 5px;
-            padding: 15px;
-            margin: 10px 0;
-            width: 100%;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        
+        /* Page Header */
+        .page-header {
             text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,123,255,0.3);
         }
-        .arrow {
-            text-align: center;
-            font-size: 24px;
-            color: #007bff;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        .flowchart .box ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0 auto;
-            text-align: left;
-            display: table;
-        }
-        .flowchart .box li::before {
-            content: "• ";
-            color: #007bff;
-            display: inline-block;
-            margin-left: 5px;
-        }
-        .flowchart .box a {
-            font-family: 'Roboto', sans-serif;
-            color: #0654ba;
-            text-decoration: none;
-        }
-        .flowchart .box a:hover {
-            text-decoration: underline;
-        }
-        .alert-section {
-            background-color: #fff3cd;
-            border: 1px solid #ffeeba;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        .alert-section .alert-text {
-            color: #d63384;
-            font-size: 1.5rem;
-        }
-        .alert-section .alert-icons {
-            font-size: 2rem;
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        .tabbed-link {
-            display: block;
-            margin-left: 20px;
+        .page-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 300;
         }
-        .scaled-image {
-            width: 20%;
-            height: auto;
+        
+        /* Process Steps */
+        .process-step {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #007bff;
+        }
+        .process-step:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .process-step h2 {
+            color: #007bff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .step-number {
+            background: #007bff;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            font-size: 1.1rem;
+        }
+        .process-step p {
+            color: #495057;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        /* Forms Section */
+        .forms-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .form-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .form-card:hover {
+            background: #e9ecef;
+            border-color: #007bff;
+        }
+        .form-title {
+            font-weight: 600;
+            color: #007bff;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .form-description {
+            color: #6c757d;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        .form-guide-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: rgba(0,123,255,0.1);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .form-guide-link:hover {
+            background: rgba(0,123,255,0.2);
+            text-decoration: none;
+            transform: translateX(3px);
+        }
+        
+        /* Process Flow Arrow */
+        .process-arrow {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        .process-arrow i {
+            font-size: 2rem;
+            color: #007bff;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Navigation */
+        .nav-home {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #dee2e6;
+        }
+        .nav-home a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .nav-home a:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .process-step {
+                padding: 1.5rem;
+            }
+            .process-step h2 {
+                font-size: 1.3rem;
+            }
+            .step-number {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -85,40 +191,92 @@
     <div id="navbar-placeholder"></div>
 
     <main class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Family Exit Process</h1>
+            <div class="subtitle">Complete guide for exiting families from Housing Hope programs in Apricot</div>
+        </div>
 
-        <div class="flowchart">
-            <div class="box">
-                <h2>Step 1: Be prepared to exit outgoing residents</h2>
+        <!-- Process Flow -->
+        <div class="process-flow">
+            <!-- Step 1 -->
+            <div class="process-step">
+                <h2>
+                    <span class="step-number">1</span>
+                    Be prepared to exit outgoing residents
+                </h2>
                 <p>Upon receiving the information that a resident will be leaving, prepare plans to complete the required exit interview.</p>
             </div>
-            <div class="arrow">↓</div>
-            <div class="box">
-                <h2>Step 2: Complete Required Forms</h2>
-                <p>In order to complete the exit process for HMIS you must complete:</p>
-                <ul>
-                    <li>Occupancy/Departure Form (available in Apricot under the Household Profile) (at the time of exit).<br>
-                        <a href="https://housinghopedata.site/Occupancy%20Departure%20Guide.pdf" class="tabbed-link">Occupancy/Departure Guide</a>
-                    </li>
-                    <li>Completed Exit Child/Adult Assessment (at time of exit).</li>
-                    <li>Completed Exit from Homeless Housing Datasheet (available in Apricot under the Household Profile) (at time of exit).<br>
-                        <a href="https://housinghopedata.site/Exit%20from%20Homeless%20Housing%20Datasheet%20Guide2.pdf" class="tabbed-link">Exit from Homeless Housing Datasheet Guide</a>
-                    </li>
-                </ul>
-                <p>When these pieces of data are submitted, it alerts the Apricot administrators/data team, to ensure information is rapidly entered into HMIS.</p>
+
+            <div class="process-arrow">
+                <span>↓</span>
             </div>
-            <div class="arrow">↓</div>
-            <div class="box">
-                <h2>Step 3: Notify the Data Team</h2>
+
+            <!-- Step 2 -->
+            <div class="process-step">
+                <h2>
+                    <span class="step-number">2</span>
+                    Complete Required Forms
+                </h2>
+                <p>In order to complete the exit process for HMIS you must complete:</p>
+                
+                <div class="forms-grid">
+                    <div class="form-card">
+                        <div class="form-title">Occupancy/Departure Form</div>
+                        <div class="form-description">Available in Apricot under the Household Profile (at the time of exit)</div>
+                        <a href="https://housinghopedata.site/Occupancy%20Departure%20Guide.pdf" class="form-guide-link" target="_blank">
+                            📋 Occupancy/Departure Guide
+                        </a>
+                    </div>
+                    
+                    <div class="form-card">
+                        <div class="form-title">Exit Child/Adult Assessment</div>
+                        <div class="form-description">Completed Exit Child/Adult Assessment (at time of exit)</div>
+                    </div>
+                    
+                    <div class="form-card">
+                        <div class="form-title">Exit from Homeless Housing Datasheet</div>
+                        <div class="form-description">Available in Apricot under the Household Profile (at time of exit)</div>
+                        <a href="https://housinghopedata.site/Exit%20from%20Homeless%20Housing%20Datasheet%20Guide2.pdf" class="form-guide-link" target="_blank">
+                            📋 Exit from Homeless Housing Datasheet Guide
+                        </a>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 1.5rem; font-style: italic; color: #6c757d;">When these pieces of data are submitted, it alerts the Apricot administrators/data team, to ensure information is rapidly entered into HMIS.</p>
+            </div>
+
+            <div class="process-arrow">
+                <span>↓</span>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="process-step">
+                <h2>
+                    <span class="step-number">3</span>
+                    Notify the Data Team
+                </h2>
                 <p>When a family is exiting, the data team will be automatically notified.</p>
             </div>
-            <div class="arrow">↓</div>
-            <div class="box">
-                <h2>Step 4: Confirm HMIS Data</h2>
+
+            <div class="process-arrow">
+                <span>↓</span>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="process-step">
+                <h2>
+                    <span class="step-number">4</span>
+                    Confirm HMIS Data
+                </h2>
                 <p>After the submitted data is replicated in the HMIS database, the exit process is complete!</p>
             </div>
         </div>
         
-        <a href="index.html"><p>Home</p></a>
+        <!-- Navigation -->
+        <div class="nav-home">
+            <a href="index.html">← Return to Home</a>
+        </div>
     </main>
 
     <!-- Bootstrap Bundle with Popper -->
