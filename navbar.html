@@ -1,27 +1,3 @@
-<style>
-    /* Hover functionality for navbar dropdowns */
-    .navbar .dropdown:hover .dropdown-menu {
-        display: block;
-        margin-top: 0;
-    }
-    
-    .navbar .dropdown-menu {
-        transition: all 0.2s ease-in-out;
-        transition-delay: 0.2s;
-    }
-    
-    .navbar .dropdown:hover .dropdown-menu {
-        transition-delay: 0s;
-    }
-    
-    /* Ensure mobile click functionality is preserved */
-    @media (max-width: 767.98px) {
-        .navbar .dropdown:hover .dropdown-menu {
-            display: none;
-        }
-    }
-</style>
-
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">HH Data Team Infobase</a>
@@ -113,23 +89,4 @@
             }
         }
     });
-    
-    // Custom behavior for Documents dropdown
-    // Wait a moment for Bootstrap to initialize
-    setTimeout(function() {
-        var documentsDropdown = document.getElementById('documentsDropdown');
-        if (documentsDropdown) {
-            // Remove Bootstrap's dropdown toggle on desktop
-            documentsDropdown.addEventListener('click', function(e) {
-                // Only navigate on desktop/tablet screens
-                if (window.innerWidth > 768) {
-                    e.preventDefault();
-                    e.stopImmediatePropagation();
-                    window.location.href = 'documents.html';
-                    return false;
-                }
-                // On mobile, let Bootstrap handle the dropdown toggle
-            }, true); // Use capture phase to run before Bootstrap
-        }
-    }, 100);
 </script>
