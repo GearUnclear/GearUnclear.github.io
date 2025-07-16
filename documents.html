@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Forms & Documents - Housing Hope</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            padding-top: 5rem;
+            background: linear-gradient(to right, #4A90E2, #007AFF);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            padding: 2rem 1rem;
+            max-width: 900px;
+        }
+        
+        /* Page Header - Professional Card Style */
+        .page-header {
+            margin-bottom: 3rem;
+            padding: 2rem;
+        }
+        .header-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header-icon-area {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4A90E2, #007AFF);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+        .header-icon-area i {
+            font-size: 2.2rem;
+            color: white;
+        }
+        .header-text-area {
+            flex: 1;
+        }
+        .header-text-area h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+        .header-text-area .subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #4a5568;
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        /* Document Section */
+        .documents-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #007bff;
+        }
+        .documents-section h2 {
+            color: #007bff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Document Links */
+        .document-grid {
+            display: grid;
+            gap: 1rem;
+        }
+        .document-link {
+            display: flex;
+            align-items: center;
+            padding: 1.25rem;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .document-link:hover {
+            background: #e3f2fd;
+            border-color: #007bff;
+            color: #0056b3;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+        .document-link i {
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            color: #007bff;
+        }
+        .document-link:hover i {
+            color: #0056b3;
+        }
+        
+        /* Important Note */
+        .note-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #ffc107;
+        }
+        .note-section h3 {
+            color: #856404;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .note-section p {
+            color: #495057;
+            margin: 0;
+            font-size: 1.05rem;
+        }
+        
+        /* Navigation */
+        .nav-home {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .nav-home a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .nav-home a:hover {
+            background: white;
+            color: #007bff;
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .page-header {
+                padding: 1rem;
+            }
+            .header-card {
+                padding: 2rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .header-icon-area {
+                width: 70px;
+                height: 70px;
+            }
+            .header-icon-area i {
+                font-size: 2rem;
+            }
+            .header-text-area h1 {
+                font-size: 1.75rem;
+            }
+            .header-text-area .subtitle {
+                font-size: 1rem;
+            }
+            .documents-section {
+                padding: 1.5rem;
+            }
+            .document-link {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar placeholder where the external navbar will be loaded -->
+    <div id="navbar-placeholder"></div>
+
+    <main class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="header-card">
+                <div class="header-icon-area">
+                    <i class="fas fa-file-text"></i>
+                </div>
+                <div class="header-text-area">
+                    <h1>Assessment Forms & Documents</h1>
+                    <div class="subtitle">Access all required forms, assessments, and reference documents for Housing Hope programs</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Documents Section -->
+        <div class="documents-section">
+            <h2>Available Documents</h2>
+            <div class="document-grid">
+                <a href="ADULT_FULL_ASSESSMENT.pdf" target="_blank" class="document-link">
+                    <i class="fas fa-user"></i>
+                    Adult Assessment (Entry/Exit Reference)
+                </a>
+                
+                <a href="Annual Assessment.pdf" target="_blank" class="document-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    Annual Assessment (Reference)
+                </a>
+                
+                <a href="CHILD_FULL_ASSESSMENT.pdf" target="_blank" class="document-link">
+                    <i class="fas fa-child"></i>
+                    Child Assessment (Entry/Exit Reference)
+                </a>
+                
+                <a href="Exit from Homeless Housing Datasheet Guide2.pdf" target="_blank" class="document-link">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Exit from Homeless Housing Datasheet Guide
+                </a>
+                
+                <a href="Fenn Jorstad.pdf" target="_blank" class="document-link">
+                    <i class="fas fa-clipboard-check"></i>
+                    Fenn Jorstad (Required for Adult Assessments)
+                </a>
+                
+                <a href="HMISROI.pdf" target="_blank" class="document-link">
+                    <i class="fas fa-shield-alt"></i>
+                    HMIS ROI
+                </a>
+                
+                <a href="Occupancy Departure Guide.pdf" target="_blank" class="document-link">
+                    <i class="fas fa-home"></i>
+                    Occupancy Departure Guide
+                </a>
+            </div>
+        </div>
+        
+        <!-- Important Note -->
+        <div class="note-section">
+            <h3><i class="fas fa-exclamation-triangle"></i> Important Note</h3>
+            <p><strong>Forms are for reference and guidance.</strong> All data must be recorded digitally in the Apricot database. These documents provide structure and context for data collection but should not replace digital data entry requirements.</p>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="nav-home">
+            <a href="index.html">← Return to Home</a>
+        </div>
+    </main>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Load external navbar -->
+    <script>
+        // Fetch and insert the navbar
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
