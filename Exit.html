@@ -18,26 +18,59 @@
             max-width: 900px;
         }
         
-        /* Page Header */
+        /* Page Header - Badge/Banner Style */
         .page-header {
-            text-align: center;
             margin-bottom: 3rem;
-            padding: 2rem;
-            background: linear-gradient(135deg, #007bff, #0056b3);
+            background: #007bff;
             color: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,123,255,0.3);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #0056b3;
+        }
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #0056b3;
+        }
+        .page-header .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .page-header .header-icon {
+            font-size: 3rem;
+            opacity: 0.9;
+        }
+        .page-header .header-text {
+            flex: 1;
         }
         .page-header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: -0.02em;
         }
         .page-header .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.95;
-            font-weight: 300;
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+            margin: 0.25rem 0 0 0;
         }
         
         /* Process Steps */
@@ -131,13 +164,9 @@
             text-align: center;
             margin: 1rem 0;
         }
-        .process-arrow i {
-            font-size: 2rem;
+        .process-arrow span {
+            font-size: 24px;
             color: #007bff;
-            background: white;
-            padding: 0.5rem;
-            border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         
         /* Navigation */
@@ -193,8 +222,13 @@
     <main class="container">
         <!-- Page Header -->
         <div class="page-header">
-            <h1>Family Exit Process</h1>
-            <div class="subtitle">Complete guide for exiting families from Housing Hope programs in Apricot</div>
+            <div class="header-content">
+                <div class="header-icon">🚪</div>
+                <div class="header-text">
+                    <h1>Family Exit Process</h1>
+                    <div class="subtitle">Complete guide for exiting families from Housing Hope programs in Apricot</div>
+                </div>
+            </div>
         </div>
 
         <!-- Process Flow -->
@@ -223,7 +257,7 @@
                 <div class="forms-grid">
                     <div class="form-card">
                         <div class="form-title">Occupancy/Departure Form</div>
-                        <div class="form-description">Available in Apricot under the Household Profile (at the time of exit)</div>
+                        <div class="form-description">Available in Apricot (at the time of exit). <span style="background: rgba(0,123,255,0.15); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Found under Household Profile</span></div>
                         <a href="https://housinghopedata.site/Occupancy%20Departure%20Guide.pdf" class="form-guide-link" target="_blank">
                             📋 Occupancy/Departure Guide
                         </a>
@@ -250,7 +284,7 @@
                     
                     <div class="form-card">
                         <div class="form-title">Exit from Homeless Housing Datasheet</div>
-                        <div class="form-description">Available in Apricot under the Household Profile (at time of exit)</div>
+                        <div class="form-description">Available in Apricot (at time of exit). <span style="background: rgba(0,123,255,0.15); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Found under Household Profile</span></div>
                         <a href="https://housinghopedata.site/Exit%20from%20Homeless%20Housing%20Datasheet%20Guide2.pdf" class="form-guide-link" target="_blank">
                             📋 Exit from Homeless Housing Datasheet Guide
                         </a>
