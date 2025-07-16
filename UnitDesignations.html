@@ -6,19 +6,99 @@
     <title>HUD Housing Unit Designations Explained</title>
     <!-- Bootstrap CSS from your template -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            padding-top: 5rem; /* Same as the template for consistent look */
-            font-family: 'Arial', sans-serif; /* Custom font for this page */
-            background-color: #f4f4f4;
+            padding-top: 5rem;
+            background: linear-gradient(to right, #4A90E2, #007AFF);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
         }
         .container {
             padding: 2rem 1rem;
+            max-width: 1000px;
         }
+        
+        /* Page Header - Professional Card Style */
+        .page-header {
+            margin-bottom: 3rem;
+            padding: 2rem;
+        }
+        .header-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header-icon-area {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4A90E2, #007AFF);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+        .header-icon-area i {
+            font-size: 2.2rem;
+            color: white;
+        }
+        .header-text-area {
+            flex: 1;
+        }
+        .header-text-area h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+        .header-text-area .subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #4a5568;
+            margin: 0;
+            line-height: 1.5;
+        }
+        /* Enhanced Card Styling */
         .card {
-            margin-bottom: 20px;
-            background-color: #ffffff; /* Changed to white for better contrast */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .card-body {
+            padding: 2rem;
+        }
+        .card-title {
+            color: #007bff;
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .card-text {
+            color: #495057;
+            font-size: 1.05rem;
+            line-height: 1.6;
         }
         .navbar {
             background-color: #343a40; /* Dark color for navbar from template */
@@ -26,24 +106,93 @@
         .nav-link {
             color: #ffffff; /* Ensuring readability */
         }
-        .bg-dark {
-            margin-bottom: 1rem;
+        /* Navigation */
+        .nav-home {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
         }
+        .nav-home a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .nav-home a:hover {
+            background: white;
+            color: #007bff;
+            transform: translateY(-2px);
+        }
+        /* Enhanced Qualification Section */
         .qualification {
-            border-left: 4px solid #007bff;
-            padding-left: 1rem;
-            background-color: #e9f7fe;
+            border-left: 5px solid #007bff;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8fbff, #e3f2fd);
+            border-radius: 0 8px 8px 0;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .qualification h5 {
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: #007bff;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
-        @media (max-width: 767.98px) {
+        .qualification .badge {
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        .qualification p {
+            margin-bottom: 0;
+            color: #495057;
+            font-size: 0.95rem;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .page-header {
+                padding: 1rem;
+            }
+            .header-card {
+                padding: 2rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .header-icon-area {
+                width: 70px;
+                height: 70px;
+            }
+            .header-icon-area i {
+                font-size: 2rem;
+            }
+            .header-text-area h1 {
+                font-size: 1.75rem;
+            }
+            .header-text-area .subtitle {
+                font-size: 1rem;
+            }
+            .card-body {
+                padding: 1.5rem;
+            }
             .qualification {
                 border-left: none;
-                border-top: 4px solid #007bff;
-                padding-left: 0;
-                padding-top: 1rem;
+                border-top: 5px solid #007bff;
+                border-radius: 8px 8px 0 0;
+                margin-top: 1rem;
             }
         }
     </style>
@@ -53,7 +202,22 @@
     <div id="navbar-placeholder"></div>
 
     <div class="container">
-        <!-- Other Permanent Housing (OPH) -->
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="header-card">
+                <div class="header-icon-area">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="header-text-area">
+                    <h1>Housing Unit Designations</h1>
+                    <div class="subtitle">Comprehensive guide to Housing Hope program types and qualifications</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Housing Unit Reference Cards -->
+        <div class="housing-units">
+            <!-- Other Permanent Housing (OPH) -->
         <div class="card" id="oph">
             <div class="card-body">
                 <div class="row">
@@ -223,6 +387,11 @@
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="nav-home">
+            <a href="index.html">← Return to Home</a>
         </div>
     </div>
 
