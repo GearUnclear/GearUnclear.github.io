@@ -113,4 +113,20 @@
             }
         }
     });
+    
+    // Custom behavior for Documents dropdown
+    document.addEventListener('DOMContentLoaded', function() {
+        var documentsDropdown = document.getElementById('documentsDropdown');
+        if (documentsDropdown) {
+            documentsDropdown.addEventListener('click', function(e) {
+                // Only navigate on desktop/tablet screens
+                if (window.innerWidth > 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.location.href = 'documents.html';
+                }
+                // On mobile, let Bootstrap handle the dropdown toggle
+            });
+        }
+    });
 </script>
