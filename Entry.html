@@ -6,77 +6,297 @@
     <title>Adding Family Members in Apricot</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             padding-top: 5rem;
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4A90E2, #007AFF);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
         }
         .container {
             padding: 2rem 1rem;
+            max-width: 900px;
         }
-        .box {
-            background-color: #ffffff;
-            border: 2px solid #007bff;
-            border-radius: 5px;
-            padding: 15px;
-            margin: 10px 0;
-            width: 100%;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-align: center;
+        
+        /* Page Header - Professional Card Style */
+        .page-header {
+            margin-bottom: 3rem;
+            padding: 2rem;
         }
-        .arrow {
-            text-align: center;
-            font-size: 24px;
+        .header-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header-icon-area {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4A90E2, #007AFF);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+        .header-icon-area i {
+            font-size: 2.2rem;
+            color: white;
+        }
+        .header-text-area {
+            flex: 1;
+        }
+        .header-text-area h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+        .header-text-area .subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #4a5568;
+            margin: 0;
+            line-height: 1.5;
+        }
+        /* Process Steps */
+        .process-step {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #007bff;
+        }
+        .process-step:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .process-step h2 {
             color: #007bff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .step-number {
+            background: #007bff;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            font-size: 1.1rem;
+        }
+        .process-step p {
+            color: #495057;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        .process-step ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .process-step li {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        .process-step li:hover {
+            background: #e9ecef;
+            border-color: #007bff;
+        }
+        .process-step li::before {
+            content: "• ";
+            color: #007bff;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        /* Process Flow Arrow */
+        .process-arrow {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        .process-arrow span {
+            font-size: 24px;
+            color: white;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
         img {
             max-width: 100%;
             height: auto;
         }
-        .flowchart .box ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0 auto;
-            text-align: left;
-            display: table;
+        /* Digital Note Styling */
+        .digital-note {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
         }
-        .flowchart .box li::before {
-            content: "• ";
-            color: #007bff;
-            display: inline-block;
-            margin-left: 5px;
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .page-header {
+                padding: 1rem;
+            }
+            .header-card {
+                padding: 2rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .header-icon-area {
+                width: 70px;
+                height: 70px;
+            }
+            .header-icon-area i {
+                font-size: 2rem;
+            }
+            .header-text-area h1 {
+                font-size: 1.75rem;
+            }
+            .header-text-area .subtitle {
+                font-size: 1rem;
+            }
+            .process-step {
+                padding: 1.5rem;
+            }
+            .process-step h2 {
+                font-size: 1.3rem;
+            }
+            .step-number {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
         }
-        .flowchart .box a {
-            font-family: 'Roboto', sans-serif;
-            color: #0654ba;
-            text-decoration: none;
-        }
-        .flowchart .box a:hover {
-            text-decoration: underline;
-        }
+        /* Alert Section */
         .alert-section {
-            background-color: #fff3cd;
-            border: 1px solid #ffeeba;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             text-align: center;
+            border-left: 5px solid #ffc107;
         }
         .alert-section .alert-text {
-            color: #d63384;
+            color: #856404;
             font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
         }
         .alert-section .alert-icons {
             font-size: 2rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: #ffc107;
+        }
+        .alert-section p {
+            color: #495057;
+            font-size: 1.05rem;
+            margin: 0;
+        }
+        /* Form Links */
+        .form-guide-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: rgba(0,123,255,0.1);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            margin: 0.25rem;
+        }
+        .form-guide-link:hover {
+            background: rgba(0,123,255,0.2);
+            text-decoration: none;
+            transform: translateX(3px);
         }
         .tabbed-link {
-            display: block;
-            margin-left: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: rgba(0,123,255,0.1);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+        .tabbed-link:hover {
+            background: rgba(0,123,255,0.2);
+            text-decoration: none;
+            transform: translateX(3px);
         }
         .scaled-image {
             width: 20%;
             height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Navigation */
+        .nav-home {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .nav-home a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .nav-home a:hover {
+            background: white;
+            color: #007bff;
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -85,62 +305,105 @@
     <div id="navbar-placeholder"></div>
 
     <main class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="header-card">
+                <div class="header-icon-area">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <div class="header-text-area">
+                    <h1>Adding Family Members</h1>
+                    <div class="subtitle">Complete guide for adding new family members to Housing Hope programs in Apricot</div>
+                </div>
+            </div>
+        </div>
+        
         <div class="alert-section">
             <div class="alert-icons">⚠️⚠️⚠️</div>
             <div class="alert-text">Adding Family Members Manually Coming Soon</div>
-        </div>
-        <div class="mb-5 text-center">
             <p>We are working to iron out a few more kinks before family support coaches can add residents. Stay tuned for updates!</p>
         </div>
 
-        <div class="flowchart">
-            <div class="box">
-                <h2>Step 1: Email Christine and Dane</h2>
+        <!-- Process Flow -->
+        <div class="process-flow">
+            <!-- Step 1 -->
+            <div class="process-step">
+                <h2>
+                    <span class="step-number">1</span>
+                    Email Christine and Dane
+                </h2>
                 <p>When a newborn joins a family, a child is reunited with a parent, or anyone is added to a lease for any reason, notify the data team promptly. Your notification should include the person's name and birthdate.</p>
-                <img src="OUTLOOK_1AuXR9RCC0.png" alt="Email Notification Image"/>
+                <img src="OUTLOOK_1AuXR9RCC0.png" alt="Email Notification Image" class="scaled-image"/>
             </div>
-            <div class="arrow">↓</div>
-            <div class="box">
-                <h2>Step 2: Add to Apricot Property</h2>
+
+            <div class="process-arrow">
+                <span>↓</span>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="process-step">
+                <h2>
+                    <span class="step-number">2</span>
+                    Add to Apricot Property
+                </h2>
                 <p>Upon receiving this information, the resident will be added to your Apricot property.</p>
             </div>
-            <div class="arrow">↓</div>
-            <div class="box">
-                <h2>Step 3: Complete Required Forms</h2>
+
+            <div class="process-arrow">
+                <span>↓</span>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="process-step">
+                <h2>
+                    <span class="step-number">3</span>
+                    Complete Required Forms
+                </h2>
                 <p>In order to completely enter the necessary data for HMIS you must complete:</p>
                 <ul>
                     <li>Signed HMIS form by parent/self if the entrant is an adult (at the time of entry).</li>
-                    <li>Occupancy/Departure Form (available in Apricot under the Household Profile) (at the time of entry).<br>
-                        <a href="https://housinghopedata.site/Occupancy%20Departure%20Guide.pdf" class="tabbed-link">Occupancy/Departure Guide</a>
+                    <li>Occupancy/Departure Form (available in Apricot under the Household Profile) (at the time of entry).
+                        <a href="https://housinghopedata.site/Occupancy%20Departure%20Guide.pdf" class="tabbed-link" target="_blank">📋 Occupancy/Departure Guide</a>
                     </li>
                     <li>Completed Entry Child/Adult Assessment (at time of entry).
                         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.75rem;">
-                            <a href="ADULT_FULL_ASSESSMENT.pdf" style="color: #0654ba; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; padding: 0.25rem 0.75rem; background: rgba(0,123,255,0.1); border-radius: 4px; font-size: 0.9rem;" target="_blank">
+                            <a href="ADULT_FULL_ASSESSMENT.pdf" class="form-guide-link" target="_blank">
                                 📋 Adult Entry Assessment
                             </a>
-                            <a href="CHILD_FULL_ASSESSMENT.pdf" style="color: #0654ba; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; padding: 0.25rem 0.75rem; background: rgba(0,123,255,0.1); border-radius: 4px; font-size: 0.9rem;" target="_blank">
+                            <a href="CHILD_FULL_ASSESSMENT.pdf" class="form-guide-link" target="_blank">
                                 📋 Child Entry Assessment
                             </a>
-                            <a href="Fenn Jorstad.pdf" style="color: #0654ba; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; padding: 0.25rem 0.75rem; background: rgba(0,123,255,0.1); border-radius: 4px; font-size: 0.9rem;" target="_blank">
+                            <a href="Fenn Jorstad.pdf" class="form-guide-link" target="_blank">
                                 📋 Fenn Jorstad (Adults Only)
                             </a>
                         </div>
                     </li>
                     <li>Submit scanned birth certificate and social security card to Participant Profile Folder (as soon as possible after entry).</li>
                 </ul>
-                <div style="margin: 1rem 0; padding: 0.75rem; background: #fff3cd; border: 1px solid #ffeeba; border-radius: 6px; font-size: 0.9rem; color: #856404;">
+                <div class="digital-note">
                     <strong>Note:</strong> Forms are for reference and guidance. All data must be recorded digitally in Apricot database.
                 </div>
                 <img src="ChatGPT Image Jul 16, 2025, 01_23_52 PM.png" alt="Submit Documents Image" class="scaled-image"/>
             </div>
-            <div class="arrow">↓</div>
-            <div class="box">
-                <h2>Step 4: Confirm HMIS Data</h2>
+
+            <div class="process-arrow">
+                <span>↓</span>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="process-step">
+                <h2>
+                    <span class="step-number">4</span>
+                    Confirm HMIS Data
+                </h2>
                 <p>After the submitted data is replicated in the HMIS database, the entry process is complete!</p>
             </div>
         </div>
         
-        <a href="index.html"><p>Home</p></a>
+        <!-- Navigation -->
+        <div class="nav-home">
+            <a href="index.html">← Return to Home</a>
+        </div>
     </main>
 
     <!-- Bootstrap Bundle with Popper -->
