@@ -5,24 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homelessness Definitions - HH Data Team Infobase</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            padding-top: 70px; /* Space for fixed navbar */
-            background-color: #f4f4f4;
+            padding-top: 5rem;
+            background: linear-gradient(to right, #607D8B, #455A64);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
         }
-        .content-section {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
+        .container {
+            padding: 2rem 1rem;
+            max-width: 1000px;
         }
-        .summary {
-            background-color: #e6f7ff;
-            padding: 15px;
-            border-left: 4px solid #0073e6;
+        
+        /* Page Header - Professional Card Style */
+        .page-header {
+            margin-bottom: 3rem;
+            padding: 2rem;
         }
-    </style>
+        .header-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header-icon-area {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+        .header-icon-area i {
+            font-size: 2.2rem;
+            color: white;
+        }
+        .header-text-area {
+            flex: 1;
+        }
+        .header-text-area h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+        .header-text-area .subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #4a5568;
+            margin: 0;
+            line-height: 1.5;
+        }
+        \n        /* Definitions Layout */\n        .definitions-container {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));\n            gap: 2rem;\n            margin-bottom: 3rem;\n        }\n        \n        /* Definition Cards */\n        .definition-card {\n            background: white;\n            border-radius: 12px;\n            padding: 2rem;\n            box-shadow: 0 4px 15px rgba(0,0,0,0.1);\n            transition: transform 0.3s ease, box-shadow 0.3s ease;\n            border-left: 5px solid #2196F3;\n            height: fit-content;\n        }\n        .definition-card:hover {\n            transform: translateY(-2px);\n            box-shadow: 0 8px 25px rgba(0,0,0,0.15);\n        }\n        \n        .definition-header {\n            display: flex;\n            align-items: center;\n            margin-bottom: 1.5rem;\n        }\n        .definition-number {\n            background: #2196F3;\n            color: white;\n            width: 40px;\n            height: 40px;\n            border-radius: 50%;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            font-weight: bold;\n            margin-right: 1rem;\n            font-size: 1.2rem;\n        }\n        .definition-title {\n            font-size: 1.5rem;\n            font-weight: 600;\n            color: #2196F3;\n            margin: 0;\n        }\n        \n        .definition-content {\n            background: #f8f9ff;\n            padding: 1.5rem;\n            border-radius: 8px;\n            margin-bottom: 1.5rem;\n            border-left: 3px solid #2196F3;\n        }\n        .definition-content h3 {\n            color: #1976D2;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin: 0 0 1rem 0;\n        }\n        .definition-content p {\n            margin-bottom: 1rem;\n            color: #495057;\n            font-size: 1rem;\n        }\n        .definition-content ul {\n            margin: 0;\n            padding-left: 1.5rem;\n        }\n        .definition-content li {\n            margin-bottom: 0.75rem;\n            color: #495057;\n        }\n        .definition-content li strong {\n            color: #1976D2;\n        }\n        \n        /* Collapsible Key Points */\n        .key-points-toggle {\n            background: none;\n            border: none;\n            width: 100%;\n            text-align: left;\n            padding: 1rem;\n            border-radius: 8px;\n            background: #e3f2fd;\n            color: #1976D2;\n            font-weight: 600;\n            font-size: 1.1rem;\n            cursor: pointer;\n            transition: all 0.3s ease;\n            display: flex;\n            align-items: center;\n            justify-content: space-between;\n        }\n        .key-points-toggle:hover {\n            background: #bbdefb;\n        }\n        .key-points-toggle i {\n            transition: transform 0.3s ease;\n        }\n        .key-points-toggle.collapsed i {\n            transform: rotate(-90deg);\n        }\n        \n        .key-points-content {\n            padding: 1.5rem;\n            background: #f5f5f5;\n            border-radius: 0 0 8px 8px;\n            margin-top: -8px;\n        }\n        .key-points-content ul {\n            margin: 0;\n            padding-left: 1.5rem;\n        }\n        .key-points-content li {\n            margin-bottom: 0.75rem;\n            color: #495057;\n        }\n        .key-points-content li strong {\n            color: #1976D2;\n        }\n        \n        /* Summary Section */\n        .summary-section {\n            grid-column: 1 / -1;\n            background: white;\n            border-radius: 12px;\n            padding: 2rem;\n            box-shadow: 0 4px 15px rgba(0,0,0,0.1);\n            border-left: 5px solid #FF9800;\n            margin-top: 2rem;\n        }\n        .summary-section h2 {\n            color: #FF9800;\n            font-size: 1.5rem;\n            font-weight: 600;\n            margin-bottom: 1.5rem;\n            display: flex;\n            align-items: center;\n        }\n        .summary-section h2 i {\n            margin-right: 0.75rem;\n            background: #FF9800;\n            color: white;\n            width: 35px;\n            height: 35px;\n            border-radius: 50%;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            font-size: 1rem;\n        }\n        .summary-section ul {\n            margin: 0;\n            padding-left: 0;\n            list-style: none;\n        }\n        .summary-section li {\n            background: #fff3e0;\n            padding: 1rem;\n            margin-bottom: 1rem;\n            border-radius: 6px;\n            border-left: 3px solid #FF9800;\n            color: #495057;\n        }\n        .summary-section li strong {\n            color: #E65100;\n        }\n        .summary-section p {\n            color: #495057;\n            margin: 1.5rem 0 0 0;\n            font-style: italic;\n        }\n        \n        /* Navigation */\n        .nav-home {\n            text-align: center;\n            margin-top: 3rem;\n            padding-top: 2rem;\n            border-top: 2px solid rgba(255, 255, 255, 0.3);\n        }\n        .nav-home a {\n            color: white;\n            text-decoration: none;\n            font-weight: 600;\n            font-size: 1.1rem;\n            padding: 0.75rem 1.5rem;\n            border: 2px solid white;\n            border-radius: 8px;\n            transition: all 0.3s ease;\n            display: inline-block;\n            background: rgba(255, 255, 255, 0.1);\n        }\n        .nav-home a:hover {\n            background: white;\n            color: #2196F3;\n            transform: translateY(-2px);\n        }\n        \n        /* Responsive Design */\n        @media (max-width: 768px) {\n            .container {\n                padding: 1rem;\n            }\n            .page-header {\n                padding: 1rem;\n            }\n            .header-card {\n                padding: 2rem;\n                flex-direction: column;\n                text-align: center;\n                gap: 1.5rem;\n            }\n            .header-icon-area {\n                width: 70px;\n                height: 70px;\n            }\n            .header-icon-area i {\n                font-size: 2rem;\n            }\n            .header-text-area h1 {\n                font-size: 1.75rem;\n            }\n            .header-text-area .subtitle {\n                font-size: 1rem;\n            }\n            .definitions-container {\n                grid-template-columns: 1fr;\n                gap: 1.5rem;\n            }\n            .definition-card {\n                padding: 1.5rem;\n            }\n        }\n    </style>
 </head>
 <body>
 
@@ -30,64 +80,114 @@
     <div id="navbar-placeholder"></div>
 
     <!-- Page Content Start -->
-    <div class="container mt-4">
-        <!-- Homeless (Literal Homelessness) Section -->
-        <section id="homeless" class="content-section">
-            <h2>1. Homeless</h2>
-            <h3>Definition:</h3>
-            <p>
-                According to HUD, an individual or family is considered <strong>homeless</strong> if they lack a fixed, regular, and adequate nighttime residence. This broad category encompasses what is specifically defined as <strong>Literal Homelessness</strong>. It includes:
-            </p>
-            <ul>
-                <li><strong>Unsheltered:</strong> Individuals living in places not designed for human habitation, such as streets, parks, vehicles, abandoned buildings, or other public spaces.</li>
-                <li><strong>Sheltered:</strong> Individuals residing in emergency shelters, transitional housing programs, or other temporary accommodations provided by shelters.</li>
-                <li><strong>Imminent Risk of Homelessness:</strong> Individuals who are at immediate risk of losing their current housing and becoming homeless (e.g., facing eviction or foreclosure).</li>
-                <li><strong>Category 4 - DV Survivors:</strong> Survivors of domestic violence (DV) fleeing dangerous situations without safe alternative housing.</li>
-            </ul>
-            <h3>Key Points:</h3>
-            <ul>
-                <li><strong>Literal Homelessness:</strong> Encompasses individuals and families without a fixed, regular, and adequate nighttime residence.</li>
-                <li>Includes those living in shelters, on the streets, in vehicles, abandoned buildings, or other unsuitable locations.</li>
-                <li>DV survivors are recognized under this category when they flee dangerous environments without safe housing alternatives.</li>
-                <li>Recognizes the immediate needs and vulnerabilities of individuals in precarious living situations.</li>
-            </ul>
-        </section>
+    <main class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="header-card">
+                <div class="header-icon-area">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <div class="header-text-area">
+                    <h1>Homelessness Definitions</h1>
+                    <div class="subtitle">HUD official definitions for literal and chronic homelessness classifications</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Definitions Container -->
+        <div class="definitions-container">
+            <!-- Definition 1: Homeless -->
+            <div class="definition-card">
+                <div class="definition-header">
+                    <div class="definition-number">1</div>
+                    <h2 class="definition-title">Homeless</h2>
+                </div>
+                
+                <div class="definition-content">
+                    <h3>Definition:</h3>
+                    <p>
+                        According to HUD, an individual or family is considered <strong>homeless</strong> if they lack a fixed, regular, and adequate nighttime residence. This broad category encompasses what is specifically defined as <strong>Literal Homelessness</strong>. It includes:
+                    </p>
+                    <ul>
+                        <li><strong>Unsheltered:</strong> Individuals living in places not designed for human habitation, such as streets, parks, vehicles, abandoned buildings, or other public spaces.</li>
+                        <li><strong>Sheltered:</strong> Individuals residing in emergency shelters, transitional housing programs, or other temporary accommodations provided by shelters.</li>
+                        <li><strong>Imminent Risk of Homelessness:</strong> Individuals who are at immediate risk of losing their current housing and becoming homeless (e.g., facing eviction or foreclosure).</li>
+                        <li><strong>Category 4 - DV Survivors:</strong> Survivors of domestic violence (DV) fleeing dangerous situations without safe alternative housing.</li>
+                    </ul>
+                </div>
+                
+                <button class="key-points-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#keyPoints1" aria-expanded="false">
+                    Key Points
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="collapse" id="keyPoints1">
+                    <div class="key-points-content">
+                        <ul>
+                            <li><strong>Literal Homelessness:</strong> Encompasses individuals and families without a fixed, regular, and adequate nighttime residence.</li>
+                            <li>Includes those living in shelters, on the streets, in vehicles, abandoned buildings, or other unsuitable locations.</li>
+                            <li>DV survivors are recognized under this category when they flee dangerous environments without safe housing alternatives.</li>
+                            <li>Recognizes the immediate needs and vulnerabilities of individuals in precarious living situations.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-        <!-- Chronically Homeless Section -->
-        <section id="chronically-homeless" class="content-section">
-            <h2>2. Chronically Homeless</h2>
-            <h3>Definition:</h3>
-            <p>
-                <strong>Chronically homeless</strong> individuals are those who meet the following criteria as defined by HUD:
-            </p>
-            <ul>
-                <li><strong>Duration:</strong> Have been homeless continuously for at least <strong>one year</strong> or have experienced <strong>four or more episodes</strong> of homelessness in the past <strong>three years</strong>.</li>
-                <li><strong>Disability:</strong> Possess a disability (physical or mental) that substantially impairs their ability to secure or maintain stable housing.</li>
-            </ul>
-            <h3>Key Points:</h3>
-            <ul>
-                <li>Chronic homelessness is characterized by long-term or repeated episodes of homelessness.</li>
-                <li>The presence of a disabling condition is a critical factor in this classification.</li>
-                <li>This designation helps in prioritizing services and support for those with the most persistent and complex housing needs.</li>
-            </ul>
-        </section>
-
-        <!-- Summary Section -->
-        <section class="summary content-section">
-            <h2>Summary</h2>
-            <ul>
-                <li><strong>Homeless:</strong> Individuals and families lacking a fixed, regular, and adequate nighttime residence, including those in shelters, transitional housing, unsheltered environments, and DV survivors fleeing dangerous situations (Category 4).</li>
-                <li><strong>Chronically Homeless:</strong> A subset of the homeless population with long-term or repeated homelessness coupled with a disabling condition that hinders their ability to maintain stable housing.</li>
-            </ul>
-            <p>
-                Understanding these definitions is crucial for policymakers, service providers, and communities to effectively address and support individuals experiencing homelessness.
-            </p>
-        </section>
+            <!-- Definition 2: Chronically Homeless -->
+            <div class="definition-card">
+                <div class="definition-header">
+                    <div class="definition-number">2</div>
+                    <h2 class="definition-title">Chronically Homeless</h2>
+                </div>
+                
+                <div class="definition-content">
+                    <h3>Definition:</h3>
+                    <p>
+                        <strong>Chronically homeless</strong> individuals are those who meet the following criteria as defined by HUD:
+                    </p>
+                    <ul>
+                        <li><strong>Duration:</strong> Have been homeless continuously for at least <strong>one year</strong> or have experienced <strong>four or more episodes</strong> of homelessness in the past <strong>three years</strong>.</li>
+                        <li><strong>Disability:</strong> Possess a disability (physical or mental) that substantially impairs their ability to secure or maintain stable housing.</li>
+                    </ul>
+                </div>
+                
+                <button class="key-points-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#keyPoints2" aria-expanded="false">
+                    Key Points
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="collapse" id="keyPoints2">
+                    <div class="key-points-content">
+                        <ul>
+                            <li>Chronic homelessness is characterized by long-term or repeated episodes of homelessness.</li>
+                            <li>The presence of a disabling condition is a critical factor in this classification.</li>
+                            <li>This designation helps in prioritizing services and support for those with the most persistent and complex housing needs.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Summary Section -->
+            <div class="summary-section">
+                <h2><i class="fas fa-clipboard-list"></i>Summary</h2>
+                <ul>
+                    <li><strong>Homeless:</strong> Individuals and families lacking a fixed, regular, and adequate nighttime residence, including those in shelters, transitional housing, unsheltered environments, and DV survivors fleeing dangerous situations (Category 4).</li>
+                    <li><strong>Chronically Homeless:</strong> A subset of the homeless population with long-term or repeated homelessness coupled with a disabling condition that hinders their ability to maintain stable housing.</li>
+                </ul>
+                <p>
+                    Understanding these definitions is crucial for policymakers, service providers, and communities to effectively address and support individuals experiencing homelessness.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="nav-home">
+            <a href="index.html">← Return to Home</a>
+        </div>
+    </main>
     </div>
     <!-- Page Content End -->
 
     <!-- Bootstrap JS and dependencies (Popper.js) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- JavaScript to Load Navbar and Set Active Link -->
     <script>
