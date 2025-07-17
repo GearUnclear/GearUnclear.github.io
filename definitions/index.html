@@ -430,7 +430,7 @@
         // Function to load the navbar
         async function loadNavbar() {
             try {
-                const response = await fetch('navbar.html');
+                const response = await fetch('/navbar.html');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
