@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>FY24 HMIS Data Standards Changes</title>
+    <style>
+        /* Modern, professional styling */
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header styling */
+        .header { 
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+        }
+        
+        .header p {
+            margin: 5px 0;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        /* Container for content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .toc h2 {
+            margin-top: 0;
+            color: #1e3c72;
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0 0;
+        }
+        
+        .toc-item {
+            margin: 10px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .toc-item:hover {
+            background: #e9ecef;
+            border-color: #1e3c72;
+            transform: translateX(5px);
+        }
+        
+        .toc-item a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+        
+        .toc-item-title {
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+        
+        .toc-item-summary {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* Change blocks */
+        .change-block {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .change-header {
+            background: #2a5298;
+            color: white;
+            padding: 20px 30px;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+        
+        .change-header:hover {
+            background: #1e3c72;
+        }
+        
+        .change-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+        
+        .change-header p {
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        /* Expand/Collapse indicator */
+        .expand-indicator {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .change-block.expanded .expand-indicator {
+            transform: translateY(-50%) rotate(180deg);
+        }
+        
+        /* Executive summary */
+        .executive-summary {
+            padding: 25px 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #495057;
+        }
+        
+        .executive-summary strong {
+            color: #1e3c72;
+        }
+        
+        /* Detailed comparison */
+        .detailed-comparison {
+            display: none;
+            padding: 0;
+        }
+        
+        .change-block.expanded .detailed-comparison {
+            display: block;
+        }
+        
+        /* Side by side comparison */
+        .side-by-side {
+            display: flex;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .old-side, .new-side {
+            flex: 1;
+            padding: 25px;
+            overflow-x: auto;
+        }
+        
+        .old-side {
+            border-right: 1px solid #e9ecef;
+            background: #fff5f5;
+        }
+        
+        .new-side {
+            background: #f5fff5;
+        }
+        
+        .side-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding: 12px 16px;
+            border-radius: 6px;
+            text-align: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .old-side .side-title {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .new-side .side-title {
+            background: #28a745;
+            color: white;
+        }
+        
+        /* Line styling */
+        .line {
+            margin: 2px 0;
+            padding: 6px 12px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .line-removed {
+            background: #fee;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .line-added {
+            background: #efe;
+            border-left: 4px solid #28a745;
+        }
+        
+        .line-changed {
+            background: #ffeaa7;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .line-context {
+            background: #f8f9fa;
+            color: #6c757d;
+            border-left: 4px solid #dee2e6;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .side-by-side {
+                flex-direction: column;
+            }
+            
+            .old-side {
+                border-right: none;
+                border-bottom: 1px solid #e9ecef;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .change-block {
+                page-break-inside: avoid;
+            }
+            
+            .detailed-comparison {
+                display: block !important;
+            }
+            
+            .expand-indicator {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>FY24 HMIS Data Standards Changes</h1>
+        <p>Comprehensive Analysis of Updates to the HMIS Data Standards Manual</p>
+        <p><strong>Previous Version:</strong> FY2024 Manual → <strong>Current Version:</strong> FY2025 Manual</p>
+        <p><strong>Total Changes Identified:</strong> 10 sections</p>
+    </div>
+    
+    <div class="container">
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>Summary of Changes</h2>
+            <div style="margin: 15px 0;">
+                <button onclick="expandAll()" style="padding: 8px 16px; margin-right: 10px; background: #1e3c72; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">Expand All</button>
+                <button onclick="collapseAll()" style="padding: 8px 16px; background: #6c757d; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">Collapse All</button>
+            </div>
+            <ul class="toc-list">
+                <li class="toc-item">
+                    <a href="#change-1">
+                        <div class="toc-item-title">Change #1: Version History Update</div>
+                        <div class="toc-item-summary">Added FY2025 V1.7 revision notes to the version history table. The new version documents compliance updates made in April 2025 to align with the current Administration's Executive Orders. Affected sections include Person Centered Approaches to HMIS Data Collection, Emergency Shelter project information, and Universal Data Elements for Name (3.01), Social Security Number (3.02), and Race and Ethnicity (3.04). Additionally clarifies that the "additional specificity" field for race/ethnicity details is optional.</div>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#change-2">
+                        <div class="toc-item-title">Change #2: Executive Order Compliance Details</div>
+                        <div class="toc-item-summary">Detailed additions explaining the retirement of Gender (3.06) and Sexual Orientation (R3) data elements, plus updates to HP Targeting Criteria (V7) to comply with current Administration's Executive Orders. These elements are scheduled for software implementation during FY2026 HMIS Data Standards rollout.</div>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#change-3">
+                        <div class="toc-item-title">Change #3: Equity Language Removal</div>
+                        <div class="toc-item-summary">Removed extensive section discussing systemic racism, discrimination, and the overrepresentation of Black, Indigenous, and People of Color in homelessness systems. Also removed guidance on equity-focused data collection approaches, trauma-informed practices, and cultural humility requirements.</div>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#change-4">
+                        <div class="toc-item-title">Change #4: Fair Housing Act Reference Removal</div>
+                        <div class="toc-item-summary">Removed advisory paragraph about Fair Housing Act compliance that prohibited discrimination based on familial status and reminded projects they cannot deny admission to households with children except where permitted by federal program statute.</div>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#change-5">
+                        <div class="toc-item-title">Change #5: SSN Collection Guidance Simplified</div>
+                        <div class="toc-item-summary">Simplified Social Security Number collection instructions by removing detailed federal statute references (5 U.S.C. Section 522a) and specific prohibitions against denying services to clients who refuse to provide or don't know their SSN. Replaced with simpler language about clients who may not have access to their SSN.</div>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#change-6">
+                        <div class="toc-item-title">Change #6: Gender Data Element Retired</div>
+                        <div class="toc-item-summary">Complete removal of the Gender (3.06) data element section, which included detailed instructions for collecting self-reported gender identity, multiple response options (Woman, Man, Culturally Specific Identity, Transgender, Non-Binary, Questioning, Different Identity), and extensive guidance on client-centered approaches to gender data collection.</div>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#change-7">
+                        <div class="toc-item-title">Change #7: Minor Formatting Correction</div>
+                        <div class="toc-item-summary">Minor formatting correction: Fixed spacing in 'funded by BCP grant' text within the RHY Youth Eligibility section.</div>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#change-8">
+                        <div class="toc-item-title">Change #8: Sexual Orientation Element Retired</div>
+                        <div class="toc-item-summary">Complete removal of Sexual Orientation (R3) data element section, which was previously required for RHY, YHDP, and certain CoC programs. The subsequent data element R4 Last Grade Completed now appears in its place in the numbering sequence.</div>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#change-9">
+                        <div class="toc-item-title">Change #9: Minor Formatting Correction</div>
+                        <div class="toc-item-summary">Minor formatting correction: Fixed spacing in 'In the last three months' text within the trafficking and commercial sexual exploitation questions.</div>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#change-10">
+                        <div class="toc-item-title">Change #10: HP Targeting Criteria Update</div>
+                        <div class="toc-item-summary">Updated HP Targeting Criteria language from 'age/gender mix' to 'demographic mix' for household size requirements. Also replaced specific mention of 'overrepresented populations' with more general language about 'other criteria for targeting prevention determined by the CoC'.</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    <div class="change-block" id="change-1">
+        <div class="change-header" onclick="toggleChange(this)">
+            <h3>Change #1: Version History Update</h3>
+            <p>170-175 → 170-176</p>
+            <span class="expand-indicator">▼</span>
+        </div>
+        <div class="executive-summary">
+            <strong>Summary:</strong> Added FY2025 V1.7 revision notes to the version history table. The new version documents compliance updates made in April 2025 to align with the current Administration's Executive Orders. Affected sections include Person Centered Approaches to HMIS Data Collection, Emergency Shelter project information, and Universal Data Elements for Name (3.01), Social Security Number (3.02), and Race and Ethnicity (3.04). Additionally clarifies that the "additional specificity" field for race/ethnicity details is optional.
+        </div>
+        <div class="detailed-comparison">
+            <div class="side-by-side">
+            <div class="old-side">
+                <div class="side-title">OLD VERSION</div>
+                <div class="line line-context">2024 Employment Status, since R6 is required to be collected for all GPD Case</div>
+                <div class="line line-context">V1.5 Management projects.</div>
+                <div class="line line-context">June 2024 Minor formatting and typo corrections.</div>
+                <div class="line line-context">V1.6 Added descriptions to Program Specific Data Elements and Common Program Specific Data Elements sections.</div>
+                <div class="line line-context">Universal Data Elements - Added missing “3.917 Prior Living Situation” to table</div>
+                <div class="line line-changed">3.917 Prior Living Situation - Revised Flow Charts for better resolution and typo</div>
+                <div class="line line-changed">Added “other” project type applicability for collection requirements for projects</div>
+                <div class="line line-changed">funded by HUD: Pay for Success (PFS) that do not provide permanent housing</div>
+                <div class="line line-changed">in 3.20 Housing Move-in Date.</div>
+                <div class="line line-changed">Updated Common Data Element data collection instructions for projects funded</div>
+                <div class="line line-context">Introduction to the HMIS Data Standards</div>
+                <div class="line line-context">HMIS Data Standards Overview</div>
+                <div class="line line-context">A Homeless Management Information System (HMIS) is the information system designated by a</div>
+                <div class="line line-context">local Continuum of Care (CoC) to comply with the requirements of CoC Program interim rule 24</div>
+                <div class="line line-context">CFR 578. It is a locally implemented data system used to record and analyze client, service,</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="change-block" id="change-2">
+        <div class="change-header" onclick="toggleChange(this)">
+            <h3>Change #2: Executive Order Compliance Details</h3>
+            <p>175-175 → 176-192</p>
+            <span class="expand-indicator">▼</span>
+        </div>
+        <div class="executive-summary">
+            <strong>Summary:</strong> Detailed additions explaining the retirement of Gender (3.06) and Sexual Orientation (R3) data elements, plus updates to HP Targeting Criteria (V7) to comply with current Administration's Executive Orders. These elements are scheduled for software implementation during FY2026 HMIS Data Standards rollout.
+        </div>
+        <div class="detailed-comparison">
+            <div class="side-by-side">
+            <div class="old-side">
+                <div class="side-title">OLD VERSION</div>
+                <div class="line line-context">3.917 Prior Living Situation - Revised Flow Charts for better resolution and typo</div>
+                <div class="line line-context">Added “other” project type applicability for collection requirements for projects</div>
+                <div class="line line-context">funded by HUD: Pay for Success (PFS) that do not provide permanent housing</div>
+                <div class="line line-context">in 3.20 Housing Move-in Date.</div>
+                <div class="line line-context">Updated Common Data Element data collection instructions for projects funded</div>
+                <div class="line line-context">Introduction to the HMIS Data Standards</div>
+                <div class="line line-context">HMIS Data Standards Overview</div>
+                <div class="line line-context">A Homeless Management Information System (HMIS) is the information system designated by a</div>
+                <div class="line line-context">local Continuum of Care (CoC) to comply with the requirements of CoC Program interim rule 24</div>
+                <div class="line line-context">CFR 578. It is a locally implemented data system used to record and analyze client, service,</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="change-block" id="change-3">
+        <div class="change-header" onclick="toggleChange(this)">
+            <h3>Change #3: Equity Language Removal</h3>
+            <p>196-209 → 213-213</p>
+            <span class="expand-indicator">▼</span>
+        </div>
+        <div class="executive-summary">
+            <strong>Summary:</strong> Removed extensive section discussing systemic racism, discrimination, and the overrepresentation of Black, Indigenous, and People of Color in homelessness systems. Also removed guidance on equity-focused data collection approaches, trauma-informed practices, and cultural humility requirements.
+        </div>
+        <div class="detailed-comparison">
+            <div class="side-by-side">
+            <div class="old-side">
+                <div class="side-title">OLD VERSION</div>
+                <div class="line line-context">Technical Standards. HUD, in collaboration with its federal partners, has continued to update</div>
+                <div class="line line-context">the HMIS Data Standards regularly thereafter. Each updated document supersedes the</div>
+                <div class="line line-context">previously released HMIS Data Standards. A complete historical archive of previous data</div>
+                <div class="line line-context">standards can be found on the HUD Exchange Data Standards page.</div>
+                <div class="line line-context">Person Centered Approach to HMIS Data Collection</div>
+                <div class="line line-removed">Black, Indigenous, People of Color, and other communities who have experienced systemic</div>
+                <div class="line line-removed">racism and discrimination are overrepresented amongst individuals experiencing homelessness</div>
+                <div class="line line-removed">and within our homelessness response systems. Ensuring that we address the disparities as</div>
+                <div class="line line-removed">caused by our systems requires approaching all of our initiatives, practices, evaluation methods,</div>
+                <div class="line line-removed">and data collection with equity.</div>
+                <div class="line line-removed">Communities must engage in meaningful partnerships and shared decision making with</div>
+                <div class="line line-removed">individuals who have navigated and/or are navigating the local homeless response system and</div>
+                <div class="line line-removed">also people experiencing homelessness not engaged in the system to better understand</div>
+                <div class="line line-removed">potential homeless system barriers, so as to meaningfully design their data collection processes</div>
+                <div class="line line-removed">and their overall homelessness response system in ways that better meet the needs of those</div>
+                <div class="line line-removed">Communities must also employ a person-centered approach to the review and use of the HMIS</div>
+                <div class="line line-removed">Data Manual with a clear foundational understanding of racial trauma and trauma informed</div>
+                <div class="line line-removed">practices, cultural humility, and a person first, data informed perspective.</div>
+                <div class="line line-context">The HMIS Data Standards Manual is a guide to collecting quantitative data. To fully understand</div>
+                <div class="line line-context">the personal stories behind that data and ultimately improve system effectiveness and</div>
+                <div class="line line-context">experiences for those navigating the system, qualitative data must also be collected.</div>
+                <div class="line line-context">Communities are encouraged to work with people with lived homeless experience to determine</div>
+                <div class="line line-context">what qualitative data would improve how we serve and expand the public understanding of</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="change-block" id="change-4">
+        <div class="change-header" onclick="toggleChange(this)">
+            <h3>Change #4: Fair Housing Act Reference Removal</h3>
+            <p>769-773 → 773-773</p>
+            <span class="expand-indicator">▼</span>
+        </div>
+        <div class="executive-summary">
+            <strong>Summary:</strong> Removed advisory paragraph about Fair Housing Act compliance that prohibited discrimination based on familial status and reminded projects they cannot deny admission to households with children except where permitted by federal program statute.
+        </div>
+        <div class="detailed-comparison">
+            <div class="side-by-side">
+            <div class="old-side">
+                <div class="side-title">OLD VERSION</div>
+                <div class="line line-context">1. A new shelter project must be established in the HMIS using the new emergency shelter</div>
+                <div class="line line-context">2. All clients in the closing HMIS shelter project must be exited</div>
+                <div class="line line-context">3. All clients that spend the first night in the new HMIS shelter must have data collected for</div>
+                <div class="line line-context">a new shelter project entry</div>
+                <div class="line line-context">4. The old shelter project should be disabled/deactivated from entry in the system (i.e.,</div>
+                <div class="line line-removed">Projects that target certain populations are advised that nothing in these standards allows for</div>
+                <div class="line line-removed">circumventing fair housing laws. The Fair Housing Act (FHA) prohibits discrimination because</div>
+                <div class="line line-removed">of, among other things, familial status. Except where otherwise permitted by the federal program</div>
+                <div class="line line-removed">statute, housing covered under the FHA may not deny admission to households with children.</div>
+                <div class="line line-context">Record if the project is a ‘HOPWA-funded Medically Assisted Living Facility’ or not, or that the</div>
+                <div class="line line-context">project is not HOPWA-funded (HOPWA funding source will also be identified in 2.06 Funding</div>
+                <div class="line line-context">Response Descriptions Field Name Response/Data Description</div>
+                <div class="line line-context">Project ID System A unique identifier that must be automatically</div>
+                <div class="line line-context">generated generated by the HMIS at the time the project is</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="change-block" id="change-5">
+        <div class="change-header" onclick="toggleChange(this)">
+            <h3>Change #5: SSN Collection Guidance Simplified</h3>
+            <p>1678-1686 → 1676-1677</p>
+            <span class="expand-indicator">▼</span>
+        </div>
+        <div class="executive-summary">
+            <strong>Summary:</strong> Simplified Social Security Number collection instructions by removing detailed federal statute references (5 U.S.C. Section 522a) and specific prohibitions against denying services to clients who refuse to provide or don't know their SSN. Replaced with simpler language about clients who may not have access to their SSN.
+        </div>
+        <div class="detailed-comparison">
+            <div class="side-by-side">
+            <div class="old-side">
+                <div class="side-title">OLD VERSION</div>
+                <div class="line line-context">HMIS Leads/System Administrators should work with their vendor to ensure a complete</div>
+                <div class="line line-context">understanding of how SSNs are recorded in their HMIS.</div>
+                <div class="line line-context">When enrolling a client who already has a record in the HMIS, verify that the SSN in the system</div>
+                <div class="line line-context">is accurate and correct it if it is not. Do not replace a 9-digit SSN with the 4-digit SSN on existing</div>
+                <div class="line line-context">clients unless the client has requested this.</div>
+                <div class="line line-changed">Some projects may serve clients that do not have an SSN. In these cases, select “Client doesn't</div>
+                <div class="line line-changed">know”. The federal statute at 5 U.S.C. Section 522a prohibits a government agency from</div>
+                <div class="line line-changed">denying shelter or services to clients who refused to provide their SSN or do not know their</div>
+                <div class="line line-changed">SSN, unless the requirement was in effect before 1975 or SSN is a statutory requirement for</div>
+                <div class="line line-changed">receiving services from the project. For example, to receive Homelessness Prevention or Rapid</div>
+                <div class="line line-changed">Re-Housing services through Supportive Services for Veteran Families (SSVF) grants, Veterans</div>
+                <div class="line line-changed">must provide their SSN to receive services because it's relevant to verifying their eligibility. The</div>
+                <div class="line line-changed">Veteran's household members, however, may decline to provide their SSN.</div>
+                <div class="line line-context">Response Descriptions Field Name Response/Data Type Description</div>
+                <div class="line line-context">Social Security [9 digits]</div>
+                <div class="line line-context">SSN Data Quality Full SSN reported A complete and valid SSN is</div>
+                <div class="line line-context">Approximate or partial Any SSN other than a complete and</div>
+                <div class="line line-context">SSN reported valid 9-digit SSN, regardless of the</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="change-block" id="change-6">
+        <div class="change-header" onclick="toggleChange(this)">
+            <h3>Change #6: Gender Data Element Retired</h3>
+            <p>1850-1927 → 1838-1838</p>
+            <span class="expand-indicator">▼</span>
+        </div>
+        <div class="executive-summary">
+            <strong>Summary:</strong> Complete removal of the Gender (3.06) data element section, which included detailed instructions for collecting self-reported gender identity, multiple response options (Woman, Man, Culturally Specific Identity, Transgender, Non-Binary, Questioning, Different Identity), and extensive guidance on client-centered approaches to gender data collection.
+        </div>
+        <div class="detailed-comparison">
+            <div class="side-by-side">
+            <div class="old-side">
+                <div class="side-title">OLD VERSION</div>
+                <div class="line line-context">Data not collected Use this response if the staff does not</div>
+                <div class="line line-context">ask the client to provide their</div>
+                <div class="line line-context">race/ethnicity.</div>
+                <div class="line line-context">Additional Race and [Text] Provide additional specificity the client</div>
+                <div class="line line-context">Ethnicity Detail would like the share about their race or</div>
+                <div class="line line-removed">To indicate client’s self-identification with one or more of the gender categories. Supports</div>
+                <div class="line line-removed">system planning, and local and national understanding of who is experiencing homelessness.</div>
+                <div class="line line-removed">Data Collection Instruction</div>
+                <div class="line line-removed">Header Instructions</div>
+                <div class="line line-removed">Data Collected About All Clients</div>
+                <div class="line line-removed">Funder: Component - Program All Programs - All Components</div>
+                <div class="line line-removed">Project Type Applicability All HMIS Project Types</div>
+                <div class="line line-removed">Collection Point Record creation</div>
+                <div class="line line-removed">Record the self-reported gender of each client served. When enrolling a client who already has</div>
+                <div class="line line-removed">a record in the HMIS, verify that gender information is complete and accurately reflects how the</div>
+                <div class="line line-removed">client identifies, and correct if it does not. Gender identity is a person’s internal perception of</div>
+                <div class="line line-removed">themselves and may not match the sex they were assigned at birth. This element records one’s</div>
+                <div class="line line-removed">gender identity and not sex assigned at birth.</div>
+                <div class="line line-removed">HMIS users and data entry staff should apply a Client-Centered Approach to Recognizing</div>
+                <div class="line line-removed">Gender Identities in Data Collection. Staff observations should never be used to collect</div>
+                <div class="line line-removed">information on gender. Provide all options to every client. Even if staff think they can guess a</div>
+                <div class="line line-removed">client's gender, every client must be asked for their self-reported information. If they prefer not to</div>
+                <div class="line line-removed">provide it or say they don't know, do not select any response other than “Client doesn’t know” or</div>
+                <div class="line line-removed">“Client prefers not to answer” on the client’s behalf. Gender does not have to match legal</div>
+                <div class="line line-removed">documents and clients may not be asked about medical history or other information to try to</div>
+                <div class="line line-removed">determine the person's gender. Simply asking, “Which of these genders best describes how you</div>
+                <div class="line line-removed">identify?” is appropriate and focuses on the person's own internal knowledge of their gender.</div>
+                <div class="line line-removed">If a client does not understand what a particular gender response means, the descriptions below</div>
+                <div class="line line-removed">can be provided. Clients may select as many of the seven responses to ‘Gender’ as they would</div>
+                <div class="line line-removed">like to for their preferred identity, need, or situation. However, a response of “Client doesn't</div>
+                <div class="line line-removed">know” should not be used interchangeably with the response option “Questioning.”</div>
+                <div class="line line-removed">“Questioning” is about exploring one’s gender identity. “Client doesn't know” should only be</div>
+                <div class="line line-removed">selected when a client does not know their gender from the options available, including</div>
+                <div class="line line-removed">“Questioning.” “Client doesn’t know”, “Client prefers not to answer”, and “Data not collected” are</div>
+                <div class="line line-removed">not valid in conjunction with any other response.</div>
+                <div class="line line-removed">If a client discloses having a culturally specific identity (e.g., Two-Spirit), transgender, non-</div>
+                <div class="line line-removed">binary, questioning, or a different identity, staff should ask if the client prefers to have the HMIS</div>
+                <div class="line line-removed">record reflect the client’s gender identity. For example, the availability of these options is not</div>
+                <div class="line line-removed">intended to indicate that transgender individuals are expected to disclose their status; each</div>
+                <div class="line line-removed">response is provided as an option in case an option (or more than one option) is better suited to</div>
+                <div class="line line-removed">a client’s identity, needs, or situation. For instance, if a client identifies as a transgender man but</div>
+                <div class="line line-removed">they do not want their transgender identity recorded in the HMIS, the staff person would select</div>
+                <div class="line line-removed">“Man (Boy, if child)” instead of both “Man (Boy, if child)” and “Transgender”.</div>
+                <div class="line line-removed">Clients may report different gender identities or present different gender expressions at different</div>
+                <div class="line line-removed">projects within the same CoC. This may be because their gender identity has changed or</div>
+                <div class="line line-removed">because they experience a different degree of safety at different projects. If staff are working</div>
+                <div class="line line-removed">with a client who reports a gender identity that differs from the existing HMIS record, staff should</div>
+                <div class="line line-removed">ensure that the client understands and is comfortable with their information being updated</div>
+                <div class="line line-removed">across all projects prior to making any changes. Clients decide to which projects they will</div>
+                <div class="line line-removed">disclose potentially sensitive information. Project staff should enter the self-reported information</div>
+                <div class="line line-removed">as directed by the client.</div>
+                <div class="line line-removed">Response Descriptions Field Name Response/Data Description</div>
+                <div class="line line-removed">Gender Woman (Girl, if Client identifies as a woman, or girl in the case of a child</div>
+                <div class="line line-removed">child) under the age of 18.</div>
+                <div class="line line-removed">Man (Boy, if child) Client identifies as a man, or boy in the case of a child</div>
+                <div class="line line-removed">under the age of 18.</div>
+                <div class="line line-removed">Culturally Specific Client identifies with an identity that is exclusive to a</div>
+                <div class="line line-removed">Identity (e.g., Two- particular culture. For example, Two-Spirit refers to a</div>
+                <div class="line line-removed">Spirit) Native North American gender identity.</div>
+                <div class="line line-removed">Transgender Client identifies with a transgender history, experience,</div>
+                <div class="line line-removed">Non-Binary Client does not identify exclusively as a man or a</div>
+                <div class="line line-removed">Questioning Clients who may be unsure, may be exploring, or may</div>
+                <div class="line line-removed">not relate to or identify with a gender identity at this time.</div>
+                <div class="line line-removed">Note that “Client doesn’t Know” is different than</div>
+                <div class="line line-removed">“Questioning”. “Questioning” is about exploring one’s</div>
+                <div class="line line-removed">gender identity. “Client doesn’t Know” should only be</div>
+                <div class="line line-removed">selected when a client does not know their gender from</div>
+                <div class="line line-removed">the options available.</div>
+                <div class="line line-removed">Different Identity Client identifies with another identity that is not listed as</div>
+                <div class="line line-removed">a response. A text box is provided for additional detail.</div>
+                <div class="line line-removed">Client doesn't &quot;Client doesn't know&quot; should only be selected when a</div>
+                <div class="line line-removed">know client does not know their gender from among the</div>
+                <div class="line line-removed">responses. &quot;Client doesn't know&quot; should not be used in</div>
+                <div class="line line-removed">conjunction with any other response.</div>
+                <div class="line line-removed">Client prefers not &quot;Client prefers not to answer&quot; should only be selected</div>
+                <div class="line line-removed">to answer when a client chooses not to identify their gender from</div>
+                <div class="line line-removed">among the responses. &quot;Client prefers not to answer&quot;</div>
+                <div class="line line-removed">should not be used in conjunction with any other</div>
+                <div class="line line-removed">Data not collected Use this response if the staff does not ask the client to</div>
+                <div class="line line-removed">provide their gender.</div>
+                <div class="line line-removed">If Different [Text] For all clients that selected “Different Identity”, please</div>
+                <div class="line line-removed">Identity, specify the identity.</div>
+                <div class="line line-context">3.07 Veteran Status</div>
+                <div class="line line-context">To indicate whether clients have ever spent time in the United States Armed Forces and may be</div>
+                <div class="line line-context">eligible for VA Homeless Programs. Allows for an accurate count of how many Veterans</div>
+                <div class="line line-context">experience homelessness. Useful for screening for possible housing and service interventions</div>
+                <div class="line line-context">and for gaining an understanding of Veterans' service needs.</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="change-block" id="change-7">
+        <div class="change-header" onclick="toggleChange(this)">
+            <h3>Change #7: Minor Formatting Correction</h3>
+            <p>4320-4327 → 4232-4239</p>
+            <span class="expand-indicator">▼</span>
+        </div>
+        <div class="executive-summary">
+            <strong>Summary:</strong> Minor formatting correction: Fixed spacing in 'funded by BCP grant' text within the RHY Youth Eligibility section.
+        </div>
+        <div class="detailed-comparison">
+            <div class="side-by-side">
+            <div class="old-side">
+                <div class="side-title">OLD VERSION</div>
+                <div class="line line-context">Response Descriptions Field Name Response Category/ Data Type</div>
+                <div class="line line-context">Date of Status Determination [Date]</div>
+                <div class="line line-context">Youth Eligible for RHY Services No</div>
+                <div class="line line-context">If No for “Youth Eligible for RHY Out of age range</div>
+                <div class="line line-context">Reason why services are not</div>
+                <div class="line line-changed">f unded by BCP grant</div>
+                <div class="line line-changed">Ward of the State – Immediate Reunification</div>
+                <div class="line line-changed">Ward of the Criminal Justice System - Immediate</div>
+                <div class="line line-changed">If Yes for “Youth Eligible for No</div>
+                <div class="line line-changed">Client doesn't know</div>
+                <div class="line line-changed">Client prefers not to answer</div>
+                <div class="line line-changed">Data not collected</div>
+                <div class="line line-context">R3 Sexual Orientation</div>
+                <div class="line line-context">The purpose is to identify the sexual orientation of all heads of household and adults served in RHY</div>
+                <div class="line line-context">Data Collection Instruction</div>
+                <div class="line line-context">Header Instructions</div>
+                <div class="line line-context">Funder: Program-Component HHS: RHY – Collection required for all components</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="change-block" id="change-8">
+        <div class="change-header" onclick="toggleChange(this)">
+            <h3>Change #8: Sexual Orientation Element Retired</h3>
+            <p>4327-4366 → 4239-4248</p>
+            <span class="expand-indicator">▼</span>
+        </div>
+        <div class="executive-summary">
+            <strong>Summary:</strong> Complete removal of Sexual Orientation (R3) data element section, which was previously required for RHY, YHDP, and certain CoC programs. The subsequent data element R4 Last Grade Completed now appears in its place in the numbering sequence.
+        </div>
+        <div class="detailed-comparison">
+            <div class="side-by-side">
+            <div class="old-side">
+                <div class="side-title">OLD VERSION</div>
+                <div class="line line-context">Ward of the Criminal Justice System - Immediate</div>
+                <div class="line line-context">If Yes for “Youth Eligible for No</div>
+                <div class="line line-context">Client doesn't know</div>
+                <div class="line line-context">Client prefers not to answer</div>
+                <div class="line line-context">Data not collected</div>
+                <div class="line line-changed">R3 Sexual Orientation</div>
+                <div class="line line-changed">The purpose is to identify the sexual orientation of all heads of household and adults served in RHY</div>
+                <div class="line line-changed">Data Collection Instruction</div>
+                <div class="line line-changed">Header Instructions</div>
+                <div class="line line-changed">Funder: Program-Component HHS: RHY – Collection required for all components</div>
+                <div class="line line-changed">HUD: CoC – Youth Homeless Demonstration Program</div>
+                <div class="line line-changed">(YHDP) – collection required for all components</div>
+                <div class="line line-changed">HUD: CoC – Permanent Supportive Housing</div>
+                <div class="line line-changed">HUD: Unsheltered Special NOFO – Collection required</div>
+                <div class="line line-changed">for Permanent Supportive Housing</div>
+                <div class="line line-changed">HUD: Rural Special NOFO – Collection required for all</div>
+                <div class="line line-changed">Permanent Supportive Housing</div>
+                <div class="line line-changed">Project Type Applicability Emergency Shelter - Entry Exit</div>
+                <div class="line line-changed">Transitional Housing</div>
+                <div class="line line-changed">PH – Permanent Supportive Housing (disability required</div>
+                <div class="line line-changed">Header Instructions</div>
+                <div class="line line-changed">Street Outreach</div>
+                <div class="line line-changed">PH – Housing Only</div>
+                <div class="line line-changed">PH – Housing with Services (no disability required for</div>
+                <div class="line line-changed">Homelessness Prevention</div>
+                <div class="line line-changed">PH – Rapid Re-Housing</div>
+                <div class="line line-changed">Data Collected About Head of Household and Adults</div>
+                <div class="line line-changed">Collection Point Project Start</div>
+                <div class="line line-changed">Response Descriptions Field Name Response Category/ Data Type</div>
+                <div class="line line-changed">S exual Orientation Heterosexual</div>
+                <div class="line line-changed">Questioning/Unsure</div>
+                <div class="line line-changed">Client doesn't know</div>
+                <div class="line line-changed">Client prefers not to answer</div>
+                <div class="line line-changed">Data not collected</div>
+                <div class="line line-changed">If other, please describe [Text]</div>
+                <div class="line line-changed">R4 Last Grade Completed</div>
+                <div class="line line-changed">The purpose is to identify the educational attainment of youth served in RHY projects as well as,</div>
+                <div class="line line-changed">when appropriate, measure a change in education from project start to project exit for all Head</div>
+                <div class="line line-changed">of Households and youth.</div>
+                <div class="line line-changed">Data Collection Instruction</div>
+                <div class="line line-changed">Header Instructions</div>
+                <div class="line line-changed">Funder: Program-Component HUD: HUD-VASH – Collection required for HUD/VASH-</div>
+                <div class="line line-changed">HHS: RHY – Collection required for all components except</div>
+                <div class="line line-changed">for Street Outreach</div>
+                <div class="line line-context">VA: SSVF – Collection required for RRH and</div>
+                <div class="line line-context">Homelessness Prevention</div>
+                <div class="line line-context">Header Instructions</div>
+                <div class="line line-context">Project Type Applicability Emergency Shelter - Entry Exit</div>
+                <div class="line line-context">Transitional Housing</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="change-block" id="change-9">
+        <div class="change-header" onclick="toggleChange(this)">
+            <h3>Change #9: Minor Formatting Correction</h3>
+            <p>4637-4643 → 4519-4525</p>
+            <span class="expand-indicator">▼</span>
+        </div>
+        <div class="executive-summary">
+            <strong>Summary:</strong> Minor formatting correction: Fixed spacing in 'In the last three months' text within the trafficking and commercial sexual exploitation questions.
+        </div>
+        <div class="detailed-comparison">
+            <div class="side-by-side">
+            <div class="old-side">
+                <div class="side-title">OLD VERSION</div>
+                <div class="line line-context">Client doesn't know</div>
+                <div class="line line-context">Client prefers not to answer</div>
+                <div class="line line-context">Data not collected</div>
+                <div class="line line-context">If Yes for “Ever received No</div>
+                <div class="line line-context">anything in exchange for</div>
+                <div class="line line-changed">I n the last three months</div>
+                <div class="line line-changed">Client doesn't know</div>
+                <div class="line line-changed">Client prefers not to answer</div>
+                <div class="line line-changed">Data not collected</div>
+                <div class="line line-changed">If Yes for “Ever received 1-3</div>
+                <div class="line line-changed">anything in exchange for</div>
+                <div class="line line-context">H ow many times</div>
+                <div class="line line-context">Client doesn't know</div>
+                <div class="line line-context">Client prefers not to answer</div>
+                <div class="line line-context">Data not collected</div>
+                <div class="line line-context">If Yes for “Ever received No</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="change-block" id="change-10">
+        <div class="change-header" onclick="toggleChange(this)">
+            <h3>Change #10: HP Targeting Criteria Update</h3>
+            <p>5029-5035 → 4910-4915</p>
+            <span class="expand-indicator">▼</span>
+        </div>
+        <div class="executive-summary">
+            <strong>Summary:</strong> Updated HP Targeting Criteria language from 'age/gender mix' to 'demographic mix' for household size requirements. Also replaced specific mention of 'overrepresented populations' with more general language about 'other criteria for targeting prevention determined by the CoC'.
+        </div>
+        <div class="detailed-comparison">
+            <div class="side-by-side">
+            <div class="old-side">
+                <div class="side-title">OLD VERSION</div>
+                <div class="line line-context">Youngest child is under 1 year old</div>
+                <div class="line line-context">Youngest child is 1 to 6 years old and/or one or more</div>
+                <div class="line line-context">children (any age) require significant care</div>
+                <div class="line line-context">Household size of 5 or more No</div>
+                <div class="line line-context">requiring at least 3 bedrooms (due</div>
+                <div class="line line-changed">to age/gender mix)</div>
+                <div class="line line-changed">Household includes one or more No</div>
+                <div class="line line-changed">members of an overrepresented</div>
+                <div class="line line-changed">population in the homelessness</div>
+                <div class="line line-changed">system when compared to the</div>
+                <div class="line line-changed">general population</div>
+                <div class="line line-context">HP applicant total points [Integer]</div>
+                <div class="line line-context">Grantee targeting threshold score [Integer]</div>
+                <div class="line line-context">V8 HUD-VASH Voucher Tracking</div>
+                <div class="line line-context">Data Collection Instruction</div>
+                <div class="line line-context">Header Instructions</div>
+
+            </div>
+        </div>
+    </div>
+    </div> <!-- Close container -->
+    
+    <script>
+        // Toggle function for expanding/collapsing change details
+        function toggleChange(header) {
+            const changeBlock = header.parentElement;
+            changeBlock.classList.toggle('expanded');
+        }
+        
+        // Smooth scroll to change when clicking TOC items
+        document.querySelectorAll('.toc-item a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                // Scroll to element
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Expand the change block if it's not already expanded
+                if (!targetElement.classList.contains('expanded')) {
+                    targetElement.classList.add('expanded');
+                }
+                
+                // Highlight the change block briefly
+                targetElement.style.transition = 'box-shadow 0.3s ease';
+                targetElement.style.boxShadow = '0 0 20px rgba(30, 60, 114, 0.4)';
+                setTimeout(() => {
+                    targetElement.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+                }, 1000);
+            });
+        });
+        
+        // Expand all / Collapse all functionality
+        function expandAll() {
+            document.querySelectorAll('.change-block').forEach(block => {
+                block.classList.add('expanded');
+            });
+        }
+        
+        function collapseAll() {
+            document.querySelectorAll('.change-block').forEach(block => {
+                block.classList.remove('expanded');
+            });
+        }
+    </script>
+</body>
+</html>
