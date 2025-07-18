@@ -140,6 +140,9 @@
         .nav-card-icon.enrollment {
             background: linear-gradient(135deg, #007bff, #0056b3);
         }
+        .nav-card-icon.updates {
+            background: linear-gradient(135deg, #FF9800, #F57C00);
+        }
         .nav-card h2 {
             color: #1a202c;
             font-size: 1.4rem;
@@ -182,6 +185,16 @@
         .nav-card .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+        .nav-card .btn-warning {
+            background: linear-gradient(135deg, #FF9800, #F57C00);
+            border: none;
+            color: white;
+        }
+        .nav-card .btn-warning:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+            color: white;
         }
         
         /* Responsive Design */
@@ -258,7 +271,7 @@
 
         <!-- Navigation Cards -->
         <div class="row gy-4">
-            <div class="col-md-4">
+            <div class="col-lg-3 col-md-6">
                 <div class="nav-card">
                     <div class="nav-card-icon documents">
                         <i class="fas fa-file-text"></i>
@@ -268,7 +281,7 @@
                     <a href="/documents/" class="btn btn-success">Browse Documents</a>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-3 col-md-6">
                 <div class="nav-card">
                     <div class="nav-card-icon units">
                         <i class="fas fa-home"></i>
@@ -278,7 +291,7 @@
                     <a href="/UnitDesignations/" class="btn btn-purple">View Dictionary</a>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-3 col-md-6">
                 <div class="nav-card">
                     <div class="nav-card-icon enrollment">
                         <i class="fas fa-search"></i>
@@ -286,6 +299,16 @@
                     <h2>Program Enrollment Guide</h2>
                     <p>Learn how to identify and enroll participants in our programs through this detailed step-by-step guide.</p>
                     <a href="/Prog/" class="btn btn-primary">View Guide</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="nav-card">
+                    <div class="nav-card-icon updates">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h2>2025 HMIS Updates</h2>
+                    <p>View detailed changes and compliance updates in the 2025 HMIS Data Standards Manual with side-by-side comparisons.</p>
+                    <a href="/hmis-updates-2025/" class="btn btn-warning">View Updates</a>
                 </div>
             </div>
         </div>
