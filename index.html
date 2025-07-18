@@ -104,6 +104,37 @@
             border-color: #17a2b8;
         }
         
+        /* HMIS Updates Banner Styling */
+        .hmis-updates-banner {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #495057;
+        }
+        .hmis-updates-banner h5 {
+            color: #495057;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .hmis-updates-banner a {
+            color: #495057;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .hmis-updates-banner a:hover {
+            text-decoration: underline;
+        }
+        .hmis-updates-banner .btn-outline-secondary {
+            border-color: #495057;
+            color: #495057;
+        }
+        .hmis-updates-banner .btn-outline-secondary:hover {
+            background-color: #495057;
+            border-color: #495057;
+        }
+        
         /* Navigation Cards */
         .nav-card {
             background: white;
@@ -139,9 +170,6 @@
         }
         .nav-card-icon.enrollment {
             background: linear-gradient(135deg, #007bff, #0056b3);
-        }
-        .nav-card-icon.updates {
-            background: linear-gradient(135deg, #FF9800, #F57C00);
         }
         .nav-card h2 {
             color: #1a202c;
@@ -185,16 +213,6 @@
         .nav-card .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-        }
-        .nav-card .btn-warning {
-            background: linear-gradient(135deg, #FF9800, #F57C00);
-            border: none;
-            color: white;
-        }
-        .nav-card .btn-warning:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
-            color: white;
         }
         
         /* Responsive Design */
@@ -269,9 +287,26 @@
             </div>
         </div>
 
+        <!-- 2025 HMIS Updates Banner -->
+        <div class="hmis-updates-banner">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="mb-1">
+                        <a href="/hmis-updates-2025/">
+                            <i class="fas fa-file-contract me-2"></i><strong>2025 HMIS Updates</strong>
+                        </a>
+                    </h5>
+                    <p class="mb-0">Comprehensive report of changes and compliance updates in the 2025 HMIS Data Standards Manual with detailed comparisons.</p>
+                </div>
+                <a href="/hmis-updates-2025/" class="btn btn-outline-secondary">
+                    View Updates
+                </a>
+            </div>
+        </div>
+
         <!-- Navigation Cards -->
         <div class="row gy-4">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-md-4">
                 <div class="nav-card">
                     <div class="nav-card-icon documents">
                         <i class="fas fa-file-text"></i>
@@ -281,7 +316,7 @@
                     <a href="/documents/" class="btn btn-success">Browse Documents</a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-md-4">
                 <div class="nav-card">
                     <div class="nav-card-icon units">
                         <i class="fas fa-home"></i>
@@ -291,7 +326,7 @@
                     <a href="/UnitDesignations/" class="btn btn-purple">View Dictionary</a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-md-4">
                 <div class="nav-card">
                     <div class="nav-card-icon enrollment">
                         <i class="fas fa-search"></i>
@@ -299,16 +334,6 @@
                     <h2>Program Enrollment Guide</h2>
                     <p>Learn how to identify and enroll participants in our programs through this detailed step-by-step guide.</p>
                     <a href="/Prog/" class="btn btn-primary">View Guide</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="nav-card">
-                    <div class="nav-card-icon updates">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <h2>2025 HMIS Updates</h2>
-                    <p>View detailed changes and compliance updates in the 2025 HMIS Data Standards Manual with side-by-side comparisons.</p>
-                    <a href="/hmis-updates-2025/" class="btn btn-warning">View Updates</a>
                 </div>
             </div>
         </div>
