@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Required assessment procedures when minor children turn 18 at Housing Hope, emphasizing DV, financial, and health insurance requirements.">
+  <title>18-Year-Old Assessment Requirements</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Styles -->
+  <style>
+    body {
+      padding-top: 5rem;
+      background: linear-gradient(to right, #66BB6A, #2E7D32);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .container {
+      padding: 2rem 1rem;
+      max-width: 900px;
+    }
+    
+    /* Page Header - Professional Card Style */
+    .page-header {
+      margin-bottom: 3rem;
+      padding: 2rem;
+    }
+    .header-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .header-icon-area {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #66BB6A, #2E7D32);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(102, 187, 106, 0.3);
+    }
+    .header-icon-area i {
+      font-size: 2.2rem;
+      color: white;
+    }
+    .header-text-area {
+      flex: 1;
+    }
+    .header-text-area h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1a202c;
+      margin: 0 0 0.5rem 0;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+    }
+    .header-text-area .subtitle {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #4a5568;
+      margin: 0;
+      line-height: 1.5;
+    }
+    
+    /* Process Steps */
+    .process-step {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 5px solid #4CAF50;
+    }
+    .process-step:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .process-step h2 {
+      color: #4CAF50;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    .step-number {
+      background: #4CAF50;
+      color: white;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 1rem;
+      font-size: 1.1rem;
+    }
+    .process-step h3 {
+      color: #4CAF50;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    .process-step p {
+      color: #495057;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+    .process-step ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    .process-step li {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    .process-step li:hover {
+      background: #e9ecef;
+      border-color: #4CAF50;
+    }
+    .process-step li::before {
+      content: "• ";
+      color: #4CAF50;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    /* Updated Summary Section */
+    .summary-container {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 3rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 5px solid #4CAF50;
+    }
+    .summary-content {
+      max-width: 100%;
+    }
+    .summary-content h2 {
+      color: #4CAF50;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .summary-content ul {
+      text-align: left;
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 1.5rem;
+    }
+    .summary-content ul li {
+      background: #f1f8e9;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 6px;
+      border-left: 3px solid #4CAF50;
+      transition: all 0.3s ease;
+    }
+    .summary-content ul li:hover {
+      background: #e8f5e8;
+      transform: translateX(3px);
+    }
+    .summary-content ul li::before {
+      content: "✓ ";
+      color: #4CAF50;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    .summary-content p {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: #2E7D32;
+    }
+    
+    /* Navigation */
+    .nav-home {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    .nav-home a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid white;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .nav-home a:hover {
+      background: white;
+      color: #4CAF50;
+      transform: translateY(-2px);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      .page-header {
+        padding: 1rem;
+      }
+      .header-card {
+        padding: 2rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+      }
+      .header-icon-area {
+        width: 70px;
+        height: 70px;
+      }
+      .header-icon-area i {
+        font-size: 2rem;
+      }
+      .header-text-area h1 {
+        font-size: 1.75rem;
+      }
+      .header-text-area .subtitle {
+        font-size: 1rem;
+      }
+      .process-step {
+        padding: 1.5rem;
+      }
+      .process-step h2 {
+        font-size: 1.3rem;
+      }
+      .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="header-card">
+        <div class="header-icon-area">
+          <i class="fas fa-birthday-cake"></i>
+        </div>
+        <div class="header-text-area">
+          <h1>18-Year-Old Assessment Requirements</h1>
+          <div class="subtitle">Required assessment procedures when minor children reach age 18</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Process Flow -->
+    <div class="process-flow">
+      <!-- Step 1 -->
+      <div class="process-step">
+        <h2>
+          <span class="step-number">1</span>
+          When a Minor Child Turns 18
+        </h2>
+        <p>
+          When a minor child in Housing Hope housing reaches age 18, they must be transitioned from a minor child record to an adult client record in Apricot. This transition triggers several <strong>mandatory assessment requirements</strong> that must be completed immediately.
+        </p>
+        
+        <h3>Adult Status Transition</h3>
+        <p>
+          Upon turning 18, the individual becomes an independent adult client with their own assessment requirements. This means:
+        </p>
+        <ul>
+          <li>A new adult client record must be created in Apricot</li>
+          <li>Any income previously recorded under the head of household must now be recorded under this new adult client</li>
+          <li>All adult assessment fields become mandatory and must be completed within the required timeframe</li>
+        </ul>
+        <p>
+          The 'Information Date' for all records should match the individual's 18th birthday or the date of data collection, whichever is more recent.
+        </p>
+      </div>
+      
+      <!-- Step 2 -->
+      <div class="process-step">
+        <h2>
+          <span class="step-number">2</span>
+          🚨 Mandatory Assessment Fields
+        </h2>
+        <p>
+          <strong style="color: #d32f2f; font-size: 1.1em;">CRITICAL:</strong> The following three fields are <strong>MANDATORY</strong> and must be completed when creating an adult assessment for someone who has just turned 18. Failure to complete these fields will result in incomplete HMIS data submission.
+        </p>
+        
+        <!-- Critical Requirements Alert -->
+        <div style="background: #ffebee; border: 2px solid #f44336; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+          <h3 style="color: #d32f2f; margin-top: 0; display: flex; align-items: center;"><i class="fas fa-exclamation-triangle" style="margin-right: 0.5rem;"></i>Mandatory Fields - Must Complete All Three</h3>
+          <ul style="margin: 0;">
+            <li style="background: white; border-left: 4px solid #f44336; padding: 1rem; color: #333;"><strong>Domestic Violence Assessment:</strong> Must be completed to ensure proper anonymization protocols in the HMIS database. This field is critical for client safety and data security.</li>
+            <li style="background: white; border-left: 4px solid #f44336; padding: 1rem; color: #333;"><strong>Financial/Income Assessment:</strong> All income sources, employment status, and financial information must be documented as the individual is now an independent adult client.</li>
+            <li style="background: white; border-left: 4px solid #f44336; padding: 1rem; color: #333;"><strong>Health Insurance Coverage:</strong> Health insurance status and coverage information must be assessed and documented for the new adult client.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Step 3 -->
+      <div class="process-step">
+        <h2>
+          <span class="step-number">3</span>
+          Additional Assessment Areas
+        </h2>
+        <p>Beyond the three mandatory fields above, the following areas should also be assessed for the new adult client:</p>
+        <ul>
+          <li><strong>Non-Cash Benefits:</strong> Document any government assistance or benefits</li>
+          <li><strong>Employment Status:</strong> Current employment situation and work history</li>
+          <li><strong>Disability Status:</strong> Any physical, developmental, or chronic health conditions</li>
+          <li><strong>Mental Health:</strong> Mental health status and any current treatment</li>
+          <li><strong>Substance Use:</strong> Assessment of substance use patterns</li>
+        </ul>
+        <p style="font-style: italic; color: #666;">
+          <strong>Note:</strong> While these additional areas are important for comprehensive care, the three fields highlighted in Step 2 are the absolute mandatory requirements that must be completed.
+        </p>
+      </div>
+      
+      <!-- Step 4 -->
+      <div class="process-step">
+        <h2>
+          <span class="step-number">4</span>
+          Documentation and Follow-up
+        </h2>
+        <p>
+          Once the 18-year-old assessment is completed in Apricot:
+        </p>
+        <ul>
+          <li>The data team will be automatically notified of the new adult client record</li>
+          <li>Information will be processed and entered into the HMIS database</li>
+          <li>The individual's adult status will be reflected in all Housing Hope systems</li>
+          <li>Future assessments and updates will be handled under their adult client record</li>
+        </ul>
+        <p>
+          <strong>Timeline:</strong> All mandatory fields must be completed within 7 days of the individual's 18th birthday to ensure timely data submission and compliance.
+        </p>
+      </div>
+    </div>
+
+    <!-- Summary Section -->
+    <div class="summary-container">
+      <div class="summary-content">
+        <h2>18-Year-Old Assessment Summary</h2>
+        <p><strong style="color: #d32f2f;">🚨 MANDATORY - Must Complete Within 7 Days:</strong></p>
+        <ul>
+          <li><strong>Domestic Violence Assessment</strong> - Critical for anonymization protocols</li>
+          <li><strong>Financial/Income Documentation</strong> - All income sources and employment status</li>
+          <li><strong>Health Insurance Coverage</strong> - Insurance status and coverage details</li>
+        </ul>
+        <p><strong>Additional Required Fields:</strong></p>
+        <ul>
+          <li>Non-Cash Benefits</li>
+          <li>Employment Status</li>
+          <li>Disability Assessments (Physical, Developmental, Chronic Health)</li>
+          <li>Mental Health Status</li>
+          <li>Substance Use Assessment</li>
+        </ul>
+        <p style="font-weight: 600; color: #2E7D32; background: #e8f5e8; padding: 1rem; border-radius: 6px; margin-top: 1.5rem;">
+          <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>
+          Remember: The three mandatory fields (DV, Financial, Health Insurance) are absolutely critical and must be completed for every 18-year-old transition.
+        </p>
+      </div>
+    </div>
+
+    
+    <!-- Navigation -->
+    <div class="nav-home">
+      <a href="/">← Return to Home</a>
+    </div>
+  </main>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Load external navbar -->
+  <script>
+    // Fetch and insert the navbar
+    fetch('/navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+      });
+  </script>
+</body>
+</html>
