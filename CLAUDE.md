@@ -15,14 +15,17 @@ The website provides training materials, guides, and tools for Housing Hope staf
 
 ### HTML Pages
 - `index.html` - Main landing page with navigation to resources
-- `Crisis.html` - Emergency incident reporting protocols and contact information
-- `definitions.html` - Homelessness definitions (chronic vs literal homelessness)
-- `UnitDesignations.html` - Dictionary of housing unit types and designations
-- `Prog.html` - Program enrollment identification guide
-- `Entry.html` - Guide for adding family members to programs
-- `Exit.html` - Procedures for exiting families from programs
-- `updates.html` - Move-in and update assessment procedures
-- `flowchart.html` - ADP system workflow guide
+- `Crisis/index.html` - Emergency incident reporting protocols and contact information
+- `definitions/index.html` - Homelessness definitions (chronic vs literal homelessness)
+- `UnitDesignations/index.html` - Dictionary of housing unit types and designations
+- `Prog/index.html` - Program enrollment identification guide
+- `Entry/index.html` - Guide for adding family members to programs
+- `Exit/index.html` - Procedures for exiting families from programs
+- `updates/index.html` - Move-in and update assessment procedures
+- `flowchart/index.html` - ADP system workflow guide
+- `18/index.html` - 18-year-old transition assessment page
+- `hmis-updates-2025/index.html` - HMIS system updates for 2025
+- `documents/index.html` - Document library and downloads
 - `navbar.html` - Shared navigation component
 
 ### Python Tools
