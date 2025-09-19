@@ -151,6 +151,33 @@
       margin-right: 0.5rem;
     }
 
+    /* Alert Section */
+    .alert-section {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      border-left: 5px solid #ffc107;
+    }
+    .alert-section .alert-text {
+      color: #856404;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .alert-section .alert-icons {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #ffc107;
+    }
+    .alert-section p {
+      color: #495057;
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
     /* Updated Summary Section */
     .summary-container {
       background: white;
@@ -457,6 +484,31 @@
         margin-bottom: 0.5rem !important;
       }
       
+      /* Alert Section for print */
+      .alert-section {
+        background: #f9f9f9 !important;
+        border: 2px solid #333 !important;
+        border-radius: 0 !important;
+        padding: 1rem !important;
+        margin: 1rem 0 !important;
+        box-shadow: none !important;
+        text-align: center !important;
+        page-break-inside: avoid;
+      }
+      .alert-section .alert-text {
+        color: black !important;
+        font-size: 14pt !important;
+        font-weight: bold !important;
+      }
+      .alert-section .alert-icons {
+        font-size: 16pt !important;
+        color: black !important;
+      }
+      .alert-section p {
+        color: black !important;
+        font-size: 11pt !important;
+      }
+
       /* Notice Box for print */
       .notice-box {
         background: #f0f0f0 !important;
@@ -512,45 +564,52 @@
           Move-in Assessment Overview
         </h2>
         <p>
-          <strong>There is no requirement to complete a new assessment upon move-in.</strong> However, HUD guidelines indicate the need for updating specific records during the project stay, when income or household changes occur.
-        </p>
-        
-        <h3>Income and Sources</h3>
-        <p>
-          An <strong>Income and Sources</strong> record must be created during the project stay if there is any change in income or sources, at any time during the resident's stay at Housing Hope. This includes:
-        </p>
-        <ul>
-          <li>When a minor child enters or leaves the household, leading to a change in household income.</li>
-          <li>When a minor child turns 18, any income associated with the new adult client should be recorded (while under 18, any income should have been recorded under the head of household).</li>
-        </ul>
-        <p>
-          If income shifts between household members, an additional record must be created to reflect this. 'Information Date' for these records should match the date of data collection.
+          <strong>There is no requirement to complete a new assessment upon move-in.</strong> This page outlines what must be updated during a project stay to keep HUD data accurate and current. If any of the detailed changes below have occurred since the client's intake, an <strong>Update Assessment</strong> is required to record those changes. If nothing has changed, no move-in assessment is needed.
         </p>
         <p>
-          <strong>Important:</strong> Whenever the Income and Sources section is updated, the Employment section must also be completed to ensure all related information is current and accurate.
+          Use this guidance whenever a household composition, income, employment, or benefit status changes (including when a youth turns 18). These rules apply throughout the stay and ensure that the HMIS record remains complete and compliant with HUD standards.
         </p>
       </div>
-      
+
       <!-- Step 2 -->
       <div class="process-step">
         <h2>
           <span class="step-number">2</span>
-          Additional Required Records
+          Income and Sources (Required when changes occur)
         </h2>
         <p>
-          According to HUD's Data Standards Manual for 2024, the following areas also require updates when changes occur:
+          Create or update an <strong>Income and Sources</strong> record during the project stay if there is any change in income or sources at any time during the resident's stay. This includes:
         </p>
         <ul>
-          <li><strong>Domestic Violence:</strong> Records should be updated to ensure swift anonymization in the database.</li>
-          <li><strong>Non-Cash Benefits</strong></li>
-          <li><strong>Health Insurance</strong></li>
+          <li>When a minor child enters or leaves the household, changing total household income.</li>
+          <li>When a minor turns 18: any income associated with the new adult client should be recorded (income prior to 18 should have been recorded under the head of household).</li>
+          <li>When income shifts between household members.</li>
         </ul>
+        <p>
+          Set the <strong>Information Date</strong> to the date the information was collected. Whenever <em>Income and Sources</em> is updated, complete the <strong>Employment</strong> section as well so related information stays aligned.
+        </p>
       </div>
       
       <!-- Step 3 -->
       <div class="process-step">
         <h2>
           <span class="step-number">3</span>
+          Additional Required Records
+        </h2>
+        <p>
+          According to HUD's Data Standards Manual for 2024, the following areas also require updates when changes occur:
+        </p>
+        <ul>
+          <li><strong>Domestic Violence:</strong> Update promptly to ensure swift anonymization in the database.</li>
+          <li><strong>Non-Cash Benefits</strong></li>
+          <li><strong>Health Insurance</strong></li>
+        </ul>
+      </div>
+      
+      <!-- Step 4 -->
+      <div class="process-step">
+        <h2>
+          <span class="step-number">4</span>
           Recommended Updates
         </h2>
         <p>While not required, it is recommended to update the following records during the project stay:</p>
@@ -563,10 +622,10 @@
         </ul>
       </div>
       
-      <!-- Step 4 -->
+      <!-- Step 5 -->
       <div class="process-step">
         <h2>
-          <span class="step-number">4</span>
+          <span class="step-number">5</span>
           Streamlined Assessment Process
         </h2>
         <p>
@@ -574,10 +633,10 @@
         </p>
       </div>
       
-      <!-- Step 5 -->
+      <!-- Step 6 -->
       <div class="process-step">
         <h2>
-          <span class="step-number">5</span>
+          <span class="step-number">6</span>
           18th Birthday Assessment Requirements
         </h2>
         <p>When a child in the household turns 18, specific assessment sections are mandatory regardless of whether changes have occurred.</p>
@@ -590,6 +649,18 @@
             • Health Insurance
           </div>
         </div>
+      </div>
+
+      <!-- Alert Section: Timeliness Guidance -->
+      <div class="alert-section" style="margin-top: 1.5rem;">
+        <div class="alert-icons">⚠️</div>
+        <div class="alert-text">Timeliness for Update Assessments</div>
+        <p>
+          HMIS has indicated limited flexibility for <strong>18th birthday update assessments</strong>; these do not need to be completed within three days of the birthday. That said, please enter the data as quickly as possible.
+        </p>
+        <p style="margin-top: 0.5rem;">
+          For all <strong>other updates</strong> (income, household composition, benefits, insurance, etc.), there is <strong>no change</strong> to expectations: complete updates <strong>within three days</strong> of becoming aware of the change.
+        </p>
       </div>
     </div>
 
