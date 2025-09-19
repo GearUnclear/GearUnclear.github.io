@@ -200,6 +200,26 @@
       color: #2E7D32;
     }
     
+    /* Notice Box Styling */
+    .notice-box {
+      background: #ffe6e6;
+      border: 2px solid #ff4444;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem auto;
+      max-width: 600px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 500;
+      color: #cc0000;
+      box-shadow: 0 2px 8px rgba(255, 68, 68, 0.2);
+    }
+    .notice-box i {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    
     /* Navigation */
     .nav-home {
       text-align: center;
@@ -437,6 +457,26 @@
         margin-bottom: 0.5rem !important;
       }
       
+      /* Notice Box for print */
+      .notice-box {
+        background: #f0f0f0 !important;
+        border: 2px solid #333 !important;
+        border-radius: 0 !important;
+        padding: 0.75rem !important;
+        margin: 0.75rem auto !important;
+        max-width: 500px !important;
+        display: block !important;
+        color: black !important;
+        font-size: 10pt !important;
+        font-weight: bold !important;
+        text-align: center !important;
+        page-break-inside: avoid;
+      }
+      .notice-box i {
+        font-size: 12pt !important;
+        margin-right: 0.5rem !important;
+      }
+      
       /* Page breaks */
       .process-step:nth-child(4) {
         page-break-before: always;
@@ -457,8 +497,8 @@
           <i class="fas fa-edit"></i>
         </div>
         <div class="header-text-area">
-          <h1>HUD Assessment Guidelines</h1>
-          <div class="subtitle">Move-in and update assessment procedures according to HUD standards</div>
+          <h1>Update Assessments, and Whole Family Move-in Guidelines</h1>
+          <div class="subtitle">Family Move-in and update assessment procedures according to HUD standards</div>
         </div>
       </div>
     </div>
@@ -472,7 +512,7 @@
           Move-in Assessment Overview
         </h2>
         <p>
-          There is no requirement to complete a new assessment upon move-in. However, HUD guidelines indicate the need for updating specific records during the project stay, when income or household changes occur.
+          <strong>There is no requirement to complete a new assessment upon move-in.</strong> However, HUD guidelines indicate the need for updating specific records during the project stay, when income or household changes occur.
         </p>
         
         <h3>Income and Sources</h3>
@@ -530,8 +570,26 @@
           Streamlined Assessment Process
         </h2>
         <p>
-          We will be updating the assessment form in Apricot to allow updates for specific elements, eliminating the need to complete the entire form when changes occur.
+          The assessment form in Apricot has been updated to allow updates for specific elements, eliminating the need to complete the entire form when changes occur. When an update assessment is selected, a brief version of this guidance is presented, along with choices for which sections you would like to update. In some situations, such as a child becoming an adult, some sections may be required even if no changes occurred.
         </p>
+      </div>
+      
+      <!-- Step 5 -->
+      <div class="process-step">
+        <h2>
+          <span class="step-number">5</span>
+          18th Birthday Assessment Requirements
+        </h2>
+        <p>When a child in the household turns 18, specific assessment sections are mandatory regardless of whether changes have occurred.</p>
+        <div class="notice-box">
+          <i class="fas fa-exclamation-triangle"></i>
+          <div>
+            <strong>HUD requires updates for the following in this situation:</strong><br>
+            • Income and Non-Cash Benefits<br>
+            • Domestic Violence<br>
+            • Health Insurance
+          </div>
+        </div>
       </div>
     </div>
 
