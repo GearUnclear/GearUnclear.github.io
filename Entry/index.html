@@ -277,6 +277,26 @@
             margin: 1.5rem auto;
         }
         
+        /* Notice Box Styling */
+        .notice-box {
+            background: #ffe6e6;
+            border: 2px solid #ff4444;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem auto;
+            max-width: 600px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 500;
+            color: #cc0000;
+            box-shadow: 0 2px 8px rgba(255, 68, 68, 0.2);
+        }
+        .notice-box i {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
         /* Navigation */
         .nav-home {
             text-align: center;
@@ -501,6 +521,26 @@
                 font-size: 11pt !important;
             }
             
+            /* Notice Box for print */
+            .notice-box {
+                background: #f0f0f0 !important;
+                border: 2px solid #333 !important;
+                border-radius: 0 !important;
+                padding: 0.75rem !important;
+                margin: 0.75rem auto !important;
+                max-width: 500px !important;
+                display: block !important;
+                color: black !important;
+                font-size: 10pt !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                page-break-inside: avoid;
+            }
+            .notice-box i {
+                font-size: 12pt !important;
+                margin-right: 0.5rem !important;
+            }
+            
             /* Page breaks */
             .process-step:nth-child(4) {
                 page-break-before: always;
@@ -535,8 +575,12 @@
                     <span class="step-number">1</span>
                     Email Christine and Dane
                 </h2>
-                <p>When a newborn joins a family, a child is reunited with a parent, or anyone is added to a lease for any reason, notify the data team promptly. Your notification should include the person's name and birthdate. This information should be provided to the data team as soon as you gain knowledge of it, and no longer than 3 days after move in.</p>
+                <p>When a newborn joins a family, a child is reunited with a parent, or anyone is added to a lease for any reason, notify the data team promptly. Your notification should include the person's name and birthdate.</p>
                 <img src="/OUTLOOK_1AuXR9RCC0.png" alt="Email Notification Image" class="scaled-image"/>
+                <div class="notice-box">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    This information should be provided to the data team as soon as you gain knowledge of it, and no longer than 3 days after move in.
+                </div>
             </div>
 
             <div class="process-arrow">
