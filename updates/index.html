@@ -264,6 +264,184 @@
         font-size: 1rem;
       }
     }
+    
+    /* Print Styles */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      
+      body {
+        background: white !important;
+        color: black !important;
+        font-size: 12pt;
+        line-height: 1.4;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .container {
+        max-width: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      
+      /* Hide navbar and navigation for print */
+      #navbar-placeholder,
+      .nav-home {
+        display: none !important;
+      }
+      
+      /* Page Header - Simplified for print */
+      .page-header {
+        margin-bottom: 1.5rem !important;
+        padding: 0 !important;
+      }
+      
+      .header-card {
+        background: white !important;
+        border: 2px solid #333 !important;
+        border-radius: 0 !important;
+        padding: 1.5rem !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        display: block !important;
+      }
+      
+      .header-icon-area {
+        display: none !important;
+      }
+      
+      .header-text-area h1 {
+        color: black !important;
+        font-size: 18pt !important;
+        margin-bottom: 0.5rem !important;
+        text-align: center;
+      }
+      
+      .header-text-area .subtitle {
+        color: #333 !important;
+        font-size: 12pt !important;
+        text-align: center;
+        margin-bottom: 0 !important;
+      }
+      
+      /* Process Steps - Clean print layout */
+      .process-step {
+        background: white !important;
+        border: 1px solid #333 !important;
+        border-radius: 0 !important;
+        padding: 1rem !important;
+        margin: 1rem 0 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        border-left: 4px solid #333 !important;
+      }
+      
+      .process-step h2 {
+        color: black !important;
+        font-size: 14pt !important;
+        font-weight: bold !important;
+        margin-bottom: 0.5rem !important;
+        page-break-after: avoid;
+      }
+      
+      .process-step h3 {
+        color: black !important;
+        font-size: 12pt !important;
+        font-weight: bold !important;
+        margin-top: 1rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+      
+      .step-number {
+        background: black !important;
+        color: white !important;
+        width: 25px !important;
+        height: 25px !important;
+        font-size: 12pt !important;
+        margin-right: 0.5rem !important;
+      }
+      
+      .process-step p {
+        color: black !important;
+        font-size: 11pt !important;
+        margin-bottom: 0.75rem !important;
+      }
+      
+      .process-step ul {
+        margin: 0.5rem 0 !important;
+      }
+      
+      .process-step li {
+        background: #f5f5f5 !important;
+        border: 1px solid #ccc !important;
+        border-radius: 0 !important;
+        padding: 0.75rem !important;
+        margin-bottom: 0.5rem !important;
+        color: black !important;
+        font-size: 10pt !important;
+        page-break-inside: avoid;
+      }
+      
+      .process-step li::before {
+        content: "• " !important;
+        color: black !important;
+      }
+      
+      /* Summary Section for print */
+      .summary-container {
+        background: #f9f9f9 !important;
+        border: 2px solid #333 !important;
+        border-radius: 0 !important;
+        padding: 1rem !important;
+        margin: 1rem 0 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+      }
+      
+      .summary-content h2 {
+        color: black !important;
+        font-size: 14pt !important;
+        font-weight: bold !important;
+        text-align: center;
+        margin-bottom: 1rem !important;
+      }
+      
+      .summary-content ul {
+        text-align: left !important;
+        list-style-type: none !important;
+        padding-left: 0 !important;
+      }
+      
+      .summary-content ul li {
+        background: #f0f0f0 !important;
+        border: 1px solid #ccc !important;
+        border-radius: 0 !important;
+        padding: 0.5rem !important;
+        margin: 0.25rem 0 !important;
+        border-left: 3px solid #333 !important;
+        color: black !important;
+        font-size: 10pt !important;
+      }
+      
+      .summary-content ul li::before {
+        content: "• " !important;
+        color: black !important;
+      }
+      
+      .summary-content p {
+        color: black !important;
+        font-size: 11pt !important;
+        margin-bottom: 0.5rem !important;
+      }
+      
+      /* Page breaks */
+      .process-step:nth-child(4) {
+        page-break-before: always;
+      }
+    }
   </style>
 </head>
 <body>
