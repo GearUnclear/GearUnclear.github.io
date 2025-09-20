@@ -235,6 +235,33 @@
       color: #4C2475;
     }
     
+    /* Alert Section */
+    .alert-section {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      border-left: 5px solid #ffc107;
+    }
+    .alert-section .alert-text {
+      color: #856404;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .alert-section .alert-icons {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #ffc107;
+    }
+    .alert-section p {
+      color: #495057;
+      font-size: 1.05rem;
+      margin: 0;
+    }
+    
     /* Navigation */
     .nav-home {
       text-align: center;
@@ -477,6 +504,31 @@
         margin-bottom: 0.5rem !important;
       }
       
+      /* Alert Section for print */
+      .alert-section {
+        background: #f9f9f9 !important;
+        border: 2px solid #333 !important;
+        border-radius: 0 !important;
+        padding: 1rem !important;
+        margin: 1rem 0 !important;
+        box-shadow: none !important;
+        text-align: center !important;
+        page-break-inside: avoid;
+      }
+      .alert-section .alert-text {
+        color: black !important;
+        font-size: 14pt !important;
+        font-weight: bold !important;
+      }
+      .alert-section .alert-icons {
+        font-size: 16pt !important;
+        color: black !important;
+      }
+      .alert-section p {
+        color: black !important;
+        font-size: 11pt !important;
+      }
+
       /* Special alert sections */
       div[style*="background: #F5F3F7"] {
         background: #f9f9f9 !important;
@@ -613,6 +665,18 @@
           <strong>Timeline:</strong> All mandatory fields must be completed in an update assessment dated Client Birthday.
         </p>
       </div>
+    </div>
+
+    <!-- Alert Section: Timeliness Guidance -->
+    <div class="alert-section" style="margin-top: 1.5rem;">
+      <div class="alert-icons">⚠️</div>
+      <div class="alert-text">Timeliness for 18th Birthday Assessments</div>
+      <p>
+        Our local HMIS has indicated some limited flexibility for <strong>18th birthday update assessments</strong>; these do not need to be completed within three days of the birthday. That said, please enter the data the month it is requested, treating this as any other Annual Assessment.
+      </p>
+      <p style="margin-top: 0.5rem;">
+        <strong>Critical:</strong> The 'Date of Assessment' must match the literal 18th birthday of the client to avoid data errors, but the actual completion can occur within the month requested.
+      </p>
     </div>
 
     <!-- Summary Section -->
