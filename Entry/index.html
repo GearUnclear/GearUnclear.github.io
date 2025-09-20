@@ -232,6 +232,35 @@
             font-size: 1.05rem;
             margin: 0;
         }
+        /* Forms Section */
+        .forms-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .form-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .form-card:hover {
+            background: #e9ecef;
+            border-color: #007bff;
+        }
+        .form-title {
+            font-weight: 600;
+            color: #007bff;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .form-description {
+            color: #6c757d;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
         /* Form Links */
         .form-guide-link {
             color: #007bff;
@@ -443,6 +472,34 @@
                 display: none !important;
             }
             
+            /* Forms Section for print */
+            .forms-grid {
+                display: block !important;
+                margin-top: 1rem !important;
+            }
+            
+            .form-card {
+                background: #f5f5f5 !important;
+                border: 1px solid #333 !important;
+                border-radius: 0 !important;
+                padding: 1rem !important;
+                margin-bottom: 1rem !important;
+                page-break-inside: avoid;
+            }
+            
+            .form-title {
+                color: black !important;
+                font-size: 12pt !important;
+                font-weight: bold !important;
+                margin-bottom: 0.5rem !important;
+            }
+            
+            .form-description {
+                color: black !important;
+                font-size: 10pt !important;
+                margin-bottom: 0.75rem !important;
+            }
+            
             /* Links - Show URLs for print */
             .form-guide-link,
             .tabbed-link {
@@ -462,6 +519,27 @@
                 content: " (" attr(href) ")" !important;
                 font-size: 8pt !important;
                 color: #666 !important;
+            }
+            
+            /* Special styling for inline spans */
+            span[style*="background: rgba(0,123,255,0.15)"] {
+                background: #f0f0f0 !important;
+                color: black !important;
+                border: 1px solid #ccc !important;
+                padding: 2px 6px !important;
+                border-radius: 0 !important;
+                font-weight: bold !important;
+            }
+            
+            /* Note sections */
+            div[style*="background: rgba(255, 193, 7, 0.1)"] {
+                background: #f9f9f9 !important;
+                border: 1px solid #333 !important;
+                border-radius: 0 !important;
+                padding: 0.5rem !important;
+                margin: 0.5rem 0 !important;
+                color: black !important;
+                font-size: 9pt !important;
             }
             
             /* Images - Ensure they print well */
@@ -607,15 +685,33 @@
                     Complete Required Forms
                 </h2>
                 <p>In order to completely enter the necessary data for HMIS you must complete:</p>
-                <ul>
-                    <li>Signed HMIS form by parent/self if the entrant is an adult (at the time of entry).
-                        <a href="/HMISROI.pdf" class="tabbed-link" target="_blank">📋 Current HMIS Release of Information</a>
-                    </li>
-                    <li>Occupancy/Departure Form (available in Apricot under the Household Profile) (at the time of entry).
-                        <a href="/Occupancy Departure Guide.pdf" class="tabbed-link" target="_blank">📋 Occupancy/Departure Guide</a>
-                    </li>
-                    <li>Completed Entry Child/Adult Assessment (at time of entry).
-                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.75rem;">
+                
+                <div class="forms-grid">
+                    <div class="form-card">
+                        <div class="form-title">Signed HMIS Release of Information</div>
+                        <div class="form-description">Required by parent/self if the entrant is an adult (at the time of entry).</div>
+                        <a href="/HMISROI.pdf" class="form-guide-link" target="_blank">
+                            📋 Current HMIS Release of Information
+                        </a>
+                    </div>
+                    
+                    <div class="form-card">
+                        <div class="form-title">Occupancy/Departure Form</div>
+                        <div class="form-description">Available in Apricot (at the time of entry). <span style="background: rgba(0,123,255,0.15); padding: 2px 6px; border-radius: 4px; font-weight: 600;">Found under Household Profile</span></div>
+                        <a href="/Occupancy Departure Guide.pdf" class="form-guide-link" target="_blank">
+                            📋 Occupancy/Departure Guide
+                        </a>
+                    </div>
+                    
+                    <div class="form-card">
+                        <div class="form-title">Entry Child/Adult Assessment</div>
+                        <div class="form-description">
+                            Completed at time of entry <strong>for ALL individuals</strong> in the household. 
+                            <span style="background: rgba(0,123,255,0.15); padding: 2px 6px; border-radius: 4px; font-weight: 600;">
+                                Found under Participant Profile
+                            </span>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem;">
                             <a href="/ADULT_FULL_ASSESSMENT.pdf" class="form-guide-link" target="_blank">
                                 📋 Adult Entry Assessment
                             </a>
@@ -626,11 +722,25 @@
                                 📋 Fenn Jorstad (Adults Only)
                             </a>
                         </div>
-                    </li>
-                    <li>Submit scanned birth certificate (License or State ID if Adult) and social security card to Participant Profile Folder (as soon as possible after entry).</li>
-                </ul>
-                <div class="digital-note">
-                    <strong>Note:</strong> Forms are for reference and guidance. All data must be recorded digitally in Apricot database.
+                        <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(255, 193, 7, 0.1); border-radius: 6px; font-size: 0.9rem; font-style: italic; color: #495057; border: 1px solid rgba(255, 193, 7, 0.3);">
+                            <strong>Note:</strong> Forms are for reference and guidance. All data must be recorded digitally in Apricot database.
+                        </div>
+                    </div>
+                    
+                    <div class="form-card">
+                        <div class="form-title">Supporting Documents</div>
+                        <div class="form-description">
+                            Submit scanned documents as soon as possible after entry. 
+                            <span style="background: rgba(0,123,255,0.15); padding: 2px 6px; border-radius: 4px; font-weight: 600;">
+                                Found under Participant Profile Folder
+                            </span>
+                        </div>
+                        <div style="color: #6c757d; font-size: 0.9rem; margin-top: 0.5rem;">
+                            • Birth certificate (for children)<br>
+                            • License or State ID (for adults)<br>
+                            • Social security card (all individuals)
+                        </div>
+                    </div>
                 </div>
                 <img src="/ChatGPT Image Jul 16, 2025, 01_23_52 PM.png" alt="Submit Documents Image" class="scaled-image" style="width: 38%; max-width: 300px; box-shadow: none;"/>
             </div>
