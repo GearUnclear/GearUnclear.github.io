@@ -216,6 +216,13 @@
             100% { transform: scale(1); }
         }
 
+        /* Conditional/warning asterisk styles */
+        .conditional-icon {
+            color: #ffc107;
+            font-size: 1.5rem;
+            animation: check-pop 0.3s ease;
+        }
+
         .empty-cell {
             color: #dee2e6;
             font-size: 1.2rem;
@@ -399,6 +406,10 @@
                 <span class="legend-item">
                     <i class="fas fa-check-circle check-icon"></i>
                     <span>= Required</span>
+                </span>
+                <span class="legend-item">
+                    <i class="fas fa-asterisk conditional-icon"></i>
+                    <span>= Required Under Some Conditions</span>
                 </span>
                 <span class="legend-item">
                     <i class="fas fa-circle empty-cell"></i>
