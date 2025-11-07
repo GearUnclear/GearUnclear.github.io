@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quick reference guide showing which assessments and paperwork are required for different enrollment and exit scenarios at Housing Hope">
+    <title>Assessment & Paperwork Requirements Checklist - Housing Hope Data Team Infobase</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =======================
+           TEMPLATE VARIABLES
+           ======================= */
+        :root {
+            --gradient-start: #28a745;
+            --gradient-end: #20c997;
+            --accent-color: #28a745;
+            --accent-dark: #20c997;
+
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --text-light: #495057;
+        }
+
+        /* =======================
+           BASE STYLES
+           ======================= */
+        body {
+            padding-top: 5rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            background-size: 400% 400%;
+            animation: gradient-shift 12s ease infinite;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            padding: 2rem 1rem;
+            max-width: 1500px;
+        }
+
+        /* =======================
+           PAGE HEADER
+           ======================= */
+        .page-header {
+            margin-bottom: 3rem;
+            padding: 2rem;
+        }
+
+        .header-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-icon-area {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .header-icon-area i {
+            font-size: 2.2rem;
+            color: white;
+        }
+
+        .header-text-area {
+            flex: 1;
+        }
+
+        .header-text-area h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+
+        .header-text-area .subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* =======================
+           CHECKLIST TABLE CONTAINER
+           ======================= */
+        .table-container {
+            background: white;
+            border-radius: 16px;
+            padding: 0.75rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+            overflow-x: auto;
+        }
+
+        /* =======================
+           BEAUTIFUL TABLE STYLES
+           ======================= */
+        .requirements-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .requirements-table thead {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+        }
+
+        .requirements-table thead th {
+            color: white;
+            font-weight: 600;
+            padding: 1.25rem 0.75rem;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 0.9rem;
+            border: none;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            width: 90px;
+            min-width: 90px;
+        }
+
+        .requirements-table thead th:first-child {
+            border-top-left-radius: 12px;
+            text-align: left;
+            padding-left: 1.25rem;
+        }
+
+        .requirements-table thead th:last-child {
+            border-top-right-radius: 12px;
+        }
+
+        /* Table header links */
+        .requirements-table thead th a {
+            color: rgba(255, 255, 255, 0.95);
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.5);
+            text-underline-offset: 3px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .requirements-table thead th a:hover {
+            color: #ffffff;
+            text-decoration-color: rgba(255, 255, 255, 0.9);
+            transform: translateY(-1px);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        .requirements-table tbody tr {
+            transition: all 0.2s ease;
+        }
+
+        .requirements-table tbody tr:hover {
+            background: #f8f9fa;
+            transform: scale(1.01);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .requirements-table tbody th {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 1.25rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+            border-right: 2px solid #dee2e6;
+            position: sticky;
+            left: 0;
+            z-index: 5;
+        }
+
+        .requirements-table tbody tr:last-child th {
+            border-bottom-left-radius: 12px;
+        }
+
+        .requirements-table tbody td {
+            padding: 1.25rem 0.75rem;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: 1px solid #e9ecef;
+            background: white;
+        }
+
+        .requirements-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .requirements-table tbody tr:last-child td:last-child {
+            border-bottom-right-radius: 12px;
+        }
+
+        /* Row header links */
+        .requirements-table tbody th a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .requirements-table tbody th a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+        }
+
+        /* Checkmark styles */
+        .check-icon {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            animation: check-pop 0.3s ease;
+        }
+
+        @keyframes check-pop {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* Conditional/warning asterisk styles */
+        .conditional-icon {
+            color: #ffc107;
+            font-size: 1.5rem;
+            animation: check-pop 0.3s ease;
+        }
+
+        /* Links within table cells */
+        .requirements-table tbody td a {
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .requirements-table tbody td a:hover {
+            transform: scale(1.15);
+            filter: brightness(1.2);
+        }
+
+        .review-icon {
+            color: #6f42c1;
+            font-size: 1.5rem;
+            animation: check-pop 0.3s ease;
+        }
+
+        .empty-cell {
+            color: #dee2e6;
+            font-size: 1.2rem;
+        }
+
+        /* =======================
+           LEGEND
+           ======================= */
+        .legend {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent-color);
+            text-align: center;
+        }
+
+        .legend h3 {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .legend-item {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .legend-item i {
+            margin-right: 0.5rem;
+        }
+
+        /* =======================
+           NAVIGATION
+           ======================= */
+        .nav-home {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-home a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-home a:hover {
+            background: white;
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* =======================
+           RESPONSIVE DESIGN
+           ======================= */
+
+        /* Large tablets and small desktops */
+        @media (max-width: 1200px) {
+            .requirements-table thead th {
+                width: 75px;
+                min-width: 75px;
+                padding: 1rem 0.6rem;
+            }
+
+            .requirements-table tbody th {
+                padding: 1rem 1rem;
+            }
+
+            .requirements-table tbody td {
+                padding: 1rem 0.6rem;
+            }
+        }
+
+        /* Medium tablets */
+        @media (max-width: 992px) {
+            .requirements-table {
+                font-size: 0.85rem;
+            }
+
+            .requirements-table thead th {
+                width: 65px;
+                min-width: 65px;
+                padding: 0.9rem 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            .requirements-table tbody th {
+                padding: 0.9rem 0.85rem;
+            }
+
+            .requirements-table tbody td {
+                padding: 0.9rem 0.5rem;
+            }
+
+            .check-icon,
+            .conditional-icon {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Small tablets and large phones */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .page-header {
+                padding: 1rem;
+            }
+
+            .header-card {
+                padding: 2rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .header-icon-area {
+                width: 70px;
+                height: 70px;
+            }
+
+            .header-icon-area i {
+                font-size: 2rem;
+            }
+
+            .header-text-area h1 {
+                font-size: 1.75rem;
+            }
+
+            .header-text-area .subtitle {
+                font-size: 1rem;
+            }
+
+            .table-container {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+
+            .requirements-table {
+                font-size: 0.75rem;
+            }
+
+            .requirements-table thead th {
+                width: 60px;
+                min-width: 60px;
+                padding: 0.75rem 0.4rem;
+                font-size: 0.75rem;
+            }
+
+            .requirements-table tbody th {
+                padding: 0.75rem 0.65rem;
+                padding-left: 0.85rem;
+            }
+
+            .requirements-table tbody td {
+                padding: 0.75rem 0.4rem;
+            }
+
+            .requirements-table thead th:first-child {
+                padding-left: 0.85rem;
+            }
+
+            .check-icon,
+            .conditional-icon {
+                font-size: 1.2rem;
+            }
+
+            .empty-cell {
+                font-size: 1rem;
+            }
+        }
+
+        /* =======================
+           PRINT CARDS (Hidden on screen)
+           ======================= */
+        .print-cards {
+            display: none;
+        }
+
+        /* =======================
+           PRINT STYLES
+           ======================= */
+        /* Tell the browser exactly how big the page is and the margins to use */
+        @page {
+            size: Letter portrait;      /* use A4 if you prefer */
+            margin: 0.5in;              /* adjust to taste */
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                padding-top: 0;
+            }
+
+            /* Remove everything except the print cards */
+            #navbar-placeholder,
+            .page-header,       /* hide the big header so only cards print */
+            .legend,
+            .table-container,
+            .nav-home {
+                display: none !important;
+            }
+
+            /* Make the printable area fit inside margins and center it */
+            html, body {
+                width: 8.5in;
+            }
+
+            .container {
+                max-width: none !important;
+                padding: 0 !important;
+                width: 100%;
+            }
+
+            /* Use inches so it reliably fits inside Letter (7.5in printable width with 0.5in margins) */
+            .print-cards {
+                display: block !important;
+                width: 7.25in;           /* comfortably inside 7.5in printable area */
+                margin: 0 auto;          /* centers on the page */
+            }
+
+            /* Never split cards across pages, keep them together */
+            .scenario-card {
+                border: 1px solid #000;
+                margin-bottom: 0.5rem;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                box-shadow: none !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* Keep the header with at least the first row, but allow body to flow */
+            .scenario-card-header {
+                background: #111 !important;
+                color: #fff !important;
+                padding: 8pt 10pt;
+                font-weight: 700;
+                font-size: 12pt;
+                border-bottom: 2px solid #000;
+                break-after: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .scenario-card-body {
+                padding: 0.5rem 1rem 0.75rem 1rem;
+                background: white;
+            }
+
+            .document-item {
+                display: flex;
+                justify-content: space-between;
+                padding: 4pt 0;
+                border-bottom: 1px dotted #ccc;
+                font-size: 10pt;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .document-item:last-child {
+                border-bottom: none;
+            }
+
+            .document-name {
+                font-weight: 500;
+                color: #000;
+                flex: 1;
+                padding-right: 1rem;
+            }
+
+            .document-status {
+                font-weight: 600;
+                white-space: nowrap;
+                color: #000;
+            }
+
+            .document-status.required {
+                color: #000;
+            }
+
+            .document-status.conditional {
+                color: #555;
+                font-style: italic;
+            }
+
+            .document-status.review {
+                color: #555;
+                font-style: italic;
+            }
+
+            .document-status.not-required {
+                color: #999;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <main class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="header-card">
+                <div class="header-icon-area">
+                    <i class="fas fa-list-check"></i>
+                </div>
+                <div class="header-text-area">
+                    <h1>Assessment & Paperwork Requirements Checklist</h1>
+                    <div class="subtitle">Quick reference guide for required documentation across different enrollment scenarios</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <h3><i class="fas fa-info-circle"></i> How to Use This Checklist</h3>
+            <div>
+                <span class="legend-item">
+                    <i class="fas fa-check-circle check-icon"></i>
+                    <span>= Required</span>
+                </span>
+                <span class="legend-item">
+                    <i class="fas fa-circle empty-cell"></i>
+                    <span>= Not Required</span>
+                </span>
+                <span class="legend-item">
+                    <i class="fa-solid fa-info review-icon"></i>
+                    <span>= Check File, Required if Out of Date</span>
+                </span>
+                <span class="legend-item">
+                    <i class="fas fa-asterisk conditional-icon"></i>
+                    <span>= Required Under Some Conditions</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Requirements Table -->
+        <div class="table-container">
+            <table class="requirements-table">
+                <thead>
+                    <tr>
+                        <th>Required Document/Action</th>
+                        <th><a href="/Entry/" target="_blank">Individual Newborn/Child<br>Entry</a></th>
+                        <th><a href="/Entry/" target="_blank">Individual Adult<br>Entry</a></th>
+                        <th>Family<br>Entry</th>
+                        <th><a href="/18/" target="_blank">Turned<br>18</a></th>
+                        <th><a href="/updates/" target="_blank">Update<br>(Income/Status)</a></th>
+                        <th>Quarterly<br>Check-in</th>
+                        <th>Enrollment<br>Anniversary</th>
+                        <th><a href="/Exit/" target="_blank">Individual Newborn/Child<br>Exit</a></th>
+                        <th><a href="/Exit/" target="_blank">Individual Adult<br>Exit</a></th>
+                        <th><a href="/Exit/" target="_blank">Family<br>Exit</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><a href="/assessments/" target="_blank">Child/Adult Assessment</a></th>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><a href="/updates/" target="_blank"><i class="fas fa-asterisk conditional-icon"></i></a></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <th><a href="/Occupancy Departure Guide.pdf" target="_blank">Occupancy/Departure Form</a></th>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <th><a href="/Exit from Homeless Housing Datasheet Guide2.pdf" target="_blank">Exit from Homeless Housing Datasheet</a></th>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <th><a href="/Fenn Jorstad.pdf" target="_blank">Fenn-Jorstad Self-Sufficiency Matrix</a></th>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><a href="/updates/" target="_blank"><i class="fas fa-asterisk conditional-icon"></i></a></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-asterisk conditional-icon"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <th><a href="/Housing Stability Plan.pdf" target="_blank">Housing Stability Plan</a></th>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                    </tr>
+                    <tr>
+                        <th><a href="/HMISROI.pdf" target="_blank">HMIS Release of Information (ROI)</a></th>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fa-solid fa-info review-icon"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                    </tr>
+                    <tr>
+                        <th><a href="/Housing-Hope-ROI.docx" target="_blank">Housing Hope ROI</a></th>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-asterisk conditional-icon"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fa-solid fa-info review-icon"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                    </tr>
+                    <tr>
+                        <th>Contact Data Team for Assistance</th>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-check-circle check-icon"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                        <td><i class="fas fa-circle empty-cell"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Print-only scenario cards (generated by JavaScript) -->
+        <div class="print-cards" id="print-cards"></div>
+
+        <!-- Navigation -->
+        <div class="nav-home">
+            <a href="/">← Return to Home</a>
+        </div>
+    </main>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Load external navbar -->
+    <script>
+        fetch('/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <!-- Generate print-friendly scenario cards -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const table = document.querySelector('.requirements-table');
+            const printCardsContainer = document.getElementById('print-cards');
+
+            if (!table || !printCardsContainer) return;
+
+            // Extract scenario headers (column headers, excluding first "Required Document/Action")
+            const headerCells = Array.from(table.querySelectorAll('thead th'));
+            const scenarios = headerCells.slice(1).map(th => {
+                // Clone and replace <br> with spaces to preserve proper spacing
+                const clone = th.cloneNode(true);
+                const brs = clone.querySelectorAll('br');
+                brs.forEach(br => br.replaceWith(' '));
+                // Extract text and normalize whitespace
+                return clone.textContent.replace(/\s+/g, ' ').trim();
+            });
+
+            // Extract document names and their status for each scenario
+            const documentRows = Array.from(table.querySelectorAll('tbody tr'));
+            const documents = documentRows.map(row => {
+                const docNameCell = row.querySelector('th');
+                const docName = docNameCell.textContent.trim();
+
+                // Get status for each scenario
+                const statusCells = Array.from(row.querySelectorAll('td'));
+                const statuses = statusCells.map(cell => {
+                    if (cell.querySelector('.check-icon')) {
+                        return { text: 'Required', class: 'required' };
+                    } else if (cell.querySelector('.conditional-icon')) {
+                        return { text: 'Conditionally Required', class: 'conditional' };
+                    } else if (cell.querySelector('.review-icon')) {
+                        return { text: 'Review if Out of Date', class: 'review' };
+                    } else {
+                        return { text: '-', class: 'not-required' };
+                    }
+                });
+
+                return { name: docName, statuses: statuses };
+            });
+
+            // Generate scenario cards
+            scenarios.forEach((scenario, scenarioIdx) => {
+                const card = document.createElement('div');
+                card.className = 'scenario-card';
+
+                const header = document.createElement('div');
+                header.className = 'scenario-card-header';
+                header.textContent = scenario;
+
+                const body = document.createElement('div');
+                body.className = 'scenario-card-body';
+
+                documents.forEach(doc => {
+                    const item = document.createElement('div');
+                    item.className = 'document-item';
+
+                    const name = document.createElement('div');
+                    name.className = 'document-name';
+                    name.textContent = doc.name;
+
+                    const status = document.createElement('div');
+                    status.className = `document-status ${doc.statuses[scenarioIdx].class}`;
+                    status.textContent = doc.statuses[scenarioIdx].text;
+
+                    item.appendChild(name);
+                    item.appendChild(status);
+                    body.appendChild(item);
+                });
+
+                card.appendChild(header);
+                card.appendChild(body);
+                printCardsContainer.appendChild(card);
+            });
+        });
+    </script>
+</body>
+</html>
