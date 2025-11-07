@@ -1,6 +1,8 @@
 <style type="text/css">
 p.half-height{margin:0;padding:0.5em 0;}
-.checklist-bulletin{font-family:Arial,sans-serif;max-width:700px;margin:20px auto;padding:0 15px;}
+.checklist-bulletin{font-family:Arial,sans-serif;max-width:100%;padding:0 15px;}
+.checklist-bulletin .sections-container{display:flex;gap:20px;justify-content:center;}
+.checklist-bulletin .section{flex:1;min-width:250px;max-width:350px;}
 .checklist-bulletin .scenario{background:#f5f5f5;border-left:4px solid #3498db;padding:8px 12px;margin:8px 0;}
 .checklist-bulletin .scenario h3{margin:0 0 6px 0;font-size:14px;color:#2c3e50;}
 .checklist-bulletin .scenario ul{margin:0;padding-left:18px;font-size:13px;line-height:1.4;}
@@ -8,25 +10,31 @@ p.half-height{margin:0;padding:0.5em 0;}
 .checklist-bulletin .cond{color:#f39c12;font-style:italic;}
 .checklist-bulletin .rev{color:#9b59b6;font-style:italic;}
 .checklist-bulletin h1{text-align:center;color:#2c3e50;font-size:20px;margin-bottom:10px;}
-.checklist-bulletin h2{font-size:16px;color:#34495e;margin:15px 0 8px 0;}
-.checklist-bulletin .legend{background:#ecf0f1;padding:10px;border-radius:4px;font-size:12px;margin-bottom:15px;}
+.checklist-bulletin h2{font-size:16px;color:#34495e;margin:8px 0;text-align:center;}
+.checklist-bulletin .legend{background:#ecf0f1;padding:10px;border-radius:4px;font-size:12px;margin-bottom:15px;text-align:center;}
 </style>
 <div class="checklist-bulletin">
 <h1>Assessment & Paperwork Requirements</h1>
 <div class="legend"><strong>Legend:</strong> <span class="req">✓ Required</span> | <span class="cond">* Conditional</span> | <span class="rev">⚠ Review if Out of Date</span></div>
+<div class="sections-container">
+<div class="section">
 <h2>ENTRY SCENARIOS</h2>
 <div class="scenario"><h3>Individual Newborn/Child Entry</h3><ul><li class="req">Child/Adult Assessment</li><li class="req">Occupancy/Departure Form</li><li class="req">HMIS ROI</li><li class="req">Housing Hope ROI</li><li class="req">Contact Data Team</li></ul></div>
 <div class="scenario"><h3>Individual Adult Entry</h3><ul><li class="req">Child/Adult Assessment</li><li class="req">Occupancy/Departure Form</li><li class="req">Fenn-Jorstad Self-Sufficiency Matrix</li><li class="req">HMIS ROI</li><li class="req">Housing Hope ROI</li><li class="req">Contact Data Team</li></ul></div>
 <div class="scenario"><h3>Family Entry</h3><ul><li class="cond">Child/Adult Assessment *</li><li class="req">Occupancy/Departure Form</li><li class="cond">Fenn-Jorstad Self-Sufficiency Matrix *</li><li class="req">Housing Stability Plan</li><li class="req">HMIS ROI</li><li class="req">Housing Hope ROI</li></ul></div>
 <div class="scenario"><h3>Turned 18</h3><ul><li class="req">Child/Adult Assessment</li><li class="req">Fenn-Jorstad Self-Sufficiency Matrix</li><li class="req">HMIS ROI</li><li class="cond">Housing Hope ROI *</li></ul></div>
-<p class="half-height"></p>
-<h2>UPDATE & CHECK-IN SCENARIOS</h2>
+</div>
+<div class="section">
+<h2>UPDATE & CHECK-IN</h2>
 <div class="scenario"><h3>Update (Income/Status)</h3><ul><li class="req">Child/Adult Assessment</li></ul></div>
 <div class="scenario"><h3>Quarterly Check-in</h3><ul><li class="req">Housing Stability Plan</li></ul></div>
 <div class="scenario"><h3>Enrollment Anniversary</h3><ul><li class="req">Child/Adult Assessment</li><li class="cond">Fenn-Jorstad Self-Sufficiency Matrix *</li><li class="rev">HMIS ROI ⚠</li><li class="rev">Housing Hope ROI ⚠</li></ul></div>
-<p class="half-height"></p>
+</div>
+<div class="section">
 <h2>EXIT SCENARIOS</h2>
 <div class="scenario"><h3>Individual Newborn/Child Exit</h3><ul><li class="req">Child/Adult Assessment</li><li class="req">Occupancy/Departure Form</li><li class="req">Exit from Homeless Housing Datasheet</li></ul></div>
 <div class="scenario"><h3>Individual Adult Exit</h3><ul><li class="req">Child/Adult Assessment</li><li class="req">Occupancy/Departure Form</li><li class="req">Exit from Homeless Housing Datasheet</li><li class="req">Fenn-Jorstad Self-Sufficiency Matrix</li></ul></div>
 <div class="scenario"><h3>Family Exit</h3><ul><li class="req">Child/Adult Assessment</li><li class="req">Occupancy/Departure Form</li><li class="req">Exit from Homeless Housing Datasheet</li><li class="req">Fenn-Jorstad Self-Sufficiency Matrix</li></ul></div>
+</div>
+</div>
 </div>
