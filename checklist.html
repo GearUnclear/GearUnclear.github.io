@@ -49,7 +49,7 @@
 
         .container {
             padding: 2rem 1rem;
-            max-width: 1600px;
+            max-width: 1400px;
         }
 
         /* =======================
@@ -292,6 +292,52 @@
         /* =======================
            RESPONSIVE DESIGN
            ======================= */
+
+        /* Large tablets and small desktops */
+        @media (max-width: 1200px) {
+            .requirements-table thead th {
+                width: 85px;
+                min-width: 85px;
+                padding: 1rem 0.75rem;
+            }
+
+            .requirements-table tbody th {
+                padding: 1rem 1.25rem;
+            }
+
+            .requirements-table tbody td {
+                padding: 1rem 0.75rem;
+            }
+        }
+
+        /* Medium tablets */
+        @media (max-width: 992px) {
+            .requirements-table {
+                font-size: 0.85rem;
+            }
+
+            .requirements-table thead th {
+                width: 75px;
+                min-width: 75px;
+                padding: 0.9rem 0.6rem;
+                font-size: 0.85rem;
+            }
+
+            .requirements-table tbody th {
+                padding: 0.9rem 1rem;
+            }
+
+            .requirements-table tbody td {
+                padding: 0.9rem 0.6rem;
+            }
+
+            .check-icon,
+            .conditional-icon {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Small tablets and large phones */
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
@@ -331,18 +377,36 @@
             }
 
             .requirements-table {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
 
-            .requirements-table thead th,
-            .requirements-table tbody th,
+            .requirements-table thead th {
+                width: 70px;
+                min-width: 70px;
+                padding: 0.75rem 0.5rem;
+                font-size: 0.75rem;
+            }
+
+            .requirements-table tbody th {
+                padding: 0.75rem 0.75rem;
+                padding-left: 1rem;
+            }
+
             .requirements-table tbody td {
                 padding: 0.75rem 0.5rem;
             }
 
-            .requirements-table thead th:first-child,
-            .requirements-table tbody th {
+            .requirements-table thead th:first-child {
                 padding-left: 1rem;
+            }
+
+            .check-icon,
+            .conditional-icon {
+                font-size: 1.2rem;
+            }
+
+            .empty-cell {
+                font-size: 1rem;
             }
         }
 
