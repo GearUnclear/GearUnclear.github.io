@@ -469,7 +469,6 @@
                 background: white !important;
                 color: black !important;
                 padding-top: 0;
-                animation: none;
             }
 
             #navbar-placeholder,
@@ -481,98 +480,20 @@
             .header-card,
             .table-container {
                 box-shadow: none !important;
-                border: 1px solid #bfbfbf !important;
+                border: 1px solid #ccc !important;
                 page-break-inside: avoid;
-                background: white !important;
-            }
-
-            .header-card {
-                border-radius: 8px;
-            }
-
-            .requirements-table,
-            .requirements-table thead,
-            .requirements-table tbody,
-            .requirements-table th,
-            .requirements-table td,
-            .requirements-table tr {
-                display: block;
-                width: 100%;
             }
 
             .requirements-table thead {
-                display: none;
-            }
-
-            .requirements-table tbody tr {
-                margin-bottom: 1.25rem;
-                border: 1px solid #000;
-                border-radius: 8px;
-                padding: 0.75rem 1rem;
-                background: white;
-                box-shadow: none;
-                page-break-inside: avoid;
+                background: #333 !important;
             }
 
             .requirements-table tbody th {
-                position: static;
-                left: auto;
-                border: none;
-                border-bottom: 1px solid #000;
-                border-right: none;
-                background: #111 !important;
-                color: #fff !important;
-                border-radius: 4px;
-                margin-bottom: 0.5rem;
-                padding: 0.5rem 0.75rem;
+                background: #f0f0f0 !important;
             }
 
-            .requirements-table tbody td {
-                border: none;
-                background: transparent;
-                padding: 0.2rem 0;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                font-size: 0.9rem;
-            }
-
-            .requirements-table tbody td > * {
-                display: none !important;
-            }
-
-            .requirements-table tbody td::before {
-                content: attr(data-label) ":";
-                font-weight: 600;
-                margin-right: 0.5rem;
-                flex: 0 0 55%;
-                max-width: 260px;
-            }
-
-            .requirements-table tbody td::after {
-                font-weight: 500;
-                text-transform: none;
-            }
-
-            .requirements-table tbody td[data-status="required"]::after {
-                content: "Required";
-            }
-
-            .requirements-table tbody td[data-status="conditional"]::after {
-                content: "Conditional";
-            }
-
-            .requirements-table tbody td[data-status="review"]::after {
-                content: "Review";
-            }
-
-            .requirements-table tbody td[data-status="not-required"]::after {
-                content: "Not Required";
-                color: #666;
-            }
-
-            .requirements-table tbody td[data-status="unknown"]::after {
-                content: "See Notes";
+            .check-icon {
+                color: #000 !important;
             }
         }
     </style>
@@ -761,40 +682,6 @@
             .then(data => {
                 document.getElementById('navbar-placeholder').innerHTML = data;
             });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const table = document.querySelector('.requirements-table');
-            if (!table) return;
-
-            const headers = Array.from(table.querySelectorAll('thead th')).map(th =>
-                th.textContent.replace(/\s+/g, ' ').trim()
-            );
-
-            table.querySelectorAll('tbody tr').forEach(row => {
-                const cells = row.querySelectorAll('td');
-                cells.forEach((cell, idx) => {
-                    const label = headers[idx + 1];
-                    if (label) {
-                        cell.setAttribute('data-label', label);
-                    }
-
-                    let status = 'not-required';
-                    if (cell.querySelector('.check-icon')) {
-                        status = 'required';
-                    } else if (cell.querySelector('.conditional-icon')) {
-                        status = 'conditional';
-                    } else if (cell.querySelector('.review-icon')) {
-                        status = 'review';
-                    } else if (!cell.querySelector('.empty-cell')) {
-                        status = 'unknown';
-                    }
-
-                    cell.setAttribute('data-status', status);
-                });
-            });
-        });
     </script>
 </body>
 </html>
