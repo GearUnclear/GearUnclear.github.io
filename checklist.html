@@ -471,6 +471,12 @@
         /* =======================
            PRINT STYLES
            ======================= */
+        /* Tell the browser exactly how big the page is and the margins to use */
+        @page {
+            size: Letter portrait;      /* use A4 if you prefer */
+            margin: 0.5in;              /* adjust to taste */
+        }
+
         @media print {
             body {
                 background: white !important;
@@ -478,44 +484,52 @@
                 padding-top: 0;
             }
 
+            /* Remove everything except the print cards */
             #navbar-placeholder,
-            .nav-home,
+            .page-header,       /* hide the big header so only cards print */
             .legend,
-            .table-container {
+            .table-container,
+            .nav-home {
                 display: none !important;
             }
 
-            .header-card {
-                box-shadow: none !important;
-                border: 1px solid #bfbfbf !important;
-                page-break-inside: avoid;
-                margin-bottom: 1.5rem;
+            /* Make the printable area fit inside margins and center it */
+            html, body {
+                width: 8.5in;
             }
 
-            /* Show print cards */
+            .container {
+                max-width: none !important;
+                padding: 0 !important;
+            }
+
+            /* Use inches so it reliably fits inside Letter (7.5in printable width with 0.5in margins) */
             .print-cards {
                 display: block !important;
-                max-width: 800px;
-                margin: 0 auto;
+                width: 7.25in;           /* comfortably inside 7.5in printable area */
+                margin: 0 auto;          /* centers on the page */
             }
 
+            /* Let cards break across pages so space is used more evenly */
             .scenario-card {
-                border: 2px solid #000;
-                border-radius: 8px;
-                margin-bottom: 1.5rem;
-                page-break-inside: avoid;
-                overflow: hidden;
+                border: 1px solid #000;
+                margin-bottom: 0.5rem;
+                page-break-inside: auto;     /* was avoid */
+                break-inside: auto;
+                box-shadow: none !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
 
+            /* Keep the header with at least the first row, but allow body to flow */
             .scenario-card-header {
                 background: #111 !important;
                 color: #fff !important;
-                padding: 0.75rem 1rem;
+                padding: 8pt 10pt;
                 font-weight: 700;
-                font-size: 1.1rem;
+                font-size: 12pt;
                 border-bottom: 2px solid #000;
+                break-after: avoid;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
@@ -528,9 +542,11 @@
             .document-item {
                 display: flex;
                 justify-content: space-between;
-                padding: 0.4rem 0;
+                padding: 4pt 0;
                 border-bottom: 1px dotted #ccc;
-                font-size: 0.95rem;
+                font-size: 10pt;
+                page-break-inside: avoid;
+                break-inside: avoid;
             }
 
             .document-item:last-child {
