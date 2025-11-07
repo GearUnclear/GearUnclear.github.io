@@ -505,15 +505,19 @@
                 margin-bottom: 1.5rem;
                 page-break-inside: avoid;
                 overflow: hidden;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
 
             .scenario-card-header {
-                background: #111;
-                color: #fff;
+                background: #111 !important;
+                color: #fff !important;
                 padding: 0.75rem 1rem;
                 font-weight: 700;
                 font-size: 1.1rem;
                 border-bottom: 2px solid #000;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
 
             .scenario-card-body {
@@ -766,8 +770,12 @@
             // Extract scenario headers (column headers, excluding first "Required Document/Action")
             const headerCells = Array.from(table.querySelectorAll('thead th'));
             const scenarios = headerCells.slice(1).map(th => {
-                // Extract text from potentially linked headers
-                return th.textContent.replace(/\s+/g, ' ').trim();
+                // Clone and replace <br> with spaces to preserve proper spacing
+                const clone = th.cloneNode(true);
+                const brs = clone.querySelectorAll('br');
+                brs.forEach(br => br.replaceWith(' '));
+                // Extract text and normalize whitespace
+                return clone.textContent.replace(/\s+/g, ' ').trim();
             });
 
             // Extract document names and their status for each scenario
