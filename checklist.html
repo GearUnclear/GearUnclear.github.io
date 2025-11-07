@@ -222,6 +222,21 @@
             border-bottom-right-radius: 12px;
         }
 
+        /* Row header links */
+        .requirements-table tbody th a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .requirements-table tbody th a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+        }
+
         /* Checkmark styles */
         .check-icon {
             color: var(--accent-color);
@@ -544,7 +559,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th>Child/Adult Assessment</th>
+                        <th><a href="/assessments/">Child/Adult Assessment</a></th>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                         <td><a href="/updates/"><i class="fas fa-asterisk conditional-icon"></i></a></td>
@@ -557,7 +572,7 @@
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                     </tr>
                     <tr>
-                        <th>Occupancy/Departure Form</th>
+                        <th><a href="/Occupancy Departure Guide.pdf">Occupancy/Departure Form</a></th>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
@@ -570,7 +585,7 @@
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                     </tr>
                     <tr>
-                        <th>Exit from Homeless Housing Datasheet</th>
+                        <th><a href="/Exit from Homeless Housing Datasheet Guide2.pdf">Exit from Homeless Housing Datasheet</a></th>
                         <td><i class="fas fa-circle empty-cell"></i></td>
                         <td><i class="fas fa-circle empty-cell"></i></td>
                         <td><i class="fas fa-circle empty-cell"></i></td>
@@ -583,7 +598,7 @@
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                     </tr>
                     <tr>
-                        <th>Fenn-Jorstad Self-Sufficiency Matrix</th>
+                        <th><a href="/Fenn Jorstad.pdf">Fenn-Jorstad Self-Sufficiency Matrix</a></th>
                         <td><i class="fas fa-circle empty-cell"></i></td>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                         <td><a href="/updates/"><i class="fas fa-asterisk conditional-icon"></i></a></td>
@@ -596,7 +611,7 @@
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                     </tr>
                     <tr>
-                        <th>Housing Stability Plan</th>
+                        <th><a href="/Housing Stability Plan.pdf">Housing Stability Plan</a></th>
                         <td><i class="fas fa-circle empty-cell"></i></td>
                         <td><i class="fas fa-circle empty-cell"></i></td>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
@@ -609,7 +624,7 @@
                         <td><i class="fas fa-circle empty-cell"></i></td>
                     </tr>
                     <tr>
-                        <th>HMIS Release of Information (ROI)</th>
+                        <th><a href="/HMISROI.pdf">HMIS Release of Information (ROI)</a></th>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
@@ -622,7 +637,7 @@
                         <td><i class="fas fa-circle empty-cell"></i></td>
                     </tr>
                     <tr>
-                        <th>Housing Hope ROI</th>
+                        <th><a href="/Housing-Hope-ROI.docx">Housing Hope ROI</a></th>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
