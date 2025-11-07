@@ -501,6 +501,7 @@
             .container {
                 max-width: none !important;
                 padding: 0 !important;
+                width: 100%;
             }
 
             /* Use inches so it reliably fits inside Letter (7.5in printable width with 0.5in margins) */
@@ -510,12 +511,12 @@
                 margin: 0 auto;          /* centers on the page */
             }
 
-            /* Let cards break across pages so space is used more evenly */
+            /* Never split cards across pages, keep them together */
             .scenario-card {
                 border: 1px solid #000;
                 margin-bottom: 0.5rem;
-                page-break-inside: auto;     /* was avoid */
-                break-inside: auto;
+                page-break-inside: avoid;
+                break-inside: avoid;
                 box-shadow: none !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
