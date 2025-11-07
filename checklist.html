@@ -162,6 +162,23 @@
             border-top-right-radius: 12px;
         }
 
+        /* Table header links */
+        .requirements-table thead th a {
+            color: rgba(255, 255, 255, 0.95);
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.5);
+            text-underline-offset: 3px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .requirements-table thead th a:hover {
+            color: #ffffff;
+            text-decoration-color: rgba(255, 255, 255, 0.9);
+            transform: translateY(-1px);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
         .requirements-table tbody tr {
             transition: all 0.2s ease;
         }
@@ -223,6 +240,18 @@
             color: #ffc107;
             font-size: 1.5rem;
             animation: check-pop 0.3s ease;
+        }
+
+        /* Links within table cells */
+        .requirements-table tbody td a {
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .requirements-table tbody td a:hover {
+            transform: scale(1.15);
+            filter: brightness(1.2);
         }
 
         .review-icon {
@@ -501,16 +530,16 @@
                 <thead>
                     <tr>
                         <th>Required Document/Action</th>
-                        <th>Individual Newborn/Child<br>Entry</th>
-                        <th>Individual Adult<br>Entry</th>
+                        <th><a href="/Entry/">Individual Newborn/Child<br>Entry</a></th>
+                        <th><a href="/Entry/">Individual Adult<br>Entry</a></th>
                         <th>Family<br>Entry</th>
-                        <th>Turned<br>18</th>
-                        <th>Update<br>(Income/Status)</th>
+                        <th><a href="/18/">Turned<br>18</a></th>
+                        <th><a href="/updates/">Update<br>(Income/Status)</a></th>
                         <th>Quarterly<br>Check-in</th>
                         <th>Enrollment<br>Anniversary</th>
-                        <th>Individual Newborn/Child<br>Exit</th>
-                        <th>Individual Adult<br>Exit</th>
-                        <th>Family<br>Exit</th>
+                        <th><a href="/Exit/">Individual Newborn/Child<br>Exit</a></th>
+                        <th><a href="/Exit/">Individual Adult<br>Exit</a></th>
+                        <th><a href="/Exit/">Family<br>Exit</a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -518,7 +547,7 @@
                         <th>Child/Adult Assessment</th>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
-                        <td><i class="fas fa-asterisk conditional-icon"></i></td>
+                        <td><a href="/updates/"><i class="fas fa-asterisk conditional-icon"></i></a></td>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                         <td><i class="fas fa-circle empty-cell"></i></td>
@@ -557,7 +586,7 @@
                         <th>Fenn-Jorstad Self-Sufficiency Matrix</th>
                         <td><i class="fas fa-circle empty-cell"></i></td>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
-                        <td><i class="fas fa-asterisk conditional-icon"></i></td>
+                        <td><a href="/updates/"><i class="fas fa-asterisk conditional-icon"></i></a></td>
                         <td><i class="fas fa-check-circle check-icon"></i></td>
                         <td><i class="fas fa-circle empty-cell"></i></td>
                         <td><i class="fas fa-circle empty-cell"></i></td>
