@@ -1,0 +1,3289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Library</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+body {
+    padding-top: 5rem;
+    background: linear-gradient(to right, #4A90E2, #007AFF);
+    background-attachment: fixed;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    min-height: 100vh;
+}
+.container {
+    padding: 2rem 1rem;
+    max-width: 1000px;
+}
+
+/* Page header — copied from gearunclear.github.io index */
+.page-header { margin-bottom: 2rem; padding: 2rem; }
+.header-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.header-icon-area {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #4A90E2, #007AFF);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+.header-icon-area i { font-size: 2.2rem; color: white; }
+.header-text-area { flex: 1; }
+.header-text-area h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+}
+.header-text-area .subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #4a5568;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Category TOC — pill nav with count badges */
+.category-toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    background: white;
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    border-left: 5px solid #007bff;
+}
+.category-toc a {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .45rem .9rem;
+    border-radius: 999px;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: .95rem;
+    transition: all 0.3s ease;
+}
+.category-toc a:hover {
+    background: #e3f2fd;
+    border-color: #007bff;
+    color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+.category-toc a .count {
+    background: #007bff;
+    color: white;
+    border-radius: 999px;
+    padding: 0 .55rem;
+    font-size: .8rem;
+    font-weight: 600;
+    min-width: 1.5rem;
+    text-align: center;
+}
+
+/* Per-category section heading sits on the gradient — render in white */
+.category-section { margin-top: 2.75rem; scroll-margin-top: 6rem; }
+.category-heading {
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    font-size: 1.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: 1.25rem;
+    padding-left: .25rem;
+}
+.category-heading i { font-size: 1.5rem; }
+.category-heading .category-count {
+    color: white;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 999px;
+    padding: 0 .75rem;
+    font-size: .9rem;
+    font-weight: 600;
+    margin-left: auto;
+    text-shadow: none;
+}
+
+/* Resource card — clones .process-step from /Prog/index.html */
+.resource-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 1rem 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid #007bff;
+}
+.resource-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.resource-head { margin-bottom: 1rem; }
+.resource-card h3 {
+    color: #007bff;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0 0 .35rem 0;
+    line-height: 1.3;
+}
+.resource-meta {
+    color: #495057;
+    font-size: .95rem;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem;
+}
+.resource-meta time { font-weight: 500; }
+.badge-maybe {
+    display: inline-block;
+    background: #ffc107;
+    color: #856404;
+    font-size: .72rem;
+    font-weight: 700;
+    padding: .15rem .65rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.resource-body {
+    color: #495057;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin-bottom: 1rem;
+}
+.resource-body-more { margin-top: .5rem; }
+.resource-body-more summary {
+    color: #007bff;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: .9rem;
+    list-style: none;
+}
+.resource-body-more summary::-webkit-details-marker { display: none; }
+.resource-body-more summary::before { content: "▸ "; }
+.resource-body-more[open] summary::before { content: "▾ "; }
+.resource-body-more summary:hover { text-decoration: underline; }
+.resource-body-more span { display: block; margin-top: .5rem; white-space: pre-wrap; }
+
+.resource-images {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.resource-images img {
+    display: block;
+    max-width: 100%;
+    max-height: 360px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: #f8f9fa;
+}
+.resource-images-more summary {
+    color: #007bff;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: .9rem;
+    margin-bottom: .75rem;
+    list-style: none;
+}
+.resource-images-more summary::-webkit-details-marker { display: none; }
+.resource-images-more summary::before { content: "▸ "; }
+.resource-images-more[open] summary::before { content: "▾ "; }
+.resource-images-more summary:hover { text-decoration: underline; }
+.resource-images-more img { margin-top: 1rem; }
+
+.resource-attachments {
+    display: grid;
+    gap: .75rem;
+    margin-top: 1rem;
+}
+.document-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.document-link:hover {
+    background: #e3f2fd;
+    border-color: #007bff;
+    color: #0056b3;
+    transform: translateX(5px);
+    text-decoration: none;
+}
+.document-link i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    color: #007bff;
+    flex-shrink: 0;
+}
+.document-link span { word-break: break-all; }
+
+.resource-reason {
+    margin: 1rem 0 0 0;
+    font-size: .9rem;
+    color: #856404;
+    padding: .65rem .9rem;
+    background: #fffbeb;
+    border-radius: 8px;
+    border-left: 3px solid #ffc107;
+}
+
+/* Empty state */
+.empty-state {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-left: 5px solid #ffc107;
+    color: #856404;
+    text-align: center;
+}
+
+/* Footer "back home" — copied from /Prog/index.html .nav-home */
+.nav-home {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+}
+.nav-home a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid white;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+}
+.nav-home a:hover {
+    background: white;
+    color: #007bff;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .container { padding: 1rem; }
+    .page-header { padding: 1rem; }
+    .header-card {
+        padding: 2rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    .header-icon-area { width: 70px; height: 70px; }
+    .header-icon-area i { font-size: 2rem; }
+    .header-text-area h1 { font-size: 1.75rem; }
+    .header-text-area .subtitle { font-size: 1rem; }
+    .resource-card { padding: 1.5rem; }
+    .resource-card h3 { font-size: 1.2rem; }
+    .category-heading { font-size: 1.4rem; flex-wrap: wrap; }
+    .category-heading .category-count { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="container">
+        <div class="page-header">
+            <div class="header-card">
+                <div class="header-icon-area">
+                    <i class="fas fa-folder-open"></i>
+                </div>
+                <div class="header-text-area">
+                    <h1>Resource Library</h1>
+                    <div class="subtitle">84 resources sorted by category, refreshed Apr 29, 2026.</div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="category-toc">
+  <a href="#cat-housing-and-shelter"><span>Housing &amp; Shelter</span><span class="count">8</span></a>
+  <a href="#cat-food-and-nutrition"><span>Food &amp; Nutrition</span><span class="count">6</span></a>
+  <a href="#cat-healthcare-and-medical"><span>Healthcare &amp; Medical</span><span class="count">1</span></a>
+  <a href="#cat-mental-health-and-crisis-support"><span>Mental Health &amp; Crisis Support</span><span class="count">6</span></a>
+  <a href="#cat-substance-use-and-recovery"><span>Substance Use &amp; Recovery</span><span class="count">6</span></a>
+  <a href="#cat-family-children-and-parenting"><span>Family, Children &amp; Parenting</span><span class="count">7</span></a>
+  <a href="#cat-education-and-employment"><span>Education &amp; Employment</span><span class="count">8</span></a>
+  <a href="#cat-financial-assistance-and-benefits"><span>Financial Assistance &amp; Benefits</span><span class="count">11</span></a>
+  <a href="#cat-transportation"><span>Transportation</span><span class="count">4</span></a>
+  <a href="#cat-domestic-violence-and-safety"><span>Domestic Violence &amp; Safety</span><span class="count">1</span></a>
+  <a href="#cat-veterans-services"><span>Veterans Services</span><span class="count">4</span></a>
+  <a href="#cat-trainings-and-events"><span>Trainings &amp; Events</span><span class="count">12</span></a>
+  <a href="#cat-community-engagement-and-donations"><span>Community Engagement &amp; Donations</span><span class="count">2</span></a>
+  <a href="#cat-other"><span>Other</span><span class="count">8</span></a>
+</nav>
+<section id="cat-housing-and-shelter" class="category-section">
+  <h2 class="category-heading"><i class="fas fa-house"></i><span>Housing &amp; Shelter</span><span class="category-count">8</span></h2>
+<article class="resource-card" id="rec-08be3d04388a">
+  <header class="resource-head">
+    <h3>Three New HUD Rules that Could Increase Family Homelessness: Summary + Ways to Take Action</h3>
+    <p class="resource-meta">
+      <time>Apr 15, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    https://schoolhouseconnection.org/article/three-new-hud-rules-that-could-increase-family-homelessness &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fschoolhouseconnection.org%2Farticle%2Fthree-new-hud-rules-that-could-increase-family-homelessness&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C9084682f15554ff28aeb08de9af8a53e%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639118589871611170%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=4QnyK7mw2EQjttl0%2FvTpQjVdsNs%2BCO3XZL131K%2B5%2B
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>E0%3D&amp;reserved=0&gt;
+Sharing the information 😀 Denise
+Denise Hollenbeck
+425.330.0178</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-ff62f19ef4f7">
+  <header class="resource-head">
+    <h3>Three New HUD Rules that Could Increase Family Homelessness: Summary + Ways to Take Action</h3>
+    <p class="resource-meta">
+      <time>Apr 09, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    https://schoolhouseconnection.org/article/three-new-hud-rules-that-could-increase-family-homelessness &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fschoolhouseconnection.org%2Farticle%2Fthree-new-hud-rules-that-could-increase-family-homelessness&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C4dbb976aca094a4e098b08de9642ff89%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639113411655834412%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=vpbIBcBg49zsxMHK4kXkOJrIR%2FahTARCOJgpKPzNvsw%3D&amp;
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>reserved=0&gt;
+Sharing the information 😀 Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Faka.ms%2FAAb9ysg&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C4dbb976aca094a4e098b08de9642ff89%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639113411655870339%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=BiRp%2FpDT6539DS0HEgPyyZVRQ8WrCf%2FYflVofnBdseQ%3D&amp;reserved=0&gt;</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-ec5fc6e4014f">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Need Flood Cleanup Help? Crisis Cleanup Can Connect You with Volunteers</h3>
+    <p class="resource-meta">
+      <time>Dec 22, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Shantel Harris &lt;Shantel.Harris@p-h-s.com&gt;
+Sent: Monday, December 22, 2025 7:33:06 AM
+To: Shantel Harris &lt;Shantel.Harris@p-h-s.com&gt;
+Subject: [External Sender]Need Flood Cleanup Help? Crisis Cleanup Can Connect You with Volunteers
+Crisis Cleanup -- www.crisiscleanup.org &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fus-west-2.protection.sophos.com%2F%3Fd%3Dcrisiscleanup.org%26u%3DaHR0cDovL3d3dy5jcmlzaXNjbGVhbnVwLm9yZy8%3D%26i%3DNjRhYzU4Zjk2ZGU1ODQ3NzVjMTNjYzRi%26t%3DMENlbnp4UnJ
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ITW5lemhWS0R5SHZUd1JqTEVmQms1aWZpd2hoS3Via2plQT0%3D%26h%3De0984125afa34d6f8900afa48c1937f8%26s%3DAVNPUEhUT0NFTkNSWVBUSVYyf78xGsZY6jlV12R8ZDU4o18dqzHV4V_zNhWrboh7GA&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C1a2d137d9dc34475fa6608de41713b64%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639020151774532258%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=CFTEhNe1Z%2BuHC67CRjxc1LiE%2FQlgYMx5x8ucnUTDgDQ%3D&amp;reserved=0&gt;   -- can connect you with volunteers from local relief organizations, community groups, a</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/ec5fc6e4014f/image001.png" loading="lazy" alt="">
+    <img src="assets/ec5fc6e4014f/image002.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>4 more images</summary>
+      <img src="assets/ec5fc6e4014f/image003.png" loading="lazy" alt="">
+      <img src="assets/ec5fc6e4014f/image004.png" loading="lazy" alt="">
+      <img src="assets/ec5fc6e4014f/Crises Cleanup _p1.png" loading="lazy" alt="">
+      <img src="assets/ec5fc6e4014f/Crises Cleanup.jpg" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/ec5fc6e4014f/Crises Cleanup .pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Crises Cleanup .pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-a132f996bc33">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]CRC Community Resource Guide Update: Flood &amp; Cold Weather Resources</h3>
+    <p class="resource-meta">
+      <time>Dec 15, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resources. It looks like Carnegie Resource Center will be changing things up a bit. I will continue to forward these as I receive them 🙂 Denise
+Denise Hollenbeck, B.A.
+Housing Hope
+Family Support Coach
+Pronouns: she/her
+(425) 330-0178 denisehollenbeck@housinghope.org &lt;mailto:denisehollenbeck@housinghope.org&gt;
+5830 Evergreen Way, Everett, WA 98203
+www.housinghope.org &lt;https://nam11.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.housinghope.org%2F&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C7a8c275ff52b4ac68d8908de3c41e52f%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C63
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>9014451418741506%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=XyASAnS65YQ1RGIvvF3NN%2BcIhDJgiiIgq0bHtnBwhCI%3D&amp;reserved=0&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain confidential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+_____</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/a132f996bc33/image001.png" loading="lazy" alt="">
+    <img src="assets/a132f996bc33/image002.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>5 more images</summary>
+      <img src="assets/a132f996bc33/image003.png" loading="lazy" alt="">
+      <img src="assets/a132f996bc33/image004.png" loading="lazy" alt="">
+      <img src="assets/a132f996bc33/CRC Community Resource Guide (December 2025)-Revised_p1.png" loading="lazy" alt="">
+      <img src="assets/a132f996bc33/CRC Community Resource Guide (December 2025)-Revised_p2.png" loading="lazy" alt="">
+      <img src="assets/a132f996bc33/CRC Community Resource Guide (December 2025)-Revised_p3.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/a132f996bc33/CRC Community Resource Guide (December 2025)-Revised.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>CRC Community Resource Guide (December 2025)-Revised.pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-73e007d92ed3">
+  <header class="resource-head">
+    <h3>Flood Safety and Cold Weather Shelter flyers</h3>
+    <p class="resource-meta">
+      <time>Dec 11, 2025</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 🙂Denise
+Denise Hollenbeck, B.A.
+Housing Hope
+Family Support Coach
+Pronouns: she/her
+(425) 330-0178 denisehollenbeck@housinghope.org &lt;mailto:denisehollenbeck@housinghope.org&gt;
+5830 Evergreen Way, Everett, WA 98203
+www.housinghope.org &lt;https://nam11.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.housinghope.org%2F&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C02a1ebc832704eaa5c2508de38f7377e%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639010832061973226%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjo
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>yfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=cXs%2BRDCzfaeF6QxUZeX3Ln4AfKHE0x2OKLPnehHkji0%3D&amp;reserved=0&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain confidential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+ &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.housinghope.org%2Fyear-end&amp;data=05%7C02%7CDaneWagenhoffer</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/73e007d92ed3/Flood Safety Flyer_p1.png" loading="lazy" alt="">
+    <img src="assets/73e007d92ed3/Cold_Weather_Shelter_Flyer_11.25_p1.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>1 more image</summary>
+      <img src="assets/73e007d92ed3/Cold_Weather_Shelter_Flyer_11.25_p2.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/73e007d92ed3/Flood Safety Flyer.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Flood Safety Flyer.pdf</span>
+    </a>
+    <a class="document-link" href="assets/73e007d92ed3/Cold_Weather_Shelter_Flyer_11.25.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Cold_Weather_Shelter_Flyer_11.25.pdf</span>
+    </a>
+  </div>
+  <p class="resource-reason"><em>LLM note: The cold weather shelter season (November-March) has ended, but the flyer contains contact information and flood safety tips that may still be useful.</em></p>
+</article>
+<article class="resource-card" id="rec-9b3225c7c6dd">
+  <header class="resource-head">
+    <h3>Madison Family Shelter </h3>
+    <p class="resource-meta">
+      <time>May 21, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😀 Denise
+https://www.heraldnet.com/news/madison-family-shelter-reopens-after-hiatus/?utm_source=WhatCounts%20Email&amp;utm_medium=Morning%20HeadlinesEvent%20-%20Subs&amp;utm_campaign=Morning%20Headlines%20-%20Subs
+Denise Hollenbeck
+425.330.0178
+  </div>
+</article>
+<article class="resource-card" id="rec-778c335015fe">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Updated Area Median Income</h3>
+    <p class="resource-meta">
+      <time>Apr 08, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😀 Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+________________________________
+From: Morelli, Carmela &lt;Carmela.Morelli@co.snohomish.wa.us&gt;
+Sent: Tuesday, April 8, 2025 10:16:22 AM
+To: adesvignelee@ywcaworks.org &lt;adesvignelee@ywcaworks.org&gt;; afrye@ywcaworks.org &lt;afrye@ywcaworks.org&gt;; agladden@ywcaworks.org &lt;agladden@ywcaworks.org&gt;; Alison Ahlgrim &lt;AlisonA@ccsww.org&gt;; Alyssa Lopez &lt;ALYSSALOPEZ@HOUSINGHOPE.ORG&gt;; Amoruso, Amanda &lt;Amanda.Amoruso@co.snohomish.wa.us&gt;; Amanda Slingluff &lt;AMANDASLINGL
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>UFF@HOPEWRKS.ORG&gt;; Angela Pride &lt;angelapride@housinghope.org&gt;; agrassfield@ywcaworks.org &lt;agrassfield@ywcaworks.org&gt;; Briana Johnson &lt;bjohnson@ywcaworks.org&gt;; Charley Bielawski &lt;CharleyBielawski@housinghope.org&gt;; Christine Pfiester &lt;ChristinePfiester@housinghope.org&gt;; cjefferson@ywcaworks.org &lt;cjefferson@ywcaworks.org&gt;; &#x27;coryk@ccsww.org&#x27; &lt;coryk@ccsww.org&gt;; Dane Wagenhoffer &lt;danewagenhoffer@housinghope.org&gt;; dcook@ccsww.org &lt;dcook@ccsww.org&gt;; Debbie McBrayer &lt;debbiemcbrayer@housinghope.org&gt;; Denise Hollenbeck &lt;DeniseHollenbeck@housinghope.org&gt;; Gary Strong &lt;gstrong@ywcaworks.org&gt;; Glendy Fresco</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-bdfa48545aeb">
+  <header class="resource-head">
+    <h3>Hunthausen-Flyer-CCS</h3>
+    <p class="resource-meta">
+      <time>Mar 17, 2025</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 🙂 Denise
+Denise Hollenbeck
+Child and Family Specialist
+t. 425.330.0178
+housinghope.org &lt;https://www.housinghope.org/&gt;
+&lt;https://www.housinghope.org/&gt; 5830 Evergreen Way, Everett, WA 98203
+denisehollenbeck@ &lt;mailto:timothyjackson@housinghope.org&gt; housinghope.org &lt;mailto:timothyjackson@housinghope.org&gt;
+www.isacollaborative.org &lt;http://www.isacollaborative.org/&gt;
+ &lt;http://facebook.com/housinghope&gt;  &lt;http://instagram.com/housinghope1987&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain confide
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ntial and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: Denise Hollenbeck &lt;DeniseHollenbeck@housinghope.org&gt;
+Sent: Monday, March 17, 2025 9:40 AM
+To: Denise Hollenbeck &lt;DeniseHollenbeck@housinghope.org&gt;
+Subject: I am sharing &#x27;Hunthausen-Flyer-CCS-1&#x27; with you
+One app for all your Word, Excel, PowerPoint and PDF needs. Get the Microsoft 365 app: https://aka.ms/GetM365
+Sent from </span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/bdfa48545aeb/Hunthausen-Flyer-CCS-1_p1.png" loading="lazy" alt="">
+    <img src="assets/bdfa48545aeb/Outlook-Logo, comp.png" loading="lazy" alt="">
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/bdfa48545aeb/Hunthausen-Flyer-CCS-1.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Hunthausen-Flyer-CCS-1.pdf</span>
+    </a>
+  </div>
+  <p class="resource-reason"><em>LLM note: The flyer offers move-in cost assistance for homeless individuals, but the email sharing it is over 12 months old.</em></p>
+</article>
+</section>
+<section id="cat-food-and-nutrition" class="category-section">
+  <h2 class="category-heading"><i class="fas fa-utensils"></i><span>Food &amp; Nutrition</span><span class="category-count">6</span></h2>
+<article class="resource-card" id="rec-abd47fb0ec3b">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]D-SNAP Update Partner Letter</h3>
+    <p class="resource-meta">
+      <time>Apr 28, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Tuesday, April 28, 2026 3:03:21 PM
+To: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Subject: [External Sender]D-SNAP Update Partner Letter
+Sharing with the LPA, thank you!
+If you would like to be removed from receiving LPA related emails, please use this email link: Unsubscribe &lt;mailto:r2snocolpa@stateofwa.mail.onmicrosoft.com?subject=Please%20Remove%20Me&gt;
+Nicholle Smith &amp; Jessica Corpuel, co-chairs 2026-2027
+Snohomish County LPA
+Hi,
+The attached letter was 
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>shared with partners that are included in the ESA partner and advocate distribution lists and separately with tribal leaders. Please share with your local partners and feel free to use the email body below. Thanks! Josie
+Dear interested parties and community partners,
+The Community Services Division is working to secure federal disaster assistance for Washington state following the December 2025 storms. Please see the attached letter for an update on the potential implementation of Disaster Supplemental Nutrition Assistance Program, or D-SNAP, to support affected communities.
+Thank you.</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/abd47fb0ec3b/D-SNAP Status Update Partner Letter_p1.png" loading="lazy" alt="">
+    <img src="assets/abd47fb0ec3b/D-SNAP Status Update Partner Letter_p2.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>1 more image</summary>
+      <img src="assets/abd47fb0ec3b/D-SNAP Status Update Partner Letter_p3.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/abd47fb0ec3b/D-SNAP Status Update Partner Letter.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>D-SNAP Status Update Partner Letter.pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-8b32040f1d6e">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Fwd: Help us reach 100,000 people today with SNAP information</h3>
+    <p class="resource-meta">
+      <time>Nov 03, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 🙂 Denise
+Denise Hollenbeck, B.A.
+Housing Hope
+Family Support Coach
+Pronouns: she/her
+(425) 330-0178 denisehollenbeck@housinghope.org &lt;mailto:denisehollenbeck@housinghope.org&gt;
+5830 Evergreen Way, Everett, WA 98203
+www.housinghope.org &lt;http://www.housinghope.org/&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain confidential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sende
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>r by reply email and destroy all copies of the original message.
+On Sat Nov 01 15:43:50 PDT 2025 Secretary NAACP Snohomish County wrote:
+FYI
+Important SNAP information, and related resources for the whole community.
+Best regards,
+Marcia Miller
+Secretary
+NAACP Snohomish County (10AA-B)
+The mission of the Snohomish County Branch for the Advancement of Colored People is to ensure the political, educational, social, and economic equality of rights of all persons of Snohomish County and to eliminate racial hatred and racial discrimination.
+From:
+David Coven &lt;
+david@scholarfundwa.org &lt;mailto:david@s</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/8b32040f1d6e/image001.jpg" loading="lazy" alt="">
+  </div>
+</article>
+<article class="resource-card" id="rec-12e354ad1f30">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Washington State Department of Health Weekly Digest Bulletin</h3>
+    <p class="resource-meta">
+      <time>Oct 06, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😀 Denise
+As always, if you are one of my current or former clients and you have questions, please give me a call!
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: WA Department of Health &lt;waDOH@public.govdelivery.com&gt;
+Sent: Sunday, October 5, 2025 10:44:54 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Washington State Department of Health Weekly Digest Bulletin
+ &lt;https://public.govdelivery.com/system/images/59987/original/WADOH_banner-new.png&gt;
+FVIP Newsletter - September 2025
+09/26/2025
+	 &lt;https://content.govd
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>elivery.com/attachments/fancy_images/WADOH/2021/08/4796836/3675810/fvip-govdelivery-header-final_crop.jpg&gt;
+________________________________
+FVIP Program Newsletter - September 2025
+Welcome to the Washington State Department of Health’s (DOH) Fruit and Vegetable Incentives Program &lt;https://links-2.govdelivery.com/CL0/https:%2F%2Fwww.doh.wa.gov%2FForPublicHealthandHealthcareProviders%2FPublicHealthSystemResourcesandServices%2FFunding%2FFruitandVegetableIncentivesProgram/1/01010199b579fc2c-d5bb1920-708c-4f4b-9373-510fa4e9bb62-000000/ZUpHgKyMt0y05HJW54bS2HXwXrnTWnmLq8haPPGbfs4=425&gt;  quarterly news</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-462a41a13754">
+  <header class="resource-head">
+    <h3>Nutrition program for seniors </h3>
+    <p class="resource-meta">
+      <time>Apr 13, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 🙂 Denise
+https://www.snohomishcountywa.gov/1002/Nutrition-Programs
+Nutrition Programs | Snohomish County, WA - Official Website &lt;https://www.snohomishcountywa.gov/1002/Nutrition-Programs&gt;
+CONGREGATE NUTRITION. Meals that are served in a group setting that allows for socialization are called congregate meals. Eligibility is established for any person 60 years of age or older and spouse; volunteers at the meal site; and handicapped or disabled individuals under the age of 60 who reside with an eligible participant.
+www.snohomishcountywa.gov
+Denise Hollenbeck
+Child and Family
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span> Specialist
+t. 425.330.0178
+housinghope.org &lt;https://www.housinghope.org/&gt;
+5830 Evergreen Way, Everett, WA 98203
+denisehollenbeck@ &lt;mailto:timothyjackson@housinghope.org&gt; housinghope.org &lt;mailto:timothyjackson@housinghope.org&gt;
+www.isacollaborative.org &lt;http://www.isacollaborative.org/&gt;
+ &lt;http://facebook.com/housinghope&gt;  &lt;http://instagram.com/housinghope1987&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain confidential and/or privileged information. Any unauthorized review, use, disclosure, or distribution </span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/462a41a13754/image.png" loading="lazy" alt="">
+  </div>
+</article>
+<article class="resource-card" id="rec-34447cf598ce">
+  <header class="resource-head">
+    <h3>Fwd: [External Sender]FW: On behalf of Brice Montgomery, Interim CSD Director: Replacement of Food Benefits Due to Household Misfortune or Disaster</h3>
+    <p class="resource-meta">
+      <time>Aug 06, 2024</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😀 Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Tuesday, August 6, 2024 10:41:45 AM
+Subject: [External Sender]FW: On behalf of Brice Montgomery, Interim CSD Director: Replacement of Food Benefits Due to Household Misfortune or Disaster
+Sharing with Snohomish County LPA
+Danielle Olson/Alderwood CSO Administrator/Community Services Division
+Economic Services Administration
+Washington State Department of Social and 
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>Health Services
+(O) 425 977 6405  olsonde@dshs.wa.gov &lt;mailto:olsonde@dshs.wa.gov&gt;
+Cell 206-773-7389
+Transforming Lives
+From: Jordan, Marcy (DSHS/ESA/CSD) &lt;marcy.jordan@dshs.wa.gov &lt;mailto:marcy.jordan@dshs.wa.gov&gt; &gt;
+Sent: Tuesday, August 6, 2024 10:33 AM
+Subject: Fw: On behalf of Brice Montgomery, Interim CSD Director: Replacement of Food Benefits Due to Household Misfortune or Disaster
+Please share with your networks
+Thank you
+Marcy Jordan
+Local Planning Area Partnerships Program Manager
+(O/C) 253.778.2438 | marcy.jordan@dshs.wa.gov &lt;mailto:marcy.jordan@dshs.wa.gov&gt;
+Pronouns: (she/her/hers) </span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/34447cf598ce/Outlook-lhhb24ws.png" loading="lazy" alt="">
+    <img src="assets/34447cf598ce/Partners Letter Food Lost To Disaster_p1.png" loading="lazy" alt="">
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/34447cf598ce/Partners Letter Food Lost To Disaster.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Partners Letter Food Lost To Disaster.pdf</span>
+    </a>
+  </div>
+  <p class="resource-reason"><em>LLM note: The resource letter is dated August 2024 (approximately 20 months ago), falling into the 12-24 month window for potential outdatedness.</em></p>
+</article>
+<article class="resource-card" id="rec-31aa81154cee">
+  <header class="resource-head">
+    <h3>Salt of the Earth free food distribution </h3>
+    <p class="resource-meta">
+      <time>Jun 17, 2024</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    https://soteblessings.org/
+Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+  </div>
+</article>
+</section>
+<section id="cat-healthcare-and-medical" class="category-section">
+  <h2 class="category-heading"><i class="fas fa-heart-pulse"></i><span>Healthcare &amp; Medical</span><span class="category-count">1</span></h2>
+<article class="resource-card" id="rec-1c815708c683">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]March Foundations</h3>
+    <p class="resource-meta">
+      <time>Mar 06, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resources 😀 Denise
+An amazing amount of information in this newsletter. If you see something valuable, please share with the rest of us!
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Washington Health Care Authority &lt;WaHCA@info.hca.wa.gov&gt;
+Sent: Friday, March 6, 2026 8:18:47 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]March Foundations
+Featured FCS partner, ProviderOne FAQs, upcoming webinars, and more!
+	 &lt;https://content.govdelivery.com/attachments/fancy_images/WAHCA/2023/11/8582307/5110459/foundations-masthead-2023
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>_crop.png&gt;
+March 2026
+If you use content blocking software, whitelist lnks.gd to access links in this email.
+In this issue
+*	About FCS
+*	Featuring FCS in the field: PHS&#x27;s Kaylin Martin
+*	March FCS trainings and events
+*	From understanding fidelity to practicing it
+*	New! Medical Necessity monthly office hours
+*	New monthly series: Supportive housing learning collaborative
+*	Individual Placement Support (IPS) training
+*	In-person regional program overview training
+*	The unified path: Maximizing wellness with integrated housing and healthcare
+*	Overcoming employer objections: How to respond in t</span>
+    </details>
+  </div>
+</article>
+</section>
+<section id="cat-mental-health-and-crisis-support" class="category-section">
+  <h2 class="category-heading"><i class="fas fa-brain"></i><span>Mental Health &amp; Crisis Support</span><span class="category-count">6</span></h2>
+<article class="resource-card" id="rec-0791d367350c">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FW: Additional Secondary Trauma Resources</h3>
+    <p class="resource-meta">
+      <time>Mar 05, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resources 🙂 Denise
+Denise Hollenbeck (She/Her)
+Family Support Coach
+425.330.0178 | 5830 Evergreen Way, Everett, WA 98203
+ &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.housinghope.org%2F&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7Ca4ed48615f4a4908b6b108de7af1d47b%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639083377341763480%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=lqeSYExd9EF1zaZJ1rCx8EP81b7txGmqhI84QAuyUc0%3D&amp;reserved=0&gt;
+Confidentiality Notice: This emai
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>l message, including any attachments, is for the sole use of the intended recipient(s) and may contain confidential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Thursday, March 5, 2026 9:53 AM
+To: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Subject: [External Sender]FW: Additional Secondary Trauma Resources
+Sharing with the LPA, please </span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/0791d367350c/image001.png" loading="lazy" alt="">
+    <img src="assets/0791d367350c/image002.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>9 more images</summary>
+      <img src="assets/0791d367350c/image003.jpg" loading="lazy" alt="">
+      <img src="assets/0791d367350c/image004.png" loading="lazy" alt="">
+      <img src="assets/0791d367350c/image005.png" loading="lazy" alt="">
+      <img src="assets/0791d367350c/image006.png" loading="lazy" alt="">
+      <img src="assets/0791d367350c/image007.png" loading="lazy" alt="">
+      <img src="assets/0791d367350c/2026-Mental Health -Planning-Guide_p1.png" loading="lazy" alt="">
+      <img src="assets/0791d367350c/2026-Mental Health -Planning-Guide_p2.png" loading="lazy" alt="">
+      <img src="assets/0791d367350c/2026-Mental Health -Planning-Guide_p3.png" loading="lazy" alt="">
+      <img src="assets/0791d367350c/Outlook-j5nfoxj1.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/0791d367350c/4.25.23 DSHS ERMO Recognizing Trauma.pptx" target="_blank" rel="noopener">
+      <i class="fas fa-file-powerpoint"></i><span>4.25.23 DSHS ERMO Recognizing Trauma.pptx</span>
+    </a>
+    <a class="document-link" href="assets/0791d367350c/2026-Mental Health -Planning-Guide.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>2026-Mental Health -Planning-Guide.pdf</span>
+    </a>
+    <a class="document-link" href="assets/0791d367350c/Secondary_Trauma_Resource_Guide.docx" target="_blank" rel="noopener">
+      <i class="fas fa-file-word"></i><span>Secondary_Trauma_Resource_Guide.docx</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-edc7aa47c091">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]🧡 What’s Happening at Millennia: Growth, Healing &amp; Community</h3>
+    <p class="resource-meta">
+      <time>Feb 03, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 🙂 Denise
+Denise Hollenbeck, B.A.
+Housing Hope
+Family Support Coach
+Pronouns: she/her
+(425) 330-0178 denisehollenbeck@housinghope.org &lt;mailto:denisehollenbeck@housinghope.org&gt;
+5830 Evergreen Way, Everett, WA 98203
+www.housinghope.org &lt;https://nam11.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.housinghope.org%2F&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C9d485c3f32344b2c506508de63632194%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639057474585460333%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyf
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>Q%3D%3D%7C0%7C%7C%7C&amp;sdata=uXEasN%2Bl%2FkBup40dcNQ9eyF3sNAYT9BbgvLA3ECin%2BI%3D&amp;reserved=0&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain confidential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: Millennia Ministries &lt;ashley@millenniaministries.org&gt;
+Sent: Tuesday, February 3, 2026 12</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-462f7f3774bf">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Register Now: WDVA LEARN Suicide Prevention Courses</h3>
+    <p class="resource-meta">
+      <time>Jan 08, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: WA Dept of Veterans Affairs &lt;wdva@public.govdelivery.com&gt;
+Sent: Thursday, January 8, 2026 9:01:59 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Register Now: WDVA LEARN Suicide Prevention Courses
+YOUR WDVA Suicide Prevention Program is offering LEARN Suicide Prevention Courses in 2026
+	View as a webpage  /  Share &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Flinks-1.govdelivery.com%2FCL0%2Fhttps%3A%252F%252Fcontent.govdelivery.com%252F
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>accounts%252FWADVA%252Fbulletins%252F4034efe%2F1%2F0100019b9e8ed4a2-855c7db4-a7ae-4ea9-ba45-48c23a9c6da0-000000%2FQ7DSg2ik1H73DiiigBS7YN124gtgp1sCaelwarRYPSI%3D439&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7Ce05aa9deb3a74f3731a508de4f36ea26%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639035294426397341%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=BdaDc4gkg9rLn%2BcBA4RraOq7wO3fo%2FVANLoKTWLIkas%3D&amp;reserved=0&gt;
+ &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Flinks-1.govdelivery.c</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-2c1d74073fa8">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Early registration | Psychosis CARE 2026 virtual conference</h3>
+    <p class="resource-meta">
+      <time>Dec 18, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Washington Health Care Authority &lt;WaHCA@info.hca.wa.gov&gt;
+Sent: Thursday, December 18, 2025 8:06:17 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Early registration | Psychosis CARE 2026 virtual conference
+	 &lt;https://content.govdelivery.com/attachments/fancy_images/WAHCA/2022/11/6784976/hca-new-logo-reverse-600px_original.png&gt;
+December 18, 2025
+Can’t access the links? Add “lnks.gd” to the allowlist of your content blocking software.
+Early registration |Psyc
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>hosis CARE 2026 virtual conference
+Health Care Authority (HCA) is thrilled to announce early registration for the Psychosis CARE &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Flinks-1.govdelivery.com%2FCL0%2Fhttps%3A%252F%252Fpsychosis.care%252F%2F1%2F0100019b32364ac8-fb5db8bf-aeeb-470a-a7a4-91d2afea3062-000000%2FdOiZteFqGeELfPzUtK5mefyWrukhFKPpYkclcZkedGM%3D436&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C65e8037952bf446fd57b08de3e50e7da%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639016714403230459%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCI</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-4a2a0f1bccd0">
+  <header class="resource-head">
+    <h3>Hope N Wellness </h3>
+    <p class="resource-meta">
+      <time>Apr 02, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+https://www.heraldnet.com/news/new-hope-n-wellness-location-to-open-wednesday-in-everett/?utm_source=WhatCounts%20Email&amp;utm_medium=Morning%20HeadlinesEvent%20-%20Subs&amp;utm_campaign=Morning%20Headlines%20-%20Subs
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+  </div>
+</article>
+<article class="resource-card" id="rec-ddace13fddfc">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]HHRC Newsletter: Serious Mental Illness Fact Sheet, Encampments Webinar, and more!</h3>
+    <p class="resource-meta">
+      <time>Oct 30, 2024</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+________________________________
+From: SAMHSA&#x27;s Homeless and Housing Resource Center &lt;info@hhrctraining.org&gt;
+Sent: Wednesday, October 30, 2024 6:19:12 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]HHRC Newsletter: Serious Mental Illness Fact Sheet, Encampments Webinar, and more!
+ &lt;https://t.e2ma.net/click/7jn2yj/n0i6kek/noxdbr&gt;
+ &lt;https://d31hzlhk6di2h5.cloudfront.net/20241029/ec/f6/d9/04/09fa6e2548eaaefe5a6729
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>b1_1280x8.png&gt;
+October 2024 Newsletter
+ &lt;https://images.e2ma.net/images/spacer.gif&gt;
+Explore new training and resources from HHRC and our partners!
+ &lt;https://d31hzlhk6di2h5.cloudfront.net/20241029/ec/f6/d9/04/09fa6e2548eaaefe5a6729b1_1280x8.png&gt;
+New Release!
+ &lt;https://t.e2ma.net/click/7jn2yj/n0i6kek/3gydbr&gt;
+Understanding and Supporting Residents with Serious Mental Illness
+This fact sheet helps housing providers better understand and recognize the symptoms of three of the most common serious mental illnesses: schizophrenia, bipolar disorder, and major depressive disorder. The guide also describ</span>
+    </details>
+  </div>
+  <p class="resource-reason"><em>LLM note: The October 2024 newsletter is roughly 18 months old, but the clinical fact sheet on serious mental illness likely remains relevant.</em></p>
+</article>
+</section>
+<section id="cat-substance-use-and-recovery" class="category-section">
+  <h2 class="category-heading"><i class="fas fa-hand-holding-heart"></i><span>Substance Use &amp; Recovery</span><span class="category-count">6</span></h2>
+<article class="resource-card" id="rec-861978d1035a">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FW: Low Barrier Suboxone MAT Treatment Support + Peer Recovery/Case Management (Boulder Care, Ages 14+)</h3>
+    <p class="resource-meta">
+      <time>Mar 13, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Friday, March 13, 2026 9:01:31 AM
+To: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Subject: [External Sender]FW: Low Barrier Suboxone MAT Treatment Support + Peer Recovery/Case Management (Boulder Care, Ages 14+)
+Sharing with the LPA, please contact those listed in the original message for more information regarding their programs and activities. Thank you!
+If you would like to be removed from receiving LPA related emails, please use this email link: Unsubscrib
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>e &lt;mailto:r2snocolpa@stateofwa.mail.onmicrosoft.com?subject=Please%20Remove%20Me&gt;
+Nicholle Smith &amp; Jessica Corpuel, co-chairs 2026-2027
+Snohomish County LPA
+From: Smith, Nicholle (DSHS/ESA/CSD) &lt;charmaine.smith@dshs.wa.gov&gt;
+Sent: Wednesday, March 11, 2026 12:08 PM
+To: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Subject: FW: Low Barrier Suboxone MAT Treatment Support + Peer Recovery/Case Management (Boulder Care, Ages 14+)
+From: Cannon Syverson &lt;cannon.syverson@boulder.care &lt;mailto:cannon.syverson@boulder.care&gt; &gt;
+Sent: Wednesday, March 11, 2026 11:41 AM
+To: Cannon Syverson &lt;cannon.syverson@boulder.car</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/861978d1035a/image.png" loading="lazy" alt="">
+    <img src="assets/861978d1035a/~WRD0000.jpg" loading="lazy" alt="">
+  </div>
+</article>
+<article class="resource-card" id="rec-70bca9b89cd9">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Now Available: Online Intensive Outpatient Addiction Treatment with Bison Health</h3>
+    <p class="resource-meta">
+      <time>Feb 11, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Shantel Harris &lt;Shantel.Harris@PHSNET.COM&gt;
+Sent: Tuesday, February 10, 2026 1:39:29 PM
+To: Shantel Harris &lt;Shantel.Harris@PHSNET.COM&gt;
+Subject: [External Sender]Now Available: Online Intensive Outpatient Addiction Treatment with Bison Health
+	You don&#x27;t often get email from shantel.harris@phsnet.com. Learn why this is important &lt;https://aka.ms/LearnAboutSenderIdentification&gt;
+Hello Community Partners,
+We wanted to  share a valuable treatment resource now available to adults across Washington State.
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span> Bison Health offers online outpatient addiction treatment, designed for individuals who feel drugs or alcohol have taken too much control and are ready to build a more stable, present life for themselves and the people who depend on them.
+🌱 Recovery That Meets People Where They Are
+Bison Health understands that recovery goes beyond therapy. In addition to high-quality clinical care, their program provides hands-on support navigating real-world needs, including:
+*	Assistance with finding stable housing
+*	Support with job readiness and employment
+*	Help applying for benefits such as ABD and SNA</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/70bca9b89cd9/image001.png" loading="lazy" alt="">
+    <img src="assets/70bca9b89cd9/image002.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>3 more images</summary>
+      <img src="assets/70bca9b89cd9/image003.png" loading="lazy" alt="">
+      <img src="assets/70bca9b89cd9/image004.png" loading="lazy" alt="">
+      <img src="assets/70bca9b89cd9/BisonHealth_IOP_Services_p1.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/70bca9b89cd9/BisonHealth_IOP_Services.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>BisonHealth_IOP_Services.pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-cc47b697eb79">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FW: FREE TRAINING.....      Register today | Substance Use Disorder family education sessions</h3>
+    <p class="resource-meta">
+      <time>Oct 15, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resources 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Wednesday, October 15, 2025 9:33:41 AM
+To: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Subject: [External Sender]FW: FREE TRAINING..... Register today | Substance Use Disorder family education sessions
+Sharing with the LPA, please contact those listed in the original message for more information regarding their programs and activities. Thank you!
+If you would like to be removed from receiving LPA related emails, please use this email link: Unsubscribe &lt;mailto
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>:r2snocolpa@stateofwa.mail.onmicrosoft.com?subject=Please%20Remove%20Me&gt;
+Nicholle Smith
+Community Services Office Administrator Alderwood
+360-338-5582 / Nicholle.Smith@dshs.wa.gov &lt;mailto:Nicholle.Smith@dshs.wa.gov&gt;
+Community Services Division
+Economic Services Administration
+Washington State Department of Social and Health Services
+From: Smith, Nicholle (DSHS/ESA/CSD) &lt;charmaine.smith@dshs.wa.gov&gt;
+Sent: Tuesday, October 14, 2025 9:15 AM
+To: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Subject: FW: FREE TRAINING..... Register today | Substance Use Disorder family education sessions
+Nicholle Smith (she</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/cc47b697eb79/image.png" loading="lazy" alt="">
+    <img src="assets/cc47b697eb79/Outlook-gmt0riiv.png" loading="lazy" alt="">
+  </div>
+</article>
+<article class="resource-card" id="rec-36bdec1f478c">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Introducing Rafiki House – Transitional Recovery Housing for Women in Snohomish</h3>
+    <p class="resource-meta">
+      <time>Oct 08, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Shantel Harris &lt;Shantel.Harris@p-h-s.com&gt;
+Sent: Tuesday, October 7, 2025 3:29:02 PM
+Subject: [External Sender]Introducing Rafiki House – Transitional Recovery Housing for Women in Snohomish
+Good afternoon, all,
+Conquer is pleased to announce that Rafiki House, a new women’s recovery home located in Snohomish, Washington, is now open and accepting referrals. Rafiki House offers a supportive community focused on recovery, healing, and personal growth.
+This home is an excellent option for women ree
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ntering the community after incarceration, detoxification, or inpatient treatment—particularly those who have faced challenges maintaining sobriety in less structured environments. Rafiki House provides residents with daily routines, accountability, and a safe, stable environment to continue treatment and rebuild their lives.
+Attached are flyers with additional information. If you have a client who may be a good fit, please have them complete the referral form at the link below:
+🔗 Rafiki House Referral Form &lt;https://forms.gle/fW6zyLYVryc81iiV6&gt;
+For questions or additional information, please c</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/36bdec1f478c/Introduction Letter -Rafiki House_p1.png" loading="lazy" alt="">
+    <img src="assets/36bdec1f478c/Rafiki Flyer 1.jpg" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>1 more image</summary>
+      <img src="assets/36bdec1f478c/Rafiki Flyer.jpg" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/36bdec1f478c/Introduction Letter -Rafiki House.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Introduction Letter -Rafiki House.pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-784eb36e9899">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FW: Tips &amp; Tidbits LPA Newsletter - September is Recovery Month</h3>
+    <p class="resource-meta">
+      <time>Sep 29, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Monday, September 22, 2025 4:27:25 PM
+To: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Subject: [External Sender]FW: Tips &amp; Tidbits LPA Newsletter - September is Recovery Month
+Sharing with the LPA, please contact those listed in the original message for more information regarding their programs and activities. Thank you!
+If you would like to be removed from receiving LPA related emails, please use this email link: Unsubscribe &lt;mailto:r2snocolpa@stateofwa.ma
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>il.onmicrosoft.com?subject=Please%20Remove%20Me&gt;
+Nicholle Smith
+Community Services Office Administrator Alderwood
+360-338-5582 / Nicholle.Smith@dshs.wa.gov &lt;mailto:Nicholle.Smith@dshs.wa.gov&gt;
+Community Services Division
+Economic Services Administration
+Washington State Department of Social and Health Services
+Washington State Department of Social and Health Services
+Good morning,
+Wishing you a great day
+Marcy Jordan
+Local Planning Areas Partnerships, Program Manager
+marcy.jordan@dshs.wa.gov &lt;mailto:marcy.jordan@dshs.wa.gov&gt;  | 253-778-2438
+DSHSESASWLPALiaison@dshs.wa.gov &lt;mailto:DSHSESASWLPALi</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/784eb36e9899/Outlook-ofs4cxia.png" loading="lazy" alt="">
+    <img src="assets/784eb36e9899/September 2025 Tips &amp; Tidbits Newsletter_p1.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>2 more images</summary>
+      <img src="assets/784eb36e9899/September 2025 Tips &amp; Tidbits Newsletter_p2.png" loading="lazy" alt="">
+      <img src="assets/784eb36e9899/September 2025 Tips &amp; Tidbits Newsletter_p3.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/784eb36e9899/September 2025 Tips &amp; Tidbits Newsletter.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>September 2025 Tips &amp; Tidbits Newsletter.pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-fb6def470894">
+  <header class="resource-head">
+    <h3>Mobile opioid clinic information </h3>
+    <p class="resource-meta">
+      <time>Jul 31, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information :-) Denise
+https://www.heraldnet.com/news/new-snohomish-county-mobile-opioid-care-unit-showcased/?utm_source=WhatCounts%20Email&amp;utm_medium=Morning%20HeadlinesEvent%20-%20Subs&amp;utm_campaign=Morning%20Headlines%20-%20Subs
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+  </div>
+</article>
+</section>
+<section id="cat-family-children-and-parenting" class="category-section">
+  <h2 class="category-heading"><i class="fas fa-people-roof"></i><span>Family, Children &amp; Parenting</span><span class="category-count">7</span></h2>
+<article class="resource-card" id="rec-b5352df6665c">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]3/21 Final Day: Clothes For Kids Shopping and Emergency Wardrobe Walk-Ins</h3>
+    <p class="resource-meta">
+      <time>Mar 21, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information. I have a bit of experience working with Clothes for Kids so please reach out with questions or for assistance 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Friday, March 20, 2026 3:59:23 PM
+Subject: [External Sender]3/21 Final Day: Clothes For Kids Shopping and Emergency Wardrobe Walk-Ins
+From: Clothes For Kids &lt;office@clothesforkids.org&gt;
+Sent: Friday, March 13, 2026 12:08 PM
+To: Clothes For Kids &lt;office@clothesforkids.org&gt;
+Subject: Important Update: Clothes For Kids Shopping and Emergency Ward
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>robe Requests
+External Email
+Dear Family Support Partners, I hope you are doing well. I’m writing to share an important update regarding kids’ clothing support and in-person shopping availability. The last day for in-person shopping will be March 21st. After that date, families will no longer be able to access clothing through regular in-person visits. However, Family Support Advocates and Social Service Caseworkers may continue to request emergency pick-up wardrobes on behalf of families. These emergency requests will be accepted until June 1, 2026. Please share this information with any fami</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-04638bdbb918">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Help Me Grow Washington News &amp; Updates</h3>
+    <p class="resource-meta">
+      <time>Oct 07, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 🙂 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Help Me Grow Washington &lt;communications@withinreachwa.org&gt;
+Sent: Monday, October 06, 2025 9:56 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Help Me Grow Washington News &amp; Updates
+Information and resources for the network
+ &lt;https://jm7gbqcab.cc.rs6.net/on.jsp?ca=cf9ddcb7-4790-4e52-911f-a62c0177b1b7&amp;a=1102197256585&amp;c=e80ec558-583d-11ef-a13f-fa163ed93e4f&amp;ch=e80fd38a-583d-11ef-a13f-fa163ed93e4f&amp;_utm_medium=email&amp;_utm_source=ctct&gt;
+ &lt;https://files.constantconta
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ct.com/9817310a001/ad3018b6-56f6-47bb-bedc-a3edd6e0cce1.png?rdr=true&gt;
+Pronto compartiremos la traducción al español
+We are excited to spotlight some of our Help Me Grow WA Local Systems and Engaged Communities &lt;https://jm7gbqcab.cc.rs6.net/tn.jsp?f=001dhFVOXS5UspNeqEdf4E99OAMzs-cebcPHG4froZ5bfuekX_PvXRsJMVW2ERHEwbfjnAS0dL3P2oWb3Kawjy9zmBxEBEof5SAyLYhZItPfa7lkp9YL2k1BeQReD9ky6pR1-WrKWIl0prGXdkYwl4SxSsI3xJ0sE5YHESbxT3wlN5KAuwgxzn_cQ==&amp;c=0E3EOSZW7YWRc-Q1DNuIcMmY8UWtyhto5J3pIkohaWJjgLh18kdELA==&amp;ch=6UTDRXpFt1p0APK6JrpwTeAkrSo45bDer7XHRgMIQ1l9b8-m-BHGNw==&amp;_utm_medium=email&amp;_utm_source=ctct&gt;  in this</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-c8101736cf6b">
+  <header class="resource-head">
+    <h3>Fw: Libraries offer a stack of free programs for kids and teens | HeraldNet.com</h3>
+    <p class="resource-meta">
+      <time>Sep 17, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Please share with parents and others. If anyone needs help finding or accessing their local library, I&#x27;m happy to help!
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Denise Hollenbeck &lt;DeniseHollenbeck@housinghope.org&gt;
+Sent: Wednesday, September 17, 2025 4:50:45 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: Libraries offer a stack of free programs for kids and teens | HeraldNet.com
+https://www.heraldnet.com/news/libraries-offer-a-stack-of-free-programs-for-kids-and-teens/?utm_source=WhatCounts%20Email&amp;utm_medium=Morni
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ng%20HeadlinesEvent%20-%20Subs&amp;utm_campaign=Morning%20Headlines%20-%20Subs
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-7c64879cdd1e">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Tools for Success: Starting from the Start</h3>
+    <p class="resource-meta">
+      <time>Sep 09, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resources 😀 Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+________________________________
+From: SchoolHouse Connection &lt;info@schoolhouseconnection.org&gt;
+Sent: Tuesday, September 9, 2025 4:31:10 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Tools for Success: Starting from the Start
+Early Learning Starts with Early Stability
+ &lt;https://prod.cdn.everyaction.com/images/van/EA/EA016/1/96522/images/Early%20Childhood.gif&gt;
+Early Learning Starts with Early Stability
+Homeless
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ness happens to babies, toddlers, and young children.
+It’s often invisible — but it’s real. Young children may not show up in official homeless counts, but they show up in shelters, in doubled-up situations, and in child care centers.
+In our latest report &lt;https://click.everyaction.com/k/114873635/568452958/854603937?nvep=ew0KICAiVGVuYW50VXJpIjogIm5ncHZhbjovL3Zhbi9FQS9FQTAxNi8xLzk2NTIyIiwNCiAgIkRpc3RyaWJ1dGlvblVuaXF1ZUlkIjogIjk2YWNkMjRmLTcwOGQtZjAxMS1iNDg0LTYwNDViZGViNzQxMyIsDQogICJFbWFpbEFkZHJlc3MiOiAiZGVuaXNlaG9sbGVuYmVja0Bob3VzaW5naG9wZS5vcmciDQp9&amp;hmac=5eG_cz_5Y37oZqEP55pnhNFrE7nt846h-NF-90</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-68e256312cd8">
+  <header class="resource-head">
+    <h3>Sharing the information </h3>
+    <p class="resource-meta">
+      <time>Jul 05, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😀 Denise
+https://www.heraldnet.com/news/new-report-highlights-child-care-challenges-in-snohomish-county/?utm_source=WhatCounts%20Email&amp;utm_medium=Morning%20HeadlinesEvent%20-%20Subs&amp;utm_campaign=Morning%20Headlines%20-%20Subs
+Denise Hollenbeck
+425.330.0178
+  </div>
+</article>
+<article class="resource-card" id="rec-9b2e0cf1e9d7">
+  <header class="resource-head">
+    <h3>Fw: Diaper resources</h3>
+    <p class="resource-meta">
+      <time>May 03, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 🙂 Denise
+Denise Hollenbeck
+Child and Family Specialist
+t. 425.330.0178
+housinghope.org &lt;https://www.housinghope.org/&gt;
+&lt;https://www.housinghope.org/&gt; 5830 Evergreen Way, Everett, WA 98203
+denisehollenbeck@ &lt;mailto:timothyjackson@housinghope.org&gt; housinghope.org &lt;mailto:timothyjackson@housinghope.org&gt;
+www.isacollaborative.org &lt;http://www.isacollaborative.org/&gt;
+ &lt;http://facebook.com/housinghope&gt;  &lt;http://instagram.com/housinghope1987&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain conf
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>idential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: Denise Hollenbeck &lt;DeniseHollenbeck@housinghope.org&gt;
+Sent: Saturday, May 3, 2025 11:06 AM
+To: Jana Moseley &lt;JanaMoseley@housinghope.org&gt;
+Subject: Diaper resources
+Hi - this is what I tried to send you via Messenger yesterday. You may already have all of these, but I thought it was a nice package :-) Denise</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/9b2e0cf1e9d7/Diaper Resources 05.2025.jpg" loading="lazy" alt="">
+    <img src="assets/9b2e0cf1e9d7/Outlook-Logo, comp.png" loading="lazy" alt="">
+  </div>
+</article>
+<article class="resource-card" id="rec-bbf1f388a8c1">
+  <header class="resource-head">
+    <h3>Fwd: Home - Toys for Tots</h3>
+    <p class="resource-meta">
+      <time>Oct 18, 2024</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+https://everett-wa.toysfortots.org/local-coordinator-sites/lco-sites/default.aspx?nPageID=0&amp;nPreviewInd=0&amp;nRedirectInd=3
+If you are one of my current or former clients and you need help negotiating this resource, please feel free to contact me!
+Denise Hollenbeck
+Child and Family Specialist
+t. 425.330.0178
+housinghope.org &lt;https://www.housinghope.org/&gt;
+5830 Evergreen Way, Everett, WA 98203
+denisehollenbeck@ &lt;mailto:timothyjackson@housinghope.org&gt; housinghope.org &lt;mailto:timothyjackson@housinghope.org&gt;
+www.isacollaborative.org &lt;http://www.isacollaborative.org/&gt;
+ &lt;ht
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>tp://facebook.com/housinghope&gt;  &lt;http://instagram.com/housinghope1987&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain confidential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: Denise Hollenbeck &lt;DeniseHollenbeck@housinghope.org&gt;
+Sent: Thursday, October 10, 2024 3:07:59 PM
+To: Denise H</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/bbf1f388a8c1/image.png" loading="lazy" alt="">
+  </div>
+  <p class="resource-reason"><em>LLM note: The email shares a link to Toys for Tots for children but was received in October 2024 (approx. 18 months ago), so the seasonal campaign details may be outdated.</em></p>
+</article>
+</section>
+<section id="cat-education-and-employment" class="category-section">
+  <h2 class="category-heading"><i class="fas fa-graduation-cap"></i><span>Education &amp; Employment</span><span class="category-count">8</span></h2>
+<article class="resource-card" id="rec-d415f83ea8a6">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FCS Presents: Supported Employment Topical</h3>
+    <p class="resource-meta">
+      <time>Apr 10, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 🙂 Denise
+Denise Hollenbeck (She/Her)
+Family Support Coach
+425.330.0178 | 5830 Evergreen Way, Everett, WA 98203
+ &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.housinghope.org%2F&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C83d6467019924bcb30da08de97372c23%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639114460386327476%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=ZV%2BgicRGVpArm8wr%2Fykpg78R4V4uAmIOvBJsJBuHwf8%3D&amp;reserved=0&gt;
+Confidentiality Notice: This e
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>mail message, including any attachments, is for the sole use of the intended recipient(s) and may contain confidential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: Washington Health Care Authority &lt;WaHCA@info.hca.wa.gov&gt;
+Sent: Friday, April 10, 2026 9:06 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]FCS Presents: Supported Employmen</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/d415f83ea8a6/Outlook-z3v0kn0i.png" loading="lazy" alt="">
+  </div>
+</article>
+<article class="resource-card" id="rec-eef8098dd818">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Practical Actions to Improve Attendance</h3>
+    <p class="resource-meta">
+      <time>Mar 10, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 🙂 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: SchoolHouse Connection &lt;info@schoolhouseconnection.org&gt;
+Sent: Monday, March 09, 2026 8:12 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Practical Actions to Improve Attendance
+Join us!
+Bookmark SHC&#x27;s Chronic Absence &amp; Homelessness Hub &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.everyaction.com%2Fk%2F126967726%2F606532548%2F-1575045507%3Fnvep%3Dew0KICAiVGVuYW50VXJpIjogIm5ncHZhbjovL3Zhbi9FQS9FQTAxNi8xLzk2NTIyIiwNCiAgIkRpc3RyaWJ1d
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>GlvblVuaXF1ZUlkIjogImU5ZmFhYTJhLWNhMWItZjExMS1hNjlhLTAwMGQzYTFmMGE5NyIsDQogICJFbWFpbEFkZHJlc3MiOiAiZGVuaXNlaG9sbGVuYmVja0Bob3VzaW5naG9wZS5vcmciDQp9%26hmac%3DiCfOIQMGlzhLHnfHBCe2ou2qKEGjK9f4H2R8-w9oFKY%3D%26emci%3D18c5456d-ce18-f111-a69a-000d3a1f0a97%26emdi%3De9faaa2a-ca1b-f111-a69a-000d3a1f0a97%26ceid%3D11619801&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C59d5c8bc74ff4e26150908de7eb5bf7a%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639087516256637667%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=6i</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-aa8596419106">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FW: Digital Literacy 100 - Level up your tech skills!</h3>
+    <p class="resource-meta">
+      <time>Feb 17, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: hollenbecks@earthlink.net &lt;hollenbecks@earthlink.net&gt;
+Sent: Monday, February 16, 2026 3:42:43 PM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]FW: Digital Literacy 100 - Level up your tech skills!
+-----Forwarded Message-----
+From: Secretary NAACP Snohomish County &lt;secretary@naacp-snoco.org&gt;
+Sent: Feb 16, 2026 12:38 PM
+To: Secretary NAACP Snohomish County &lt;secretary@naacp-snoco.org&gt;
+Subject: FW: Digital Literacy 100 - Level up your tech skills!
+_______________
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>_________________
+Subject: Digital Literacy 100 - Level up your tech skills!
+You are invited to the All Day Software, Inc. Digital Literacy 100: Mobile Devices online course on Saturday, May 9, 2026 at 12:30PM! This will be a hands-on online workshop hosted via zoom. This program gives beginners and industry professionals an opportunity to learn essential smartphone and tablet skills, and gain knowledge to improve personal, educational, and career technology use.
+Through live demonstrations and interactive support, participants will boost their confidence, improve digital literacy, and take st</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/aa8596419106/image.png" loading="lazy" alt="">
+    <img src="assets/aa8596419106/image.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>1 more image</summary>
+      <img src="assets/aa8596419106/mobile device literacy workshop_p1.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/aa8596419106/mobile device literacy workshop.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>mobile device literacy workshop.pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-fcbe4b0f3ac8">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Fwd: (FWA) Manufacturing Academy and Trade Scholarship for former foster youth</h3>
+    <p class="resource-meta">
+      <time>Feb 15, 2026</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Paxton, Samantha &lt;
+Samantha.Paxton@co.snohomish.wa.us &lt;mailto:Samantha.Paxton@co.snohomish.wa.us&gt;
+&gt;
+Subject: (FWA) Manufacturing Academy and Trade Scholarship for former foster youth
+Dear Future Workforce Alliance Board Members,
+Please see below for two opportunities that may be of interest to your contacts and clients.
+*	AJAC / Advanced Manufacturing Apprenticeships &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Furldefense.proofpoint.com%2Fv2%2Furl%3Fu%3Dhttps-3A__www.ajactr
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>aining.org_%26d%3DDwMGaQ%26c%3DeuGZstcaTDllvimEN8b7jXrwqOf-v5A_CdpgnVfiiMM%26r%3DXP_CM4NN24lngRUgYQUcSnBnouuyu6A77-LOa-68--c%26m%3DQkxpIk4zgRZuUKZNERnRqu-TYZfTkA1Yt3E1rMfqc1SFMeNsOphXR8QkKS1GIzI7%26s%3DFpq--SuVIHQJGNjm4x0DN_oYGFcQIk6kB1NNpnT-v7U%26e%3D&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C966c5e03fd014ed4a5e008de6ccce971%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639067824558592202%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=ayLi7NvCAuIsyRGbibfs3ixSBmaoXyM6XXAUbeb82Jg%3D&amp;reserved=0&gt;  is </span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/fcbe4b0f3ac8/image001.jpg" loading="lazy" alt="">
+    <img src="assets/fcbe4b0f3ac8/MA Flyer - Snohomish - Spring 2026_p1.png" loading="lazy" alt="">
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/fcbe4b0f3ac8/MA Flyer - Snohomish - Spring 2026.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>MA Flyer - Snohomish - Spring 2026.pdf</span>
+    </a>
+  </div>
+  <p class="resource-reason"><em>LLM note: The flyer advertises a class starting April 1st, which is in the past relative to today, though the program session continues through June.</em></p>
+</article>
+<article class="resource-card" id="rec-82b5db657fbb">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]2026 Scholarship + New Scholars 🤩</h3>
+    <p class="resource-meta">
+      <time>Jan 26, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: SchoolHouse Connection &lt;info@schoolhouseconnection.org&gt;
+Sent: Monday, January 26, 2026 7:38:23 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]2026 Scholarship + New Scholars 🤩
+Help us spread the word (email template, flyer, social toolkit)! &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclick.everyaction.com%2Fk%2F124062200%2F597431484%2F-476960053%3Fnvep%3Dew0KICAiVGVuYW50VXJpIjogIm5ncHZhbjovL3Zhbi9FQS9FQTAxNi8xLzk2NTIyIiwNCiAgIkRpc3
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>RyaWJ1dGlvblVuaXF1ZUlkIjogImNlYWFiM2Y3LWNjZmEtZjAxMS04ZDRjLTAwMjI0ODJkMjc5YiIsDQogICJFbWFpbEFkZHJlc3MiOiAiZGVuaXNlaG9sbGVuYmVja0Bob3VzaW5naG9wZS5vcmciDQp9%26hmac%3DQujB04G4GGfh0BZBVcTScJS1R7sMhlMVYHQWJ9kDieE%3D%26emci%3D4fe3eb32-25f2-f011-8194-000d3a11f903%26emdi%3Dceaab3f7-ccfa-f011-8d4c-0022482d279b%26ceid%3D11619801%23outreach&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C074b86c8075b4b4027b408de5cf33291%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639050396777565106%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-8f1383408917">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FW: ♦ Solid Foundation Class Upcoming dates for TANF and BFET recipients ♦</h3>
+    <p class="resource-meta">
+      <time>Jan 02, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 🙂 Denise
+Denise Hollenbeck, B.A.
+Housing Hope
+Family Support Coach
+Pronouns: she/her
+(425) 330-0178 denisehollenbeck@housinghope.org &lt;mailto:denisehollenbeck@housinghope.org&gt;
+5830 Evergreen Way, Everett, WA 98203
+www.housinghope.org &lt;https://nam11.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.housinghope.org%2F&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7Cf0c36f2fb7674aaf0f1608de4a593c4f%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639029944767816057%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyf
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>Q%3D%3D%7C0%7C%7C%7C&amp;sdata=05KnQGEn%2Fare5OQW8WQ5yYhcEWRJk4aUhntz6DvLUdw%3D&amp;reserved=0&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain confidential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Tuesday, December 30, 2025 3:21 PM
+To: R2SnoCoLPA</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/8f1383408917/Solid Foundation Jan-June 26 FOR PRINT!_p1.png" loading="lazy" alt="">
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/8f1383408917/Solid Foundation Jan-June 26 FOR PRINT!.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Solid Foundation Jan-June 26 FOR PRINT!.pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-18f38194dde1">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FW: May 2025 Tips &amp; Tidbits Newsletter - Invisible Literacies </h3>
+    <p class="resource-meta">
+      <time>May 19, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 🙂 Denise
+Denise Hollenbeck
+Child and Family Specialist
+t. 425.330.0178
+housinghope.org &lt;https://www.housinghope.org/&gt;
+&lt;https://www.housinghope.org/&gt; 5830 Evergreen Way, Everett, WA 98203
+denisehollenbeck@ &lt;mailto:timothyjackson@housinghope.org&gt; housinghope.org &lt;mailto:timothyjackson@housinghope.org&gt;
+www.isacollaborative.org &lt;http://www.isacollaborative.org/&gt;
+ &lt;http://facebook.com/housinghope&gt;  &lt;http://instagram.com/housinghope1987&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain conf
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>idential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Monday, May 19, 2025 2:08 PM
+To: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Subject: [External Sender]FW: May 2025 Tips &amp; Tidbits Newsletter - Invisible Literacies
+Sharing with the LPA, please contact those listed in the original message for more information regarding their programs</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/18f38194dde1/Outlook-DSHS Logo .png" loading="lazy" alt="">
+    <img src="assets/18f38194dde1/May 2025 Tips &amp; Tidbits Newsletter (LPA)_p1.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>3 more images</summary>
+      <img src="assets/18f38194dde1/May 2025 Tips &amp; Tidbits Newsletter (LPA)_p2.png" loading="lazy" alt="">
+      <img src="assets/18f38194dde1/May 2025 Tips &amp; Tidbits Newsletter (LPA)_p3.png" loading="lazy" alt="">
+      <img src="assets/18f38194dde1/Outlook-Logo, comp.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/18f38194dde1/May 2025 Tips &amp; Tidbits Newsletter (LPA).pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>May 2025 Tips &amp; Tidbits Newsletter (LPA).pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-ce8d5431d7a0">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FW: Edmonds College WorkFirst Programs</h3>
+    <p class="resource-meta">
+      <time>Feb 26, 2025</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 🙂 Denise
+Denise Hollenbeck
+Child and Family Specialist
+t. 425.330.0178
+housinghope.org &lt;https://www.housinghope.org/&gt;
+&lt;https://www.housinghope.org/&gt; 5830 Evergreen Way, Everett, WA 98203
+denisehollenbeck@ &lt;mailto:timothyjackson@housinghope.org&gt; housinghope.org &lt;mailto:timothyjackson@housinghope.org&gt;
+www.isacollaborative.org &lt;http://www.isacollaborative.org/&gt;
+ &lt;http://facebook.com/housinghope&gt;  &lt;http://instagram.com/housinghope1987&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain conf
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>idential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Wednesday, February 26, 2025 1:16 PM
+Subject: [External Sender]FW: Edmonds College WorkFirst Programs
+Sharing with LPA
+Nicholle Smith
+NICHOLLE SMITH
+Pronouns: she/her/hers
+Community Services Office Administrator/Alderwood, Region 2
+Community Services Division
+Economic Services</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/ce8d5431d7a0/SF E&amp;ER GED Flier.jpg" loading="lazy" alt="">
+    <img src="assets/ce8d5431d7a0/GED for Students FOR WEB.jpg" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>6 more images</summary>
+      <img src="assets/ce8d5431d7a0/Solid Foundation Flier Mar - Jun 25 FOR WEB.jpg" loading="lazy" alt="">
+      <img src="assets/ce8d5431d7a0/Solid Foundation Flier March - June 2025 For Print_p1.png" loading="lazy" alt="">
+      <img src="assets/ce8d5431d7a0/SF E&amp;ER GED Flier_p1.png" loading="lazy" alt="">
+      <img src="assets/ce8d5431d7a0/SF E&amp;ER GED Flier for students_p1.png" loading="lazy" alt="">
+      <img src="assets/ce8d5431d7a0/GED for Students_p1.png" loading="lazy" alt="">
+      <img src="assets/ce8d5431d7a0/Outlook-Logo, comp.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/ce8d5431d7a0/Solid Foundation Flier March - June 2025 For Print.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Solid Foundation Flier March - June 2025 For Print.pdf</span>
+    </a>
+    <a class="document-link" href="assets/ce8d5431d7a0/SF E&amp;ER GED Flier.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>SF E&amp;ER GED Flier.pdf</span>
+    </a>
+    <a class="document-link" href="assets/ce8d5431d7a0/SF E&amp;ER GED Flier for students.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>SF E&amp;ER GED Flier for students.pdf</span>
+    </a>
+    <a class="document-link" href="assets/ce8d5431d7a0/GED for Students.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>GED for Students.pdf</span>
+    </a>
+  </div>
+  <p class="resource-reason"><em>LLM note: The flyers list specific class dates for Spring/Summer 2025 (approx. 14 months ago), though the programs like GED and Employment Readiness appear to be ongoing.</em></p>
+</article>
+</section>
+<section id="cat-financial-assistance-and-benefits" class="category-section">
+  <h2 class="category-heading"><i class="fas fa-dollar-sign"></i><span>Financial Assistance &amp; Benefits</span><span class="category-count">11</span></h2>
+<article class="resource-card" id="rec-ed1eed5dce7e">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Workforce Snohomish Personal Finance Workshop Series</h3>
+    <p class="resource-meta">
+      <time>Apr 27, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+(Although personally I refer peeps to Angela...)
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Friday, April 24, 2026 4:29:26 PM
+Subject: [External Sender]Workforce Snohomish Personal Finance Workshop Series
+Sharing with the LPA, please contact those listed in the original message for more information regarding their programs and activities. Thank you!
+If you would like to be removed from receiving LPA related emails, please use this email link: Unsubscribe &lt;mailto:r2snocolpa@stateofwa.mail.onmicro
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>soft.com?subject=Please%20Remove%20Me&gt;
+Nicholle Smith &amp; Jessica Corpuel, co-chairs 2026-2027
+Snohomish County LPA
+From: Ethan Paisley &lt;ethan.paisley@workforcesnohomish.org&gt;
+Sent: Monday, April 20, 2026 8:38 AM
+To: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Subject: Workforce Snohomish Personal Finance Workshop Series
+External Email
+Hi,
+Workforce Snohomish is excited to host a free, three-week virtual personal finance workshop series starting in mid-May.
+Workshop Schedule and Overview:
+Session 1: Tuesday, May 19 | 5 PM - 6PM |
+Balance and Build: Foundations of Budgeting and Financial Planning
+Learn h</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/ed1eed5dce7e/Workforce Snohomish Financial Empowerment Workshop Series (2) (1) (1).png" loading="lazy" alt="">
+  </div>
+</article>
+<article class="resource-card" id="rec-c670b1f2032f">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Working Families Tax Credit Updates – March 2026/Actualizaciones del Crédito Tributario para Familias Trabajadoras (WFTC) – marzo 2026</h3>
+    <p class="resource-meta">
+      <time>Mar 23, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 🙂 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Washington Department of Revenue &lt;WADOR@public.govdelivery.com&gt;
+Sent: Monday, March 23, 2026 10:05 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Working Families Tax Credit Updates – March 2026/Actualizaciones del Crédito Tributario para Familias Trabajadoras (WFTC) – marzo 2026
+View as a webpage / Share &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Flinks-2.govdelivery.com%2FCL0%2Fhttps%3A%252F%252Fcontent.govdelivery.com%252Faccounts%
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>252FWADOR%252Fbulletins%252F40f9c63%2F1%2F0101019d1ba89865-6ba89b32-c61b-473c-844f-10b4c4595a05-000000%2FGWM-UfKh9QbCqFdk7QrFZrCL8z7H72iGTGKV5gmvkiY%3D449&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C7138bee84ce94e0a5e2808de89070395%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639098860373379809%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=mo3mnHiSp8ie6abw2xKXRWOQWmcWRO%2BXc%2Br8%2FIXrg5A%3D&amp;reserved=0&gt;
+ &lt;https://outlook.office.com/mail/inbox/id/AAQkADI2YTkzMGE3LTMwYWQtNDZmNi1iZjFlLTIxZTQxYWM5MDE2M</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-525f947d1e48">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]2026 Working Families Tax Credit Outreach</h3>
+    <p class="resource-meta">
+      <time>Mar 21, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Friday, March 20, 2026 4:03:30 PM
+Subject: [External Sender]2026 Working Families Tax Credit Outreach
+________________________________
+From: Allen, Briana (DSHS/ESA/CSD) &lt;briana.allen@dshs.wa.gov &lt;mailto:briana.allen@dshs.wa.gov&gt; &gt; on behalf of Montgomery, Brice (DSHS/ESA/CSD) &lt;brice.montgomery@dshs.wa.gov &lt;mailto:brice.montgomery@dshs.wa.gov&gt; &gt;
+Sent: Friday, March 13, 2026 9:56 AM
+Subject: 2026 Working Families Tax Credit Outreach
+Dear interested pa
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>rties and community partners,
+Please see the attached letter regarding information about the 2026 Working Families Tax Credit, which includes details on how participants can apply, eligibility criteria and other helpful resources.
+Thank you.
+Sincerely,
+Brice Montgomery (he/him/his)
+Director
+360-485-2858 /Brice.Montgomery@dshs.wa.gov &lt;mailto:/Brice.Montgomery@dshs.wa.gov&gt;
+Community Services Division
+Economic Services Administration
+Washington State Department
+of Social and Health Services
+Sharing with the LPA, please contact those listed in the original message for more information regarding th</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/525f947d1e48/image001.png" loading="lazy" alt="">
+    <img src="assets/525f947d1e48/2026 WFTC Outreach Partner Letter_p1.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>1 more image</summary>
+      <img src="assets/525f947d1e48/2026 WFTC Outreach Partner Letter_p2.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/525f947d1e48/2026 WFTC Outreach Partner Letter.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>2026 WFTC Outreach Partner Letter.pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-d3d06c91adf9">
+  <header class="resource-head">
+    <h3>Disaster Loan Outreach Center opens in Snohomish | HeraldNet.com</h3>
+    <p class="resource-meta">
+      <time>Mar 03, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    https://www.heraldnet.com/2026/03/02/disaster-loan-outreach-center-opens-in-snohomish/ &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.heraldnet.com%2F2026%2F03%2F02%2Fdisaster-loan-outreach-center-opens-in-snohomish%2F&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C67ddaadaf2104442a3c308de795718f8%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639081612141664928%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=pl92Ms2stqyknB4toUZ2x5NOLhirwjNxSxX2uIjttUk%3D&amp;reserved=0&gt;
+Sharing the in
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>formation 😀 Denise
+Denise Hollenbeck
+425.330.0178</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-37515f370965">
+  <header class="resource-head">
+    <h3>FW: [External Sender]Working Families Tax Credit application window opens Feb. 1</h3>
+    <p class="resource-meta">
+      <time>Jan 29, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😊 Denise
+Denise Hollenbeck, B.A.
+Housing Hope
+Family Support Coach
+Pronouns: she/her
+(425) 330-0178 denisehollenbeck@housinghope.org &lt;mailto:denisehollenbeck@housinghope.org&gt;
+5830 Evergreen Way, Everett, WA 98203
+www.housinghope.org &lt;https://nam11.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.housinghope.org%2F&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C7759988e544a4a1f4ddc08de5f939da7%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639053284761600436%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIj
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>oyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=2mSsghtvfIsCrymAgGhj5H3ovEBWIc82BFln9x4C8CY%3D&amp;reserved=0&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain confidential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+From: Washington Department of Revenue &lt;WADOR@public.govdelivery.com&gt;
+Sent: Thursday, January 29, 2026 3:30 PM
+To: Denise Hollenbe</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-f6f2c6b7ab0a">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Working Families Tax Credit Updates – December 2025/Actualizaciones del Crédito Tributario para Familias Trabajadoras (WFTC) – diciembre de 2025</h3>
+    <p class="resource-meta">
+      <time>Dec 18, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information  😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Washington Department of Revenue &lt;WADOR@public.govdelivery.com&gt;
+Sent: Thursday, December 18, 2025 8:37:20 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Working Families Tax Credit Updates – December 2025/Actualizaciones del Crédito Tributario para Familias Trabajadoras (WFTC) – diciembre de 2025
+	You don&#x27;t often get email from wador@public.govdelivery.com. Learn why this is important &lt;https://aka.ms/LearnAboutSenderIdentification&gt;
+View as a webpage / S
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>hare &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Flinks-2.govdelivery.com%2FCL0%2Fhttps%3A%252F%252Fcontent.govdelivery.com%252Faccounts%252FWADOR%252Fbulletins%252F4000e76%2F1%2F0101019b3252b732-24f94adb-cfb5-4d34-b548-d251602e029a-000000%2FyGJYJF1sDHXWQsp_F5m2JppMuuylNTiC-vPWAuOuc38%3D436&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7Ce2eea1a578604695fb0508de3e558a52%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639016734291804303%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=sL</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-390c101da546">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Tablets Now Available Through Lifeline Program</h3>
+    <p class="resource-meta">
+      <time>Aug 08, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 🙂 Denise
+Denise Hollenbeck
+Child and Family Specialist
+t. 425.330.0178
+housinghope.org &lt;https://www.housinghope.org/&gt;
+&lt;https://www.housinghope.org/&gt; 5830 Evergreen Way, Everett, WA 98203
+denisehollenbeck@ &lt;mailto:timothyjackson@housinghope.org&gt; housinghope.org &lt;mailto:timothyjackson@housinghope.org&gt;
+www.isacollaborative.org &lt;http://www.isacollaborative.org/&gt;
+ &lt;http://facebook.com/housinghope&gt;  &lt;http://instagram.com/housinghope1987&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain confide
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ntial and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: Shantel Harris &lt;Shantel.Harris@p-h-s.com&gt;
+Sent: Thursday, August 7, 2025 12:47 PM
+Subject: [External Sender]Tablets Now Available Through Lifeline Program
+We&#x27;re excited to share that tablets are now available through our Lifeline program representative!
+You can now choose from the following options at any upcoming Lifelin</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/390c101da546/image009.jpg" loading="lazy" alt="">
+    <img src="assets/390c101da546/image010.jpg" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>4 more images</summary>
+      <img src="assets/390c101da546/image011.jpg" loading="lazy" alt="">
+      <img src="assets/390c101da546/image012.jpg" loading="lazy" alt="">
+      <img src="assets/390c101da546/Carnegie Lifeline Flyer (Aug 2025)_p1.png" loading="lazy" alt="">
+      <img src="assets/390c101da546/Outlook-Logo, comp.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/390c101da546/Carnegie Lifeline Flyer (Aug 2025).pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Carnegie Lifeline Flyer (Aug 2025).pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-6e8d6a3a6a8c">
+  <header class="resource-head">
+    <h3>Free phones at Arlington Resoirce Center </h3>
+    <p class="resource-meta">
+      <time>Feb 25, 2025</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Thanks to Debbie for sharing the resource :-) Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+________________________________
+From: Denise Hollenbeck &lt;DeniseHollenbeck@housinghope.org&gt;
+Sent: Tuesday, February 25, 2025 3:05:43 PM
+To: Denise Hollenbeck &lt;DeniseHollenbeck@housinghope.org&gt;
+Subject: ARC phones 2
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+  </div>
+  <div class="resource-images">
+    <img src="assets/6e8d6a3a6a8c/facebook_1740524723841_7300289811307970585.jpg" loading="lazy" alt="">
+  </div>
+  <p class="resource-reason"><em>LLM note: The email is from February 2025, making the information over a year old, so the schedule or eligibility details may have changed.</em></p>
+</article>
+<article class="resource-card" id="rec-63bd144a8d2d">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FW: On behalf of Brice Montgomery, Interim CSD Director: Replacement of Stolen Benefits is Ending </h3>
+    <p class="resource-meta">
+      <time>Dec 30, 2024</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 🙂 Denise
+Denise Hollenbeck
+Child and Family Specialist
+t. 425.330.0178
+housinghope.org &lt;https://www.housinghope.org/&gt;
+&lt;https://www.housinghope.org/&gt; 5830 Evergreen Way, Everett, WA 98203
+denisehollenbeck@ &lt;mailto:timothyjackson@housinghope.org&gt; housinghope.org &lt;mailto:timothyjackson@housinghope.org&gt;
+www.isacollaborative.org &lt;http://www.isacollaborative.org/&gt;
+ &lt;http://facebook.com/housinghope&gt;  &lt;http://instagram.com/housinghope1987&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain conf
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>idential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: Olson, Danielle (DSHS/ESA/CSD) &lt;danielle.olson@dshs.wa.gov&gt;
+Sent: Monday, December 30, 2024 9:09 AM
+Subject: [External Sender]FW: On behalf of Brice Montgomery, Interim CSD Director: Replacement of Stolen Benefits is Ending
+Danielle Olson
+Smokey Point/Sky Valley CSO Administrator/Community Services Division
+(O) 360 651</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/63bd144a8d2d/image001.png" loading="lazy" alt="">
+    <img src="assets/63bd144a8d2d/image002.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>2 more images</summary>
+      <img src="assets/63bd144a8d2d/Replacement of Stolen Benefits Is Ending Interested Parties Letter_p1.png" loading="lazy" alt="">
+      <img src="assets/63bd144a8d2d/Outlook-Logo, comp.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/63bd144a8d2d/Replacement of Stolen Benefits Is Ending Interested Parties Letter.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Replacement of Stolen Benefits Is Ending Interested Parties Letter.pdf</span>
+    </a>
+  </div>
+  <p class="resource-reason"><em>LLM note: The resource is a policy letter dated December 2024, which is approximately 16 months old.</em></p>
+</article>
+<article class="resource-card" id="rec-f104cc3da865">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FW: On behalf of Brice Montgomery, Interim CSD Director: Diversion Cash Assistance Benefit Increase</h3>
+    <p class="resource-meta">
+      <time>Dec 16, 2024</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 🙂 Denise
+Denise Hollenbeck
+Child and Family Specialist
+t. 425.330.0178
+housinghope.org &lt;https://www.housinghope.org/&gt;
+&lt;https://www.housinghope.org/&gt; 5830 Evergreen Way, Everett, WA 98203
+denisehollenbeck@ &lt;mailto:timothyjackson@housinghope.org&gt; housinghope.org &lt;mailto:timothyjackson@housinghope.org&gt;
+www.isacollaborative.org &lt;http://www.isacollaborative.org/&gt;
+ &lt;http://facebook.com/housinghope&gt;  &lt;http://instagram.com/housinghope1987&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain conf
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>idential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Monday, December 16, 2024 3:57 PM
+Subject: [External Sender]FW: On behalf of Brice Montgomery, Interim CSD Director: Diversion Cash Assistance Benefit Increase
+Sharing with Snohomish County LPA
+Danielle Olson
+Smokey Point/Sky Valley CSO Administrator/Community Services Divisio</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/f104cc3da865/image001.png" loading="lazy" alt="">
+    <img src="assets/f104cc3da865/image002.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>8 more images</summary>
+      <img src="assets/f104cc3da865/image003.jpg" loading="lazy" alt="">
+      <img src="assets/f104cc3da865/image004.png" loading="lazy" alt="">
+      <img src="assets/f104cc3da865/image005.png" loading="lazy" alt="">
+      <img src="assets/f104cc3da865/image006.png" loading="lazy" alt="">
+      <img src="assets/f104cc3da865/image007.png" loading="lazy" alt="">
+      <img src="assets/f104cc3da865/image008.png" loading="lazy" alt="">
+      <img src="assets/f104cc3da865/DCA Increase Partner Letter_p1.png" loading="lazy" alt="">
+      <img src="assets/f104cc3da865/Outlook-Logo, comp.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/f104cc3da865/DCA Increase Partner Letter.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>DCA Increase Partner Letter.pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-376946c44fd1">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Lifeline Phone Program Update 09/18/2024</h3>
+    <p class="resource-meta">
+      <time>Sep 18, 2024</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 🙂 Denise
+Denise Hollenbeck
+Child and Family Specialist
+t. 425.330.0178
+housinghope.org &lt;https://www.housinghope.org/&gt;
+&lt;https://www.housinghope.org/&gt; 5830 Evergreen Way, Everett, WA 98203
+denisehollenbeck@ &lt;mailto:timothyjackson@housinghope.org&gt; housinghope.org &lt;mailto:timothyjackson@housinghope.org&gt;
+www.isacollaborative.org &lt;http://www.isacollaborative.org/&gt;
+ &lt;http://facebook.com/housinghope&gt;  &lt;http://instagram.com/housinghope1987&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain conf
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>idential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: Shantel Harris &lt;Shantel.Harris@p-h-s.com&gt;
+Sent: Wednesday, September 18, 2024 10:29 AM
+To: Shantel Harris &lt;Shantel.Harris@p-h-s.com&gt;
+Subject: [External Sender]Lifeline Phone Program Update 09/18/2024
+The Lifeline Phone Program offered at Carnegie Resource Center, through Excess Telecom, has been TEMPORARILY PAUSED. Due</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/376946c44fd1/image001.png" loading="lazy" alt="">
+    <img src="assets/376946c44fd1/image002.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>4 more images</summary>
+      <img src="assets/376946c44fd1/image003.png" loading="lazy" alt="">
+      <img src="assets/376946c44fd1/image004.png" loading="lazy" alt="">
+      <img src="assets/376946c44fd1/CRC _Lifeline Phone Program Update 09.18.24_p1.png" loading="lazy" alt="">
+      <img src="assets/376946c44fd1/Outlook-Logo, comp.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/376946c44fd1/CRC _Lifeline Phone Program Update 09.18.24.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>CRC _Lifeline Phone Program Update 09.18.24.pdf</span>
+    </a>
+  </div>
+  <p class="resource-reason"><em>LLM note: The email is a status update from September 2024 regarding a temporary program pause, placing it in the 12-24 month window where current validity is uncertain.</em></p>
+</article>
+</section>
+<section id="cat-transportation" class="category-section">
+  <h2 class="category-heading"><i class="fas fa-bus"></i><span>Transportation</span><span class="category-count">4</span></h2>
+<article class="resource-card" id="rec-a88f9112a8bc">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]ORCA LIFT - Updated Fare Matrix Eff. March 1st </h3>
+    <p class="resource-meta">
+      <time>Mar 03, 2025</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😀 Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+________________________________
+From: Shantel Harris &lt;Shantel.Harris@p-h-s.com&gt;
+Sent: Monday, March 3, 2025 9:05:58 AM
+Subject: [External Sender]ORCA LIFT - Updated Fare Matrix Eff. March 1st
+Effective March 1st, Community Transit adopted the $1.00 ORCA LIFT fare and now accepts the subsidized annual pass.  Updated Fare Matrixes are attached.
+Shantel Harris | Social Services Coordinator
+Pioneer Human Services | 425-434-4680
+PioneerHumanServices.
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>org &lt;http://www.pioneerhumanservices.org/&gt;
+ &lt;https://www.facebook.com/pioneerwa&gt;     &lt;https://www.linkedin.com/company/pioneer-human-services&gt;     &lt;https://www.twitter.com/pioneerwa&gt;     &lt;https://www.youtube.com/channel/UCuGf99lQwbSXXObe9NlwrOQ&gt;
+Confidentiality Note:  This message is intended for use only by the individual or entity to which it is addressed, and may contain information that is privileged and confidential, under applicable law. If you are not the intended recipient, please notify the sender immediately, delete this email from your system, and do not use or disclose any informat</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/a88f9112a8bc/image001.png" loading="lazy" alt="">
+    <img src="assets/a88f9112a8bc/image002.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>4 more images</summary>
+      <img src="assets/a88f9112a8bc/image003.png" loading="lazy" alt="">
+      <img src="assets/a88f9112a8bc/image004.png" loading="lazy" alt="">
+      <img src="assets/a88f9112a8bc/ORCA LIFT Fares Matrix_25_2-28-25_p1.png" loading="lazy" alt="">
+      <img src="assets/a88f9112a8bc/Public Health what you can ride SAP flyer_2-28-25_p1.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/a88f9112a8bc/ORCA LIFT Fares Matrix_25_2-28-25.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>ORCA LIFT Fares Matrix_25_2-28-25.pdf</span>
+    </a>
+    <a class="document-link" href="assets/a88f9112a8bc/Public Health what you can ride SAP flyer_2-28-25.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Public Health what you can ride SAP flyer_2-28-25.pdf</span>
+    </a>
+  </div>
+  <p class="resource-reason"><em>LLM note: The email shares transit fare updates effective March 2025, which is over 12 months old.</em></p>
+</article>
+<article class="resource-card" id="rec-d9729b3578c8">
+  <header class="resource-head">
+    <h3>Fw: Beginning March 1, Community Transit to reduce some fares</h3>
+    <p class="resource-meta">
+      <time>Feb 24, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😀 Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+________________________________
+From: Denise Hollenbeck &lt;DeniseHollenbeck@housinghope.org&gt;
+Sent: Thursday, February 13, 2025 8:10:02 AM
+To: Denise Hollenbeck &lt;DeniseHollenbeck@housinghope.org&gt;
+Subject: Beginning March 1, Community Transit to reduce some fares
+https://www.heraldnet.com/news/beginning-march-1-community-transit-to-reduce-some-fares/
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+  </div>
+</article>
+<article class="resource-card" id="rec-98191ccfd32a">
+  <header class="resource-head">
+    <h3>Zip Shuttle new service</h3>
+    <p class="resource-meta">
+      <time>Jan 13, 2025</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 🙂 Denise
+Denise Hollenbeck
+Child and Family Specialist
+t. 425.330.0178
+housinghope.org &lt;https://www.housinghope.org/&gt;
+&lt;https://www.housinghope.org/&gt; 5830 Evergreen Way, Everett, WA 98203
+denisehollenbeck@ &lt;mailto:timothyjackson@housinghope.org&gt; housinghope.org &lt;mailto:timothyjackson@housinghope.org&gt;
+www.isacollaborative.org &lt;http://www.isacollaborative.org/&gt;
+ &lt;http://facebook.com/housinghope&gt;  &lt;http://instagram.com/housinghope1987&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain confide
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ntial and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/98191ccfd32a/Zip Shuttle Arlington_p1.png" loading="lazy" alt="">
+    <img src="assets/98191ccfd32a/Zip Shuttle Arlington_p2.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>1 more image</summary>
+      <img src="assets/98191ccfd32a/Outlook-Logo, comp.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/98191ccfd32a/Zip Shuttle Arlington.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Zip Shuttle Arlington.pdf</span>
+    </a>
+  </div>
+  <p class="resource-reason"><em>LLM note: The email is over 12 months old and describes a pilot service, so the program status or details may have changed.</em></p>
+</article>
+<article class="resource-card" id="rec-bf1a04717bc5">
+  <header class="resource-head">
+    <h3>Fw: Zip Shuttle expanding to Darrington, Arlington, Lake Stevens | HeraldNet.com</h3>
+    <p class="resource-meta">
+      <time>Dec 15, 2024</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+________________________________
+From: Denise Hollenbeck &lt;DeniseHollenbeck@housinghope.org&gt;
+Sent: Sunday, December 15, 2024 7:51:04 AM
+To: Denise Hollenbeck &lt;DeniseHollenbeck@housinghope.org&gt;
+Subject: Zip Shuttle expanding to Darrington, Arlington, Lake Stevens | HeraldNet.com
+https://www.heraldnet.com/news/zip-shuttle-expanding-to-darrington-arlington-lake-stevens/?utm_source=WhatCounts%20Email&amp;utm_medium=Daily%20HeadlinesEvent%20-%20Subs&amp;utm_campa
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ign=Morning%20Headlines%20-%20Subs
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;</span>
+    </details>
+  </div>
+  <p class="resource-reason"><em>LLM note: The email shares a news article about a shuttle service expansion, which is relevant to transportation but was published over a year ago.</em></p>
+</article>
+</section>
+<section id="cat-domestic-violence-and-safety" class="category-section">
+  <h2 class="category-heading"><i class="fas fa-shield-halved"></i><span>Domestic Violence &amp; Safety</span><span class="category-count">1</span></h2>
+<article class="resource-card" id="rec-b1e9d8684805">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FW: Do You Know About the National Indigenous Women&#x27;s Resource Center (NIWRC)? </h3>
+    <p class="resource-meta">
+      <time>Jun 23, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource :-) Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Friday, June 20, 2025 10:34:15 AM
+To: R2ServiceRequestA &lt;R2ServiceRequestA@dshs.wa.gov&gt;
+Subject: [External Sender]FW: Do You Know About the National Indigenous Women&#x27;s Resource Center (NIWRC)?
+Sharing with the LPA, please contact those listed in the original message for more information regarding their programs and activities. Thank you!
+If you would like to be removed from receiving LPA related emails, please use this email link: Unsubscribe &lt;mailto:
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>r2snocolpa@stateofwa.mail.onmicrosoft.com?subject=Please%20Remove%20Me&gt;
+Nicholle Smith
+Community Services Office Administrator Alderwood
+360-338-5582 / Nicholle.Smith@dshs.wa.gov &lt;mailto:Nicholle.Smith@dshs.wa.gov&gt;
+Community Services Division
+Economic Services Administration
+Washington State Department of Social and Health Services
+Do You Know About the National Indigenous Women&#x27;s Resource Center (NIWRC)?
+The NIWRC &lt;https://links-2.govdelivery.com/CL0/https:%2F%2Fwww.niwrc.org%2F%3Futm_medium=email%26utm_source=govdelivery/1/010101976a7e32b5-07c84742-71d3-45a9-9866-056818997151-000000/O3ebMElX</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/b1e9d8684805/Outlook-DSHS Logo .png" loading="lazy" alt="">
+  </div>
+</article>
+</section>
+<section id="cat-veterans-services" class="category-section">
+  <h2 class="category-heading"><i class="fas fa-medal"></i><span>Veterans Services</span><span class="category-count">4</span></h2>
+<article class="resource-card" id="rec-ece785870469">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]REGISTER NOW: Upcoming WDVA Suicide Prevention Workshops</h3>
+    <p class="resource-meta">
+      <time>Apr 06, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resources 🙂Denise
+Denise Hollenbeck (She/Her)
+Family Support Coach
+425.330.0178 | 5830 Evergreen Way, Everett, WA 98203
+ &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.housinghope.org%2F&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C489a5ede5cfd436497e208de94381d84%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639111165892799803%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=BBXonzXyzKjCgfVou4g7JOo895%2B9IUTs8rBYqNEchyI%3D&amp;reserved=0&gt;
+Confidentiality Notice: This ema
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>il message, including any attachments, is for the sole use of the intended recipient(s) and may contain confidential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: WA Dept of Veterans Affairs &lt;wdva@public.govdelivery.com&gt;
+Sent: Monday, April 6, 2026 3:01 PM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]REGISTER NOW: Upcoming WDVA Suicide</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/ece785870469/Outlook-uhqgulab.png" loading="lazy" alt="">
+  </div>
+</article>
+<article class="resource-card" id="rec-0ad4232d1d92">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Register Now: WDVA Stigma Suicide Prevention Courses</h3>
+    <p class="resource-meta">
+      <time>Jan 08, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: WA Dept of Veterans Affairs &lt;wdva@public.govdelivery.com&gt;
+Sent: Thursday, January 8, 2026 9:01:18 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Register Now: WDVA Stigma Suicide Prevention Courses
+	You don&#x27;t often get email from wdva@public.govdelivery.com. Learn why this is important &lt;https://aka.ms/LearnAboutSenderIdentification&gt;
+YOUR WDVA Suicide Prevention Program is offering Preventing Suicide by Combating Stigma Courses in 2026
+	View as a webpage  / 
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span> Share &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Flinks-1.govdelivery.com%2FCL0%2Fhttps%3A%252F%252Fcontent.govdelivery.com%252Faccounts%252FWADVA%252Fbulletins%252F4036951%2F1%2F0100019b9e8e3588-8f492a20-9005-4d98-baef-94f1151c4407-000000%2FBD3u9EL5BIsjqbIpzFPc1tdohA5s8orELMr0U82hJqY%3D439&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7Cb4aebd2df85c42d7448508de4f3782c1%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639035296983002394%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-c88d78361d0a">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Register Now: WDVA PAUSE Lethal Means Safety Courses</h3>
+    <p class="resource-meta">
+      <time>Jan 08, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: WA Dept of Veterans Affairs &lt;wdva@public.govdelivery.com&gt;
+Sent: Thursday, January 8, 2026 9:01:46 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Register Now: WDVA PAUSE Lethal Means Safety Courses
+YOUR WDVA Suicide Prevention Program is offering PAUSE Lethal Means Safety Courses in 2026
+	View as a webpage  /  Share &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Flinks-1.govdelivery.com%2FCL0%2Fhttps%3A%252F%252Fcontent.govdelivery.com%25
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>2Faccounts%252FWADVA%252Fbulletins%252F4036a07%2F1%2F0100019b9e8ea1b3-f70b90be-ea5c-4589-b95a-89798e87572c-000000%2FLzQbMxQmJCU9GYKhHItfWVtEmOhNHVPQcrieNAjgfdw%3D439&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7Cf9ec4bbdfdb7435b340008de4f373756%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639035295715703757%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=vsUAIMqjeUfyKxqq35fpyAuuOjtJcmQrMYFbiXum2Mg%3D&amp;reserved=0&gt;
+ &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Flinks-1.govdelivery.com</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-3c0d9cbfc72b">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Fwd: PACT Act law for Veterans</h3>
+    <p class="resource-meta">
+      <time>Apr 12, 2023</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 🙂 Denise
+Denise Hollenbeck (She/Her)
+Child and Family Specialist
+ &lt;https://www.housinghope.org/&gt;
+t. 425.330.0178  |  housinghope.org
+&lt;https://www.housinghope.org/&gt; 5830 Evergreen Way, Everett, WA 98203
+ &lt;http://facebook.com/housinghope&gt;  &lt;http://instagram.com/housinghope1987&gt;
+________________________________
+From: hollenbecks@earthlink.net &lt;hollenbecks@earthlink.net&gt;
+Sent: Wednesday, April 12, 2023 7:49 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Fwd: PACT Act law for Veterans
+Sent using myEarthLink
+On Wed Apr 12 06:48:23 PDT 20
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>23 Secretary NAACP Snohomish County wrote:
+FYI, information about the PACT Act law from our Veterans Chair, Joe Coverson:
+Through the years many veterans have sought relief from conditions felt to be a direct result of their exposure to burn pits, agent orange, radiation, and other toxic substances.  Many veterans developed severe health conditions and even death because of the limited scope of recognized conditions by the VA.
+This new law has expanded its VA health care and benefits for veterans exposed to burn pits, Agent Orange, radiation, and other toxic substances. It will also allow more</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/3c0d9cbfc72b/image001.jpg" loading="lazy" alt="">
+  </div>
+</article>
+</section>
+<section id="cat-trainings-and-events" class="category-section">
+  <h2 class="category-heading"><i class="fas fa-calendar-days"></i><span>Trainings &amp; Events</span><span class="category-count">12</span></h2>
+<article class="resource-card" id="rec-20f8a497f9f5">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FCS Presents: May Supervisory Series</h3>
+    <p class="resource-meta">
+      <time>Apr 28, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Washington Health Care Authority &lt;WaHCA@info.hca.wa.gov&gt;
+Sent: Tuesday, April 28, 2026 10:02:30 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]FCS Presents: May Supervisory Series
+Join us May 20!
+	 &lt;https://content.govdelivery.com/attachments/fancy_images/WAHCA/2022/11/6784976/hca-new-logo-reverse-600px_original.png&gt;
+April 28, 2026
+Can’t access the links? Add “lnks.gd” to the allowlist of your content blocking software.
+Coaching the coaches: supervisory str
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ategies for Executive Function (EF) Assessment and skill development in FCS
+Washington Health Care Authority (HCA) Foundational Community Supports (FCS) team in partnership with Rutgers School of Psychiatric Rehabilitation and Counseling Professions to present the May Supervisory Series.
+Executive functioning (EF) skills, such as planning, organization, task initiation, and self-regulation, are central to success in both employment and housing stability. FCS staff are often supporting these skills every day, but may lack a clear framework for assessing EF needs or translating them into effecti</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-4c3188007ca3">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FCS Presents: Practical Communication and Care Planning Tools for Supported Employment Providers</h3>
+    <p class="resource-meta">
+      <time>Apr 13, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    I&#x27;m sure the information in this seminar will also be applicable to FSCs and EE&amp;T staff, so I&#x27;m sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Washington Health Care Authority &lt;WaHCA@info.hca.wa.gov&gt;
+Sent: Friday, April 10, 2026 8:02:27 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]FCS Presents: Practical Communication and Care Planning Tools for Supported Employment Providers
+Join us May 18!
+	 &lt;https://content.govdelivery.com/attachments/fancy_images/WAHCA/2022/11/6784976/hca-new-logo-reverse-600px_or
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>iginal.png&gt;
+April 10, 2026
+Can’t access the links? Add “lnks.gd” to the allowlist of your content blocking software.
+Supporting FCS participants experiencing psychosis
+Washington Health Care Authority (HCA) Foundational Community Supports (FCS) and Department Social and Health Services (DSHS) invite you to join us for a supported employment training.
+Supported employment staff are often called on to help when a job seeker is experiencing paranoia, delusional thinking, or other psychosis related symptoms and is declining practical services because they do not believe anything is wrong. In these</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-c43f5c4c6b76">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Unlock your leadership potential</h3>
+    <p class="resource-meta">
+      <time>Feb 09, 2026</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: WA Family Engagement &lt;info@wafamilyengagement.org&gt;
+Sent: Thursday, February 5, 2026 2:59:50 PM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Unlock your leadership potential
+Learn civic and public school engagement - registration is open
+View this email in your browser &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmailchi.mp%2Fwafamilyengagement%2Funlock-your-leadership-potential%3Fe%3D7e79b1abeb&amp;data=05%7C02%7CDaneWagenhoffer%40housingho
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>pe.org%7Cd40f9894ab53422a6b3108de67f45702%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639062496350028762%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=Y%2FNX1AlbHU%2BT29bv4u0MywJjyO0eFeP4TEWd8dMh6HM%3D&amp;reserved=0&gt;
+ &lt;https://mcusercontent.com/c636d2a6037fb11890125f01e/images/aa6f970a-da0d-4915-8a09-f3d5d5a7abf1.jpg&gt;
+Leadership and engagement skills for parents, caregivers and those working with families
+ &lt;https://mcusercontent.com/c636d2a6037fb11890125f01e/images/60d183b1-5567-18fc-3eeb-d793a67f5d8a.jpg&gt;
+</span>
+    </details>
+  </div>
+  <p class="resource-reason"><em>LLM note: The email promotes a leadership and civic engagement workshop for parents and caregivers with registration open in February 2026, so the specific session may have passed but the program could be ongoing.</em></p>
+</article>
+<article class="resource-card" id="rec-393bd04e9c52">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FCS Presents: Supportive Housing Learning Collaborative</h3>
+    <p class="resource-meta">
+      <time>Jan 08, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Washington Health Care Authority &lt;WaHCA@info.hca.wa.gov&gt;
+Sent: Thursday, January 8, 2026 2:01:43 PM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]FCS Presents: Supportive Housing Learning Collaborative
+Join us the first Friday of each month!
+	 &lt;https://content.govdelivery.com/attachments/fancy_images/WAHCA/2022/11/6784976/hca-new-logo-reverse-600px_original.png&gt;
+January 8, 2026
+Can’t access the links? Add “lnks.gd” to the allowlist of your content blocking so
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ftware.
+Permanent Supportive Housing Learning Collaborative
+Washington Health Care Authority (HCA) Foundational Community Supports (FCS) team is partnering with the Advocates for Human Potential (AHP) to present the monthly Supportive Housing learning collaborative meetings from February to June 2026!
+The Learning collaborative on Permanent Supportive Housing (PSH) is here to strengthen the capacity of providers, community partners, and stakeholders in delivering high-quality housing and supportive services. This collaborative will offer a structured forum for sharing best practices, addressin</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-61e16bfecf4d">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FW: Introduction to Case Management and Lowering Barriers/Harm Reduction Trainings</h3>
+    <p class="resource-meta">
+      <time>Nov 10, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Morelli, Carmela &lt;Carmela.Morelli@co.snohomish.wa.us&gt;
+Sent: Monday, November 10, 2025 8:59:13 AM
+To: Contracts &lt;contracts@cocoonhouse.org&gt;; afrye@ywcaworks.org &lt;afrye@ywcaworks.org&gt;; agladden@ywcaworks.org &lt;agladden@ywcaworks.org&gt;; Alison Ahlgrim &lt;AlisonA@ccsww.org&gt;; Amoruso, Amanda &lt;Amanda.Amoruso@co.snohomish.wa.us&gt;; Angela Pride &lt;angelapride@housinghope.org&gt;; agrassfield@ywcaworks.org &lt;agrassfield@ywcaworks.org&gt;; Briana Johnson &lt;bjohnson@ywcaworks.org&gt;; Carrie Kingston &lt;carriek@ccsww.org&gt;; Ch
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>arley Bielawski &lt;CharleyBielawski@housinghope.org&gt;; Christine Pfiester &lt;ChristinePfiester@housinghope.org&gt;; cjefferson@ywcaworks.org &lt;cjefferson@ywcaworks.org&gt;; &#x27;coryk@ccsww.org&#x27; &lt;coryk@ccsww.org&gt;; Dane Wagenhoffer &lt;danewagenhoffer@housinghope.org&gt;; dcook@ccsww.org &lt;dcook@ccsww.org&gt;; Debbie McBrayer &lt;debbiemcbrayer@housinghope.org&gt;; Denise Hollenbeck &lt;DeniseHollenbeck@housinghope.org&gt;; Elodie Adjibly &lt;elodie.adjibly@cocoonhouse.org&gt;; Eric Jimenez &lt;Eric.jimenez@cocoonhouse.org&gt;; Fawn Medel &lt;FMedel@ccsww.org&gt;; Gary Strong &lt;gstrong@ywcaworks.org&gt;; Gentry, Danielle &lt;Dani.Gentry@co.snohomish.wa.us&gt;</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-614bf316207d">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]*UDATED DATES* Foundational Community Supports presents: Buried in Treasure Learning Community</h3>
+    <p class="resource-meta">
+      <time>Oct 30, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Washington Health Care Authority &lt;WaHCA@info.hca.wa.gov&gt;
+Sent: Thursday, October 30, 2025 3:25:23 PM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]*UDATED DATES* Foundational Community Supports presents: Buried in Treasure Learning Community
+Join us from October to June!
+	 &lt;https://content.govdelivery.com/attachments/fancy_images/WAHCA/2022/11/6784976/hca-new-logo-reverse-600px_original.png&gt;
+Octovber 3, 2025
+Can’t access the links? Add “lnks.gd” to the all
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>owlist of your content blocking software.
+*Please see below for updates dates for holiday accommodation*
+Empowering People to Address Hoarding Behaviors with Compassion and Evidence-Based Tools
+Washington Health Care Authority (HCA) Foundational Community Supports (FCS) team in partnership with Rutgers School of Psychiatric Rehabilitation and Counseling Professions is holding a Buried in Treasures learning community one Thursday a month from October through June and invite you to join!
+Join the Buried in Treasures Learning Community, a monthly interactive forum designed to help Washington Stat</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-e0db68a0b932">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]FW: October 25 - Tips &amp; Tidbits Newsletter (Analyzing Community Problems &amp; Solutions)</h3>
+    <p class="resource-meta">
+      <time>Oct 15, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Sent: Wednesday, October 15, 2025 9:33:15 AM
+To: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Subject: [External Sender]FW: October 25 - Tips &amp; Tidbits Newsletter (Analyzing Community Problems &amp; Solutions)
+Sharing with the LPA, please contact those listed in the original message for more information regarding their programs and activities. Thank you!
+If you would like to be removed from receiving LPA related emails, please use this email link: Unsubscribe &lt;mailto:r2s
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>nocolpa@stateofwa.mail.onmicrosoft.com?subject=Please%20Remove%20Me&gt;
+Nicholle Smith
+Community Services Office Administrator Alderwood
+360-338-5582 / Nicholle.Smith@dshs.wa.gov &lt;mailto:Nicholle.Smith@dshs.wa.gov&gt;
+Community Services Division
+Economic Services Administration
+Washington State Department of Social and Health Services
+From: Smith, Nicholle (DSHS/ESA/CSD) &lt;charmaine.smith@dshs.wa.gov&gt;
+Sent: Tuesday, October 14, 2025 9:13 AM
+To: R2SnoCoLPA &lt;r2snoco.lpa@dshs.wa.gov&gt;
+Subject: FW: October 25 - Tips &amp; Tidbits Newsletter (Analyzing Community Problems &amp; Solutions)
+Nicholle Smith (she/hers)
+</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/e0db68a0b932/Outlook-12ejfppp.png" loading="lazy" alt="">
+    <img src="assets/e0db68a0b932/October 2025 Tips &amp; Tidbits Newsletter_p1.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>2 more images</summary>
+      <img src="assets/e0db68a0b932/October 2025 Tips &amp; Tidbits Newsletter_p2.png" loading="lazy" alt="">
+      <img src="assets/e0db68a0b932/October 2025 Tips &amp; Tidbits Newsletter_p3.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/e0db68a0b932/October 2025 Tips &amp; Tidbits Newsletter.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>October 2025 Tips &amp; Tidbits Newsletter.pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-98903284b4af">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Recording Available! Youth Homelessness and SED Webinar</h3>
+    <p class="resource-meta">
+      <time>Aug 12, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: SAMHSA&#x27;s Homeless and Housing Resource Center &lt;info@hhrctraining.org&gt;
+Sent: Tuesday, August 12, 2025 7:41:56 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Recording Available! Youth Homelessness and SED Webinar
+ &lt;https://t.e2ma.net/click/bztwrk/n0i6kek/nohxzs&gt;
+ &lt;https://d31hzlhk6di2h5.cloudfront.net/20250812/ec/f6/d9/04/09fa6e2548eaaefe5a6729b1_1280x8.png&gt;
+Webinar Recording Available
+ &lt;https://d31hzlhk6di2h5.cloudfront.net/20250812/ec/f6/d9/04/09fa6e254
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>8eaaefe5a6729b1_1280x8.png&gt;
+ &lt;https://t.e2ma.net/click/bztwrk/n0i6kek/3gixzs&gt;
+Webinar Recording:
+Youth Experiencing Homelessness and Serious Emotional Disturbance
+ &lt;https://images.e2ma.net/images/spacer.gif&gt;
+We recognize the importance of this webinar topic to your work and that not everyone was available to attend yesterday&#x27;s live event. The webinar recording is now available to view when your schedule allows.
+Those who could not attend the live event can receive a Certificate of Participation after viewing the recording and completing a post-event survey. The evaluation link is available on </span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-f73940a2ec74">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Just Released! Free Workforce Training Online Course</h3>
+    <p class="resource-meta">
+      <time>Jul 31, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource :-) Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: SAMHSA&#x27;s Homeless and Housing Resource Center &lt;info@hhrctraining.org&gt;
+Sent: Thursday, July 31, 2025 7:06:57 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Just Released! Free Workforce Training Online Course
+ &lt;https://t.e2ma.net/click/fu0xqk/n0i6kek/fibuxs&gt;
+ &lt;https://d31hzlhk6di2h5.cloudfront.net/20250731/ec/f6/d9/04/09fa6e2548eaaefe5a6729b1_1280x8.png&gt;
+Just Released:
+Free Online Course!
+ &lt;https://d31hzlhk6di2h5.cloudfront.net/20250731/ec/f6/d9/04/09fa6e2
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>548eaaefe5a6729b1_1280x8.png&gt;
+ &lt;https://t.e2ma.net/click/fu0xqk/n0i6kek/vacuxs&gt;
+Workforce Training for New Behavioral Health Staff
+The Workforce Training for New Behavioral Health Staff Online Course is free to the public. This course introduces foundational concepts for behavioral healthcare workers supporting people experiencing homelessness with serious mental illness or substance use disorder. The course encourages building trust, respecting individual experiences, and providing compassionate, professional care to improve behavioral health outcomes and overall stability for those in need. </span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-004fe6cce038">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Introducing a New Community of Practice</h3>
+    <p class="resource-meta">
+      <time>Mar 11, 2025</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+________________________________
+From: The Prosperity Agenda &lt;info@theprosperityagenda.org&gt;
+Sent: Tuesday, March 11, 2025 11:59:54 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Introducing a New Community of Practice
+Join other human service professionals in this exciting new initiative
+View this email in your browser &lt;https://mailchi.mp/7d9c8ac6a723/introducing-a-new-community-of-practice-17285341?e=301ff3505
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>9&gt;
+Join our Multi-Agency Community of Pratice
+ &lt;https://mcusercontent.com/0f0959978fcdda9c3a2a99437/_compresseds/8e12593c-5249-7dc6-9ab6-6d638566b89c.jpg&gt;
+Hi,
+Are you feeling overwhelmed by uncertainty? Worried about limited resources and how they will impact your work? You’re not alone.
+Now more than ever, coaching is a powerful tool to help shift perspectives, uncover hidden opportunities, and regain a sense of control. That’s why we are excited to introduce the Multi-Agency Community of Practice—a group coaching space where human service professionals can collaborate, learn, and support eac</span>
+    </details>
+  </div>
+  <p class="resource-reason"><em>LLM note: The email announces a professional coaching group introduced over a year ago, which may still be active but lacks current confirmation.</em></p>
+</article>
+<article class="resource-card" id="rec-dd85c6305054">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Commerce training opportunities</h3>
+    <p class="resource-meta">
+      <time>Nov 26, 2024</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource (in case you aren&#x27;t already on the mailing list) 😀 Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+________________________________
+From: Gentry, Danielle &lt;Dani.Gentry@co.snohomish.wa.us&gt;
+Sent: Tuesday, November 26, 2024 8:46:27 AM
+To: amendivil &lt;amendivil@lcsnw.org&gt;; agore@voaww.org &lt;agore@voaww.org&gt;; Andrea Ortel &lt;andreao@ccsww.org&gt;; agrassfield@ywcaworks.org &lt;agrassfield@ywcaworks.org&gt;; Anita Springer &lt;aspringer@voaww.org&gt;; Becky Megard &lt;Becky@dvs-snoco.org&gt;; bella.uchytil &lt;bella.uchytil@cocoonh
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ouse.org&gt;; bbeatty &lt;bbeatty@ywcaworks.org&gt;; Carrie Kingston &lt;carriek@ccsww.org&gt;; Cathy Cooper &lt;cathy@dvs-snoco.org&gt;; Hunter, Cindy &lt;Cindy.Hunter@co.snohomish.wa.us&gt;; Claire Petersen &lt;claire.petersen@cocoonhouse.org&gt;; Coyle Jefferson II &lt;cjefferson@ywcaworks.org&gt;; David Moser &lt;dmoser@lcsnw.org&gt;; Dmcbrayer &lt;Dmcbrayer@voaww.org&gt;; Emma Beckley &lt;emma.beckley@cocoonhouse.org&gt;; eunicelgonzaga &lt;eunicelgonzaga@gmail.com&gt;; Galina Volchkova &lt;gvolchkova@voaww.org&gt;; Gary Strong &lt;gstrong@ywcaworks.org&gt;; Gayle Anderson &lt;ganderson@voaww.org&gt;; gcardenas@voaww.org &lt;gcardenas@voaww.org&gt;; hhenderson &lt;hhenderson@v</span>
+    </details>
+  </div>
+  <p class="resource-reason"><em>LLM note: The email is 17 months old, so specific training dates may have passed, though the program or mailing list could still be active.</em></p>
+</article>
+<article class="resource-card" id="rec-21db928382d3">
+  <header class="resource-head">
+    <h3>Fwd: [External Sender]Just Released! Free Online Course on Supporting Older Adults</h3>
+    <p class="resource-meta">
+      <time>Aug 29, 2024</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information 😀 Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+________________________________
+From: SAMHSA&#x27;s Homeless and Housing Resource Center &lt;info@hhrctraining.org&gt;
+Sent: Thursday, August 29, 2024 8:01:34 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Just Released! Free Online Course on Supporting Older Adults
+ &lt;https://t.e2ma.net/click/zd12sj/n0i6kek/fadmyq&gt;
+ &lt;https://d31hzlhk6di2h5.cloudfront.net/20240829/ec/f6/d9/04/09fa6e2548eaaefe5a6729b1_1280x8.png&gt;
+Just R
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>eleased:
+Free Online Course!
+ &lt;https://d31hzlhk6di2h5.cloudfront.net/20240829/ec/f6/d9/04/09fa6e2548eaaefe5a6729b1_1280x8.png&gt;
+ &lt;https://t.e2ma.net/click/zd12sj/n0i6kek/v2dmyq&gt;
+Supporting Older Adults Experiencing Homelessness
+This course is free and introduces learners to the unique challenges faced by older adults experiencing homelessness, with a focus on individuals with substance use disorders or serious mental illness. The course also shares people’s personal experiences with homelessness and the experiences of those who work with older adults experiencing homelessness.
+Key Topics in the</span>
+    </details>
+  </div>
+  <p class="resource-reason"><em>LLM note: The email shares a free online training course released in August 2024, which is roughly 20 months old but likely remains accessible.</em></p>
+</article>
+</section>
+<section id="cat-community-engagement-and-donations" class="category-section">
+  <h2 class="category-heading"><i class="fas fa-handshake-angle"></i><span>Community Engagement &amp; Donations</span><span class="category-count">2</span></h2>
+<article class="resource-card" id="rec-0d15841b5517">
+  <header class="resource-head">
+    <h3>Community leaders cut ribbon on Lynnwood Neighborhood Center</h3>
+    <p class="resource-meta">
+      <time>Jan 10, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    https://www.heraldnet.com/news/a-stable-resource-community-leaders-cut-ribbon-on-lynnwood-neighborhood-center/ &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.heraldnet.com%2Fnews%2Fa-stable-resource-community-leaders-cut-ribbon-on-lynnwood-neighborhood-center%2F&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7Cf6ea6c669a074b13da9108de50a3b82b%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639036861254313411%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3Z87vozOfQSsJ71xgbY04QHKZWt%2
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>Ble7eQv6Dvk456Go%3D&amp;reserved=0&gt;
+Sharing the resources 😀 Denise
+Denise Hollenbeck
+425.330.0178</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-c4481d7e9a08">
+  <header class="resource-head">
+    <h3>Fwd: [External Sender]Home - Good360 </h3>
+    <p class="resource-meta">
+      <time>Apr 11, 2023</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+________________________________
+From: Olson, Danielle (DSHS/ESA/CSD) &lt;danielle.olson@dshs.wa.gov&gt;
+Sent: Tuesday, April 11, 2023, 9:19 AM
+Subject: [External Sender]Home - Good360
+Sharing great resource with LPA group.
+Thank you for sharing with us Anh!
+Danielle Olson/Alderwood CSO Administrator/Community Services Division
+Economic Services Administration
+Washington State Department of Social and Health Services
+(O) 425 977 6405  olsonde@dshs.wa.gov &lt;mailto:olsonde@dshs.wa.gov&gt;
+Ce
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ll 206-773-7389
+Transforming Lives
+From: Ong, H. Anh (DSHS/ESA/CSD) &lt;anh.ong@dshs.wa.gov&gt;
+Sent: Friday, April 7, 2023 2:39 PM
+To: Olson, Danielle (DSHS/ESA/CSD) &lt;danielle.olson@dshs.wa.gov&gt;; Jorkhang, Jampa T (DSHS/ESA/CSD) &lt;jampa.jorkhang@dshs.wa.gov&gt;; Quirarte, Celica (DSHS/ESA/CSD) &lt;celica.quirarte@dshs.wa.gov&gt;
+Subject: sharing
+Hi Danielle,
+I learned about this Home - Good360 &lt;https://good360.org/&gt;  from another community meeting today, and thought maybe Snohomish LPA and other non-profits might be able to take advantage of this program. Welcome to share.
+Thanks
+Anh
+Anh Ong / Program Consul</span>
+    </details>
+  </div>
+</article>
+</section>
+<section id="cat-other" class="category-section">
+  <h2 class="category-heading"><i class="fas fa-circle-info"></i><span>Other</span><span class="category-count">8</span></h2>
+<article class="resource-card" id="rec-1c95d8995621">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]April 2026: Carnegie Calendar, Community Resource Guide &amp; Flyers</h3>
+    <p class="resource-meta">
+      <time>Mar 31, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resources 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Shantel Harris &lt;Shantel.Harris@PHSNET.COM&gt;
+Sent: Tuesday, March 31, 2026 1:17:01 PM
+To: Shantel Harris &lt;Shantel.Harris@PHSNET.COM&gt;
+Subject: [External Sender]April 2026: Carnegie Calendar, Community Resource Guide &amp; Flyers
+Hello!
+Included in this email, you will find all the most-up-to-date flyers relative to services, programs and events that occur at the Carnegie Resource Center.  For an online viewable version of the Carnegie calendar and the monthly Community Resource Guide, please visit htt
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ps://pioneerhumanservices.org/carnegie-resource-center/ &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpioneerhumanservices.org%2Fcarnegie-resource-center%2F&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C38f17453326947e4b48208de8f68186f%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639105875537171329%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=eV77QKzHC9IiG%2FI6vWKniX%2FPwdlJ4GNfVCbG7XnMcCs%3D&amp;reserved=0&gt; . Both documents are accessible via QR code.
+We make every effort to ensure</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/1c95d8995621/image.png" loading="lazy" alt="">
+    <img src="assets/1c95d8995621/Outlook-uklw55ij.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>24 more images</summary>
+      <img src="assets/1c95d8995621/Outlook-qsrwg20b.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/Outlook-gnvdyhnf.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/Outlook-iilfe40b.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/CRC Calendar (Apr 2026)_p1.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/CRC Calendar (Apr 2026)_p2.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/CRC Community Resource Guide (Apr 2026)_p1.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/CRC Community Resource Guide (Apr 2026)_p2.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/CRC Community Resource Guide (Apr 2026)_p3.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/DOL2Go Mobile Event_Carnegie 2026_p1.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/DSHS Outreach (Apr 2026)_p1.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/Revised Bluebell Rising flyer with all 8 events + dates_p1.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/CRC_Orca LIFT Card (Apr 2026)_p1.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/CRC_Orca LIFT Card (Apr 2026)_p2.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/NSACH-Ideal Options Peer Recovery Support -Flyer_p1.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/VOAWW Connect Combo-half sheets_p1.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/VOAWW Connect Combo-half sheets_p2.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/New Eyes Flyer_p1.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/Carnegie Lifeline Flyer (Apr 2026)_p1.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/Carnegie Lifeline Flyer (Apr 2026)_p2.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/SCLS -HJP Flyer (Apr 2026)_p1.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/SUD Flyer (Apr 2026)_p1.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/Bridgeways Jails Transitions Flyer_p1.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/Bridgeways PATH_p1.png" loading="lazy" alt="">
+      <img src="assets/1c95d8995621/Bridgeways PATH_p2.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/1c95d8995621/CRC Calendar (Apr 2026).pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>CRC Calendar (Apr 2026).pdf</span>
+    </a>
+    <a class="document-link" href="assets/1c95d8995621/CRC Community Resource Guide (Apr 2026).pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>CRC Community Resource Guide (Apr 2026).pdf</span>
+    </a>
+    <a class="document-link" href="assets/1c95d8995621/DOL2Go Mobile Event_Carnegie 2026.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>DOL2Go Mobile Event_Carnegie 2026.pdf</span>
+    </a>
+    <a class="document-link" href="assets/1c95d8995621/DSHS Outreach (Apr 2026).pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>DSHS Outreach (Apr 2026).pdf</span>
+    </a>
+    <a class="document-link" href="assets/1c95d8995621/Revised Bluebell Rising flyer with all 8 events + dates.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Revised Bluebell Rising flyer with all 8 events + dates.pdf</span>
+    </a>
+    <a class="document-link" href="assets/1c95d8995621/CRC_Orca LIFT Card (Apr 2026).pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>CRC_Orca LIFT Card (Apr 2026).pdf</span>
+    </a>
+    <a class="document-link" href="assets/1c95d8995621/NSACH-Ideal Options Peer Recovery Support -Flyer.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>NSACH-Ideal Options Peer Recovery Support -Flyer.pdf</span>
+    </a>
+    <a class="document-link" href="assets/1c95d8995621/VOAWW Connect Combo-half sheets.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>VOAWW Connect Combo-half sheets.pdf</span>
+    </a>
+    <a class="document-link" href="assets/1c95d8995621/New Eyes Flyer.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>New Eyes Flyer.pdf</span>
+    </a>
+    <a class="document-link" href="assets/1c95d8995621/Carnegie Lifeline Flyer (Apr 2026).pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Carnegie Lifeline Flyer (Apr 2026).pdf</span>
+    </a>
+    <a class="document-link" href="assets/1c95d8995621/SCLS -HJP Flyer (Apr 2026).pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>SCLS -HJP Flyer (Apr 2026).pdf</span>
+    </a>
+    <a class="document-link" href="assets/1c95d8995621/SUD Flyer (Apr 2026).pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>SUD Flyer (Apr 2026).pdf</span>
+    </a>
+    <a class="document-link" href="assets/1c95d8995621/Bridgeways Jails Transitions Flyer.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Bridgeways Jails Transitions Flyer.pdf</span>
+    </a>
+    <a class="document-link" href="assets/1c95d8995621/Bridgeways PATH.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Bridgeways PATH.pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-3c3cbd6d4703">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]VOAWW Connect | Free Resource Navigation in Snohomish &amp; Skagit Counties</h3>
+    <p class="resource-meta">
+      <time>Jan 02, 2026</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Hi, peeps! Happy New Year 🎆
+Sharing the resources 😀 Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Faka.ms%2FAAb9ysg&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C90dc996463ef4581631e08de4a34dfd4%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C639029788176524965%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=55qgeOd6S5xfySYmfRr61ih1hpB2PHt%2BzhkPVObQiyI%3D&amp;reserved=0&gt;
+____________________
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>____________
+From: Shantel Harris &lt;Shantel.Harris@p-h-s.com&gt;
+Sent: Friday, January 2, 2026 11:01:04 AM
+To: Shantel Harris &lt;Shantel.Harris@p-h-s.com&gt;
+Subject: [External Sender]VOAWW Connect | Free Resource Navigation in Snohomish &amp; Skagit Counties
+Hello,
+We’re pleased to share information about VOAWW Connect, a free service that provides personalized resource navigation for individuals and families in Snohomish and Skagit Counties. VOAWW Connect extends beyond traditional Information &amp; Referral by offering one-on-one support to help community members successfully navigate essential systems and </span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/3c3cbd6d4703/image001.png" loading="lazy" alt="">
+    <img src="assets/3c3cbd6d4703/image002.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>7 more images</summary>
+      <img src="assets/3c3cbd6d4703/image003.png" loading="lazy" alt="">
+      <img src="assets/3c3cbd6d4703/image004.png" loading="lazy" alt="">
+      <img src="assets/3c3cbd6d4703/VOAWW Connect-poster 12.25-11x17_p1.png" loading="lazy" alt="">
+      <img src="assets/3c3cbd6d4703/ENG VOAWW Connect-half sheets 12.25_p1.png" loading="lazy" alt="">
+      <img src="assets/3c3cbd6d4703/ESP VOAWW Connect-half sheets 12.25_p1.png" loading="lazy" alt="">
+      <img src="assets/3c3cbd6d4703/Eng-Esp VOAWW Connect-Business Cards 12.25_p1.png" loading="lazy" alt="">
+      <img src="assets/3c3cbd6d4703/Eng-Esp VOAWW Connect-Business Cards 12.25_p2.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/3c3cbd6d4703/VOAWW Connect-poster 12.25-11x17.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>VOAWW Connect-poster 12.25-11x17.pdf</span>
+    </a>
+    <a class="document-link" href="assets/3c3cbd6d4703/ENG VOAWW Connect-half sheets 12.25.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>ENG VOAWW Connect-half sheets 12.25.pdf</span>
+    </a>
+    <a class="document-link" href="assets/3c3cbd6d4703/ESP VOAWW Connect-half sheets 12.25.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>ESP VOAWW Connect-half sheets 12.25.pdf</span>
+    </a>
+    <a class="document-link" href="assets/3c3cbd6d4703/Eng-Esp VOAWW Connect-Business Cards 12.25.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>Eng-Esp VOAWW Connect-Business Cards 12.25.pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-65cfa424ce7e">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]CRC Community Resource Guide Revision: Updated Flood &amp; Recovery Resources</h3>
+    <p class="resource-meta">
+      <time>Dec 22, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resources 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Shantel Harris &lt;Shantel.Harris@p-h-s.com&gt;
+Sent: Monday, December 22, 2025 8:33:04 AM
+To: Shantel Harris &lt;Shantel.Harris@p-h-s.com&gt;
+Subject: [External Sender]CRC Community Resource Guide Revision: Updated Flood &amp; Recovery Resources
+We are sharing the revised CRC Community Resource Guide, which is attached to this message. This updated version includes additional, up-to-date flood information and recovery resources to better support individuals, families, and service providers impacted by recent 
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>flooding.
+The guide has been revised to reflect available assistance and community-based supports, and we encourage you to review and share it broadly with those who may benefit.
+Please note that the online version of the CRC Community Resource Guide will be updated shortly to reflect these same revisions.
+For a viewable online version of the Carnegie calendar and the monthly Community Resource Guide, please visit: https://pioneerhumanservices.org/carnegie-resource-center &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpioneerhumanservices.org%2Fcarnegie-resource-center&amp;data</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/65cfa424ce7e/image001.png" loading="lazy" alt="">
+    <img src="assets/65cfa424ce7e/image002.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>5 more images</summary>
+      <img src="assets/65cfa424ce7e/image003.png" loading="lazy" alt="">
+      <img src="assets/65cfa424ce7e/image004.png" loading="lazy" alt="">
+      <img src="assets/65cfa424ce7e/CRC Community Resource Guide (December 2025)-Flood Resource Revision_p1.png" loading="lazy" alt="">
+      <img src="assets/65cfa424ce7e/CRC Community Resource Guide (December 2025)-Flood Resource Revision_p2.png" loading="lazy" alt="">
+      <img src="assets/65cfa424ce7e/CRC Community Resource Guide (December 2025)-Flood Resource Revision_p3.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/65cfa424ce7e/CRC Community Resource Guide (December 2025)-Flood Resource Revision.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>CRC Community Resource Guide (December 2025)-Flood Resource Revision.pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-3a5610c3656c">
+  <header class="resource-head">
+    <h3>Snohomish County adopts its first Community Wildfire Protection Plan</h3>
+    <p class="resource-meta">
+      <time>Nov 17, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    https://www.heraldnet.com/news/snohomish-county-adopts-its-first-community-wildfire-protection-plan/ &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.heraldnet.com%2Fnews%2Fsnohomish-county-adopts-its-first-community-wildfire-protection-plan%2F&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C1edc2ca0dc874ea4e6d808de266aaf97%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C638990436801904348%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=LSoRffi72oFcs1%2B4hVbl%2B8hsbB%2FgXfqBmDTaMNJLIF0
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>%3D&amp;reserved=0&gt;
+Sharing the information 😀 Denise
+Denise Hollenbeck
+425.330.0178
+ &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.housinghope.org%2Fyear-end&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C1edc2ca0dc874ea4e6d808de266aaf97%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C638990436801942344%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=g7xYr8GCI4kh2FckYSxzBw8JX8lLVhk61YDb55K%2B4xI%3D&amp;reserved=0&gt;</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-32c9306b5799">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Looking ahead: free days of 2026, First Day Hikes and fall activities</h3>
+    <p class="resource-meta">
+      <time>Nov 17, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+________________________________
+From: Washington State Parks &lt;WA.Parks@public.govdelivery.com&gt;
+Sent: Friday, November 14, 2025 10:23:08 AM
+To: Denise Hollenbeck &lt;denisehollenbeck@housinghope.org&gt;
+Subject: [External Sender]Looking ahead: free days of 2026, First Day Hikes and fall activities
+	You don&#x27;t often get email from wa.parks@public.govdelivery.com. Learn why this is important &lt;https://aka.ms/LearnAboutSenderIdentification&gt;
+	 &lt;https://content.govdelivery.com/attachments/fancy_images/WAPARKS/2022/12/6924266/1_original.png&gt;
+Novem
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>ber 2025
+ &lt;https://content.govdelivery.com/attachments/fancy_images/WAPARKS/2025/11/12653325/6541796/pearrygin-lake_crop.jpg&gt;
+Pearrygin Lake is a stunner in fall. By Jennifer Hambleton
+Mark your calendars: No Discover Pass required on these 2026 days
+Washington public land agencies have designated the 12 days of 2026 when no Discover Pass &lt;https://nam11.safelinks.protection.outlook.com/?url=https%3A%2F%2Flinks-1.govdelivery.com%2FCL0%2Fhttps%3A%252F%252Fdiscoverpass.wa.gov%252F%253Futm_content%3D%2526utm_medium%3Demail%2526utm_name%3D%2526utm_source%3Dgovdelivery%2526utm_term%3D%2F1%2F0100019a</span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-28e81e527cc2">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Arlington Community Resource Center Flyers</h3>
+    <p class="resource-meta">
+      <time>Nov 11, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resources 🙂 Denise
+Denise Hollenbeck, B.A.
+Housing Hope
+Family Support Coach
+Pronouns: she/her
+(425) 330-0178 denisehollenbeck@housinghope.org &lt;mailto:denisehollenbeck@housinghope.org&gt;
+5830 Evergreen Way, Everett, WA 98203
+www.housinghope.org &lt;https://nam11.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.housinghope.org%2F&amp;data=05%7C02%7CDaneWagenhoffer%40housinghope.org%7C94b3b2edd65a45a435d808de218180b7%7C842e529d4df94d2ebca099c6f0abef8d%7C0%7C0%7C638985037281132984%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoy
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>fQ%3D%3D%7C0%7C%7C%7C&amp;sdata=JB40%2FWvgVi%2BHweEHejJua8Cp25yLLKDrf0udzsFy%2Ffk%3D&amp;reserved=0&gt;
+Confidentiality Notice: This email message, including any attachments, is for the sole use of the intended recipient(s) and may contain confidential and/or privileged information. Any unauthorized review, use, disclosure, or distribution is prohibited. If you are not the intended recipient, please contact the sender by reply email and destroy all copies of the original message.
+________________________________
+From: Robin Johnson &lt;rojohnson@voaww.org&gt;
+Sent: Tuesday, November 11, 2025 2:57 PM
+To: Denise</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/28e81e527cc2/Outlook-A red and .png" loading="lazy" alt="">
+    <img src="assets/28e81e527cc2/ACRC FLYERS_p1.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>2 more images</summary>
+      <img src="assets/28e81e527cc2/ACRC FLYERS_p2.png" loading="lazy" alt="">
+      <img src="assets/28e81e527cc2/ACRC FLYERS_p3.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/28e81e527cc2/ACRC FLYERS.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>ACRC FLYERS.pdf</span>
+    </a>
+  </div>
+</article>
+<article class="resource-card" id="rec-5623cc1e4aee">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]Fwd: Snohomish County Human Services</h3>
+    <p class="resource-meta">
+      <time>Aug 04, 2025</time> · Denise Hollenbeck
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the information :-) Denise
+On Thu Jul 31 14:00:14 PDT 2025 Snohomish County Human Services wrote:
+Summer Newsletter
+	View as a webpage  /  Share &lt;https://links-2.govdelivery.com/CL0/https:%2F%2Fcontent.govdelivery.com%2Faccounts%2FWASNOHOMISHCO%2Fbulletins%2F3ebf5cb/1/0101019862490831-083223b5-a78b-4597-aa69-ef3b6c19aeaf-000000/P8_YR4dwV_CtYag0l51LnxxdoyNm7jsigig7DCGeOcg=416&gt;
+ &lt;https://content.govdelivery.com/attachments/fancy_images/WASNOHOMISHCO/2025/06/11805211/sch_original.png&gt;
+Bright Season. Stronger Community.
+Welcome to our Summer Edition!
+As we embrace warmer days, Snohomish Co
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span>unty Human Services remains dedicated to providing timely support so individuals and families can meet their basic needs and unlock their potential. From crisis intervention and veteran support to early childhood education, aging services, and housing assistance, our divisions work collaboratively to uplift every member of our community.
+Human Services Divisions
+·       Administrative Services
+·       Aging &amp; Disability Services
+·       Behavioral Health &amp; Veterans Services
+·       Developmental Disabilities &amp; Early Learning
+·       Housing &amp; Community Services
+·       Planning &amp; Evaluation
+· </span>
+    </details>
+  </div>
+</article>
+<article class="resource-card" id="rec-5b7267daa275">
+  <header class="resource-head">
+    <h3>Fw: [External Sender]North Sound 211 @ Carnegie Resource Center</h3>
+    <p class="resource-meta">
+      <time>Feb 13, 2025</time> · Denise Hollenbeck
+      <span class="badge-maybe">may be aging</span>
+    </p>
+  </header>
+  <div class="resource-body">
+    Sharing the resource 😀 Denise
+Denise Hollenbeck
+425.330.0178
+Sent from Samsung Galaxy smartphone.
+Get Outlook for Android &lt;https://aka.ms/AAb9ysg&gt;
+________________________________
+From: Shantel Harris &lt;Shantel.Harris@p-h-s.com&gt;
+Sent: Thursday, February 13, 2025 4:23:25 PM
+To: Shantel Harris &lt;Shantel.Harris@p-h-s.com&gt;
+Subject: [External Sender]North Sound 211 @ Carnegie Resource Center
+North Sound 211 will be offering in-person service at Carnegie Resource Center, starting Tuesday, February 18, 2025.  Individuals can meet with a Community Resource Advocate, who will assess their needs and match
+    <details class="resource-body-more">
+      <summary>show full message</summary>
+      <span> them with available services in their area.  An informational flyer is included.
+When:  Tuesdays, 12pm-2pm
+Where: Carnegie Resource Centers
+               3001 Oakes Avenue
+                Everett, WA 98201
+Shantel Harris | Social Services Coordinator
+Pioneer Human Services | 425-434-4680
+PioneerHumanServices.org &lt;http://www.pioneerhumanservices.org/&gt;
+ &lt;https://www.facebook.com/pioneerwa&gt;     &lt;https://www.linkedin.com/company/pioneer-human-services&gt;     &lt;https://www.twitter.com/pioneerwa&gt;     &lt;https://www.youtube.com/channel/UCuGf99lQwbSXXObe9NlwrOQ&gt;
+Confidentiality Note:  This message is int</span>
+    </details>
+  </div>
+  <div class="resource-images">
+    <img src="assets/5b7267daa275/image001.png" loading="lazy" alt="">
+    <img src="assets/5b7267daa275/image002.png" loading="lazy" alt="">
+    <details class="resource-images-more">
+      <summary>3 more images</summary>
+      <img src="assets/5b7267daa275/image003.png" loading="lazy" alt="">
+      <img src="assets/5b7267daa275/image004.png" loading="lazy" alt="">
+      <img src="assets/5b7267daa275/NS 211_Carnegie Outreach_p1.png" loading="lazy" alt="">
+    </details>
+  </div>
+  <div class="resource-attachments">
+    <a class="document-link" href="assets/5b7267daa275/NS 211_Carnegie Outreach.pdf" target="_blank" rel="noopener">
+      <i class="fas fa-file-pdf"></i><span>NS 211_Carnegie Outreach.pdf</span>
+    </a>
+  </div>
+  <p class="resource-reason"><em>LLM note: The email shares a general 211 referral service which covers multiple needs rather than a specific category, and the announcement is over 12 months old.</em></p>
+</article>
+</section>
+
+        <div class="nav-home"><a href="../">← Back to home</a></div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        fetch('../navbar.html')
+            .then(r => r.ok ? r.text() : "")
+            .then(data => { if (data) document.getElementById('navbar-placeholder').innerHTML = data; })
+            .catch(() => {});
+    </script>
+</body>
+</html>
