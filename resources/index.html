@@ -140,6 +140,12 @@ body {
     background: white;
     box-shadow: 0 12px 24px rgba(13, 107, 99, 0.12);
 }
+.category-toc a.is-active {
+    background: #fff8ee;
+    border-color: rgba(216, 154, 43, 0.40);
+    box-shadow: 0 12px 24px rgba(216, 154, 43, 0.18), inset 3px 0 0 var(--gold);
+    color: #7d5200;
+}
 .category-toc a .count {
     min-width: 1.7rem;
     padding: 0.1rem 0.45rem;
@@ -581,7 +587,7 @@ body {
                 </div>
                 <div class="header-text-area">
                     <h1>Resource Library</h1>
-                    <div class="subtitle">88 resources across 16 categories, refreshed May 01, 2026. Open source links directly in each card, preview flyers at full size, and grab original files without digging through email threads.</div>
+                    <div class="subtitle">89 resources across 16 categories, refreshed May 01, 2026. Open source links directly in each card, preview flyers at full size, and grab original files without digging through email threads.</div>
                 </div>
             </div>
         </div>
@@ -590,22 +596,22 @@ body {
 <aside class="category-sidebar" aria-label="Resource categories">
 <nav class="category-toc">
   <div class="category-sidebar-label">Browse Sections</div>
-  <a href="#cat-housing-and-shelter" aria-label="Housing &amp; Shelter" title="Housing &amp; Shelter"><span class="toc-icon"><i class="fas fa-house"></i></span><span class="toc-label">Housing &amp; Shelter</span><span class="count">9</span></a>
-  <a href="#cat-food-and-nutrition" aria-label="Food &amp; Nutrition" title="Food &amp; Nutrition"><span class="toc-icon"><i class="fas fa-utensils"></i></span><span class="toc-label">Food &amp; Nutrition</span><span class="count">5</span></a>
-  <a href="#cat-healthcare-and-medical" aria-label="Healthcare &amp; Medical" title="Healthcare &amp; Medical"><span class="toc-icon"><i class="fas fa-heart-pulse"></i></span><span class="toc-label">Healthcare &amp; Medical</span><span class="count">2</span></a>
-  <a href="#cat-mental-health-and-crisis-support" aria-label="Mental Health &amp; Crisis Support" title="Mental Health &amp; Crisis Support"><span class="toc-icon"><i class="fas fa-brain"></i></span><span class="toc-label">Mental Health &amp; Crisis Support</span><span class="count">3</span></a>
-  <a href="#cat-substance-use-and-recovery" aria-label="Substance Use &amp; Recovery" title="Substance Use &amp; Recovery"><span class="toc-icon"><i class="fas fa-hand-holding-heart"></i></span><span class="toc-label">Substance Use &amp; Recovery</span><span class="count">4</span></a>
-  <a href="#cat-family-children-and-parenting" aria-label="Family, Children &amp; Parenting" title="Family, Children &amp; Parenting"><span class="toc-icon"><i class="fas fa-people-roof"></i></span><span class="toc-label">Family, Children &amp; Parenting</span><span class="count">8</span></a>
-  <a href="#cat-education-and-employment" aria-label="Education &amp; Employment" title="Education &amp; Employment"><span class="toc-icon"><i class="fas fa-graduation-cap"></i></span><span class="toc-label">Education &amp; Employment</span><span class="count">8</span></a>
-  <a href="#cat-financial-assistance-and-benefits" aria-label="Financial Assistance &amp; Benefits" title="Financial Assistance &amp; Benefits"><span class="toc-icon"><i class="fas fa-dollar-sign"></i></span><span class="toc-label">Financial Assistance &amp; Benefits</span><span class="count">15</span></a>
-  <a href="#cat-transportation" aria-label="Transportation" title="Transportation"><span class="toc-icon"><i class="fas fa-bus"></i></span><span class="toc-label">Transportation</span><span class="count">5</span></a>
-  <a href="#cat-domestic-violence-and-safety" aria-label="Domestic Violence &amp; Safety" title="Domestic Violence &amp; Safety"><span class="toc-icon"><i class="fas fa-shield-halved"></i></span><span class="toc-label">Domestic Violence &amp; Safety</span><span class="count">1</span></a>
-  <a href="#cat-immigration-and-refugee" aria-label="Immigration &amp; Refugee" title="Immigration &amp; Refugee"><span class="toc-icon"><i class="fas fa-passport"></i></span><span class="toc-label">Immigration &amp; Refugee</span><span class="count">1</span></a>
-  <a href="#cat-veterans-services" aria-label="Veterans Services" title="Veterans Services"><span class="toc-icon"><i class="fas fa-medal"></i></span><span class="toc-label">Veterans Services</span><span class="count">3</span></a>
-  <a href="#cat-trainings-and-events" aria-label="Trainings &amp; Events" title="Trainings &amp; Events"><span class="toc-icon"><i class="fas fa-calendar-days"></i></span><span class="toc-label">Trainings &amp; Events</span><span class="count">14</span></a>
-  <a href="#cat-recreation-and-seasonal-events" aria-label="Recreation &amp; Seasonal Events" title="Recreation &amp; Seasonal Events"><span class="toc-icon"><i class="fas fa-mountain-sun"></i></span><span class="toc-label">Recreation &amp; Seasonal Events</span><span class="count">1</span></a>
-  <a href="#cat-community-engagement-and-donations" aria-label="Community Engagement &amp; Donations" title="Community Engagement &amp; Donations"><span class="toc-icon"><i class="fas fa-handshake-angle"></i></span><span class="toc-label">Community Engagement &amp; Donations</span><span class="count">2</span></a>
-  <a href="#cat-other" aria-label="Other" title="Other"><span class="toc-icon"><i class="fas fa-circle-info"></i></span><span class="toc-label">Other</span><span class="count">7</span></a>
+  <a href="#cat-housing-and-shelter" data-cat="cat-housing-and-shelter" aria-label="Housing &amp; Shelter" title="Housing &amp; Shelter"><span class="toc-icon"><i class="fas fa-house"></i></span><span class="toc-label">Housing &amp; Shelter</span><span class="count">9</span></a>
+  <a href="#cat-food-and-nutrition" data-cat="cat-food-and-nutrition" aria-label="Food &amp; Nutrition" title="Food &amp; Nutrition"><span class="toc-icon"><i class="fas fa-utensils"></i></span><span class="toc-label">Food &amp; Nutrition</span><span class="count">5</span></a>
+  <a href="#cat-healthcare-and-medical" data-cat="cat-healthcare-and-medical" aria-label="Healthcare &amp; Medical" title="Healthcare &amp; Medical"><span class="toc-icon"><i class="fas fa-heart-pulse"></i></span><span class="toc-label">Healthcare &amp; Medical</span><span class="count">3</span></a>
+  <a href="#cat-mental-health-and-crisis-support" data-cat="cat-mental-health-and-crisis-support" aria-label="Mental Health &amp; Crisis Support" title="Mental Health &amp; Crisis Support"><span class="toc-icon"><i class="fas fa-brain"></i></span><span class="toc-label">Mental Health &amp; Crisis Support</span><span class="count">3</span></a>
+  <a href="#cat-substance-use-and-recovery" data-cat="cat-substance-use-and-recovery" aria-label="Substance Use &amp; Recovery" title="Substance Use &amp; Recovery"><span class="toc-icon"><i class="fas fa-hand-holding-heart"></i></span><span class="toc-label">Substance Use &amp; Recovery</span><span class="count">4</span></a>
+  <a href="#cat-family-children-and-parenting" data-cat="cat-family-children-and-parenting" aria-label="Family, Children &amp; Parenting" title="Family, Children &amp; Parenting"><span class="toc-icon"><i class="fas fa-people-roof"></i></span><span class="toc-label">Family, Children &amp; Parenting</span><span class="count">8</span></a>
+  <a href="#cat-education-and-employment" data-cat="cat-education-and-employment" aria-label="Education &amp; Employment" title="Education &amp; Employment"><span class="toc-icon"><i class="fas fa-graduation-cap"></i></span><span class="toc-label">Education &amp; Employment</span><span class="count">8</span></a>
+  <a href="#cat-financial-assistance-and-benefits" data-cat="cat-financial-assistance-and-benefits" aria-label="Financial Assistance &amp; Benefits" title="Financial Assistance &amp; Benefits"><span class="toc-icon"><i class="fas fa-dollar-sign"></i></span><span class="toc-label">Financial Assistance &amp; Benefits</span><span class="count">15</span></a>
+  <a href="#cat-transportation" data-cat="cat-transportation" aria-label="Transportation" title="Transportation"><span class="toc-icon"><i class="fas fa-bus"></i></span><span class="toc-label">Transportation</span><span class="count">5</span></a>
+  <a href="#cat-domestic-violence-and-safety" data-cat="cat-domestic-violence-and-safety" aria-label="Domestic Violence &amp; Safety" title="Domestic Violence &amp; Safety"><span class="toc-icon"><i class="fas fa-shield-halved"></i></span><span class="toc-label">Domestic Violence &amp; Safety</span><span class="count">1</span></a>
+  <a href="#cat-immigration-and-refugee" data-cat="cat-immigration-and-refugee" aria-label="Immigration &amp; Refugee" title="Immigration &amp; Refugee"><span class="toc-icon"><i class="fas fa-passport"></i></span><span class="toc-label">Immigration &amp; Refugee</span><span class="count">1</span></a>
+  <a href="#cat-veterans-services" data-cat="cat-veterans-services" aria-label="Veterans Services" title="Veterans Services"><span class="toc-icon"><i class="fas fa-medal"></i></span><span class="toc-label">Veterans Services</span><span class="count">3</span></a>
+  <a href="#cat-trainings-and-events" data-cat="cat-trainings-and-events" aria-label="Trainings &amp; Events" title="Trainings &amp; Events"><span class="toc-icon"><i class="fas fa-calendar-days"></i></span><span class="toc-label">Trainings &amp; Events</span><span class="count">14</span></a>
+  <a href="#cat-recreation-and-seasonal-events" data-cat="cat-recreation-and-seasonal-events" aria-label="Recreation &amp; Seasonal Events" title="Recreation &amp; Seasonal Events"><span class="toc-icon"><i class="fas fa-mountain-sun"></i></span><span class="toc-label">Recreation &amp; Seasonal Events</span><span class="count">1</span></a>
+  <a href="#cat-community-engagement-and-donations" data-cat="cat-community-engagement-and-donations" aria-label="Community Engagement &amp; Donations" title="Community Engagement &amp; Donations"><span class="toc-icon"><i class="fas fa-handshake-angle"></i></span><span class="toc-label">Community Engagement &amp; Donations</span><span class="count">3</span></a>
+  <a href="#cat-other" data-cat="cat-other" aria-label="Other" title="Other"><span class="toc-icon"><i class="fas fa-circle-info"></i></span><span class="toc-label">Other</span><span class="count">6</span></a>
 </nav>
 </aside>
 <div class="library-content">
@@ -1116,7 +1122,61 @@ body {
 </article>
 </section>
 <section id="cat-healthcare-and-medical" class="category-section">
-  <h2 class="category-heading"><i class="fas fa-heart-pulse"></i><span>Healthcare &amp; Medical</span><span class="category-count">2</span></h2>
+  <h2 class="category-heading"><i class="fas fa-heart-pulse"></i><span>Healthcare &amp; Medical</span><span class="category-count">3</span></h2>
+<article class="resource-card" id="rec-f7bc3228f41b">
+  <header class="resource-head">
+    <div class="resource-title-row">
+      <h3>Apple Health Managed Care Plan information</h3>
+      <a class="resource-anchor" href="#rec-f7bc3228f41b" aria-label="Link to this resource"><i class="fas fa-link"></i></a>
+    </div>
+    <div class="resource-meta">
+      <span class="resource-meta-chip"><i class="fas fa-calendar-days"></i>Aug 29, 2024</span>
+      <span class="resource-meta-chip"><i class="fas fa-user"></i>Denise Hollenbeck</span>
+      <span class="resource-meta-chip"><i class="fas fa-image"></i>3 previews</span>
+      <span class="resource-meta-chip"><i class="fas fa-paperclip"></i>1 file</span>
+    </div>
+  </header>
+  <div class="resource-body">
+    <div class="resource-body-copy"><p class="resource-empty-copy">No inline summary was available for this item. Check the preview and downloads below.</p></div>
+  </div>
+  <section class="resource-media-block">
+    <div class="resource-block-heading"><i class="fas fa-images"></i><span>Preview</span></div>
+    <div class="resource-images">
+      <figure class="resource-image-card">
+        <a class="resource-image-link" href="assets/f7bc3228f41b/Washington Apple Health Managed Care Plan Comparison Chart_p1.png" target="_blank" rel="noopener">
+          <img src="assets/f7bc3228f41b/Washington Apple Health Managed Care Plan Comparison Chart_p1.png" loading="lazy" alt="Washington Apple Health Managed Care Plan Comparison Chart p1">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>Washington Apple Health Managed Care Plan Comparison Chart p1</figcaption>
+      </figure>
+      <figure class="resource-image-card">
+        <a class="resource-image-link" href="assets/f7bc3228f41b/Washington Apple Health Managed Care Plan Comparison Chart_p2.png" target="_blank" rel="noopener">
+          <img src="assets/f7bc3228f41b/Washington Apple Health Managed Care Plan Comparison Chart_p2.png" loading="lazy" alt="Washington Apple Health Managed Care Plan Comparison Chart p2">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>Washington Apple Health Managed Care Plan Comparison Chart p2</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/f7bc3228f41b/Washington Apple Health Managed Care Plan Comparison Chart_p3.png" target="_blank" rel="noopener">
+          <img src="assets/f7bc3228f41b/Washington Apple Health Managed Care Plan Comparison Chart_p3.png" loading="lazy" alt="Washington Apple Health Managed Care Plan Comparison Chart p3">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>Washington Apple Health Managed Care Plan Comparison Chart p3</figcaption>
+      </figure>
+    </div>
+    <details class="resource-images-toggle">
+      <summary>1 more image</summary>
+    </details>
+  </section>
+  <section class="resource-media-block">
+    <div class="resource-block-heading"><i class="fas fa-file-arrow-down"></i><span>Downloads</span></div>
+    <div class="resource-attachments">
+      <a class="document-link" href="assets/f7bc3228f41b/Washington Apple Health Managed Care Plan Comparison Chart.pdf" target="_blank" rel="noopener">
+        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>Washington Apple Health Managed Care Plan Comparison Chart</strong><small>PDF</small></span><span class="document-link-action">Open</span>
+      </a>
+  </div>
+  </section>
+</article>
 <article class="resource-card" id="rec-ee047c1f29cb">
   <header class="resource-head">
     <div class="resource-title-row">
@@ -2989,9 +3049,8 @@ body {
     <div class="resource-meta">
       <span class="resource-meta-chip"><i class="fas fa-calendar-days"></i>Mar 03, 2025</span>
       <span class="resource-meta-chip"><i class="fas fa-user"></i>Denise Hollenbeck</span>
-      <span class="resource-meta-chip"><i class="fas fa-image"></i>6 previews</span>
+      <span class="resource-meta-chip"><i class="fas fa-image"></i>2 previews</span>
       <span class="resource-meta-chip"><i class="fas fa-paperclip"></i>2 files</span>
-      <span class="badge-maybe">may be aging</span>
     </div>
   </header>
   <div class="resource-body">
@@ -3003,41 +3062,13 @@ body {
     <div class="resource-block-heading"><i class="fas fa-images"></i><span>Preview</span></div>
     <div class="resource-images">
       <figure class="resource-image-card">
-        <a class="resource-image-link" href="assets/a88f9112a8bc/image001.png" target="_blank" rel="noopener">
-          <img src="assets/a88f9112a8bc/image001.png" loading="lazy" alt="image001">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>image001</figcaption>
-      </figure>
-      <figure class="resource-image-card">
-        <a class="resource-image-link" href="assets/a88f9112a8bc/image002.png" target="_blank" rel="noopener">
-          <img src="assets/a88f9112a8bc/image002.png" loading="lazy" alt="image002">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>image002</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/a88f9112a8bc/image003.png" target="_blank" rel="noopener">
-          <img src="assets/a88f9112a8bc/image003.png" loading="lazy" alt="image003">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>image003</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/a88f9112a8bc/image004.png" target="_blank" rel="noopener">
-          <img src="assets/a88f9112a8bc/image004.png" loading="lazy" alt="image004">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>image004</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
         <a class="resource-image-link" href="assets/a88f9112a8bc/ORCA LIFT Fares Matrix_25_2-28-25_p1.png" target="_blank" rel="noopener">
           <img src="assets/a88f9112a8bc/ORCA LIFT Fares Matrix_25_2-28-25_p1.png" loading="lazy" alt="ORCA LIFT Fares Matrix 25 2 28 25 p1">
           <span class="resource-image-cta">Open full image</span>
         </a>
         <figcaption>ORCA LIFT Fares Matrix 25 2 28 25 p1</figcaption>
       </figure>
-      <figure class="resource-image-card is-overflow">
+      <figure class="resource-image-card">
         <a class="resource-image-link" href="assets/a88f9112a8bc/Public Health what you can ride SAP flyer_2-28-25_p1.png" target="_blank" rel="noopener">
           <img src="assets/a88f9112a8bc/Public Health what you can ride SAP flyer_2-28-25_p1.png" loading="lazy" alt="Public Health what you can ride SAP flyer 2 28 25 p1">
           <span class="resource-image-cta">Open full image</span>
@@ -3045,9 +3076,6 @@ body {
         <figcaption>Public Health what you can ride SAP flyer 2 28 25 p1</figcaption>
       </figure>
     </div>
-    <details class="resource-images-toggle">
-      <summary>4 more images</summary>
-    </details>
   </section>
   <section class="resource-media-block">
     <div class="resource-block-heading"><i class="fas fa-file-arrow-down"></i><span>Downloads</span></div>
@@ -3651,31 +3679,24 @@ body {
     <div class="resource-meta">
       <span class="resource-meta-chip"><i class="fas fa-calendar-days"></i>Aug 01, 2024</span>
       <span class="resource-meta-chip"><i class="fas fa-user"></i>Denise Hollenbeck</span>
-      <span class="resource-meta-chip"><i class="fas fa-image"></i>5 previews</span>
+      <span class="resource-meta-chip"><i class="fas fa-image"></i>4 previews</span>
       <span class="resource-meta-chip"><i class="fas fa-paperclip"></i>2 files</span>
-      <span class="badge-maybe">may be aging</span>
     </div>
   </header>
   <div class="resource-body">
-    <div class="resource-body-copy"><p>Sharing the resource</p>
-<p>Sharing with Snohomish County LPA<br>Danielle Olson/Alderwood CSO Administrator/Community Services Division<br>Economic Services Administration<br>Washington State Department of Social and Health Services</p>
-<p>Transforming Lives<br>External Email<br>Please forward to your LPA list serve,  thank you!<br>Hello ACEs Community Members!<br>Thank you for joining the NEAR Collaborative’s ACEs Quarterly Webinar held on Wednesday, July 24, 2024, from 3:00PM-4:30PM PDT.<br>Please find attached to this email, the Adverse Childhood Experiences and Identifying the 10 Types, AHCC ACEs Training slide deck</p></div>
-    <div class="resource-body-copy resource-body-more-content" hidden><p>presented by Nathan LaChine, Community Educator for Coordinated Care.<br>If you were unable to attend the ACEs Quarterly Event live on Wednesday, July 24, 2024, the ACEs recording is available for viewing now on YouTube at the link below:<br>LINK TO WEBINAR RECORDING:  July ACEs Quarterly Adverse Childhood Experiences (youtube.com)<br>Please take a moment to complete the Survey Monkey at this link:  <a href="https://www.surveymonkey.com/r/XH28SZJ" target="_blank" rel="noopener">https://www.surveymonkey.com/r/XH28SZJ</a><br>BRIEF OVERVIEW:<br>*	Discussion of the ACEs study and learn to identify all 10 ACEs.<br>*	Explore the physical and mental long-term effects of childhood adverse experiences.<br>*	Discuss preventative measures, resiliency and how to address the needs of children with a high ACE score.<br>ABOUT THE SPEAKER:<br>Nathan Lachine is currently a Therapeutic Foster Parent and Community Educator for Coordinated Care, providing trainings and resources for Caregivers in Washington State.<br>He is a community activist for foster parents and youth in care here in Washington State.  He is a Board of Director for MaleSurvivor.org, Region 5 1624 Rep, published author, speaker and trainer on a wide range of topics.<br>CONTACT INFORMATION:</p>
-<p><a href="mailto:AHCCTeam@coordinatedcarehealth.com" rel="noopener">AHCCTeam@coordinatedcarehealth.com</a><br>Thank you everyone!<br>Leah Bretland | Program Specialist/Admin CYSHCN Coordinator<br>Snohomish County Health Department   | Prevention Services/Children &amp; Family Health<br>3020 Rucker Ave., Suite 102 | Everett, WA 98201</p>
-<p>Follow us on social media<br>Leah Bretland | Program Specialist/Admin CYSHCN Coordinator<br>Snohomish County Health Department   | Prevention Services/Children &amp; Family Health<br>3020 Rucker Ave., Suite 102 | Everett, WA 98201</p>
-<p>Follow us on social media<br>Notice: All emails and attachments sent to and from Snohomish County are public records<br>and may be subject to disclosure pursuant to the Public Records Act (RCW 42.56).</p></div>
+    <div class="resource-body-copy"><p>NEAR Collaborative’s ACEs Quarterly Webinar</p>
+<p>Adverse Childhood Experiences and Identifying the 10 Types, AHCC ACEs Training slide deck presented by Nathan LaChine, Community Educator for Coordinated Care.</p>
+<p>The ACEs recording is available for viewing now on YouTube at the link below:<br>LINK TO WEBINAR RECORDING: July ACEs Quarterly Adverse Childhood Experiences (youtube.com)</p>
+<p>Please take a moment to complete the Survey Monkey at this link: <a href="https://www.surveymonkey.com/r/XH28SZJ" target="_blank" rel="noopener">https://www.surveymonkey.com/r/XH28SZJ</a></p>
+<p>BRIEF OVERVIEW:<br>* Discussion of the ACEs study and learn to identify all 10 ACEs.<br>* Explore the physical and mental</p></div>
+    <div class="resource-body-copy resource-body-more-content" hidden><p>long-term effects of childhood adverse experiences.<br>* Discuss preventative measures, resiliency and how to address the needs of children with a high ACE score.</p>
+<p>ABOUT THE SPEAKER:<br>Nathan Lachine is currently a Therapeutic Foster Parent and Community Educator for Coordinated Care, providing trainings and resources for Caregivers in Washington State.<br>He is a community activist for foster parents and youth in care here in Washington State. He is a Board of Director for MaleSurvivor.org, Region 5 1624 Rep, published author, speaker and trainer on a wide range of topics.</p>
+<p>CONTACT INFORMATION:<br><a href="mailto:AHCCTeam@coordinatedcarehealth.com" rel="noopener">AHCCTeam@coordinatedcarehealth.com</a></p></div>
     <button class="resource-body-toggle" type="button" aria-expanded="false">show full message</button>
   </div>
   <section class="resource-media-block">
     <div class="resource-block-heading"><i class="fas fa-images"></i><span>Preview</span></div>
     <div class="resource-images">
-      <figure class="resource-image-card">
-        <a class="resource-image-link" href="assets/ff5064bd2945/image001.jpg" target="_blank" rel="noopener">
-          <img src="assets/ff5064bd2945/image001.jpg" loading="lazy" alt="image001">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>image001</figcaption>
-      </figure>
       <figure class="resource-image-card">
         <a class="resource-image-link" href="assets/ff5064bd2945/ACEs Quarterly Flyer - July 2024_p1.png" target="_blank" rel="noopener">
           <img src="assets/ff5064bd2945/ACEs Quarterly Flyer - July 2024_p1.png" loading="lazy" alt="ACEs Quarterly Flyer July 2024 p1">
@@ -3683,7 +3704,7 @@ body {
         </a>
         <figcaption>ACEs Quarterly Flyer July 2024 p1</figcaption>
       </figure>
-      <figure class="resource-image-card is-overflow">
+      <figure class="resource-image-card">
         <a class="resource-image-link" href="assets/ff5064bd2945/AHCC ACES Training - Caregiver - MK216_p1.png" target="_blank" rel="noopener">
           <img src="assets/ff5064bd2945/AHCC ACES Training - Caregiver - MK216_p1.png" loading="lazy" alt="AHCC ACES Training Caregiver MK216 p1">
           <span class="resource-image-cta">Open full image</span>
@@ -3706,7 +3727,7 @@ body {
       </figure>
     </div>
     <details class="resource-images-toggle">
-      <summary>3 more images</summary>
+      <summary>2 more images</summary>
     </details>
   </section>
   <section class="resource-media-block">
@@ -3751,7 +3772,214 @@ body {
 </article>
 </section>
 <section id="cat-community-engagement-and-donations" class="category-section">
-  <h2 class="category-heading"><i class="fas fa-handshake-angle"></i><span>Community Engagement &amp; Donations</span><span class="category-count">2</span></h2>
+  <h2 class="category-heading"><i class="fas fa-handshake-angle"></i><span>Community Engagement &amp; Donations</span><span class="category-count">3</span></h2>
+<article class="resource-card" id="rec-4c24a6ab60ad">
+  <header class="resource-head">
+    <div class="resource-title-row">
+      <h3>May 2026: Carnegie Calendar, Community Resource Guide &amp; Flyers</h3>
+      <a class="resource-anchor" href="#rec-4c24a6ab60ad" aria-label="Link to this resource"><i class="fas fa-link"></i></a>
+    </div>
+    <div class="resource-meta">
+      <span class="resource-meta-chip"><i class="fas fa-calendar-days"></i>May 01, 2026</span>
+      <span class="resource-meta-chip"><i class="fas fa-user"></i>Denise Hollenbeck</span>
+      <span class="resource-meta-chip"><i class="fas fa-image"></i>19 previews</span>
+      <span class="resource-meta-chip"><i class="fas fa-paperclip"></i>11 files</span>
+    </div>
+  </header>
+  <div class="resource-body">
+    <div class="resource-body-copy"><p>The Carnegie Resource Center (CRC) is a gateway to a multitude of resources, offering a one-stop location for Snohomish County residents. The CRC itself does not provide direct financial aid like rental assistance, gas vouchers, or clothing vouchers. However, individuals participating in specific programs may be eligible for supportive services through those programs or agencies.</p>
+<p>Location: 3001 Oakes Ave, Everett, WA 98201<br>Hours: Monday–Friday 9:00 AM–4:30 PM (walk-in service). Closed Monday, May 25th.</p>
+<p>For an online viewable version of the Carnegie calendar and the monthly Community Resource</p></div>
+    <div class="resource-body-copy resource-body-more-content" hidden><p>Guide, visit <a href="https://pioneerhumanservices.org/carnegie-resource-center/" target="_blank" rel="noopener">https://pioneerhumanservices.org/carnegie-resource-center/</a> . Both documents are accessible via QR code.</p>
+<p>May 2026 Carnegie Updates &amp; Events:</p>
+<p>Housing &amp; General Resource Navigation<br>• VOAWW Connect (VOA): Community Resource Advocate on-site Tuesdays 12:00 PM–2:00 PM for needs assessment including Coordinated Entry screening and connections to services.<br>• Housing Justice Project Legal Clinic (SCLS): Free 30-minute consultation with attorney for eviction or housing issues. Wednesdays May 13 &amp; 27, 1:00 PM–3:00 PM.<br>• Lifeline Phone, Tablets &amp; SIM Cards: On-site Tuesdays 10:30 AM–2:30 PM (while supplies last). Bring proof of eligibility (e.g. benefit award letter). Free SIM cards for GSM unlocked devices; phones $20 co-pay, tablets $80 co-pay.<br>• ORCA LIFT Cards (LCSNW): Available Mondays and Tuesdays May 12 &amp; 26, 10:00 AM–1:00 PM for eligible new and renewal clients.<br>• Projects for Assistance in Transition from Homelessness (PATH, Bridgeways): Tuesdays May 12 &amp; 26, 1:00 PM–3:00 PM. Supports individuals experiencing homelessness with serious mental illness and/or substance use disorders using Housing First approach.<br>• Eyeglass Voucher Program (New Eyes): Low-cost eyeglasses. Monday–Friday 9:00 AM–4:00 PM.</p>
+<p>Veterans Services<br>• VA Homeless Primary Care Team (HPACT): Tuesdays 9:00 AM–11:30 AM for unhoused VA-eligible veterans.<br>• Coordinated Entry/Resource Navigation (SnoCo): Monday–Friday 1:00 PM–4:00 PM (last intake 3:30 PM). Screening and assessment for individuals/families experiencing homelessness (eligibility criteria apply).<br>• SSVF Program (YWCA): Tuesdays 9:00 AM–12:00 PM. Promotes housing stability for very low-income Veteran families.<br>• Veteran’s Assistance Supportive Housing (VASH, HUD-VASH): Tuesdays 9:00 AM–12:00 PM. Pairs Housing Choice Voucher with VA case management for eligible homeless veterans.<br>• Coordinated Entry (Veterans, SnoCo): Tuesdays 10:00 AM–12:00 PM for screening, assessment, resources and action plans for veterans experiencing homelessness.<br>• Snohomish County Veteran Assistance Program: Tuesdays 10:00 AM–12:00 PM for VA benefits information and eligibility for Veterans&#x27; Assistance Funds.</p>
+<p>Health &amp; Wellness Services<br>• Peer Recovery Support (Ideal Options/NSACH): Tuesdays May 12 &amp; 26, 11:30 AM–2:30 PM. Resources, action plans, intensive case management from lived experience perspective. Medically Assisted Treatment available with assessment.<br>• Walk-in SUD Assessments (Center for Human Services): Thursdays 9:00 AM–12:00 PM (first-come, first-served). For private insurance, contact (206) 362-7282 beforehand.<br>• Healthcare Navigation (CHPW): Tuesdays May 5 &amp; 19, 10:00 AM–2:00 PM for coverage options, Medicaid, and plan concerns.<br>• Behavioral Health &amp; Supportive Services (Helping Hands Project Organization): Tuesdays 11:00 AM–1:00 PM. Intensive case management, housing assistance, behavioral health counseling (eligibility applies).<br>• Domestic Violence Services (DVS) of Snohomish County: Monday May 11, 11:00 AM–1:00 PM for information on services for survivors of abuse.</p>
+<p>Reentry &amp; Employment Support Services<br>• United Healthcare Jail Transition Program: Mondays 9:00 AM–3:00 PM for recently released UHC members.<br>• Molina Healthcare Jail Transitions Program: Thursdays 9:30 AM–11:30 AM for transition-of-care, reentry support, healthcare navigation.<br>• Orion Industries: Tuesdays May 12 &amp; 26, 11:00 AM–1:00 PM for personalized employment navigation.<br>• Jail Transition Program (Bridgeways): Wednesdays May 13 &amp; 27, 10:00 AM–12:00 PM for case management and care coordination for recently released individuals.</p>
+<p>We make every effort to ensure that the Community Resource Guide remains up to date; however, programs and services may change with little or no notice. For the most accurate information, we recommend verifying details directly with the source.</p>
+<p>To be added to the monthly distribution list, email <a href="mailto:carnegieinfo@phsnet.com" rel="noopener">carnegieinfo@phsnet.com</a>.</p></div>
+    <button class="resource-body-toggle" type="button" aria-expanded="false">show full message</button>
+  </div>
+  <section class="resource-media-block">
+    <div class="resource-block-heading"><i class="fas fa-images"></i><span>Preview</span></div>
+    <div class="resource-images">
+      <figure class="resource-image-card">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/image.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/image.png" loading="lazy" alt="image">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>image</figcaption>
+      </figure>
+      <figure class="resource-image-card">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/CRC Calendar (May2026)_p1.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/CRC Calendar (May2026)_p1.png" loading="lazy" alt="CRC Calendar (May2026) p1">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>CRC Calendar (May2026) p1</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/CRC Calendar (May2026)_p2.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/CRC Calendar (May2026)_p2.png" loading="lazy" alt="CRC Calendar (May2026) p2">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>CRC Calendar (May2026) p2</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/CRC Community Resource Guide (May 2026)_p1.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/CRC Community Resource Guide (May 2026)_p1.png" loading="lazy" alt="CRC Community Resource Guide (May 2026) p1">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>CRC Community Resource Guide (May 2026) p1</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/CRC Community Resource Guide (May 2026)_p2.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/CRC Community Resource Guide (May 2026)_p2.png" loading="lazy" alt="CRC Community Resource Guide (May 2026) p2">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>CRC Community Resource Guide (May 2026) p2</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/CRC Community Resource Guide (May 2026)_p3.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/CRC Community Resource Guide (May 2026)_p3.png" loading="lazy" alt="CRC Community Resource Guide (May 2026) p3">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>CRC Community Resource Guide (May 2026) p3</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/Carnegie Lifeline Flyer (May 2026)_p1.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/Carnegie Lifeline Flyer (May 2026)_p1.png" loading="lazy" alt="Carnegie Lifeline Flyer (May 2026) p1">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>Carnegie Lifeline Flyer (May 2026) p1</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/Carnegie Lifeline Flyer (May 2026)_p2.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/Carnegie Lifeline Flyer (May 2026)_p2.png" loading="lazy" alt="Carnegie Lifeline Flyer (May 2026) p2">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>Carnegie Lifeline Flyer (May 2026) p2</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/CRC_Orca LIFT Card (May 2026)_p1.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/CRC_Orca LIFT Card (May 2026)_p1.png" loading="lazy" alt="CRC Orca LIFT Card (May 2026) p1">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>CRC Orca LIFT Card (May 2026) p1</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/CRC_Orca LIFT Card (May 2026)_p2.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/CRC_Orca LIFT Card (May 2026)_p2.png" loading="lazy" alt="CRC Orca LIFT Card (May 2026) p2">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>CRC Orca LIFT Card (May 2026) p2</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/Free ORCA Card Promo_p1.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/Free ORCA Card Promo_p1.png" loading="lazy" alt="Free ORCA Card Promo p1">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>Free ORCA Card Promo p1</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/SUD Flyer (May 2026)_p1.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/SUD Flyer (May 2026)_p1.png" loading="lazy" alt="SUD Flyer (May 2026) p1">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>SUD Flyer (May 2026) p1</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/SCLS -HJP Flyer (May 2026)_p1.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/SCLS -HJP Flyer (May 2026)_p1.png" loading="lazy" alt="SCLS HJP Flyer (May 2026) p1">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>SCLS HJP Flyer (May 2026) p1</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/New Eyes Flyer_p1.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/New Eyes Flyer_p1.png" loading="lazy" alt="New Eyes Flyer p1">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>New Eyes Flyer p1</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/NSACH-Ideal Options Peer Recovery Support -Flyer_p1.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/NSACH-Ideal Options Peer Recovery Support -Flyer_p1.png" loading="lazy" alt="NSACH Ideal Options Peer Recovery Support Flyer p1">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>NSACH Ideal Options Peer Recovery Support Flyer p1</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/VOAWW Connect Combo-half sheets_p1.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/VOAWW Connect Combo-half sheets_p1.png" loading="lazy" alt="VOAWW Connect Combo half sheets p1">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>VOAWW Connect Combo half sheets p1</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/VOAWW Connect Combo-half sheets_p2.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/VOAWW Connect Combo-half sheets_p2.png" loading="lazy" alt="VOAWW Connect Combo half sheets p2">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>VOAWW Connect Combo half sheets p2</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/Senior Farmer&#x27;s Market 2026_p1.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/Senior Farmer&#x27;s Market 2026_p1.png" loading="lazy" alt="Senior Farmer&#x27;s Market 2026 p1">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>Senior Farmer&#x27;s Market 2026 p1</figcaption>
+      </figure>
+      <figure class="resource-image-card is-overflow">
+        <a class="resource-image-link" href="assets/4c24a6ab60ad/Senior Farmer&#x27;s Market 2026_p2.png" target="_blank" rel="noopener">
+          <img src="assets/4c24a6ab60ad/Senior Farmer&#x27;s Market 2026_p2.png" loading="lazy" alt="Senior Farmer&#x27;s Market 2026 p2">
+          <span class="resource-image-cta">Open full image</span>
+        </a>
+        <figcaption>Senior Farmer&#x27;s Market 2026 p2</figcaption>
+      </figure>
+    </div>
+    <details class="resource-images-toggle">
+      <summary>17 more images</summary>
+    </details>
+  </section>
+  <section class="resource-media-block">
+    <div class="resource-block-heading"><i class="fas fa-file-arrow-down"></i><span>Downloads</span></div>
+    <div class="resource-attachments">
+      <a class="document-link" href="assets/4c24a6ab60ad/CRC Calendar (May2026).pdf" target="_blank" rel="noopener">
+        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>CRC Calendar (May2026)</strong><small>PDF</small></span><span class="document-link-action">Open</span>
+      </a>
+      <a class="document-link" href="assets/4c24a6ab60ad/CRC Community Resource Guide (May 2026).pdf" target="_blank" rel="noopener">
+        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>CRC Community Resource Guide (May 2026)</strong><small>PDF</small></span><span class="document-link-action">Open</span>
+      </a>
+      <a class="document-link" href="assets/4c24a6ab60ad/Carnegie Lifeline Flyer (May 2026).pdf" target="_blank" rel="noopener">
+        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>Carnegie Lifeline Flyer (May 2026)</strong><small>PDF</small></span><span class="document-link-action">Open</span>
+      </a>
+      <a class="document-link" href="assets/4c24a6ab60ad/CRC_Orca LIFT Card (May 2026).pdf" target="_blank" rel="noopener">
+        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>CRC Orca LIFT Card (May 2026)</strong><small>PDF</small></span><span class="document-link-action">Open</span>
+      </a>
+      <a class="document-link" href="assets/4c24a6ab60ad/Free ORCA Card Promo.pdf" target="_blank" rel="noopener">
+        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>Free ORCA Card Promo</strong><small>PDF</small></span><span class="document-link-action">Open</span>
+      </a>
+      <a class="document-link" href="assets/4c24a6ab60ad/SUD Flyer (May 2026).pdf" target="_blank" rel="noopener">
+        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>SUD Flyer (May 2026)</strong><small>PDF</small></span><span class="document-link-action">Open</span>
+      </a>
+      <a class="document-link" href="assets/4c24a6ab60ad/SCLS -HJP Flyer (May 2026).pdf" target="_blank" rel="noopener">
+        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>SCLS HJP Flyer (May 2026)</strong><small>PDF</small></span><span class="document-link-action">Open</span>
+      </a>
+      <a class="document-link" href="assets/4c24a6ab60ad/New Eyes Flyer.pdf" target="_blank" rel="noopener">
+        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>New Eyes Flyer</strong><small>PDF</small></span><span class="document-link-action">Open</span>
+      </a>
+      <a class="document-link" href="assets/4c24a6ab60ad/NSACH-Ideal Options Peer Recovery Support -Flyer.pdf" target="_blank" rel="noopener">
+        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>NSACH Ideal Options Peer Recovery Support Flyer</strong><small>PDF</small></span><span class="document-link-action">Open</span>
+      </a>
+      <a class="document-link" href="assets/4c24a6ab60ad/VOAWW Connect Combo-half sheets.pdf" target="_blank" rel="noopener">
+        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>VOAWW Connect Combo half sheets</strong><small>PDF</small></span><span class="document-link-action">Open</span>
+      </a>
+      <a class="document-link" href="assets/4c24a6ab60ad/Senior Farmer&#x27;s Market 2026.pdf" target="_blank" rel="noopener">
+        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>Senior Farmer&#x27;s Market 2026</strong><small>PDF</small></span><span class="document-link-action">Open</span>
+      </a>
+  </div>
+  </section>
+</article>
 <article class="resource-card" id="rec-228961210948">
   <header class="resource-head">
     <div class="resource-title-row">
@@ -3798,7 +4026,7 @@ body {
 </article>
 </section>
 <section id="cat-other" class="category-section">
-  <h2 class="category-heading"><i class="fas fa-circle-info"></i><span>Other</span><span class="category-count">7</span></h2>
+  <h2 class="category-heading"><i class="fas fa-circle-info"></i><span>Other</span><span class="category-count">6</span></h2>
 <article class="resource-card" id="rec-1c95d8995621">
   <header class="resource-head">
     <div class="resource-title-row">
@@ -4339,9 +4567,8 @@ body {
     <div class="resource-meta">
       <span class="resource-meta-chip"><i class="fas fa-calendar-days"></i>Jan 10, 2025</span>
       <span class="resource-meta-chip"><i class="fas fa-user"></i>Denise Hollenbeck</span>
-      <span class="resource-meta-chip"><i class="fas fa-image"></i>10 previews</span>
+      <span class="resource-meta-chip"><i class="fas fa-image"></i>6 previews</span>
       <span class="resource-meta-chip"><i class="fas fa-paperclip"></i>2 files</span>
-      <span class="badge-maybe">may be aging</span>
     </div>
   </header>
   <div class="resource-body">
@@ -4352,41 +4579,13 @@ body {
     <div class="resource-block-heading"><i class="fas fa-images"></i><span>Preview</span></div>
     <div class="resource-images">
       <figure class="resource-image-card">
-        <a class="resource-image-link" href="assets/de31c201ed88/image001.png" target="_blank" rel="noopener">
-          <img src="assets/de31c201ed88/image001.png" loading="lazy" alt="image001">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>image001</figcaption>
-      </figure>
-      <figure class="resource-image-card">
-        <a class="resource-image-link" href="assets/de31c201ed88/image002.png" target="_blank" rel="noopener">
-          <img src="assets/de31c201ed88/image002.png" loading="lazy" alt="image002">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>image002</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/de31c201ed88/image003.png" target="_blank" rel="noopener">
-          <img src="assets/de31c201ed88/image003.png" loading="lazy" alt="image003">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>image003</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/de31c201ed88/image004.png" target="_blank" rel="noopener">
-          <img src="assets/de31c201ed88/image004.png" loading="lazy" alt="image004">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>image004</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
         <a class="resource-image-link" href="assets/de31c201ed88/image007.jpg" target="_blank" rel="noopener">
           <img src="assets/de31c201ed88/image007.jpg" loading="lazy" alt="image007">
           <span class="resource-image-cta">Open full image</span>
         </a>
         <figcaption>image007</figcaption>
       </figure>
-      <figure class="resource-image-card is-overflow">
+      <figure class="resource-image-card">
         <a class="resource-image-link" href="assets/de31c201ed88/CRC Calendar (Jan 2025)_p1.png" target="_blank" rel="noopener">
           <img src="assets/de31c201ed88/CRC Calendar (Jan 2025)_p1.png" loading="lazy" alt="CRC Calendar (Jan 2025) p1">
           <span class="resource-image-cta">Open full image</span>
@@ -4423,7 +4622,7 @@ body {
       </figure>
     </div>
     <details class="resource-images-toggle">
-      <summary>8 more images</summary>
+      <summary>4 more images</summary>
     </details>
   </section>
   <section class="resource-media-block">
@@ -4434,217 +4633,6 @@ body {
       </a>
       <a class="document-link" href="assets/de31c201ed88/CRC Community Resource Guide (Jan 2025).pdf" target="_blank" rel="noopener">
         <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>CRC Community Resource Guide (Jan 2025)</strong><small>PDF</small></span><span class="document-link-action">Open</span>
-      </a>
-  </div>
-  </section>
-</article>
-<article class="resource-card" id="rec-055786b14d7d">
-  <header class="resource-head">
-    <div class="resource-title-row">
-      <h3>Carnegie Resource Center: November 2024</h3>
-      <a class="resource-anchor" href="#rec-055786b14d7d" aria-label="Link to this resource"><i class="fas fa-link"></i></a>
-    </div>
-    <div class="resource-meta">
-      <span class="resource-meta-chip"><i class="fas fa-calendar-days"></i>Nov 02, 2024</span>
-      <span class="resource-meta-chip"><i class="fas fa-user"></i>Denise Hollenbeck</span>
-      <span class="resource-meta-chip"><i class="fas fa-image"></i>20 previews</span>
-      <span class="resource-meta-chip"><i class="fas fa-paperclip"></i>10 files</span>
-      <span class="badge-maybe">may be aging</span>
-    </div>
-  </header>
-  <div class="resource-body">
-    <div class="resource-body-copy"><p class="resource-section-label">About</p>
-<p>Monthly resource bundle from the Carnegie Resource Center, a low-barrier hub in Snohomish, WA operated by Pioneer Human Services that serves people experiencing homelessness or housing instability.</p>
-<p class="resource-section-label">What&#x27;s Included (November 2024)</p>
-<p>The bundle contains the CRC monthly calendar and the Community Resource Guide, plus partner flyers covering on-site services and events.</p>
-<p class="resource-section-label">Partner Flyers</p>
-<ul><li>ORCA LIFT reduced-fare transit cards</li><li>Housing Justice Project free legal clinic (SCLS)</li><li>EVE HPACT primary care for unhoused veterans</li><li>Naloxone (Narcan) giveaway event</li><li>Medicaid 101 class</li><li>CHS</li></ul></div>
-    <div class="resource-body-copy resource-body-more-content" hidden><p>walk-in SUD assessments</p>
-<ul><li>New Eyes eyeglass voucher program</li><li>The Day After Prison reentry coaching</li></ul>
-<p class="resource-section-label">Contact</p>
-<p>Shantel Harris, Social Services Coordinator, Pioneer Human Services - 425-434-4680</p></div>
-    <button class="resource-body-toggle" type="button" aria-expanded="false">show full message</button>
-  </div>
-  <section class="resource-media-block">
-    <div class="resource-block-heading"><i class="fas fa-images"></i><span>Preview</span></div>
-    <div class="resource-images">
-      <figure class="resource-image-card">
-        <a class="resource-image-link" href="assets/055786b14d7d/image001.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/image001.png" loading="lazy" alt="image001">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>image001</figcaption>
-      </figure>
-      <figure class="resource-image-card">
-        <a class="resource-image-link" href="assets/055786b14d7d/image002.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/image002.png" loading="lazy" alt="image002">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>image002</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/image003.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/image003.png" loading="lazy" alt="image003">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>image003</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/image004.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/image004.png" loading="lazy" alt="image004">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>image004</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/image006.jpg" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/image006.jpg" loading="lazy" alt="image006">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>image006</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/CRC Calendar (Nov 2024)_p1.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/CRC Calendar (Nov 2024)_p1.png" loading="lazy" alt="CRC Calendar (Nov 2024) p1">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>CRC Calendar (Nov 2024) p1</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/CRC Calendar (Nov 2024)_p2.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/CRC Calendar (Nov 2024)_p2.png" loading="lazy" alt="CRC Calendar (Nov 2024) p2">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>CRC Calendar (Nov 2024) p2</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/CRC Community Resource Guide (November 2024)_p1.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/CRC Community Resource Guide (November 2024)_p1.png" loading="lazy" alt="CRC Community Resource Guide (November 2024) p1">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>CRC Community Resource Guide (November 2024) p1</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/CRC Community Resource Guide (November 2024)_p2.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/CRC Community Resource Guide (November 2024)_p2.png" loading="lazy" alt="CRC Community Resource Guide (November 2024) p2">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>CRC Community Resource Guide (November 2024) p2</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/CRC Community Resource Guide (November 2024)_p3.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/CRC Community Resource Guide (November 2024)_p3.png" loading="lazy" alt="CRC Community Resource Guide (November 2024) p3">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>CRC Community Resource Guide (November 2024) p3</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/CRC_Orca LIFT Card (Nov 2024)_p1.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/CRC_Orca LIFT Card (Nov 2024)_p1.png" loading="lazy" alt="CRC Orca LIFT Card (Nov 2024) p1">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>CRC Orca LIFT Card (Nov 2024) p1</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/SCLS -HJP Flyer (Nov 2024)_p1.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/SCLS -HJP Flyer (Nov 2024)_p1.png" loading="lazy" alt="SCLS HJP Flyer (Nov 2024) p1">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>SCLS HJP Flyer (Nov 2024) p1</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/New Eyes Flyer _p1.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/New Eyes Flyer _p1.png" loading="lazy" alt="New Eyes Flyer p1">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>New Eyes Flyer p1</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/New Eyes Flyer _p2.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/New Eyes Flyer _p2.png" loading="lazy" alt="New Eyes Flyer p2">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>New Eyes Flyer p2</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/Carnegie_CHS SUD Flyer_p1.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/Carnegie_CHS SUD Flyer_p1.png" loading="lazy" alt="Carnegie CHS SUD Flyer p1">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>Carnegie CHS SUD Flyer p1</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/EVE HPACT Flyer_p1.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/EVE HPACT Flyer_p1.png" loading="lazy" alt="EVE HPACT Flyer p1">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>EVE HPACT Flyer p1</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/EVE HPACT Flyer_p2.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/EVE HPACT Flyer_p2.png" loading="lazy" alt="EVE HPACT Flyer p2">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>EVE HPACT Flyer p2</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/Fall 2024 - Naloxone Giveaway Events_p1.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/Fall 2024 - Naloxone Giveaway Events_p1.png" loading="lazy" alt="Fall 2024 Naloxone Giveaway Events p1">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>Fall 2024 Naloxone Giveaway Events p1</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/The Day After Prison Tri-fold_p1.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/The Day After Prison Tri-fold_p1.png" loading="lazy" alt="The Day After Prison Tri fold p1">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>The Day After Prison Tri fold p1</figcaption>
-      </figure>
-      <figure class="resource-image-card is-overflow">
-        <a class="resource-image-link" href="assets/055786b14d7d/MEDICAID 101 FLYER 03152024_p1.png" target="_blank" rel="noopener">
-          <img src="assets/055786b14d7d/MEDICAID 101 FLYER 03152024_p1.png" loading="lazy" alt="MEDICAID 101 FLYER 03152024 p1">
-          <span class="resource-image-cta">Open full image</span>
-        </a>
-        <figcaption>MEDICAID 101 FLYER 03152024 p1</figcaption>
-      </figure>
-    </div>
-    <details class="resource-images-toggle">
-      <summary>18 more images</summary>
-    </details>
-  </section>
-  <section class="resource-media-block">
-    <div class="resource-block-heading"><i class="fas fa-file-arrow-down"></i><span>Downloads</span></div>
-    <div class="resource-attachments">
-      <a class="document-link" href="assets/055786b14d7d/CRC Calendar (Nov 2024).pdf" target="_blank" rel="noopener">
-        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>CRC Calendar (Nov 2024)</strong><small>PDF</small></span><span class="document-link-action">Open</span>
-      </a>
-      <a class="document-link" href="assets/055786b14d7d/CRC Community Resource Guide (November 2024).pdf" target="_blank" rel="noopener">
-        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>CRC Community Resource Guide (November 2024)</strong><small>PDF</small></span><span class="document-link-action">Open</span>
-      </a>
-      <a class="document-link" href="assets/055786b14d7d/CRC_Orca LIFT Card (Nov 2024).pdf" target="_blank" rel="noopener">
-        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>CRC Orca LIFT Card (Nov 2024)</strong><small>PDF</small></span><span class="document-link-action">Open</span>
-      </a>
-      <a class="document-link" href="assets/055786b14d7d/SCLS -HJP Flyer (Nov 2024).pdf" target="_blank" rel="noopener">
-        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>SCLS HJP Flyer (Nov 2024)</strong><small>PDF</small></span><span class="document-link-action">Open</span>
-      </a>
-      <a class="document-link" href="assets/055786b14d7d/New Eyes Flyer .pdf" target="_blank" rel="noopener">
-        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>New Eyes Flyer</strong><small>PDF</small></span><span class="document-link-action">Open</span>
-      </a>
-      <a class="document-link" href="assets/055786b14d7d/Carnegie_CHS SUD Flyer.pdf" target="_blank" rel="noopener">
-        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>Carnegie CHS SUD Flyer</strong><small>PDF</small></span><span class="document-link-action">Open</span>
-      </a>
-      <a class="document-link" href="assets/055786b14d7d/EVE HPACT Flyer.pdf" target="_blank" rel="noopener">
-        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>EVE HPACT Flyer</strong><small>PDF</small></span><span class="document-link-action">Open</span>
-      </a>
-      <a class="document-link" href="assets/055786b14d7d/Fall 2024 - Naloxone Giveaway Events.pdf" target="_blank" rel="noopener">
-        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>Fall 2024 Naloxone Giveaway Events</strong><small>PDF</small></span><span class="document-link-action">Open</span>
-      </a>
-      <a class="document-link" href="assets/055786b14d7d/The Day After Prison Tri-fold.pdf" target="_blank" rel="noopener">
-        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>The Day After Prison Tri fold</strong><small>PDF</small></span><span class="document-link-action">Open</span>
-      </a>
-      <a class="document-link" href="assets/055786b14d7d/MEDICAID 101 FLYER 03152024.pdf" target="_blank" rel="noopener">
-        <i class="fas fa-file-pdf"></i><span class="document-link-copy"><strong>MEDICAID 101 FLYER 03152024</strong><small>PDF</small></span><span class="document-link-action">Open</span>
       </a>
   </div>
   </section>
@@ -4789,6 +4777,43 @@ body {
                 }
             })
             .catch(() => {});
+
+        // Scrollspy: highlight the sidebar TOC entry for the current category section.
+        (function () {
+            const sections = Array.from(document.querySelectorAll('.category-section'));
+            const linkMap = {};
+            document.querySelectorAll('.category-toc a[data-cat]').forEach(function (a) {
+                linkMap[a.dataset.cat] = a;
+            });
+            if (!sections.length || !Object.keys(linkMap).length) return;
+
+            function getActiveSection() {
+                // The "active" section is the last one whose top edge has scrolled
+                // past the anchor offset threshold (sticky-nav height + some margin).
+                const threshold = getAnchorOffset() + 40;
+                let active = null;
+                for (let i = 0; i < sections.length; i++) {
+                    if (sections[i].getBoundingClientRect().top <= threshold) {
+                        active = sections[i];
+                    }
+                }
+                return active || sections[0];
+            }
+
+            function updateToc() {
+                const active = getActiveSection();
+                const activeId = active ? active.id : null;
+                for (const id in linkMap) {
+                    linkMap[id].classList.toggle('is-active', id === activeId);
+                }
+            }
+
+            window.addEventListener('scroll', updateToc, { passive: true });
+            window.addEventListener('resize', updateToc);
+            window.addEventListener('load', updateToc);
+            // Run once on DOMContentLoaded so the first section is highlighted immediately.
+            updateToc();
+        })();
     </script>
 </body>
 </html>
