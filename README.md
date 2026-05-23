@@ -4,7 +4,7 @@ Internal staff site for Housing Hope's data team. Hosted on GitHub Pages at [hou
 
 ## What this is
 
-A static website that serves as a reference hub for Housing Hope staff — mostly training docs, system guides, and quick-access tools for day-to-day data work. Not a proper web app, just a collection of HTML pages with Bootstrap styling.
+A static website that serves as a reference hub for Housing Hope staff — mostly training docs, system guides, and quick-access tools for day-to-day data work. Not a web app, just a collection of HTML pages with mixed styling (mostly Bootstrap, with some page-specific stylesheets).
 
 ## Site contents
 
@@ -22,14 +22,14 @@ A static website that serves as a reference hub for Housing Hope staff — mostl
 
 A couple of utility scripts that staff download and run locally:
 
-- `fscpanel.py` — GUI tool (tkinter/PyQt5) for processing housing data
-- `adpnote.py` — ADP payroll system helper
+- `fscpanel.py` — tkinter-based GUI tool for processing housing data
+- `adpnote.py` — PyQt5-based ADP payroll helper
 - `RemotePythonInstaller.bat` — sets up Python + dependencies on staff machines
 
 ## Tech
 
-Static HTML/CSS/JS. Bootstrap 5 for layout. No build step, no framework — just files served by GitHub Pages. Python tools use pandas, requests, tkinter, and PyQt5.
+Static HTML/CSS/JS with mixed page styling. No build step, no framework — just files served by GitHub Pages. Python tooling includes pandas, requests, tkinter, PyQt5, Pillow, and fuzzywuzzy.
 
-## Internal use only
+## Access and visibility
 
-This contains procedures, contacts, and compliance info meant for Housing Hope staff. Not intended for public consumption.
+The repository and GitHub Pages site are public. `robots.txt` and page-level `noindex` tags are configured to reduce search engine indexing, but they are not access controls.
