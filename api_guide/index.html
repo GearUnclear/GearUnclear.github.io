@@ -222,10 +222,52 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             display: block;
             margin: 1.5rem auto 0.5rem auto;
+            cursor: zoom-in;
+            transition: box-shadow 0.15s ease, transform 0.15s ease;
+        }
+        .scaled-image:hover {
+            box-shadow: 0 6px 22px rgba(0,0,0,0.18);
+            transform: translateY(-1px);
         }
         .scaled-image.narrow {
             max-width: 460px;
         }
+
+        /* Click-to-expand lightbox */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0,0,0,0.85);
+            cursor: zoom-out;
+            padding: 2rem;
+            text-align: center;
+        }
+        .lightbox-overlay.open {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-overlay img {
+            max-width: 95%;
+            max-height: 95vh;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+        }
+        .lightbox-close {
+            position: fixed;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2.5rem;
+            line-height: 1;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+        }
+        .lightbox-close:hover { opacity: 1; }
         .img-caption {
             text-align: center;
             font-size: 0.9rem;
@@ -645,6 +687,12 @@
         </div>
     </main>
 
+    <!-- Lightbox overlay for click-to-expand screenshots -->
+    <div id="lightbox" class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Expanded screenshot">
+        <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+        <img src="" alt="">
+    </div>
+
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Load external navbar -->
@@ -654,6 +702,38 @@
             .then(data => {
                 document.getElementById('navbar-placeholder').innerHTML = data;
             });
+    </script>
+    <!-- Click-to-expand image viewer -->
+    <script>
+        (function () {
+            const overlay = document.getElementById('lightbox');
+            const overlayImg = overlay.querySelector('img');
+
+            function open(src, alt) {
+                overlayImg.src = src;
+                overlayImg.alt = alt || '';
+                overlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+            function close() {
+                overlay.classList.remove('open');
+                overlayImg.src = '';
+                document.body.style.overflow = '';
+            }
+
+            document.querySelectorAll('img.scaled-image').forEach(function (img) {
+                img.addEventListener('click', function () {
+                    open(img.src, img.alt);
+                });
+            });
+
+            overlay.addEventListener('click', close);
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && overlay.classList.contains('open')) {
+                    close();
+                }
+            });
+        })();
     </script>
 </body>
 </html>
