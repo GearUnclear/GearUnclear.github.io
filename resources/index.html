@@ -78,6 +78,42 @@ body {
     box-shadow: 0 14px 34px rgba(13, 107, 99, 0.28);
 }
 .header-icon-area i { font-size: 2.1rem; }
+.header-icon-area svg { width: 56px; height: 56px; display: block; }
+.wip-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.65rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(242, 177, 52, 0.22);
+    border: 1px solid rgba(169, 101, 26, 0.45);
+    color: #8a5a14;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+.wip-banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 0 2rem;
+    padding: 1rem 1.35rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(242, 177, 52, 0.20), rgba(216, 154, 43, 0.10));
+    border: 2px dashed rgba(169, 101, 26, 0.55);
+    color: #6b4410;
+}
+.wip-banner .wip-icon { flex-shrink: 0; font-size: 1.6rem; color: #d89a2b; }
+.wip-banner .wip-text { font-size: 1rem; font-weight: 700; line-height: 1.4; }
+.wip-banner .wip-text span {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #7a5a2a;
+}
 .header-text-area {
     position: relative;
     z-index: 1;
@@ -583,12 +619,36 @@ body {
         <div class="page-header">
             <div class="header-card">
                 <div class="header-icon-area">
-                    <i class="fas fa-folder-open"></i>
+                    <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Crossed caution tape">
+                        <defs>
+                            <pattern id="hazard-stripes" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                                <rect width="16" height="16" fill="#f7c948"/>
+                                <rect width="8" height="16" fill="#1f2430"/>
+                            </pattern>
+                        </defs>
+                        <!-- Caution tape strip (top-left to bottom-right) -->
+                        <g transform="rotate(-32 48 48)">
+                            <rect x="2" y="39" width="92" height="18" rx="3" fill="url(#hazard-stripes)" stroke="#11151c" stroke-width="2.5"/>
+                        </g>
+                        <!-- Caution tape strip (bottom-left to top-right) -->
+                        <g transform="rotate(32 48 48)">
+                            <rect x="2" y="39" width="92" height="18" rx="3" fill="url(#hazard-stripes)" stroke="#11151c" stroke-width="2.5"/>
+                        </g>
+                    </svg>
                 </div>
                 <div class="header-text-area">
+                    <span class="wip-badge"><i class="fas fa-person-digging"></i> Under Construction</span>
                     <h1>Resource Library</h1>
                     <div class="subtitle">89 resources across 16 categories, refreshed May 01, 2026. Open source links directly in each card, preview flyers at full size, and grab original files without digging through email threads.</div>
                 </div>
+            </div>
+        </div>
+
+        <div class="wip-banner" role="status">
+            <i class="fas fa-helmet-safety wip-icon" aria-hidden="true"></i>
+            <div class="wip-text">
+                This page is a work in progress.
+                <span>Resources are still being added, organized, and verified — details may change and some links may not be final yet.</span>
             </div>
         </div>
 
