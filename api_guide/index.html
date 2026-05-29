@@ -348,6 +348,56 @@
             border-bottom: none;
         }
 
+        /* Tab navigation */
+        .tab-nav {
+            background: white;
+            border-radius: 14px;
+            padding: 0.5rem;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 0.4rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border: none;
+        }
+        .tab-nav .nav-link {
+            flex: 1 1 auto;
+            white-space: nowrap;
+            text-align: center;
+            border: none;
+            border-radius: 10px;
+            padding: 0.7rem 1rem;
+            font-weight: 600;
+            color: #4a5568;
+            background: transparent;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .tab-nav .nav-link i {
+            font-size: 0.95rem;
+        }
+        .tab-nav .nav-link:hover {
+            background: #eef4fd;
+            color: #0056b3;
+        }
+        .tab-nav .nav-link.active {
+            background: linear-gradient(135deg, #4A90E2, #007AFF);
+            color: white;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.35);
+        }
+        /* The first card inside a tab pane should not add an extra top gap */
+        .tab-pane > .section-intro:first-child,
+        .tab-pane > .download-banner:first-child,
+        .tab-pane > .trouble-card:first-child {
+            margin-top: 0;
+        }
+
         /* Navigation */
         .nav-home {
             text-align: center;
@@ -412,6 +462,39 @@
             </div>
         </div>
 
+        <!-- Tab navigation -->
+        <ul class="nav tab-nav" id="guide-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="tab-install" data-bs-toggle="tab" data-bs-target="#pane-install" type="button" role="tab" aria-controls="pane-install" aria-selected="true">
+                    <i class="fas fa-box-open"></i> Install
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-credentials" data-bs-toggle="tab" data-bs-target="#pane-credentials" type="button" role="tab" aria-controls="pane-credentials" aria-selected="false">
+                    <i class="fas fa-key"></i> API credentials
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-daily" data-bs-toggle="tab" data-bs-target="#pane-daily" type="button" role="tab" aria-controls="pane-daily" aria-selected="false">
+                    <i class="fas fa-pen-to-square"></i> Everyday use
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-good-to-know" data-bs-toggle="tab" data-bs-target="#pane-good-to-know" type="button" role="tab" aria-controls="pane-good-to-know" aria-selected="false">
+                    <i class="fas fa-lightbulb"></i> Good to know
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-help" data-bs-toggle="tab" data-bs-target="#pane-help" type="button" role="tab" aria-controls="pane-help" aria-selected="false">
+                    <i class="fas fa-life-ring"></i> Help
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+        <!-- ============ TAB 1: INSTALL & FIRST RUN ============ -->
+        <div class="tab-pane fade show active" id="pane-install" role="tabpanel" aria-labelledby="tab-install">
+
         <!-- Download Banner -->
         <div class="download-banner">
             <h2><i class="fas fa-box-open me-2" style="color:#28a745;"></i>Download CaseNoter</h2>
@@ -471,12 +554,16 @@
                 <i class="fas fa-triangle-exclamation"></i>
                 <span>If you forget your passphrase, it cannot be recovered. Write it down and keep it somewhere safe.</span>
             </div>
-            <p>The same screen asks for your Apricot API credentials. The next section explains where to get them.</p>
+            <p>The same screen asks for your Apricot API credentials. The <strong>API credentials</strong> tab above explains where to get them.</p>
             <img src="T1CVSrGcto.png" alt="CaseNoter first-time setup screen with master passphrase, confirm passphrase, and Apricot API credential fields." class="scaled-image narrow">
             <div class="img-caption">The first-time setup screen.</div>
         </div>
 
-        <!-- ============ GETTING API CREDENTIALS ============ -->
+        </div><!-- /pane-install -->
+
+        <!-- ============ TAB 2: GETTING API CREDENTIALS ============ -->
+        <div class="tab-pane fade" id="pane-credentials" role="tabpanel" aria-labelledby="tab-credentials">
+
         <div class="section-intro">
             <h2>Getting your Apricot API credentials</h2>
             <p>CaseNoter needs a Client ID and Client Secret from Bonterra so it can connect to Apricot. You create these once in the Bonterra account portal.</p>
@@ -528,7 +615,11 @@
             <div class="img-caption">CaseNoter building its local copy on first run.</div>
         </div>
 
-        <!-- ============ DAILY USE ============ -->
+        </div><!-- /pane-credentials -->
+
+        <!-- ============ TAB 3: EVERYDAY USE ============ -->
+        <div class="tab-pane fade" id="pane-daily" role="tabpanel" aria-labelledby="tab-daily">
+
         <div class="section-intro">
             <h2>Daily use</h2>
             <p>Once setup is done, the steps are the same each day.</p>
@@ -558,9 +649,9 @@
 
         <div class="process-step">
             <h3><span class="step-number">3</span> Fill in the note and save</h3>
-            <p>CaseNoter matches the Housing enrollment for the note's date and highlights it. Check that it is correct, especially if the participant has more than one enrollment. Fill in the fields (Date Contacted, Contact Type, Summary, and so on), add any other residents present if needed, then click 'Save note to Apricot'.</p>
-            <img src="chrome_Y8lZHSYMwg_crop.png" alt="The Contact Documentation form with the matched Housing enrollment highlighted, plus date, contact type, and summary fields." class="scaled-image">
-            <div class="img-caption">The Contact Documentation form. The matched enrollment is marked 'in zone'.</div>
+            <p>CaseNoter matches the Housing enrollment for the note's date and highlights it. Check that it is correct, especially if the participant has more than one enrollment. Fill in the fields (Date Contacted, Contact Type, Summary, and so on), add any other residents present if needed, then click 'Save note to Apricot'. The participant's past notes are listed below the form, so you can review their recent documentation without leaving the page.</p>
+            <img src="chrome_Y8lZHSYMwg_crop.png" alt="The Contact Documentation form with the matched Housing enrollment highlighted, plus date, contact type, and summary fields, and the participant's past notes listed below the form." class="scaled-image">
+            <div class="img-caption">The Contact Documentation form, with the participant's past notes listed below for reference. The matched enrollment is marked 'in zone'.</div>
         </div>
 
         <!-- ============ WHOLE SITE ============ -->
@@ -615,7 +706,11 @@
             <p>If a note does not go through, for example if the connection drops, you will see a message such as '10 saved to Apricot &middot; 1 still queued (retry from the top bar)'. Notes that did not save are kept on your computer. Use the pending button in the top bar to try again once you are back online. Click 'Done' when you are finished.</p>
         </div>
 
-        <!-- ============ THINGS TO KNOW ============ -->
+        </div><!-- /pane-daily -->
+
+        <!-- ============ TAB 4: GOOD TO KNOW ============ -->
+        <div class="tab-pane fade" id="pane-good-to-know" role="tabpanel" aria-labelledby="tab-good-to-know">
+
         <div class="section-intro">
             <h2>Things to know</h2>
             <p>A few details worth knowing.</p>
@@ -641,7 +736,11 @@
             <p>When you receive a new <strong>casenoter.html</strong> by email, save it into your CaseNoter folder, replacing the old one, and refresh your browser. The helper does not change. You do not need a new one unless told otherwise.</p>
         </div>
 
-        <!-- ============ COMMON PROBLEMS ============ -->
+        </div><!-- /pane-good-to-know -->
+
+        <!-- ============ TAB 5: HELP ============ -->
+        <div class="tab-pane fade" id="pane-help" role="tabpanel" aria-labelledby="tab-help">
+
         <div class="trouble-card">
             <h2><i class="fas fa-wrench me-2"></i>Common problems</h2>
             <table class="table-trouble">
@@ -680,6 +779,9 @@
                 </tbody>
             </table>
         </div>
+
+        </div><!-- /pane-help -->
+        </div><!-- /tab-content -->
 
         <!-- Navigation -->
         <div class="nav-home">
@@ -732,6 +834,39 @@
                 if (e.key === 'Escape' && overlay.classList.contains('open')) {
                     close();
                 }
+            });
+        })();
+    </script>
+    <!-- Tab deep-linking: open a tab from the URL hash and keep the hash in sync -->
+    <script>
+        (function () {
+            const tabBar = document.getElementById('guide-tabs');
+            const triggers = tabBar.querySelectorAll('button[data-bs-toggle="tab"]');
+
+            function activate(hash) {
+                const btn = tabBar.querySelector('button[data-bs-target="' + hash + '"]');
+                if (btn) {
+                    bootstrap.Tab.getOrCreateInstance(btn).show();
+                    return true;
+                }
+                return false;
+            }
+
+            // Open the tab named in the URL on load (e.g. .../api_guide/#pane-help)
+            if (location.hash) {
+                activate(location.hash);
+            }
+
+            // Reflect the active tab in the URL without scrolling the page
+            triggers.forEach(function (btn) {
+                btn.addEventListener('shown.bs.tab', function () {
+                    history.replaceState(null, '', btn.getAttribute('data-bs-target'));
+                });
+            });
+
+            // Respond to back/forward and to links that change only the hash
+            window.addEventListener('hashchange', function () {
+                if (location.hash) activate(location.hash);
             });
         })();
     </script>
