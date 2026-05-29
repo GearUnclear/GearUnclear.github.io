@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Getting Started with CaseNoter & the Apricot API</title>
+    <title>Getting Started with CaseNoter</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -118,76 +118,6 @@
             margin-top: 1rem;
             font-size: 0.9rem;
             color: #6c757d;
-        }
-
-        /* Feature highlight (the standout batch callout) */
-        .feature-highlight {
-            background: linear-gradient(135deg, #1f7a4d, #20c997);
-            border-radius: 16px;
-            padding: 2.25rem 2.5rem;
-            margin: 2.5rem 0;
-            box-shadow: 0 10px 30px rgba(31, 122, 77, 0.25);
-            color: white;
-        }
-        .feature-highlight .badge-star {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: rgba(255,255,255,0.18);
-            border-radius: 999px;
-            padding: 0.3rem 0.9rem;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
-        }
-        .feature-highlight h2 {
-            font-size: 1.7rem;
-            font-weight: 700;
-            margin: 0 0 0.5rem 0;
-            color: white;
-        }
-        .feature-highlight p {
-            font-size: 1.1rem;
-            margin: 0;
-            color: rgba(255,255,255,0.95);
-        }
-        .feature-highlight .before-after {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .feature-highlight .ba-card {
-            flex: 1;
-            min-width: 220px;
-            background: rgba(255,255,255,0.12);
-            border-radius: 10px;
-            padding: 1rem 1.25rem;
-        }
-        .feature-highlight .ba-card .ba-label {
-            font-size: 0.78rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            opacity: 0.85;
-            margin-bottom: 0.3rem;
-        }
-        .feature-highlight .ba-card .ba-text {
-            font-size: 1rem;
-            line-height: 1.4;
-        }
-
-        /* Batch step accent (green instead of blue) */
-        .process-step.batch {
-            border-left-color: #1f7a4d;
-        }
-        .process-step.batch h3 {
-            color: #1f7a4d;
-        }
-        .process-step.batch .step-number {
-            background: #1f7a4d;
         }
 
         /* Section intro card */
@@ -304,7 +234,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Highlighted "good to know" inline term */
+        /* Inline label/path styling */
         .pill {
             background: rgba(0,123,255,0.12);
             padding: 2px 8px;
@@ -435,7 +365,7 @@
                 </div>
                 <div class="header-text-area">
                     <h1>Getting Started with CaseNoter</h1>
-                    <div class="subtitle">A step-by-step guide to setting up CaseNoter and connecting it to Apricot with your Bonterra API credentials.</div>
+                    <div class="subtitle">Setting up CaseNoter, connecting it to Apricot, and writing case notes</div>
                 </div>
             </div>
         </div>
@@ -443,7 +373,7 @@
         <!-- Download Banner -->
         <div class="download-banner">
             <h2><i class="fas fa-box-open me-2" style="color:#28a745;"></i>Download CaseNoter</h2>
-            <p>CaseNoter runs entirely on your own Windows computer &mdash; no install, no admin rights, and no cloud account to create.</p>
+            <p>CaseNoter runs on your own Windows computer. There is no installer to run, no admin rights are needed, and there is no online account to create.</p>
             <!-- TODO: replace href="#" with the GitHub releases download link when ready -->
             <a href="#" class="btn-download">
                 <i class="fas fa-download"></i> Download here
@@ -451,60 +381,42 @@
             <div class="download-note">Download link coming soon.</div>
         </div>
 
-        <!-- Headline feature teaser -->
-        <div class="feature-highlight">
-            <span class="badge-star"><i class="fas fa-star"></i> The big time-saver</span>
-            <h2>Write one note for a whole site &mdash; all at once</h2>
-            <p>The same activity, group meeting, or check-in often needs to be documented for everyone at a site. CaseNoter's <strong>batch mode</strong> lets you write the note <em>once</em> and save it to every resident enrolled there &mdash; instead of opening each person and retyping the same thing.</p>
-            <div class="before-after">
-                <div class="ba-card">
-                    <div class="ba-label"><i class="fas fa-xmark me-1"></i>Before</div>
-                    <div class="ba-text">Open 11 participants one by one and type the same note 11 times.</div>
-                </div>
-                <div class="ba-card">
-                    <div class="ba-label"><i class="fas fa-check me-1"></i>With CaseNoter</div>
-                    <div class="ba-text">Pick the site, select everyone, write it once, save 11 notes in one click.</div>
-                </div>
-            </div>
-            <p style="margin-top:1.25rem; font-size:0.98rem; opacity:0.9;">See <a href="#batch" style="color:white; font-weight:700; text-decoration:underline;">Write notes for a whole site</a> below.</p>
-        </div>
-
         <!-- ============ WHAT YOU RECEIVE ============ -->
         <div class="section-intro">
             <h2>What you receive</h2>
-            <p>The download is a zip file containing three items. Put them all in one folder you won't lose &mdash; <span class="pill">C:\CaseNoter\</span> is a fine choice.</p>
+            <p>The download is a zip file with three items. Keep them together in one folder you will not lose, such as <span class="pill">C:\CaseNoter\</span>.</p>
         </div>
         <div class="process-step">
             <ul>
-                <li><strong>casenoter-helper.exe</strong> &mdash; the background helper that bridges the app to Apricot. You only receive this once.</li>
-                <li><strong>casenoter.html</strong> &mdash; the app itself. When the app is updated, a new copy is emailed to you and you save it over the old one.</li>
-                <li><strong>STAFF_README.txt</strong> &mdash; plain-text quick-start instructions (this guide is the friendlier version).</li>
+                <li><strong>casenoter-helper.exe</strong> is the background helper that connects the app to Apricot. You receive this once.</li>
+                <li><strong>casenoter.html</strong> is the app itself. When the app is updated, you will be emailed a new copy to save over the old one.</li>
+                <li><strong>STAFF_README.txt</strong> is a short text version of these instructions.</li>
             </ul>
         </div>
 
         <!-- ============ FIRST-TIME SETUP ============ -->
         <div class="section-intro">
             <h2>First-time setup</h2>
-            <p>You only do this once. After it's done, starting CaseNoter each day takes just a few seconds.</p>
+            <p>You only do this once. After setup, starting CaseNoter each day takes a few seconds.</p>
         </div>
 
         <!-- Step 1 -->
         <div class="process-step">
             <h3><span class="step-number">1</span> Create a folder and run the helper</h3>
-            <p>Put both <strong>casenoter-helper.exe</strong> and <strong>casenoter.html</strong> side by side in a folder you'll remember. Then double-click <strong>casenoter-helper.exe</strong>.</p>
+            <p>Put <strong>casenoter-helper.exe</strong> and <strong>casenoter.html</strong> together in a folder you will remember, then double-click <strong>casenoter-helper.exe</strong>.</p>
             <div class="notice-box">
                 <i class="fas fa-shield-halved"></i>
-                <span>The first time you run it, Windows may show a blue <strong>&ldquo;Windows protected your PC&rdquo;</strong> box. This is normal for new programs. Click <strong>&ldquo;More info&rdquo;</strong>, then <strong>&ldquo;Run anyway.&rdquo;</strong></span>
+                <span>The first time you run it, Windows may show a blue 'Windows protected your PC' message. This is normal for a new program. Click 'More info', then 'Run anyway'.</span>
             </div>
-            <p>A small black window will open and stay open. That's the background helper doing its job &mdash; you don't need to type anything in it. Just leave it open while you use CaseNoter.</p>
+            <p>A small black window opens and stays open. This is the background helper. You do not need to type anything in it. Leave it open while you use CaseNoter.</p>
         </div>
 
         <div class="process-arrow"><span>&darr;</span></div>
 
         <!-- Step 2 -->
         <div class="process-step">
-            <h3><span class="step-number">2</span> Your browser opens automatically</h3>
-            <p>The helper opens CaseNoter in your default web browser. If it doesn't open on its own, type <span class="pill">http://127.0.0.1:8765</span> into your browser's address bar. (The app runs on your own computer, not on the internet.)</p>
+            <h3><span class="step-number">2</span> Open CaseNoter in your browser</h3>
+            <p>The helper opens CaseNoter in your web browser. If it does not open on its own, type <span class="pill">http://127.0.0.1:8765</span> into the address bar. CaseNoter runs on your own computer, not on the internet.</p>
         </div>
 
         <div class="process-arrow"><span>&darr;</span></div>
@@ -512,78 +424,77 @@
         <!-- Step 3 -->
         <div class="process-step">
             <h3><span class="step-number">3</span> Choose a master passphrase</h3>
-            <p>On the first-time setup screen, choose a <strong>master passphrase</strong> (at least 8 characters) and type it again to confirm. This passphrase encrypts everything CaseNoter stores on your computer.</p>
+            <p>On the setup screen, choose a master passphrase of at least 8 characters, then type it again to confirm. This passphrase encrypts everything CaseNoter stores on your computer.</p>
             <div class="notice-box critical">
                 <i class="fas fa-triangle-exclamation"></i>
-                <span>There is <strong>no recovery</strong> if you forget your passphrase. Write it down somewhere safe &mdash; not on a sticky note on your monitor.</span>
+                <span>If you forget your passphrase, it cannot be recovered. Write it down and keep it somewhere safe.</span>
             </div>
-            <p>The same screen also asks for your Apricot API credentials (Client ID and Client Secret). The next section shows exactly where to get those.</p>
-            <img src="T1CVSrGcto.png" alt="CaseNoter first-time setup screen: master passphrase, confirm passphrase, and Apricot API credential fields." class="scaled-image narrow">
+            <p>The same screen asks for your Apricot API credentials. The next section explains where to get them.</p>
+            <img src="T1CVSrGcto.png" alt="CaseNoter first-time setup screen with master passphrase, confirm passphrase, and Apricot API credential fields." class="scaled-image narrow">
             <div class="img-caption">The first-time setup screen.</div>
         </div>
 
         <!-- ============ GETTING API CREDENTIALS ============ -->
         <div class="section-intro">
             <h2>Getting your Apricot API credentials</h2>
-            <p>CaseNoter needs a Client ID and Client Secret from Bonterra so it can talk to Apricot. You create these once in your Bonterra account portal.</p>
+            <p>CaseNoter needs a Client ID and Client Secret from Bonterra so it can connect to Apricot. You create these once in the Bonterra account portal.</p>
         </div>
         <div class="notice-box">
             <i class="fas fa-circle-info"></i>
-            <span>If you don't have access to the Bonterra account portal, your administrator (Dane) will provide the Client ID and Client Secret for you.</span>
+            <span>If you do not have access to the Bonterra account portal, your administrator (Dane) will provide the Client ID and Client Secret.</span>
         </div>
 
-        <!-- Step A -->
+        <!-- Step 1 -->
         <div class="process-step">
-            <h3><span class="step-number">A</span> Open &ldquo;Manage APIs&rdquo;</h3>
-            <p>On the setup screen there is a link, <strong>&ldquo;Get your API credentials from Bonterra,&rdquo;</strong> which opens <span class="pill">account.bonterra.network/api-creds</span>. Log in, then go to the <strong>Manage APIs</strong> tab and click <strong>Create credentials</strong>.</p>
-            <img src="msedge_qQKETZaIsz.png" alt="Bonterra Account settings, Manage APIs tab, showing the Create credentials button." class="scaled-image">
-            <div class="img-caption">Bonterra &rarr; Account settings &rarr; Manage APIs.</div>
+            <h3><span class="step-number">1</span> Open the 'Manage APIs' page</h3>
+            <p>On the setup screen, click the link 'Get your API credentials from Bonterra'. It opens <span class="pill">account.bonterra.network/api-creds</span>. Log in, open the 'Manage APIs' tab, and click 'Create credentials'.</p>
+            <img src="msedge_qQKETZaIsz.png" alt="Bonterra account settings on the Manage APIs tab, with a Create credentials button." class="scaled-image">
+            <div class="img-caption">The 'Manage APIs' tab in your Bonterra account.</div>
         </div>
 
         <div class="process-arrow"><span>&darr;</span></div>
 
-        <!-- Step B -->
+        <!-- Step 2 -->
         <div class="process-step">
-            <h3><span class="step-number">B</span> Fill in the new credential</h3>
-            <p>In the <strong>Create API credentials</strong> box, select the <strong>Apricot</strong> product, give it a name (for example, <span class="pill">casenote</span>), and choose your organization. Then click <strong>Create credentials</strong>.</p>
-            <img src="msedge_rqJQo2yO2m.png" alt="Create API credentials dialog: Product Apricot, Name casenote, Organization selected." class="scaled-image narrow">
+            <h3><span class="step-number">2</span> Fill in the credential</h3>
+            <p>In the 'Create API credentials' window, select the Apricot product, enter a name such as 'casenote', and choose your organization. Then click 'Create credentials'.</p>
+            <img src="msedge_rqJQo2yO2m.png" alt="Create API credentials window with the Apricot product, a name, and an organization selected." class="scaled-image narrow">
             <div class="img-caption">Creating the Apricot API credential.</div>
         </div>
 
         <div class="process-arrow"><span>&darr;</span></div>
 
-        <!-- Step C -->
+        <!-- Step 3 -->
         <div class="process-step">
-            <h3><span class="step-number">C</span> Copy the Client ID and Client Secret</h3>
-            <p>Bonterra now shows your <strong>Client ID</strong> and <strong>Client Secret</strong>. Copy each one and paste it into the matching field on the CaseNoter setup screen.</p>
+            <h3><span class="step-number">3</span> Copy the Client ID and Client Secret</h3>
+            <p>Bonterra shows your Client ID and Client Secret. Copy each one into the matching field on the CaseNoter setup screen.</p>
             <div class="notice-box critical">
                 <i class="fas fa-triangle-exclamation"></i>
-                <span>Copy the <strong>Client Secret</strong> now &mdash; for security reasons, Bonterra will not show it again. If you lose it, you'll have to create a new one.</span>
+                <span>Copy the Client Secret now. For security reasons, Bonterra will not show it again. If you lose it, you will need to create a new one.</span>
             </div>
-            <img src="jtMTIAoktg.png" alt="Save your API credentials dialog showing the Client ID and Client secret to copy." class="scaled-image narrow">
-            <div class="img-caption">Copy both values before closing this box.</div>
+            <img src="jtMTIAoktg.png" alt="Bonterra window showing the new Client ID and Client secret to copy." class="scaled-image narrow">
+            <div class="img-caption">Copy both values before closing this window.</div>
         </div>
 
         <div class="process-arrow"><span>&darr;</span></div>
 
-        <!-- Step D -->
+        <!-- Step 4 -->
         <div class="process-step">
-            <h3><span class="step-number">D</span> Finish setup &amp; first cache build</h3>
-            <p>With your passphrase and credentials entered, click <strong>Set up CaseNoter</strong>. The app then builds a local cache of participant enrollments. This takes about <strong>30&ndash;60 seconds</strong> the first time &mdash; just wait while it loads. After this, startup is instant.</p>
-            <img src="chrome_QJ3ux5fvls.png" alt="Top bar showing 'Loading contact notes... 10,000 read' progress while the cache builds." class="scaled-image">
-            <div class="img-caption">The cache building on first run.</div>
+            <h3><span class="step-number">4</span> Finish setup</h3>
+            <p>With your passphrase and credentials entered, click 'Set up CaseNoter'. CaseNoter then builds a local copy of participant enrollments. This takes about 30 to 60 seconds the first time. After that, startup is quick.</p>
+            <img src="chrome_QJ3ux5fvls.png" alt="Top bar showing 'Loading contact notes... 10,000 read' while CaseNoter builds its local copy." class="scaled-image">
+            <div class="img-caption">CaseNoter building its local copy on first run.</div>
         </div>
 
         <!-- ============ DAILY USE ============ -->
         <div class="section-intro">
             <h2>Daily use</h2>
-            <p>Once setup is done, starting up takes seconds. From there you can write a note for <strong>one participant</strong>, or for a <strong>whole site at once</strong> (batch mode).</p>
+            <p>Once setup is done, the steps are the same each day.</p>
         </div>
 
-        <!-- Step 1 daily -->
         <div class="process-step">
             <h3><span class="step-number">1</span> Unlock</h3>
-            <p>Double-click <strong>casenoter-helper.exe</strong> (the black window opens), let your browser open CaseNoter, then type your passphrase and click <strong>Unlock</strong>.</p>
+            <p>Double-click <strong>casenoter-helper.exe</strong> to open the helper, let your browser open CaseNoter, then type your passphrase and click 'Unlock'.</p>
             <img src="chrome_vWR7Bwomq0.png" alt="CaseNoter unlock screen asking for the master passphrase." class="scaled-image narrow">
             <div class="img-caption">The unlock screen.</div>
         </div>
@@ -591,112 +502,104 @@
         <!-- ============ ONE PARTICIPANT ============ -->
         <div class="section-intro">
             <h2>Writing a note for one participant</h2>
-            <p>The everyday flow when you're documenting a single person.</p>
+            <p>Use this when you are documenting a single person.</p>
         </div>
 
-        <!-- Step 2 daily -->
         <div class="process-step">
-            <h3><span class="step-number">2</span> Find a participant &amp; choose a note type</h3>
-            <p>Search by name or HMIS number &mdash; only participants with a Housing enrollment will appear. Pick the participant, then choose the kind of note: <strong>Contact Documentation</strong> (a contact or attempted contact) or <strong>Meeting Narrative</strong> (a visit or meeting writeup).</p>
-            <img src="chrome_A9TIkSOxvP.png" alt="CaseNoter asking 'What kind of note?' with Contact Documentation and Meeting Narrative options, plus a list of past notes." class="scaled-image">
-            <div class="img-caption">Choosing the note type, with past notes listed below.</div>
+            <h3><span class="step-number">2</span> Find a participant and choose a note type</h3>
+            <p>Search by name or HMIS number. Only participants with a Housing enrollment appear. Select the participant, then choose the note type: 'Contact Documentation' for a contact or attempted contact, or 'Meeting Narrative' for a visit or meeting writeup.</p>
+            <img src="chrome_A9TIkSOxvP.png" alt="CaseNoter asking what kind of note to write, with Contact Documentation and Meeting Narrative options and a list of past notes." class="scaled-image">
+            <div class="img-caption">Choosing the note type. Past notes are listed below.</div>
         </div>
 
         <div class="process-arrow"><span>&darr;</span></div>
 
-        <!-- Step 3 daily -->
         <div class="process-step">
             <h3><span class="step-number">3</span> Fill in the note and save</h3>
-            <p>CaseNoter automatically matches the right Housing program enrollment to the note's date and highlights it &mdash; glance at it to confirm it's correct, especially if the participant has more than one enrollment. Fill in the fields (Date Contacted, Contact Type, Summary, and so on), add any <strong>Other Residents Present</strong> if applicable, then click <strong>Save note to Apricot</strong>.</p>
-            <img src="chrome_Y8lZHSYMwg.png" alt="The Contact Documentation form with the auto-matched Housing enrollment highlighted, date, contact type, and summary fields." class="scaled-image">
-            <div class="img-caption">The Contact Documentation form. The matched enrollment is marked &ldquo;in zone.&rdquo;</div>
+            <p>CaseNoter matches the Housing enrollment for the note's date and highlights it. Check that it is correct, especially if the participant has more than one enrollment. Fill in the fields (Date Contacted, Contact Type, Summary, and so on), add any other residents present if needed, then click 'Save note to Apricot'.</p>
+            <img src="chrome_Y8lZHSYMwg.png" alt="The Contact Documentation form with the matched Housing enrollment highlighted, plus date, contact type, and summary fields." class="scaled-image">
+            <div class="img-caption">The Contact Documentation form. The matched enrollment is marked 'in zone'.</div>
         </div>
 
-        <!-- ============ BATCH MODE ============ -->
-        <div id="batch" class="feature-highlight">
-            <span class="badge-star"><i class="fas fa-star"></i> The big time-saver</span>
-            <h2>Writing notes for a whole site at once</h2>
-            <p>When the same contact or meeting applies to everyone at a site, you don't have to repeat yourself. Pick the site, choose who it applies to, write the note <em>once</em>, and CaseNoter saves a real, separate note to each resident&rsquo;s own Apricot enrollment.</p>
+        <!-- ============ WHOLE SITE ============ -->
+        <div class="section-intro">
+            <h2>Writing notes for a whole site</h2>
+            <p>When the same contact or meeting applies to everyone at a site, you can write the note once and save it to each resident, instead of entering it one person at a time. Each resident still gets their own separate note in Apricot.</p>
         </div>
 
-        <!-- Batch step 1 -->
-        <div class="process-step batch">
-            <h3><span class="step-number">1</span> Switch to &ldquo;Browse by site&rdquo;</h3>
-            <p>At the top of the screen, click the <strong>Browse by site</strong> tab (instead of <strong>Search by name</strong>). Pick a site from the list on the left &mdash; for example, <strong>Fairview PSH</strong>. CaseNoter shows everyone currently enrolled there, with a count like <span class="pill">Fairview PSH &middot; 23 enrolled</span>.</p>
+        <div class="process-step">
+            <h3><span class="step-number">1</span> Switch to 'Browse by site'</h3>
+            <p>At the top of the screen, click the 'Browse by site' tab. Choose a site from the list on the left, such as Fairview PSH. CaseNoter lists everyone currently enrolled there, with a count such as 'Fairview PSH &middot; 23 enrolled'.</p>
         </div>
 
         <div class="process-arrow"><span>&darr;</span></div>
 
-        <!-- Batch step 2 -->
-        <div class="process-step batch">
+        <div class="process-step">
             <h3><span class="step-number">2</span> Choose who the note is for</h3>
-            <p>Check the residents you want to document. Each person shows their HMIS number and enrollment start date. To save time, use the bulk buttons:</p>
+            <p>Check the residents you want to document. Each person shows their HMIS number and enrollment start date. You can also use the buttons above the list:</p>
             <ul>
-                <li><strong>Select all</strong> &mdash; everyone currently enrolled at the site.</li>
-                <li><strong>Select all heads of household</strong> &mdash; only heads of household, handy when you want one note per family rather than per person.</li>
-                <li><strong>Clear</strong> &mdash; start the selection over.</li>
+                <li>'Select all' selects everyone enrolled at the site.</li>
+                <li>'Select all heads of household' selects only heads of household, which is useful when you want one note per family.</li>
+                <li>'Clear' removes the current selection.</li>
             </ul>
-            <p>A bar at the bottom shows how many you've picked &mdash; e.g. <span class="pill">11 participants selected</span>. Click <strong>Write note to 11 &rarr;</strong> to continue.</p>
+            <p>A bar at the bottom shows how many you have selected, such as '11 participants selected'. Click 'Write note to 11' to continue.</p>
         </div>
 
         <div class="process-arrow"><span>&darr;</span></div>
 
-        <!-- Batch step 3 -->
-        <div class="process-step batch">
+        <div class="process-step">
             <h3><span class="step-number">3</span> Choose the note type</h3>
-            <p>CaseNoter asks <em>&ldquo;What kind of note for these 11 participants at Fairview PSH?&rdquo;</em> Pick <strong>Contact Documentation</strong> or <strong>Meeting Narrative</strong> &mdash; the same two note types as single notes.</p>
+            <p>CaseNoter asks what kind of note to write for the selected residents. Choose 'Contact Documentation' or 'Meeting Narrative', the same two types used for single notes.</p>
         </div>
 
         <div class="process-arrow"><span>&darr;</span></div>
 
-        <!-- Batch step 4 -->
-        <div class="process-step batch">
+        <div class="process-step">
             <h3><span class="step-number">4</span> Write the note once</h3>
-            <p>Under <strong>&ldquo;This note will be saved for:&rdquo;</strong> you'll see the full roster, each resident with their housing program and enrollment date. CaseNoter has already matched each person to their own open enrollment at that site &mdash; you don't pick enrollments one by one. Fill in the shared fields once (Date Contacted, Contact Type, Summary, and so on) and they apply to everyone.</p>
+            <p>Under 'This note will be saved for:' you will see the full list of residents, each with their housing program and enrollment date. CaseNoter has already matched each resident to their own enrollment at the site, so you do not choose enrollments one by one. Fill in the fields once, and they apply to everyone on the list.</p>
             <div class="notice-box">
                 <i class="fas fa-circle-info"></i>
-                <span><strong>&ldquo;Other Residents Present&rdquo; is left empty in batch mode.</strong> If you need to link other residents to a note, use the single-participant flow instead.</span>
+                <span>'Other Residents Present' is left empty in batch mode. If you need to link other residents to a note, use the single-participant flow.</span>
             </div>
-            <img src="aXzCE21qxs.png" alt="Batch Contact Documentation for 11 participants at Fairview PSH: the roster of residents, shared Date Contacted, Contact Type and Summary fields, and a 'Save 11 notes to Apricot' button." class="scaled-image">
-            <div class="img-caption">One note body, one roster, saved to all 11 residents.</div>
+            <img src="aXzCE21qxs.png" alt="A batch Contact Documentation note for 11 participants at Fairview PSH, with the list of residents, shared date, contact type and summary fields, and a Save 11 notes to Apricot button." class="scaled-image">
+            <div class="img-caption">A batch note for 11 residents at Fairview PSH.</div>
         </div>
 
         <div class="process-arrow"><span>&darr;</span></div>
 
-        <!-- Batch step 5 -->
-        <div class="process-step batch">
-            <h3><span class="step-number">5</span> Save to everyone</h3>
-            <p>Click <strong>Save 11 notes to Apricot</strong>. CaseNoter creates a separate note for each resident &mdash; one real Apricot note per person, against their own enrollment &mdash; and shows a results list with a <strong>&check; record number</strong> for each one that saved.</p>
-            <p>If any don't go through (say the internet blipped), you'll see a line like <em>&ldquo;10 saved to Apricot &middot; 1 still queued (retry from the top bar).&rdquo;</em> The queued notes are safe on your computer; click the <strong>pending</strong> button in the top bar to retry once you're back online. When you're finished, click <strong>Done</strong>.</p>
+        <div class="process-step">
+            <h3><span class="step-number">5</span> Save the notes</h3>
+            <p>Click 'Save 11 notes to Apricot'. CaseNoter creates a separate note for each resident, against that resident's own enrollment, and shows a result for each one.</p>
+            <p>If a note does not go through, for example if the connection drops, you will see a message such as '10 saved to Apricot &middot; 1 still queued (retry from the top bar)'. Notes that did not save are kept on your computer. Use the pending button in the top bar to try again once you are back online. Click 'Done' when you are finished.</p>
         </div>
 
-        <!-- ============ GOOD TO KNOW ============ -->
+        <!-- ============ THINGS TO KNOW ============ -->
         <div class="section-intro">
-            <h2>Good to know</h2>
-            <p>A few things that make CaseNoter easier to live with.</p>
+            <h2>Things to know</h2>
+            <p>A few details worth knowing.</p>
         </div>
 
         <div class="process-step">
-            <h3><span class="step-number"><i class="fas fa-cloud-arrow-up" style="font-size:0.9rem;"></i></span> &ldquo;Pending&rdquo; notes work offline</h3>
-            <p>Notes are encrypted and saved on your computer <em>first</em>, then synced to Apricot. If the internet drops mid-save, your note is safe. The top bar shows a <strong>pending</strong> indicator; click <strong>sync now</strong> once you're back online. A note is only removed from your computer after Apricot confirms it saved.</p>
+            <h3>Notes saved while offline</h3>
+            <p>CaseNoter saves each note on your computer first, then sends it to Apricot. If the connection drops while saving, the note is not lost. The top bar shows a pending count. Click 'sync now' once you are back online. A note is only removed from your computer after Apricot confirms it was saved.</p>
         </div>
 
         <div class="process-step">
-            <h3><span class="step-number"><i class="fas fa-rotate" style="font-size:0.9rem;"></i></span> Re-sync</h3>
-            <p>The participant/enrollment cache refreshes itself every two weeks. If a brand-new enrollment isn't showing up, click <strong>Re-sync</strong> in the top bar to force a fresh pull (this takes 30&ndash;60 seconds).</p>
+            <h3>Re-sync</h3>
+            <p>The list of participants and enrollments refreshes on its own every two weeks. If a new enrollment is not showing up, click 'Re-sync' in the top bar to pull a fresh copy. This takes about 30 to 60 seconds.</p>
         </div>
 
         <div class="process-step">
-            <h3><span class="step-number"><i class="fas fa-lock" style="font-size:0.9rem;"></i></span> Lock vs. close</h3>
-            <p><strong>Lock</strong> (in the app) locks the screen and asks for your passphrase again, but the helper keeps running. <strong>Closing the black window</strong> stops the helper entirely and the CaseNoter tab goes dead.</p>
+            <h3>Lock compared with closing</h3>
+            <p>'Lock' locks the screen and asks for your passphrase again, but the helper keeps running. Closing the black window stops the helper, and the CaseNoter tab will not work again until you start it.</p>
         </div>
 
         <div class="process-step">
-            <h3><span class="step-number"><i class="fas fa-arrows-rotate" style="font-size:0.9rem;"></i></span> Updating the app</h3>
-            <p>When you receive a new <strong>casenoter.html</strong> by email, save it into your CaseNoter folder, replacing the old one, and refresh your browser. The helper (the .exe) stays the same &mdash; you don't need a new one unless told otherwise.</p>
+            <h3>Updating the app</h3>
+            <p>When you receive a new <strong>casenoter.html</strong> by email, save it into your CaseNoter folder, replacing the old one, and refresh your browser. The helper does not change. You do not need a new one unless told otherwise.</p>
         </div>
 
-        <!-- ============ TROUBLESHOOTING ============ -->
+        <!-- ============ COMMON PROBLEMS ============ -->
         <div class="trouble-card">
             <h2><i class="fas fa-wrench me-2"></i>Common problems</h2>
             <table class="table-trouble">
@@ -705,32 +608,32 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Blue &ldquo;Windows protected your PC&rdquo; popup</td>
-                        <td>Click <strong>&ldquo;More info,&rdquo;</strong> then <strong>&ldquo;Run anyway.&rdquo;</strong></td>
+                        <td>Blue 'Windows protected your PC' message</td>
+                        <td>Click 'More info', then 'Run anyway'.</td>
                     </tr>
                     <tr>
-                        <td>Browser doesn't open</td>
-                        <td>Go to <span class="pill">http://127.0.0.1:8765</span> manually.</td>
+                        <td>Browser does not open</td>
+                        <td>Go to http://127.0.0.1:8765 in your browser.</td>
                     </tr>
                     <tr>
-                        <td>&ldquo;Helper not detected&rdquo; warning on the page</td>
+                        <td>'Helper not detected' warning on the page</td>
                         <td>Make sure the black helper window is still open.</td>
                     </tr>
                     <tr>
-                        <td>Can't find a participant</td>
-                        <td>Click <strong>Re-sync</strong>. If still missing, they likely have no Housing enrollment.</td>
+                        <td>Cannot find a participant</td>
+                        <td>Click 'Re-sync'. If they are still missing, they likely have no Housing enrollment.</td>
                     </tr>
                     <tr>
-                        <td>Forgot my passphrase</td>
-                        <td>No recovery is possible &mdash; the data must be reset and first-time setup redone. Contact your administrator.</td>
+                        <td>Forgot the passphrase</td>
+                        <td>It cannot be recovered. The data must be reset and first-time setup done again. Contact your administrator.</td>
                     </tr>
                     <tr>
-                        <td>Note stuck as &ldquo;pending&rdquo;</td>
-                        <td>Click <strong>sync now</strong> once your connection is back.</td>
+                        <td>Note stays 'pending'</td>
+                        <td>Click 'sync now' once your connection is back.</td>
                     </tr>
                     <tr>
-                        <td>Enrollment doesn't match</td>
-                        <td>Manually pick the right enrollment from the list.</td>
+                        <td>Enrollment does not match</td>
+                        <td>Choose the correct enrollment from the list.</td>
                     </tr>
                 </tbody>
             </table>
