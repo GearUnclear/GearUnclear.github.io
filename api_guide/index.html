@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with CaseNoter & the Apricot API</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            padding-top: 5rem;
+            background: linear-gradient(to right, #4A90E2, #007AFF);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            padding: 2rem 1rem;
+            max-width: 900px;
+        }
+
+        /* Page Header - Professional Card Style */
+        .page-header {
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+        .header-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header-icon-area {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4A90E2, #007AFF);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+        .header-icon-area i {
+            font-size: 2.2rem;
+            color: white;
+        }
+        .header-text-area {
+            flex: 1;
+        }
+        .header-text-area h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+        .header-text-area .subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #4a5568;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Download Banner */
+        .download-banner {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 5px solid #28a745;
+        }
+        .download-banner h2 {
+            color: #1a202c;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .download-banner p {
+            color: #495057;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+        .btn-download {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.15rem;
+            padding: 0.9rem 2.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.35);
+            color: white;
+        }
+        .download-note {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        /* Feature highlight (the standout batch callout) */
+        .feature-highlight {
+            background: linear-gradient(135deg, #1f7a4d, #20c997);
+            border-radius: 16px;
+            padding: 2.25rem 2.5rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 10px 30px rgba(31, 122, 77, 0.25);
+            color: white;
+        }
+        .feature-highlight .badge-star {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255,255,255,0.18);
+            border-radius: 999px;
+            padding: 0.3rem 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        .feature-highlight h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            color: white;
+        }
+        .feature-highlight p {
+            font-size: 1.1rem;
+            margin: 0;
+            color: rgba(255,255,255,0.95);
+        }
+        .feature-highlight .before-after {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .feature-highlight .ba-card {
+            flex: 1;
+            min-width: 220px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+        }
+        .feature-highlight .ba-card .ba-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.85;
+            margin-bottom: 0.3rem;
+        }
+        .feature-highlight .ba-card .ba-text {
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        /* Batch step accent (green instead of blue) */
+        .process-step.batch {
+            border-left-color: #1f7a4d;
+        }
+        .process-step.batch h3 {
+            color: #1f7a4d;
+        }
+        .process-step.batch .step-number {
+            background: #1f7a4d;
+        }
+
+        /* Section intro card */
+        .section-intro {
+            background: white;
+            border-radius: 12px;
+            padding: 1.75rem 2rem;
+            margin: 2.5rem 0 1rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #007bff;
+        }
+        .section-intro h2 {
+            color: #007bff;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 0 0 0.25rem 0;
+        }
+        .section-intro p {
+            color: #495057;
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
+        /* Process Steps */
+        .process-step {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #007bff;
+        }
+        .process-step:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .process-step h3 {
+            color: #007bff;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .step-number {
+            background: #007bff;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .process-step p {
+            color: #495057;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        .process-step ul, .process-step ol {
+            color: #495057;
+            font-size: 1.05rem;
+            padding-left: 1.25rem;
+        }
+        .process-step li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Process Flow Arrow */
+        .process-arrow {
+            text-align: center;
+            margin: 0.5rem 0;
+        }
+        .process-arrow span {
+            font-size: 24px;
+            color: white;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .scaled-image {
+            width: 90%;
+            max-width: 700px;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: block;
+            margin: 1.5rem auto 0.5rem auto;
+        }
+        .scaled-image.narrow {
+            max-width: 460px;
+        }
+        .img-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Highlighted "good to know" inline term */
+        .pill {
+            background: rgba(0,123,255,0.12);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #0056b3;
+            white-space: nowrap;
+        }
+
+        /* Notice / warning box */
+        .notice-box {
+            background: #fff8e6;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-weight: 500;
+            color: #856404;
+        }
+        .notice-box i {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+        }
+        .notice-box.critical {
+            background: #ffe6e6;
+            border-color: #ff4444;
+            color: #cc0000;
+        }
+
+        /* Troubleshooting table */
+        .trouble-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #6f42c1;
+        }
+        .trouble-card h2 {
+            color: #6f42c1;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+        .table-trouble {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table-trouble th {
+            background: #f3effa;
+            color: #4a2c8f;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border-bottom: 2px solid #e0d6f3;
+        }
+        .table-trouble td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #ececec;
+            font-size: 0.98rem;
+            color: #495057;
+            vertical-align: top;
+        }
+        .table-trouble tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Navigation */
+        .nav-home {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .nav-home a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .nav-home a:hover {
+            background: white;
+            color: #007bff;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .page-header { padding: 1rem; }
+            .header-card {
+                padding: 2rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .header-icon-area { width: 70px; height: 70px; }
+            .header-icon-area i { font-size: 2rem; }
+            .header-text-area h1 { font-size: 1.75rem; }
+            .header-text-area .subtitle { font-size: 1rem; }
+            .process-step { padding: 1.5rem; }
+            .process-step h3 { font-size: 1.2rem; }
+            .download-banner { padding: 1.75rem; }
+            .table-trouble th, .table-trouble td { padding: 0.5rem; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar placeholder where the external navbar will be loaded -->
+    <div id="navbar-placeholder"></div>
+
+    <main class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="header-card">
+                <div class="header-icon-area">
+                    <i class="fas fa-pen-to-square"></i>
+                </div>
+                <div class="header-text-area">
+                    <h1>Getting Started with CaseNoter</h1>
+                    <div class="subtitle">A step-by-step guide to setting up CaseNoter and connecting it to Apricot with your Bonterra API credentials.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Banner -->
+        <div class="download-banner">
+            <h2><i class="fas fa-box-open me-2" style="color:#28a745;"></i>Download CaseNoter</h2>
+            <p>CaseNoter runs entirely on your own Windows computer &mdash; no install, no admin rights, and no cloud account to create.</p>
+            <!-- TODO: replace href="#" with the GitHub releases download link when ready -->
+            <a href="#" class="btn-download">
+                <i class="fas fa-download"></i> Download here
+            </a>
+            <div class="download-note">Download link coming soon.</div>
+        </div>
+
+        <!-- Headline feature teaser -->
+        <div class="feature-highlight">
+            <span class="badge-star"><i class="fas fa-star"></i> The big time-saver</span>
+            <h2>Write one note for a whole site &mdash; all at once</h2>
+            <p>The same activity, group meeting, or check-in often needs to be documented for everyone at a site. CaseNoter's <strong>batch mode</strong> lets you write the note <em>once</em> and save it to every resident enrolled there &mdash; instead of opening each person and retyping the same thing.</p>
+            <div class="before-after">
+                <div class="ba-card">
+                    <div class="ba-label"><i class="fas fa-xmark me-1"></i>Before</div>
+                    <div class="ba-text">Open 11 participants one by one and type the same note 11 times.</div>
+                </div>
+                <div class="ba-card">
+                    <div class="ba-label"><i class="fas fa-check me-1"></i>With CaseNoter</div>
+                    <div class="ba-text">Pick the site, select everyone, write it once, save 11 notes in one click.</div>
+                </div>
+            </div>
+            <p style="margin-top:1.25rem; font-size:0.98rem; opacity:0.9;">See <a href="#batch" style="color:white; font-weight:700; text-decoration:underline;">Write notes for a whole site</a> below.</p>
+        </div>
+
+        <!-- ============ WHAT YOU RECEIVE ============ -->
+        <div class="section-intro">
+            <h2>What you receive</h2>
+            <p>The download is a zip file containing three items. Put them all in one folder you won't lose &mdash; <span class="pill">C:\CaseNoter\</span> is a fine choice.</p>
+        </div>
+        <div class="process-step">
+            <ul>
+                <li><strong>casenoter-helper.exe</strong> &mdash; the background helper that bridges the app to Apricot. You only receive this once.</li>
+                <li><strong>casenoter.html</strong> &mdash; the app itself. When the app is updated, a new copy is emailed to you and you save it over the old one.</li>
+                <li><strong>STAFF_README.txt</strong> &mdash; plain-text quick-start instructions (this guide is the friendlier version).</li>
+            </ul>
+        </div>
+
+        <!-- ============ FIRST-TIME SETUP ============ -->
+        <div class="section-intro">
+            <h2>First-time setup</h2>
+            <p>You only do this once. After it's done, starting CaseNoter each day takes just a few seconds.</p>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="process-step">
+            <h3><span class="step-number">1</span> Create a folder and run the helper</h3>
+            <p>Put both <strong>casenoter-helper.exe</strong> and <strong>casenoter.html</strong> side by side in a folder you'll remember. Then double-click <strong>casenoter-helper.exe</strong>.</p>
+            <div class="notice-box">
+                <i class="fas fa-shield-halved"></i>
+                <span>The first time you run it, Windows may show a blue <strong>&ldquo;Windows protected your PC&rdquo;</strong> box. This is normal for new programs. Click <strong>&ldquo;More info&rdquo;</strong>, then <strong>&ldquo;Run anyway.&rdquo;</strong></span>
+            </div>
+            <p>A small black window will open and stay open. That's the background helper doing its job &mdash; you don't need to type anything in it. Just leave it open while you use CaseNoter.</p>
+        </div>
+
+        <div class="process-arrow"><span>&darr;</span></div>
+
+        <!-- Step 2 -->
+        <div class="process-step">
+            <h3><span class="step-number">2</span> Your browser opens automatically</h3>
+            <p>The helper opens CaseNoter in your default web browser. If it doesn't open on its own, type <span class="pill">http://127.0.0.1:8765</span> into your browser's address bar. (The app runs on your own computer, not on the internet.)</p>
+        </div>
+
+        <div class="process-arrow"><span>&darr;</span></div>
+
+        <!-- Step 3 -->
+        <div class="process-step">
+            <h3><span class="step-number">3</span> Choose a master passphrase</h3>
+            <p>On the first-time setup screen, choose a <strong>master passphrase</strong> (at least 8 characters) and type it again to confirm. This passphrase encrypts everything CaseNoter stores on your computer.</p>
+            <div class="notice-box critical">
+                <i class="fas fa-triangle-exclamation"></i>
+                <span>There is <strong>no recovery</strong> if you forget your passphrase. Write it down somewhere safe &mdash; not on a sticky note on your monitor.</span>
+            </div>
+            <p>The same screen also asks for your Apricot API credentials (Client ID and Client Secret). The next section shows exactly where to get those.</p>
+            <img src="T1CVSrGcto.png" alt="CaseNoter first-time setup screen: master passphrase, confirm passphrase, and Apricot API credential fields." class="scaled-image narrow">
+            <div class="img-caption">The first-time setup screen.</div>
+        </div>
+
+        <!-- ============ GETTING API CREDENTIALS ============ -->
+        <div class="section-intro">
+            <h2>Getting your Apricot API credentials</h2>
+            <p>CaseNoter needs a Client ID and Client Secret from Bonterra so it can talk to Apricot. You create these once in your Bonterra account portal.</p>
+        </div>
+        <div class="notice-box">
+            <i class="fas fa-circle-info"></i>
+            <span>If you don't have access to the Bonterra account portal, your administrator (Dane) will provide the Client ID and Client Secret for you.</span>
+        </div>
+
+        <!-- Step A -->
+        <div class="process-step">
+            <h3><span class="step-number">A</span> Open &ldquo;Manage APIs&rdquo;</h3>
+            <p>On the setup screen there is a link, <strong>&ldquo;Get your API credentials from Bonterra,&rdquo;</strong> which opens <span class="pill">account.bonterra.network/api-creds</span>. Log in, then go to the <strong>Manage APIs</strong> tab and click <strong>Create credentials</strong>.</p>
+            <img src="msedge_qQKETZaIsz.png" alt="Bonterra Account settings, Manage APIs tab, showing the Create credentials button." class="scaled-image">
+            <div class="img-caption">Bonterra &rarr; Account settings &rarr; Manage APIs.</div>
+        </div>
+
+        <div class="process-arrow"><span>&darr;</span></div>
+
+        <!-- Step B -->
+        <div class="process-step">
+            <h3><span class="step-number">B</span> Fill in the new credential</h3>
+            <p>In the <strong>Create API credentials</strong> box, select the <strong>Apricot</strong> product, give it a name (for example, <span class="pill">casenote</span>), and choose your organization. Then click <strong>Create credentials</strong>.</p>
+            <img src="msedge_rqJQo2yO2m.png" alt="Create API credentials dialog: Product Apricot, Name casenote, Organization selected." class="scaled-image narrow">
+            <div class="img-caption">Creating the Apricot API credential.</div>
+        </div>
+
+        <div class="process-arrow"><span>&darr;</span></div>
+
+        <!-- Step C -->
+        <div class="process-step">
+            <h3><span class="step-number">C</span> Copy the Client ID and Client Secret</h3>
+            <p>Bonterra now shows your <strong>Client ID</strong> and <strong>Client Secret</strong>. Copy each one and paste it into the matching field on the CaseNoter setup screen.</p>
+            <div class="notice-box critical">
+                <i class="fas fa-triangle-exclamation"></i>
+                <span>Copy the <strong>Client Secret</strong> now &mdash; for security reasons, Bonterra will not show it again. If you lose it, you'll have to create a new one.</span>
+            </div>
+            <img src="jtMTIAoktg.png" alt="Save your API credentials dialog showing the Client ID and Client secret to copy." class="scaled-image narrow">
+            <div class="img-caption">Copy both values before closing this box.</div>
+        </div>
+
+        <div class="process-arrow"><span>&darr;</span></div>
+
+        <!-- Step D -->
+        <div class="process-step">
+            <h3><span class="step-number">D</span> Finish setup &amp; first cache build</h3>
+            <p>With your passphrase and credentials entered, click <strong>Set up CaseNoter</strong>. The app then builds a local cache of participant enrollments. This takes about <strong>30&ndash;60 seconds</strong> the first time &mdash; just wait while it loads. After this, startup is instant.</p>
+            <img src="chrome_QJ3ux5fvls.png" alt="Top bar showing 'Loading contact notes... 10,000 read' progress while the cache builds." class="scaled-image">
+            <div class="img-caption">The cache building on first run.</div>
+        </div>
+
+        <!-- ============ DAILY USE ============ -->
+        <div class="section-intro">
+            <h2>Daily use</h2>
+            <p>Once setup is done, starting up takes seconds. From there you can write a note for <strong>one participant</strong>, or for a <strong>whole site at once</strong> (batch mode).</p>
+        </div>
+
+        <!-- Step 1 daily -->
+        <div class="process-step">
+            <h3><span class="step-number">1</span> Unlock</h3>
+            <p>Double-click <strong>casenoter-helper.exe</strong> (the black window opens), let your browser open CaseNoter, then type your passphrase and click <strong>Unlock</strong>.</p>
+            <img src="chrome_vWR7Bwomq0.png" alt="CaseNoter unlock screen asking for the master passphrase." class="scaled-image narrow">
+            <div class="img-caption">The unlock screen.</div>
+        </div>
+
+        <!-- ============ ONE PARTICIPANT ============ -->
+        <div class="section-intro">
+            <h2>Writing a note for one participant</h2>
+            <p>The everyday flow when you're documenting a single person.</p>
+        </div>
+
+        <!-- Step 2 daily -->
+        <div class="process-step">
+            <h3><span class="step-number">2</span> Find a participant &amp; choose a note type</h3>
+            <p>Search by name or HMIS number &mdash; only participants with a Housing enrollment will appear. Pick the participant, then choose the kind of note: <strong>Contact Documentation</strong> (a contact or attempted contact) or <strong>Meeting Narrative</strong> (a visit or meeting writeup).</p>
+            <img src="chrome_A9TIkSOxvP.png" alt="CaseNoter asking 'What kind of note?' with Contact Documentation and Meeting Narrative options, plus a list of past notes." class="scaled-image">
+            <div class="img-caption">Choosing the note type, with past notes listed below.</div>
+        </div>
+
+        <div class="process-arrow"><span>&darr;</span></div>
+
+        <!-- Step 3 daily -->
+        <div class="process-step">
+            <h3><span class="step-number">3</span> Fill in the note and save</h3>
+            <p>CaseNoter automatically matches the right Housing program enrollment to the note's date and highlights it &mdash; glance at it to confirm it's correct, especially if the participant has more than one enrollment. Fill in the fields (Date Contacted, Contact Type, Summary, and so on), add any <strong>Other Residents Present</strong> if applicable, then click <strong>Save note to Apricot</strong>.</p>
+            <img src="chrome_Y8lZHSYMwg.png" alt="The Contact Documentation form with the auto-matched Housing enrollment highlighted, date, contact type, and summary fields." class="scaled-image">
+            <div class="img-caption">The Contact Documentation form. The matched enrollment is marked &ldquo;in zone.&rdquo;</div>
+        </div>
+
+        <!-- ============ BATCH MODE ============ -->
+        <div id="batch" class="feature-highlight">
+            <span class="badge-star"><i class="fas fa-star"></i> The big time-saver</span>
+            <h2>Writing notes for a whole site at once</h2>
+            <p>When the same contact or meeting applies to everyone at a site, you don't have to repeat yourself. Pick the site, choose who it applies to, write the note <em>once</em>, and CaseNoter saves a real, separate note to each resident&rsquo;s own Apricot enrollment.</p>
+        </div>
+
+        <!-- Batch step 1 -->
+        <div class="process-step batch">
+            <h3><span class="step-number">1</span> Switch to &ldquo;Browse by site&rdquo;</h3>
+            <p>At the top of the screen, click the <strong>Browse by site</strong> tab (instead of <strong>Search by name</strong>). Pick a site from the list on the left &mdash; for example, <strong>Fairview PSH</strong>. CaseNoter shows everyone currently enrolled there, with a count like <span class="pill">Fairview PSH &middot; 23 enrolled</span>.</p>
+        </div>
+
+        <div class="process-arrow"><span>&darr;</span></div>
+
+        <!-- Batch step 2 -->
+        <div class="process-step batch">
+            <h3><span class="step-number">2</span> Choose who the note is for</h3>
+            <p>Check the residents you want to document. Each person shows their HMIS number and enrollment start date. To save time, use the bulk buttons:</p>
+            <ul>
+                <li><strong>Select all</strong> &mdash; everyone currently enrolled at the site.</li>
+                <li><strong>Select all heads of household</strong> &mdash; only heads of household, handy when you want one note per family rather than per person.</li>
+                <li><strong>Clear</strong> &mdash; start the selection over.</li>
+            </ul>
+            <p>A bar at the bottom shows how many you've picked &mdash; e.g. <span class="pill">11 participants selected</span>. Click <strong>Write note to 11 &rarr;</strong> to continue.</p>
+        </div>
+
+        <div class="process-arrow"><span>&darr;</span></div>
+
+        <!-- Batch step 3 -->
+        <div class="process-step batch">
+            <h3><span class="step-number">3</span> Choose the note type</h3>
+            <p>CaseNoter asks <em>&ldquo;What kind of note for these 11 participants at Fairview PSH?&rdquo;</em> Pick <strong>Contact Documentation</strong> or <strong>Meeting Narrative</strong> &mdash; the same two note types as single notes.</p>
+        </div>
+
+        <div class="process-arrow"><span>&darr;</span></div>
+
+        <!-- Batch step 4 -->
+        <div class="process-step batch">
+            <h3><span class="step-number">4</span> Write the note once</h3>
+            <p>Under <strong>&ldquo;This note will be saved for:&rdquo;</strong> you'll see the full roster, each resident with their housing program and enrollment date. CaseNoter has already matched each person to their own open enrollment at that site &mdash; you don't pick enrollments one by one. Fill in the shared fields once (Date Contacted, Contact Type, Summary, and so on) and they apply to everyone.</p>
+            <div class="notice-box">
+                <i class="fas fa-circle-info"></i>
+                <span><strong>&ldquo;Other Residents Present&rdquo; is left empty in batch mode.</strong> If you need to link other residents to a note, use the single-participant flow instead.</span>
+            </div>
+            <img src="aXzCE21qxs.png" alt="Batch Contact Documentation for 11 participants at Fairview PSH: the roster of residents, shared Date Contacted, Contact Type and Summary fields, and a 'Save 11 notes to Apricot' button." class="scaled-image">
+            <div class="img-caption">One note body, one roster, saved to all 11 residents.</div>
+        </div>
+
+        <div class="process-arrow"><span>&darr;</span></div>
+
+        <!-- Batch step 5 -->
+        <div class="process-step batch">
+            <h3><span class="step-number">5</span> Save to everyone</h3>
+            <p>Click <strong>Save 11 notes to Apricot</strong>. CaseNoter creates a separate note for each resident &mdash; one real Apricot note per person, against their own enrollment &mdash; and shows a results list with a <strong>&check; record number</strong> for each one that saved.</p>
+            <p>If any don't go through (say the internet blipped), you'll see a line like <em>&ldquo;10 saved to Apricot &middot; 1 still queued (retry from the top bar).&rdquo;</em> The queued notes are safe on your computer; click the <strong>pending</strong> button in the top bar to retry once you're back online. When you're finished, click <strong>Done</strong>.</p>
+        </div>
+
+        <!-- ============ GOOD TO KNOW ============ -->
+        <div class="section-intro">
+            <h2>Good to know</h2>
+            <p>A few things that make CaseNoter easier to live with.</p>
+        </div>
+
+        <div class="process-step">
+            <h3><span class="step-number"><i class="fas fa-cloud-arrow-up" style="font-size:0.9rem;"></i></span> &ldquo;Pending&rdquo; notes work offline</h3>
+            <p>Notes are encrypted and saved on your computer <em>first</em>, then synced to Apricot. If the internet drops mid-save, your note is safe. The top bar shows a <strong>pending</strong> indicator; click <strong>sync now</strong> once you're back online. A note is only removed from your computer after Apricot confirms it saved.</p>
+        </div>
+
+        <div class="process-step">
+            <h3><span class="step-number"><i class="fas fa-rotate" style="font-size:0.9rem;"></i></span> Re-sync</h3>
+            <p>The participant/enrollment cache refreshes itself every two weeks. If a brand-new enrollment isn't showing up, click <strong>Re-sync</strong> in the top bar to force a fresh pull (this takes 30&ndash;60 seconds).</p>
+        </div>
+
+        <div class="process-step">
+            <h3><span class="step-number"><i class="fas fa-lock" style="font-size:0.9rem;"></i></span> Lock vs. close</h3>
+            <p><strong>Lock</strong> (in the app) locks the screen and asks for your passphrase again, but the helper keeps running. <strong>Closing the black window</strong> stops the helper entirely and the CaseNoter tab goes dead.</p>
+        </div>
+
+        <div class="process-step">
+            <h3><span class="step-number"><i class="fas fa-arrows-rotate" style="font-size:0.9rem;"></i></span> Updating the app</h3>
+            <p>When you receive a new <strong>casenoter.html</strong> by email, save it into your CaseNoter folder, replacing the old one, and refresh your browser. The helper (the .exe) stays the same &mdash; you don't need a new one unless told otherwise.</p>
+        </div>
+
+        <!-- ============ TROUBLESHOOTING ============ -->
+        <div class="trouble-card">
+            <h2><i class="fas fa-wrench me-2"></i>Common problems</h2>
+            <table class="table-trouble">
+                <thead>
+                    <tr><th>Problem</th><th>Fix</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Blue &ldquo;Windows protected your PC&rdquo; popup</td>
+                        <td>Click <strong>&ldquo;More info,&rdquo;</strong> then <strong>&ldquo;Run anyway.&rdquo;</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Browser doesn't open</td>
+                        <td>Go to <span class="pill">http://127.0.0.1:8765</span> manually.</td>
+                    </tr>
+                    <tr>
+                        <td>&ldquo;Helper not detected&rdquo; warning on the page</td>
+                        <td>Make sure the black helper window is still open.</td>
+                    </tr>
+                    <tr>
+                        <td>Can't find a participant</td>
+                        <td>Click <strong>Re-sync</strong>. If still missing, they likely have no Housing enrollment.</td>
+                    </tr>
+                    <tr>
+                        <td>Forgot my passphrase</td>
+                        <td>No recovery is possible &mdash; the data must be reset and first-time setup redone. Contact your administrator.</td>
+                    </tr>
+                    <tr>
+                        <td>Note stuck as &ldquo;pending&rdquo;</td>
+                        <td>Click <strong>sync now</strong> once your connection is back.</td>
+                    </tr>
+                    <tr>
+                        <td>Enrollment doesn't match</td>
+                        <td>Manually pick the right enrollment from the list.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-home">
+            <a href="/">&larr; Return to Home</a>
+        </div>
+    </main>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Load external navbar -->
+    <script>
+        fetch('/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
