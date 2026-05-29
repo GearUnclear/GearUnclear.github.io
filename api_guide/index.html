@@ -503,10 +503,10 @@
         <div class="download-banner">
             <h2><i class="fas fa-box-open me-2" style="color:#28a745;"></i>Download CaseNoter</h2>
             <p>CaseNoter runs on your own Windows computer. There is no installer to run, no admin rights are needed, and there is no online account to create.</p>
-            <a href="/casenoter/casenoter-helper.exe" id="download-both" class="btn-download" download>
+            <a href="https://github.com/GearUnclear/casenoter-dist/releases/download/v1.0.0/casenoter.zip" class="btn-download">
                 <i class="fas fa-download"></i> Download here
             </a>
-            <div class="download-note">Downloads two files: <strong>casenoter-helper.exe</strong> and <strong>casenoter.html</strong>. Keep them together in one folder.</div>
+            <div class="download-note">Downloads a zip with <strong>casenoter-helper.exe</strong>, <strong>casenoter.html</strong>, and <strong>STAFF_README.txt</strong>. Unzip them into one folder.</div>
         </div>
 
         <!-- ============ WHAT YOU RECEIVE ============ -->
@@ -800,32 +800,6 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Download both files (helper exe + app html) from one button -->
-    <script>
-        (function () {
-            const btn = document.getElementById('download-both');
-            if (!btn) return;
-            const files = [
-                '/casenoter/casenoter-helper.exe',
-                '/casenoter/casenoter.html'
-            ];
-            function triggerDownload(url) {
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = '';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            }
-            btn.addEventListener('click', function (e) {
-                e.preventDefault();
-                files.forEach(function (url, i) {
-                    // Stagger the clicks so the browser does not collapse them into one download
-                    setTimeout(function () { triggerDownload(url); }, i * 400);
-                });
-            });
-        })();
-    </script>
     <!-- Load external navbar -->
     <script>
         fetch('/navbar.html')
