@@ -26,8 +26,9 @@ First time
        and
      - paste your Apricot API Client ID and Client Secret (from your
        administrator / account.bonterra.network/api-creds).
-   Everything is encrypted on your computer with that passphrase. There is no
-   way to recover it if you forget it — write it down somewhere safe.
+   Everything is encrypted on your computer with that passphrase. Do not write
+   it down or share it. If you forget it, use "Forgot your passphrase?" on the
+   locked screen to reset and set up again.
 
 
 Every day after that
