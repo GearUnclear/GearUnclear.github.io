@@ -44,7 +44,7 @@ The app shows a setup page asking for three things:
 2. **Confirm passphrase** — type it again.
 3. **Apricot API credentials** — Client ID and Client Secret. There is a big link on the page: **"Get your API credentials from Bonterra"** which opens `https://account.bonterra.network/api-creds`. They log into their Bonterra account, copy the two values, and paste them in.
 
-**Who gives them API credentials?** If staff don't have access to the Bonterra account portal, their administrator (Dane) needs to provide the Client ID and Client Secret. Consider whether you want each staff member logging into Bonterra themselves or whether you hand out the credentials. Either way, document it clearly.
+**Who gives them API credentials?** Staff must create their own credentials in the Bonterra account portal. Their administrator (Dane) cannot do this for them. Each staff member needs their own Bonterra login to generate credentials.
 
 With the passphrase and credentials entered, staff click **"Set up CaseNoter."** The app then builds a local copy of participant enrollments. This takes about **1 to 3 minutes** the first time — the data is pulled in batches of 5,000 records from Apricot, and there are roughly 30,000 records total. After that, startup is quick. The sync of contact notes (as displayed) can take a few minutes as well. Encourage users to be mindful of this initial load time — it occurs once per day currently.
 
