@@ -598,7 +598,7 @@
                 <i class="fas fa-triangle-exclamation"></i>
                 <span>Do not write your passphrase down or share it with anyone. If you forget it, use the "Forgot your passphrase?" link on the locked screen to reset. This erases any unsynced notes and requires re-entering your API credentials.</span>
             </div>
-            <p>The same screen asks for your Apricot API credentials. The <a href="#pane-credentials" data-bs-toggle="tab" data-bs-target="#pane-credentials" role="tab">API credentials</a> tab above explains where to get them.</p>
+            <p>The same screen asks for your Apricot API credentials. The <a href="#pane-credentials">API credentials</a> tab above explains where to get them.</p>
             <img src="T1CVSrGcto.png" alt="CaseNoter first-time setup screen with master passphrase, confirm passphrase, and Apricot API credential fields." class="scaled-image narrow">
             <div class="img-caption">The first-time setup screen.</div>
         </div>
@@ -917,7 +917,9 @@
 
             // Respond to back/forward and to links that change only the hash
             window.addEventListener('hashchange', function () {
-                if (location.hash) activate(location.hash);
+                if (location.hash && activate(location.hash)) {
+                    tabBar.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         })();
     </script>
