@@ -887,8 +887,10 @@
             const tabBar = document.getElementById('guide-tabs');
             const triggers = tabBar.querySelectorAll('button[data-bs-toggle="tab"]');
 
-            function activate(hash) {
-                const btn = tabBar.querySelector('button[data-bs-target="' + hash + '"]');
+            function activate(name) {
+                // Accept "#pane-credentials", "#credentials", or "credentials"
+                const id = name.replace(/^#/, '').replace(/^pane-/, '');
+                const btn = tabBar.querySelector('button[data-bs-target="#pane-' + id + '"]');
                 if (btn) {
                     bootstrap.Tab.getOrCreateInstance(btn).show();
                     return true;
@@ -896,9 +898,14 @@
                 return false;
             }
 
-            // Open the tab named in the URL on load (e.g. .../api_guide/#pane-help)
+            // Open the tab named in the URL on load. Works with
+            // .../api_guide/#pane-credentials, #credentials, or ?tab=credentials
+            // (the ?tab= form survives mail clients that strip #fragments).
+            const tabParam = new URLSearchParams(location.search).get('tab');
             if (location.hash) {
                 activate(location.hash);
+            } else if (tabParam) {
+                activate(tabParam);
             }
 
             // Reflect the active tab in the URL without scrolling the page
