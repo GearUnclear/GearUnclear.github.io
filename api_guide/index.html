@@ -119,6 +119,17 @@
             font-size: 0.9rem;
             color: #6c757d;
         }
+        .download-apps {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.25rem;
+        }
+        .download-app {
+            flex: 1 1 280px;
+            max-width: 420px;
+        }
 
         /* Section intro card */
         .section-intro {
@@ -507,16 +518,20 @@
                 <i class="fas fa-download"></i> Download the helper
             </a>
             <div class="download-note">This is the background helper that connects CaseNoter to Apricot. It is the same for every team, and you only need to download it once.</div>
-            <div style="margin-top: 1.25rem;"></div>
-            <a href="https://github.com/GearUnclear/casenoter-dist/releases/download/v2.1.0/casenoter.html" class="btn-download" download>
-                <i class="fas fa-download"></i> Download the app &mdash; Housing
-            </a>
-            <div class="download-note">This is CaseNoter itself (the blue app) for Housing staff. When the app is updated, you will receive a new copy by email to save over this one.</div>
-            <div style="margin-top: 1.25rem;"></div>
-            <a href="https://github.com/GearUnclear/casenoter-dist/releases/download/v2.1.0/casenoter-eet.html" class="btn-download" download>
-                <i class="fas fa-download"></i> Download the app &mdash; Education &amp; Employment
-            </a>
-            <div class="download-note">The violet CaseNoter app for Education, Employment &amp; Job Training staff. Download only the app for your team.</div>
+            <div class="download-apps">
+                <div class="download-app">
+                    <a href="https://github.com/GearUnclear/casenoter-dist/releases/download/v2.1.0/casenoter.html" class="btn-download" download>
+                        <i class="fas fa-download"></i> Download the app &mdash; Housing
+                    </a>
+                    <div class="download-note">This is CaseNoter itself (the blue app) for Housing staff. When the app is updated, you will receive a new copy by email to save over this one.</div>
+                </div>
+                <div class="download-app">
+                    <a href="https://github.com/GearUnclear/casenoter-dist/releases/download/v2.1.0/casenoter-eet.html" class="btn-download" download>
+                        <i class="fas fa-download"></i> Download the app &mdash; Education &amp; Employment
+                    </a>
+                    <div class="download-note">The violet CaseNoter app for Education, Employment &amp; Job Training staff. Download only the app for your team.</div>
+                </div>
+            </div>
         </div>
 
         <!-- ============ WHAT YOU RECEIVE ============ -->
