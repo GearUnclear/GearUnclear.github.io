@@ -7,15 +7,15 @@
 
 ## What staff receive
 
-A zip from the [GitHub releases page](https://github.com/GearUnclear/casenoter/releases) containing three files:
+A zip from the [GitHub releases page](https://github.com/GearUnclear/casenoter-dist/releases) containing three files:
 
 | File | What it is | Changes? |
 |------|-----------|----------|
 | `casenoter-helper.exe` (~6 MB) | The background helper that bridges the app to Apricot. | Rarely. One-time delivery. |
-| `casenoter.html` (~130 KB) | The app itself. | Yes — when the app is updated, a new HTML is emailed out. Staff save it over the old one. |
+| `casenoter.html` (~130 KB) | The app itself. | Yes — but it updates itself when staff open it. Nothing for them to do. |
 | `STAFF_README.txt` (~3 KB) | Quick-start instructions (plain text). | Your guide is the polished version of this. |
 
-All three ship together in the initial zip. After that, only `casenoter.html` gets re-sent (via email, since it's small and email doesn't block .html files). The exe and README are one-time.
+All three ship together in the initial zip. After that, staff receive nothing further: `casenoter.html` keeps itself up to date, and the exe and README are one-time.
 
 ---
 
@@ -90,7 +90,9 @@ The participant/enrollment cache refreshes itself every 2 weeks. If a brand-new 
 
 ### Updating the app
 
-When they receive a new `casenoter.html` by email: save it into their CaseNoter folder, replacing the old one. Refresh the browser. The helper exe stays the same — they never need a new one unless told otherwise.
+There is nothing to do. When staff open CaseNoter it checks for a new version, and if one is out it installs it right then — an orange "Updating CaseNoter…" bar shows for a few seconds, then the app reloads already current. Nothing to click, nothing to dismiss, no downloads, no IT ticket. It only checks when the app opens, never in the middle of their work. The helper exe stays the same — they never need a new one unless told otherwise.
+
+If someone does email them a new `casenoter.html`, that still works: save it into the CaseNoter folder over the old one and refresh the browser.
 
 ---
 

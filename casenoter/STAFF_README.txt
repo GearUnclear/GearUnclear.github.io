@@ -5,7 +5,7 @@ CaseNoter writes Apricot case notes fast. It comes as two files that live
 together in one folder:
 
   casenoter-helper.exe   the background bridge to Apricot (install once)
-  casenoter.html         the app itself (you'll be re-emailed this now and then)
+  casenoter.html         the app itself (it keeps itself up to date)
 
 You do NOT need administrator rights, and you do NOT need to install anything.
 
@@ -26,9 +26,9 @@ First time
        and
      - paste your Apricot API Client ID and Client Secret (from your
        administrator / account.bonterra.network/api-creds).
-   Everything is encrypted on your computer with that passphrase. Do not write
-   it down or share it. If you forget it, use "Forgot your passphrase?" on the
-   locked screen to reset and set up again.
+   Everything is encrypted on your computer with that passphrase. If you ever
+   forget it, use "Forgot your passphrase?" on the locked screen to wipe the
+   local data and set up again with new credentials.
 
 
 Every day after that
@@ -62,7 +62,14 @@ Good to know
 - "Lock" locks the app without closing it. You'll need your passphrase again.
 
 
-When you get a new casenoter.html by email
--------------------------------------------
-Just save it into your CaseNoter folder, replacing the old one. The helper exe
-stays the same — you don't need a new one. Refresh the browser.
+Updates
+-------
+CaseNoter keeps itself up to date. When you open the app it checks for a new
+version, and if one is out it installs it right then — you'll see an orange
+"Updating CaseNoter…" bar for a few seconds, then the app reloads already
+updated. Nothing to click, no downloads, no IT ticket. (It only checks when
+the app opens, never in the middle of your work.)
+
+If someone emails you a new casenoter.html instead, that still works too:
+save it into your CaseNoter folder over the old one and refresh the browser.
+The helper exe never changes — you'll never need a new one.

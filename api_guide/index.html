@@ -559,7 +559,7 @@
         <div class="process-step">
             <ul>
                 <li><strong>casenoter-helper.exe</strong> is the background helper that connects the app to Apricot. It is the same for every team, and you receive this once.</li>
-                <li><strong>casenoter.html</strong> (Housing) or <strong>casenoter-eet.html</strong> (Education &amp; Employment) is the app itself &mdash; you only need the one for your team. When a new version comes out, the app updates itself: an orange bar appears at the top &mdash; click <strong>Update now</strong> and it swaps in the new version and reloads.</li>
+                <li><strong>casenoter.html</strong> (Housing) or <strong>casenoter-eet.html</strong> (Education &amp; Employment) is the app itself &mdash; you only need the one for your team. It keeps itself up to date: when a new version is out, opening CaseNoter installs it right then &mdash; an orange <strong>Updating CaseNoter&hellip;</strong> bar shows for a few seconds and the app reloads already current.</li>
             </ul>
         </div>
 
@@ -776,8 +776,13 @@
         </div>
 
         <div class="process-step">
+            <h3>Keep CaseNoter on your taskbar</h3>
+            <p>In your CaseNoter folder, right-click <strong>casenoter-helper.exe</strong>, select <strong>Show more options</strong>, then <strong>Create shortcut</strong>. Right-click the new shortcut and select <strong>Properties</strong>. On the <strong>Shortcut</strong> tab, click <strong>Change Icon</strong> and choose the tree icon. Then right-click the shortcut, select <strong>Show more options</strong>, and select <strong>Pin to taskbar</strong>. Use that taskbar icon to start the helper each day.</p>
+        </div>
+
+        <div class="process-step">
             <h3>Updating the app</h3>
-            <p>The app updates itself. When a new version is published, an orange bar appears at the top of CaseNoter (even on the lock screen) &mdash; click <strong>Update now</strong>, wait a few seconds, and the app reloads already updated. No downloads and no file copying. The helper does not change; you do not need a new one unless told otherwise.</p>
+            <p>The app updates itself, and there is nothing for you to click. When you open CaseNoter it checks for a new version, and if one is out it installs it right then: an orange <strong>Updating CaseNoter&hellip;</strong> bar shows for a few seconds, then the app reloads already current. Nothing to click, nothing to dismiss, no downloads and no file copying. It only checks when the app opens, never in the middle of your work. The helper does not change; you do not need a new one unless told otherwise.</p>
         </div>
 
         </div><!-- /pane-good-to-know -->
@@ -798,7 +803,7 @@
                     </tr>
                     <tr>
                         <td>Browser does not open</td>
-                        <td>Go to <a href="http://127.0.0.1:8765" target="_blank" rel="noopener">http://127.0.0.1:8765</a> in your browser.</td>
+                        <td>Make sure <strong>casenoter-helper.exe</strong> is running so CaseNoter can connect to Apricot. If you see <strong>.html</strong> in your browser's address bar, double-click <strong>casenoter-helper.exe</strong> instead.</td>
                     </tr>
                     <tr>
                         <td>'Helper not detected' warning on the page</td>
