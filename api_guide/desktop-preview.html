@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>CaseNoter desktop — internal preview setup</title>
+  <style>
+    :root{font-family:system-ui,sans-serif;color:#193047;background:#edf3f8;line-height:1.6}
+    main{max-width:760px;margin:3rem auto;padding:2rem;background:white;border-radius:16px}
+    h1{line-height:1.2} h2{margin-top:2rem} a{color:#075f9b} li{margin:.6rem 0}
+    .notice{padding:1rem;background:#fff4d8;border-left:4px solid #a46900}
+    .download{display:inline-block;padding:.8rem 1rem;border-radius:8px;background:#075f9b;color:white;font-weight:650}
+    code{overflow-wrap:anywhere} @media(max-width:600px){main{margin:0;padding:1.25rem;border-radius:0}}
+  </style>
+</head>
+<body><main>
+  <a href="./">CaseNoter setup guide</a>
+  <h1>CaseNoter desktop<br>Internal preview</h1>
+  <p>For staff invited to test the desktop preview. It opens as its own application with a CaseNoter window and taskbar icon.</p>
+  <p><a class="download" href="https://github.com/GearUnclear/casenoter/releases/download/v0.8.10-rc/CaseNoter-Setup.exe">Download CaseNoter-Setup.exe</a></p>
+  <p>The internal download requires access to the private CaseNoter repository. <a href="https://github.com/GearUnclear/casenoter/releases/tag/v0.8.10-rc">Release notes and checksums</a>.</p>
+  <div class="notice"><strong>Only a confirmed Apricot save is a successful submission.</strong> Unsent notes, hours, assessments and drafts may be dropped during migration or removal. Check Apricot before re-entering anything with an unknown result, to avoid duplicates. Existing Apricot records are unaffected.</div>
+  <h2>Install and open</h2>
+  <ol>
+    <li>Run <strong>CaseNoter-Setup.exe</strong> under your normal Windows account.</li>
+    <li>Keep the default folder, <code>C:\Casenoter</code>. If your computer blocks that folder, choose a folder under your own Windows account. Setup does not need an administrator password.</li>
+    <li>Select <strong>Housing</strong> or <strong>Education &amp; Employment (EE&amp;T)</strong>. Both department builds are included, with separate credential vaults.</li>
+    <li>Setup creates Start menu and desktop shortcuts and offers to open CaseNoter. If Microsoft WebView2 is missing, Setup installs it; an internet connection is required. If this fails, check the connection and retry Setup.</li>
+  </ol>
+  <p>This internal preview is unsigned. Follow your organization's software approval process if Windows blocks it; contact support rather than changing computer security settings.</p>
+  <h2>Connect your own Apricot account</h2>
+  <ol>
+    <li>Follow the instructions in CaseNoter to choose a master passphrase. Keep it secure; it protects the credentials stored on this computer.</li>
+    <li>Open Bonterra's credential page from the setup screen. Create credentials under your own staff account and paste the Client ID and Client Secret into CaseNoter.</li>
+    <li>Let CaseNoter verify the connection and sync participant information. Newly created credentials can take time to activate. Follow the retry instructions; you can resume without typing the credentials again.</li>
+  </ol>
+  <h2>Move an existing browser setup</h2>
+  <p>The browser version's vault belongs to its exact browser profile and local address. Installing the desktop app does not automatically copy it.</p>
+  <ol>
+    <li>Keep the original installation. With the old helper closed, replace its HTML files with <code>casenoter.html</code> and <code>casenoter-eet.html</code> from this <a href="https://github.com/GearUnclear/casenoter/releases/tag/v0.8.10-rc">prerelease</a>. Reopen with the same browser profile and address you used before, normally <code>http://127.0.0.1:8765</code>.</li>
+    <li>Unlock CaseNoter and open <strong>Settings → Export my setup</strong>. Select both departments if you use both, and unlock each selected vault when asked. Choose a separate transfer passphrase.</li>
+    <li>Keep the encrypted export file. It contains credentials and your selected ADP beta preference. Participant caches, client rosters, payroll grant configuration and unsent work are excluded. Payroll grant configuration has its own export in ADP settings.</li>
+    <li>Close the old browser app and stop its helper. Open the desktop app and choose <strong>Import my setup</strong>. Select the file, enter its transfer passphrase and choose the destination passphrase. Confirm before replacing an existing destination setup.</li>
+    <li>Wait for account verification and then sync the selected department. Check both departments if you transferred both. Keep the source setup until the destination works. An interrupted or failed transfer leaves the source credentials available for another attempt.</li>
+  </ol>
+  <p>Use the same export/import process to add another computer for yourself. Never share your credentials or setup export with another staff member.</p>
+  <h2>Daily use and closing</h2>
+  <p>Open CaseNoter from Start, the desktop shortcut, or a pinned taskbar icon. Opening again brings the existing window forward. Apricot links open in your normal browser. Close the window or choose Quit to stop CaseNoter and its helper. Finish active saves first; pending or unconfirmed work is not saved.</p>
+  <p>Startup errors and diagnostics are available in the app. If another program is using port 8765, close the old portable helper and retry. Do not run the old helper and the desktop app together.</p>
+  <h2>Update, reinstall and uninstall</h2>
+  <p>Interface updates continue from the installed folder. Internal prerelease builds skip automatic stable updates; Settings can check the stable channel. To upgrade the desktop shell, close CaseNoter and run the new <strong>CaseNoter-Setup.exe</strong>.</p>
+  <p>Credentials and settings stay in <code>%LOCALAPPDATA%\CaseNoter</code>, separate from the install folder. Reinstallation preserves them. Windows Installed apps can remove CaseNoter; keep local data when prompted unless you explicitly want to delete this computer's credentials and settings. Unsent work may be dropped. Apricot records remain unchanged.</p>
+</main></body>
+</html>
