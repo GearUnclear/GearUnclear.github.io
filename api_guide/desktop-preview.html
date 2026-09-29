@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>CaseNoter desktop — internal preview setup</title>
+  <title>CaseNoter 3.0 RC — Windows setup</title>
   <style>
     :root{font-family:system-ui,sans-serif;color:#193047;background:#edf3f8;line-height:1.6}
     main{max-width:760px;margin:3rem auto;padding:2rem;background:white;border-radius:16px}
@@ -16,11 +16,11 @@
 </head>
 <body><main>
   <a href="./">CaseNoter setup guide</a>
-  <h1>CaseNoter desktop<br>Internal preview</h1>
+  <h1>CaseNoter 3.0 RC<br>Windows desktop</h1>
   <p>For staff invited to test the desktop preview. It opens as its own application with a CaseNoter window and taskbar icon.</p>
-  <p><a class="download" href="https://github.com/GearUnclear/casenoter/releases/download/v0.8.10-rc/CaseNoter-Setup.exe">Download CaseNoter-Setup.exe</a></p>
-  <p>The internal download requires access to the private CaseNoter repository. <a href="https://github.com/GearUnclear/casenoter/releases/tag/v0.8.10-rc">Release notes and checksums</a>.</p>
-  <div class="notice"><strong>Only a confirmed Apricot save is a successful submission.</strong> Unsent notes, hours, assessments and drafts may be dropped during migration or removal. Check Apricot before re-entering anything with an unknown result, to avoid duplicates. Existing Apricot records are unaffected.</div>
+  <p><a class="download" href="https://github.com/GearUnclear/casenoter/releases/download/v3.0-rc/CaseNoter-Setup.exe">Download CaseNoter 3.0 RC</a></p>
+  <p>The internal download requires access to the private CaseNoter repository. <a href="https://github.com/GearUnclear/casenoter/releases/tag/v3.0-rc">Release notes and checksums</a>.</p>
+  <div class="notice"><strong>Only a confirmed Apricot save is a successful submission.</strong> Imported pending work stays available for review and is never automatically resubmitted.</div>
   <h2>Install and open</h2>
   <ol>
     <li>Run <strong>CaseNoter-Setup.exe</strong> under your normal Windows account.</li>
@@ -40,11 +40,10 @@
   <h2>Export my setup for upgrading to CaseNoter 3.0</h2>
   <p>The browser version's vault belongs to its exact browser profile and local address. Installing the desktop app does not automatically copy it.</p>
   <ol>
-    <li>Keep the original installation and open it with the same browser profile and exact address you used before, normally <code>http://127.0.0.1:8765</code>. Let it update to public version <strong>v2.6.9.4 or later</strong>, then confirm the version in Settings. If automatic updating is unavailable, close the old helper and replace its HTML files with <code>casenoter.html</code> and <code>casenoter-eet.html</code> from the <a href="https://github.com/GearUnclear/casenoter-dist/releases/tag/v2.6.9.4">public update</a>, then reopen the same browser profile and address.</li>
-    <li>Unlock CaseNoter and open <strong>Settings → Export my setup for upgrading to CaseNoter 3.0</strong>. Select both departments if you use both, and unlock each selected vault when asked. Choose a separate transfer passphrase, then select <strong>Download encrypted setup</strong>.</li>
-    <li>Keep the encrypted export file. It contains credentials and your selected ADP beta preference. Participant caches, client rosters, payroll grant configuration and unsent work are excluded. Payroll grant configuration has its own export in ADP settings.</li>
-    <li>Close the old browser app and stop its helper. Open the desktop app and choose <strong>Import my setup</strong>. Select the file, enter its transfer passphrase and choose the destination passphrase. Confirm before replacing an existing destination setup.</li>
-    <li>Wait for account verification and then sync the selected department. Check both departments if you transferred both. Keep the source setup until the destination works. An interrupted or failed transfer leaves the source credentials available for another attempt.</li>
+    <li>Open the original installation in the same browser profile and address as before, normally <code>http://127.0.0.1:8765</code>. Let it update to <strong>v2.6.9.5 or later</strong>. If needed, close the helper and replace its two HTML files with those from the <a href="https://github.com/GearUnclear/casenoter-dist/releases/tag/v2.6.9.5">public update</a>, then reopen the same browser profile and address.</li>
+    <li>Unlock CaseNoter. In <strong>Settings → Export my setup for upgrading to CaseNoter 3.0</strong>, click <strong>Export my setup</strong>. Both departments' saved data and settings are included automatically.</li>
+    <li>Close the browser app and stop its helper. Open the desktop app and choose <strong>Import my setup</strong>. Select the file and enter the passphrase you used to unlock the browser app. Confirm any replacement.</li>
+    <li>Each department keeps its existing passphrase. Check both departments and keep the original installation until the new setup works. Imported pending work is available in <strong>Pending requests</strong> for review.</li>
   </ol>
   <p>Use the same export/import process to add another computer for yourself. Never share your credentials or setup export with another staff member.</p>
   <h2>Daily use and closing</h2>
