@@ -1,0 +1,116 @@
+{
+  "version": "3.0.4",
+  "sourceCommit": "5f0e90e6ac31476e15c96d4349e3aee61138cc26",
+  "synthetic": true,
+  "method": "Department interfaces built from the exact v3.0.4 source tag and rendered in Chromium with desktop runtime flag, synthetic app state and intercepted local service responses. No native Windows frame or installer is simulated.",
+  "screenshots": [
+    {
+      "file": "setup-choices.png",
+      "department": "housing",
+      "description": "Choose a new account or move an existing setup",
+      "width": 1280,
+      "height": 204,
+      "sha256": "bc7d4a1528a9b60f6f02e9a7b08b4518ee243970476f5b8d2ff4315c0edfb440"
+    },
+    {
+      "file": "move-existing-setup.png",
+      "department": "housing",
+      "description": "Automatic discovery and matching transfer code",
+      "width": 1280,
+      "height": 431,
+      "sha256": "99c774fca83fc760bfd5040bb50ba186b5e37899b4253c2c4d867a5ec642b8f7"
+    },
+    {
+      "file": "new-account-password.png",
+      "department": "housing",
+      "description": "Choose a password for a new account",
+      "width": 1280,
+      "height": 797,
+      "sha256": "a6eb4fc93e0140acebed2fa7237445ddb111f8eb47bb5c9d999e4df8b9fbdd7a"
+    },
+    {
+      "file": "housing-overview.png",
+      "department": "housing",
+      "description": "Housing assessment reminders and participant search",
+      "width": 1280,
+      "height": 536,
+      "sha256": "4b4777142a9f3819b0c8baae915ed7d5ca246888c9251009daf3e6ba2e08a509"
+    },
+    {
+      "file": "housing-assessment.png",
+      "department": "housing",
+      "description": "Beginning a Housing assessment with the release-pinned form schema",
+      "width": 1280,
+      "height": 860,
+      "sha256": "961a9d41663a763a1d8c1bf47aca1928ef2856ecd72adcc2ecb3a672332d0220"
+    },
+    {
+      "file": "housing-note-type.png",
+      "department": "housing",
+      "description": "Contact Documentation with retired Meeting Narrative clearly disabled",
+      "width": 1280,
+      "height": 695,
+      "sha256": "52c974d46f628002f74e1d0ff7ff1d44bed01d9d95602ed6538af83f1684425a"
+    },
+    {
+      "file": "housing-site-notes.png",
+      "department": "housing",
+      "description": "Select residents for a shared site note",
+      "width": 1280,
+      "height": 622,
+      "sha256": "8534ab99bca1ea181a3cf92106e3a033c0df5deb5022390706c09a170b9400b7"
+    },
+    {
+      "file": "housing-spreadsheets.png",
+      "department": "housing",
+      "description": "Download resident spreadsheets by site",
+      "width": 1280,
+      "height": 431,
+      "sha256": "8e7e314a47eac0248627466f58886d5704ead3c4797b1389c930bbc2c3ad3296"
+    },
+    {
+      "file": "eet-my-clients.png",
+      "department": "eet",
+      "description": "Personal EE&T client list",
+      "width": 1280,
+      "height": 461,
+      "sha256": "73560a75f9e64257ac8f4183e988bebf9ba4325aca088ee5cef0813ee5df6b9b"
+    },
+    {
+      "file": "eet-timeworker.png",
+      "department": "eet",
+      "description": "Weekly hours entry for several clients",
+      "width": 1280,
+      "height": 598,
+      "sha256": "4b7027df0e2d508fa9f83a9dca5c74305e11d87a7d30b3fb41862211a008b552"
+    },
+    {
+      "file": "eet-past-hours.png",
+      "department": "eet",
+      "description": "Review past hours by participant and program",
+      "width": 1280,
+      "height": 724,
+      "sha256": "663dcf16c0bdfeb6bcd68b0fe41c790b6feb010cd8cdb8be52be731b000e586a"
+    },
+    {
+      "file": "eet-adp-input.png",
+      "department": "eet",
+      "description": "Optional ADP beta input totals, with example funding codes",
+      "width": 1000,
+      "height": 315,
+      "sha256": "cdb5cee1cecc5c301ace5266b7cc053d2e5a532c769aeceed2fe75873225240d"
+    },
+    {
+      "file": "eet-adp-timesheet.png",
+      "department": "eet",
+      "description": "Optional ADP beta: real allocation of fictional hours and funding sources",
+      "width": 1280,
+      "height": 877,
+      "sha256": "40791f753ea2c60d7d4a97b52bf47e53d8b3023ef6b92bc076bfaab47f13b7ea"
+    }
+  ],
+  "housingRequests": 52,
+  "eetRequests": 23,
+  "generatedAt": "2026-10-01",
+  "liveApricotAccess": false
+}

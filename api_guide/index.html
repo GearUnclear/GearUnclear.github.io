@@ -474,6 +474,16 @@
             .download-banner { padding: 1.75rem; }
             .table-trouble th, .table-trouble td { padding: 0.5rem; font-size: 0.85rem; }
         }
+
+        .feature-table-wrap { overflow-x: auto; }
+        .feature-table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+        .feature-table caption { caption-side: top; color: #193047; font-weight: 600; }
+        .feature-table th, .feature-table td { padding: .75rem; border-bottom: 1px solid #dee2e6; vertical-align: top; }
+        .feature-table thead th { background: #eef4f8; }
+        .feature-table tbody th { font-weight: 500; }
+        .feature-beta { display: inline-block; margin-left: .5rem; padding: .2rem .5rem; border-radius: 5px; background: #b42318; color: white; font-size: .8rem; }
+        #pane-features .scaled-image { width: 100%; max-width: 800px; }
+        #housing-features, #eet-features { scroll-margin-top: 6rem; }
     </style>
 </head>
 <body>
@@ -497,6 +507,7 @@
 <aside class="alert alert-info"><strong>Using the old browser version?</strong> <a href="legacy/">Open the legacy installer guide for CaseNoter 2.6.9.6.</a></aside>
 <ul class="nav tab-nav" id="guide-tabs" role="tablist">
 <li class="nav-item" role="presentation"><button class="nav-link active" id="tab-install" data-bs-toggle="tab" data-bs-target="#pane-install" type="button" role="tab" aria-controls="pane-install" aria-selected="true"><i class="fas fa-box-open" aria-hidden="true"></i> Get started</button></li>
+<li class="nav-item" role="presentation"><button class="nav-link" id="tab-features" data-bs-toggle="tab" data-bs-target="#pane-features" type="button" role="tab" aria-controls="pane-features" aria-selected="false"><i class="fas fa-star" aria-hidden="true"></i> Features</button></li>
 <li class="nav-item" role="presentation"><button class="nav-link" id="tab-credentials" data-bs-toggle="tab" data-bs-target="#pane-credentials" type="button" role="tab" aria-controls="pane-credentials" aria-selected="false"><i class="fas fa-key" aria-hidden="true"></i> Connect to Apricot</button></li>
 <li class="nav-item" role="presentation"><button class="nav-link" id="tab-daily" data-bs-toggle="tab" data-bs-target="#pane-daily" type="button" role="tab" aria-controls="pane-daily" aria-selected="false"><i class="fas fa-pen-to-square" aria-hidden="true"></i> Write notes</button></li>
 <li class="nav-item" role="presentation"><button class="nav-link" id="tab-good-to-know" data-bs-toggle="tab" data-bs-target="#pane-good-to-know" type="button" role="tab" aria-controls="pane-good-to-know" aria-selected="false"><i class="fas fa-circle-info" aria-hidden="true"></i> Daily use & updates</button></li>
@@ -511,13 +522,149 @@
 <div class="process-step"><h3>1. Run the downloaded file</h3><p>Open <strong>CaseNoter-Setup.exe</strong> from your browser's downloads or your Downloads folder. Follow the instructions on screen.</p><p>Keep the suggested location unless your computer will not allow it. If that happens, choose a folder under your own Windows account. If Windows blocks the app or you are unsure what to choose, contact Dane for help.</p></div>
 <div class="process-step"><h3>2. Choose your team</h3><p>Select <strong>Housing</strong> or <strong>Education &amp; Employment (EE&amp;T)</strong>, then finish Setup. Stay connected to the internet while Setup finishes.</p></div>
 <div class="process-step"><h3>3. Open the new CaseNoter</h3><p>Setup offers to open CaseNoter. You can also open it from the new desktop shortcut or the Windows Start menu.</p><p><strong>Already use CaseNoter?</strong> Follow the steps below to bring your existing setup into the new app.</p><p><strong>New to CaseNoter?</strong> Choose <strong>Set up a new account</strong>, then follow the <a href="#pane-credentials">Connect to Apricot</a> tab.</p></div>
+
+            <img src="screenshots/setup-choices.png" alt="CaseNoter offers Move my existing setup and Set up a new account." class="scaled-image" loading="lazy" decoding="async">
+            <div class="img-caption">Choose the option that fits you. Example with fictional data. Click to enlarge.</div>
 <div class="section-intro"><h2>Already use CaseNoter?</h2><p>CaseNoter finds your old setup for you. You do not need to move or copy files.</p></div>
 <div class="process-step"><h3>1. Leave your old CaseNoter open</h3><p>Open your old CaseNoter the way you normally do. Leave it and its black window running. Finish saving any notes before you begin.</p></div>
 <div class="process-step"><h3>2. Let the new app find your setup</h3><p>In the new CaseNoter, choose <strong>Move my existing setup</strong>. It looks for your old setup and opens a request in your browser. If it finds more than one setup, choose the one you normally use.</p></div>
+
+            <img src="screenshots/move-existing-setup.png" alt="New CaseNoter shows the transfer code after automatically finding the old setup." class="scaled-image" loading="lazy" decoding="async">
+            <div class="img-caption">CaseNoter finds your old setup and asks you to approve the move. Example with fictional data. Click to enlarge.</div>
 <div class="process-step"><h3>3. Allow the move</h3><p>Check that the transfer codes match in the new app and your browser, then click <strong>Allow this one-time transfer</strong> in your browser.</p><p>If the request opens in a different browser account from the one you normally use for CaseNoter, contact Dane for help.</p></div>
 <div class="process-step"><h3>4. Enter your existing password</h3><p>Return to the new CaseNoter and enter the password you already use for CaseNoter. Click <strong>Import and open CaseNoter</strong>. The app checks your account, brings your setup across, and opens automatically.</p><p>If the app asks to replace an existing setup, continue only if that is the setup you intend to replace. Contact Dane if you are unsure.</p></div>
 <div class="process-step"><h3>5. Check your setup</h3><p>Your existing passwords stay the same. Check that your team and participant information appear as expected. If you use both teams, check both before removing the old version.</p><p>Any unfinished requests brought across appear in <strong>Pending requests</strong> for review. They are not automatically sent to Apricot. Check Apricot before trying them again.</p><p><strong>Cannot find your old setup, or the move does not finish?</strong> Leave the old version in place and contact Dane for help.</p></div>
 </div>
+
+<div class="tab-pane fade" id="pane-features" role="tabpanel" aria-labelledby="tab-features">
+    <div class="section-intro">
+        <h2>What can CaseNoter help you do?</h2>
+        <p>Choose your team during installation. Housing and EE&amp;T share the note-writing tools, with extra tools for each team's work.</p>
+    </div>
+    <div class="process-step">
+        <p><a href="#housing-features">See Housing features</a> &middot; <a href="#eet-features">See EE&amp;T features</a></p>
+        <p>The screenshots below show CaseNoter 3.0.4 with fictional people, sites, hours, and funding codes. Click any image to enlarge it.</p>
+        <div class="feature-table-wrap" role="region" aria-label="Compare team features" tabindex="0">
+            <table class="feature-table">
+                <caption>Tools available to each team</caption>
+                <thead><tr><th scope="col">What you can do</th><th scope="col">Housing</th><th scope="col">EE&amp;T</th></tr></thead>
+                <tbody>
+                    <tr><th scope="row">Write Contact Documentation and review past notes</th><td>Available</td><td>Available</td></tr>
+                    <tr><th scope="row">Write one note for several people at a site</th><td>Available</td><td>Available</td></tr>
+                    <tr><th scope="row">Link discussed goals to a note</th><td>Available</td><td>&mdash;</td></tr>
+                    <tr><th scope="row">See annual assessment reminders</th><td>Available</td><td>&mdash;</td></tr>
+                    <tr><th scope="row">Complete assessments and save drafts</th><td>Available &mdash; Beta</td><td>&mdash;</td></tr>
+                    <tr><th scope="row">Download resident spreadsheets by site</th><td>Available</td><td>&mdash;</td></tr>
+                    <tr><th scope="row">Keep a personal client list</th><td>&mdash;</td><td>Available</td></tr>
+                    <tr><th scope="row">Log time with a note or for several clients</th><td>&mdash;</td><td>Available</td></tr>
+                    <tr><th scope="row">Review past hours and program totals</th><td>&mdash;</td><td>Available</td></tr>
+                    <tr><th scope="row">Prepare entries for an ADP timesheet</th><td>&mdash;</td><td>Optional Beta</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section-intro">
+        <h2>For both teams</h2>
+        <p>Spend less time finding records and entering the same information again.</p>
+    </div>
+    <div class="process-step">
+        <h3>Find a participant and write a note</h3>
+        <p>Search by name or HMIS number. CaseNoter suggests the enrollment that matches your note's date, so you can check it before saving. Review past notes alongside your new note.</p>
+        <p>Choose <strong>Contact Documentation</strong>. Meeting Narrative is being phased out and is disabled.</p>
+        <p>Writing suggestions help with common abbreviations and flag possible private information for you to review.</p>
+    </div>
+    <div class="process-step">
+        <h3>Write once for several people</h3>
+        <p>Open <strong>Browse by site</strong>, choose the people who attended, and write the shared note once. Each person gets their own note linked to their own enrollment.</p>
+
+            <img src="screenshots/housing-site-notes.png" alt="Housing Browse by site lists fictional residents with checkboxes and a Select all heads of household option." class="scaled-image" loading="lazy" decoding="async">
+            <div class="img-caption">Housing example: choose who the shared note is for. Example with fictional data. Click to enlarge.</div>
+
+    </div>
+    <div class="process-step">
+        <h3>Check saves and protect your work</h3>
+        <p>A confirmed <strong>Saved to Apricot</strong> message and record link show that Apricot received your work. Review unfinished or unconfirmed saves in <strong>Pending requests</strong>; check Apricot before trying again if the result is unclear.</p>
+        <p>You can lock the app when you step away, refresh participant information with <strong>Re-sync</strong>, and let CaseNoter handle app updates automatically.</p>
+    </div>
+    <div class="section-intro" id="housing-features">
+        <h2>Housing</h2>
+        <p>Notes, assessment reminders, and resident lists in one place.</p>
+    </div>
+    <div class="process-step">
+        <h3>See which annual assessments are due</h3>
+        <p>The home screen groups assessments into <strong>Past Due</strong>, <strong>Due This Month</strong>, and <strong>Upcoming</strong>. Open a participant's record in Apricot or choose <strong>Start assessment</strong>.</p>
+
+            <img src="screenshots/housing-overview.png" alt="Housing home screen groups fictional annual assessments by past due, this month, and upcoming." class="scaled-image" loading="lazy" decoding="async">
+            <div class="img-caption">See who needs an annual assessment. Example with fictional data. Click to enlarge.</div>
+
+    </div>
+    <div class="process-step">
+        <h3>Complete an assessment, or finish it later <span class="feature-beta">Beta</span></h3>
+        <p>Use <strong>New assessment</strong> or <strong>Start assessment</strong> for an Entry, Annual, Update or 18th Birthday, or Exit assessment. Confirm the household and program, then complete the sections that apply.</p>
+        <p>Use <strong>Save draft and return</strong> to keep unfinished answers on this computer. Open <strong>Assessment drafts</strong> to resume. A draft has not been sent to Apricot.</p>
+        <p>Assessment tools are marked <strong>Beta</strong> while checks against Apricot continue. Contact Dane if a question or required answer does not look right.</p>
+
+            <img src="screenshots/housing-assessment.png" alt="Housing assessment example shows household and program choices, section links, and Entry, Update or 18th Birthday, Annual, and Exit options." class="scaled-image" loading="lazy" decoding="async">
+            <div class="img-caption">Confirm the household, program, and assessment type before continuing. Example with fictional data. Click to enlarge.</div>
+
+    </div>
+    <div class="process-step">
+        <h3>Link the goals you discussed</h3>
+        <p>When writing a Housing contact note, choose the participant's goals that you discussed. You can also review linked goal text in past notes.</p>
+    </div>
+    <div class="process-step">
+        <h3>Download resident spreadsheets</h3>
+        <p>Open <strong>Spreadsheets</strong>, choose one or more sites, and generate the resident lists. The files open in Excel and include resident and unit information.</p>
+
+            <img src="screenshots/housing-spreadsheets.png" alt="Housing Spreadsheets screen shows two fictional sites selected and a Generate 2 spreadsheets button." class="scaled-image" loading="lazy" decoding="async">
+            <div class="img-caption">Choose the sites you need and generate their spreadsheets. Example with fictional data. Click to enlarge.</div>
+
+    </div>
+    <div class="section-intro" id="eet-features">
+        <h2>Education, Employment &amp; Job Training (EE&amp;T)</h2>
+        <p>Keep your client list, notes, and hours together.</p>
+    </div>
+    <div class="process-step">
+        <h3>Keep your own client list</h3>
+        <p>Open <strong>My clients</strong> and add the people you work with. They appear on your home screen and in the weekly hours tool. Your list stays on this computer.</p>
+
+            <img src="screenshots/eet-my-clients.png" alt="EE&T My clients screen shows three fictional participants and an Add a client search field." class="scaled-image" loading="lazy" decoding="async">
+            <div class="img-caption">Build the client list you use for your work. Example with fictional data. Click to enlarge.</div>
+
+    </div>
+    <div class="process-step">
+        <h3>Record time while writing a note</h3>
+        <p>The <strong>Time worked</strong> section lets you record time for the participant while writing their note. It shows hours already logged for the week. You can save the hours with the note or separately.</p>
+    </div>
+    <div class="process-step">
+        <h3>Enter weekly hours for several clients</h3>
+        <p>Open <strong>TimeWorker</strong>, choose the start of your week, and enter hours for people on your client list. Choose the program and activities for each person, then save the entries together.</p>
+
+            <img src="screenshots/eet-timeworker.png" alt="EE&T TimeWorker shows a chosen week, fictional clients, hours, programs, activity checkboxes, and Save 3 entries." class="scaled-image" loading="lazy" decoding="async">
+            <div class="img-caption">Enter a week's hours without opening each client's record separately. Example with fictional data. Click to enlarge.</div>
+
+    </div>
+    <div class="process-step">
+        <h3>Review hours by person and program</h3>
+        <p>Open <strong>Past hours</strong> and choose a date range. Check the hours recorded for each person, plus weekly totals for each program.</p>
+
+            <img src="screenshots/eet-past-hours.png" alt="EE&T Past hours shows a date-range calendar, fictional weekly hours by client, and program totals." class="scaled-image" loading="lazy" decoding="async">
+            <div class="img-caption">Review recorded hours before preparing your timesheet. Example with fictional data. Click to enlarge.</div>
+
+    </div>
+    <div class="process-step">
+        <h3>Prepare your ADP timesheet <span class="feature-beta">Optional Beta</span></h3>
+        <p>If you have been invited to use the ADP Beta, enable it in <strong>Settings</strong>. Ask Dane for access and help setting up your funding codes and percentages.</p>
+        <p>Once set up, CaseNoter can group logged hours by funding code and prepare entries to copy or type into ADP. Review the totals and any adjustments before using them. CaseNoter does not submit your payroll timesheet to ADP.</p>
+
+            <img src="screenshots/eet-adp-input.png" alt="Optional EE&T ADP Beta shows fictional funding-code totals, paid hours, and an Allocate button." class="scaled-image" loading="lazy" decoding="async">
+            <div class="img-caption">Example funding codes and hours; use the setup approved for your own work. Example with fictional data. Click to enlarge.</div>
+            <img src="screenshots/eet-adp-timesheet.png" alt="Optional EE&amp;T ADP Beta report shows a fictional funding summary, daily entries, and notes to copy into ADP." class="scaled-image" loading="lazy" decoding="async">
+            <div class="img-caption">Review the prepared entries, then copy or type them into ADP. Example with fictional data. Click to enlarge.</div>
+
+    </div>
+</div>
+
 <div class="tab-pane fade" id="pane-credentials" role="tabpanel" aria-labelledby="tab-credentials">
         <div class="section-intro">
             <h2>Connect your own Apricot account</h2>
@@ -572,6 +719,9 @@
             <p>Return to CaseNoter and follow the remaining setup prompts. It checks the connection and loads your participant information. This can take a few minutes the first time. Wait for it to finish; if it cannot continue, follow its retry instructions or contact Dane.</p>
         </div>
 
+
+            <img src="screenshots/new-account-password.png" alt="First-time CaseNoter setup asks for a master passphrase and a matching confirmation." class="scaled-image" loading="lazy" decoding="async">
+            <div class="img-caption">Choose a password when setting up a new account. Example with fictional data. Click to enlarge.</div>
 <div class="process-step"><h3>Keep your password safe</h3><p>Use your own Apricot account and keep your CaseNoter password private. If you forget it, contact Dane before resetting your setup; a reset removes unfinished work from this computer.</p></div>
 </div>
 <div class="tab-pane fade" id="pane-daily" role="tabpanel" aria-labelledby="tab-daily">
@@ -593,13 +743,16 @@
 
         <div class="process-step">
             <h3><span class="step-number">2</span> Find a participant and choose a note type</h3>
-            <p>Search by name or HMIS number. Only participants with a Housing enrollment appear. Select the participant, then choose the note type: 'Contact Documentation' for a contact or attempted contact, or 'Meeting Narrative' for a visit or meeting writeup.</p>
+            <p>Search by name or HMIS number. Only participants with a Housing enrollment appear. Select the participant, then choose <strong>Contact Documentation</strong> for your case note. <strong>Meeting Narrative</strong> is being phased out and is disabled.</p>
         </div>
 
         <div class="process-arrow"><span>&darr;</span></div>
 
         <div class="process-step">
             <h3><span class="step-number">3</span> Fill in the note and save</h3>
+            <img src="screenshots/housing-note-type.png" alt="Housing note choices show Contact Documentation available and Meeting Narrative disabled, with a saved assessment draft above." class="scaled-image" loading="lazy" decoding="async">
+            <div class="img-caption">Choose Contact Documentation for your case note. Example with fictional data. Click to enlarge.</div>
+
             <p>CaseNoter matches the Housing enrollment for the note's date and highlights it. Check that it is correct, especially if the participant has more than one enrollment. Fill in the fields (Date Contacted, Contact Type, Summary, and so on), add any other residents present if needed, then click 'Save note to Apricot'. The participant's past notes are listed below the form, so you can review their recent documentation without leaving the page.</p>
         </div>
 
@@ -631,7 +784,7 @@
 
         <div class="process-step">
             <h3><span class="step-number">3</span> Choose the note type</h3>
-            <p>CaseNoter asks what kind of note to write for the selected residents. Choose 'Contact Documentation' or 'Meeting Narrative', the same two types used for single notes.</p>
+            <p>Choose <strong>Contact Documentation</strong> for the selected residents. <strong>Meeting Narrative</strong> is being phased out and is disabled.</p>
         </div>
 
         <div class="process-arrow"><span>&darr;</span></div>
@@ -711,6 +864,15 @@
             }
 
             document.querySelectorAll('img.scaled-image').forEach(function (img) {
+                img.tabIndex = 0;
+                img.setAttribute('role', 'button');
+                img.setAttribute('aria-label', 'Enlarge screenshot: ' + img.alt);
+                img.addEventListener('keydown', function (event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        open(img.src, img.alt);
+                    }
+                });
                 img.addEventListener('click', function () {
                     open(img.src, img.alt);
                 });
@@ -733,7 +895,8 @@
             function activate(name) {
                 // Accept "#pane-credentials", "#credentials", or "credentials"
                 const id = name.replace(/^#/, '').replace(/^pane-/, '');
-                const btn = tabBar.querySelector('button[data-bs-target="#pane-' + id + '"]');
+                const target = ['housing-features', 'eet-features'].includes(id) ? 'features' : id;
+                const btn = tabBar.querySelector('button[data-bs-target="#pane-' + target + '"]');
                 if (btn) {
                     bootstrap.Tab.getOrCreateInstance(btn).show();
                     return true;
