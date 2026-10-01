@@ -296,7 +296,7 @@
             opacity: 0.8;
         }
         .lightbox-close:hover { opacity: 1; }
-        .img-caption {
+        .img-caption, .process-step .img-caption {
             text-align: center;
             font-size: 0.9rem;
             color: #6c757d;
@@ -485,49 +485,52 @@
         #pane-features .scaled-image { width: 100%; max-width: 800px; }
         #housing-features, #eet-features { scroll-margin-top: 6rem; }
 
-        /* Readable type and a quiet layout for staff following instructions. */
-        body { background: #edf3f6; font-size: 20px; color: #263746; }
-        .container { max-width: 860px; }
-        .page-header { padding: 0; }
-        .header-card { padding: 1.75rem; box-shadow: none; }
-        .header-icon-area { display: none; }
-        .header-text-area .subtitle, .section-intro p, .process-step p,
-        .process-step ul, .process-step ol, .download-banner p { font-size: 1.25rem; color: #263746; }
-        .process-step, .section-intro, .download-banner { box-shadow: none; margin: 1rem 0; }
-        .process-step:hover, .scaled-image:hover { transform: none; }
-        .process-step h3, .section-intro h2 { color: #175678; }
-        .process-step h3 { line-height: 1.4; }
+        /* Expandable instructions use the site's process-guide card style. */
+        .guide-details {
+            background: white;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #007bff;
+        }
+        .guide-details summary {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0056b3;
+        }
+        .open-hint {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #495057;
+        }
+        .guide-details[open] > summary { border-bottom: 1px solid #dee2e6; }
+        .details-body { padding: 1.5rem; }
+        .details-body > p { color: #495057; font-size: 1.05rem; }
+        .details-body > :first-child { margin-top: 0; }
+        .details-body > :last-child { margin-bottom: 0; }
         .process-step p:last-child { margin-bottom: 0; }
-        .step-number { background: #175678; width: 40px; height: 40px; }
-        .btn-download { background: #17663d; }
-        .btn-download:hover { background: #10532f; transform: none; }
-        .download-note, .img-caption { color: #4a5965; font-size: 1rem; }
-        .img-caption { font-style: normal; }
-        .tab-nav { flex-wrap: wrap; overflow: visible; box-shadow: none; }
+        .process-step h3 { line-height: 1.4; }
+        .tab-nav { flex-wrap: wrap; overflow: visible; }
         .tab-nav .nav-item { flex: 1 1 165px; }
-        .tab-nav .nav-link { font-size: 1.125rem; min-height: 52px; white-space: normal; }
-        .tab-nav .nav-link.active { background: #175678; box-shadow: none; }
-        a { color: #125779; text-underline-offset: .2em; }
-        .guide-details { background: white; border: 1px solid #b8c7d1; border-radius: 10px; margin: 1rem 0; }
-        .guide-details summary { padding: 1.25rem; cursor: pointer; font-weight: 600; color: #175678; }
-        .open-hint { font-size: 1rem; font-weight: 400; }
-        .guide-details[open] > summary { border-bottom: 1px solid #b8c7d1; }
-        .details-body { padding: 1rem; }
-        .details-body > p { padding: 0 .5rem; }
-        .notice-box { color: #624900; font-size: 1.125rem; }
-        .notice-box.critical { color: #972525; }
-        .feature-beta { white-space: normal; font-size: 1rem; }
-        .nav-home { border-color: #b8c7d1; }
-        .nav-home a { color: #175678; border-color: #175678; background: white; }
-        :focus-visible { outline: 3px solid #a34800; outline-offset: 4px; }
+        .tab-nav .nav-link { min-height: 48px; white-space: normal; }
+        .feature-beta { flex-shrink: 0; max-width: 100%; }
+        .process-step h3:has(.feature-beta) { display: block; }
+        .process-step h3 .feature-beta {
+            display: block;
+            width: fit-content;
+            margin: .5rem 0 0;
+            font-size: .9rem;
+            line-height: 1.6;
+        }
+        main a { text-underline-offset: .2em; }
+        :focus-visible { outline: 3px solid #0056b3; outline-offset: 4px; }
         details, .tab-pane { scroll-margin-top: 6rem; }
-        @media (max-width: 600px) {
-            .header-card, .process-step, .download-banner { padding: 1.25rem; }
-            .section-intro { padding: 1.25rem; }
-            .details-body { padding: .5rem; }
+        @media (max-width: 768px) {
+            .guide-details summary { padding: 1.25rem 1.5rem; }
+            .details-body { padding: 1rem; }
             .process-step h3 { align-items: flex-start; }
-            .scaled-image { width: 100%; }
-            .btn-download { padding: .9rem 1.25rem; }
         }
     </style>
 </head>
@@ -541,7 +544,7 @@
         <div class="page-header">
             <div class="header-card">
                 <div class="header-icon-area">
-                    <i class="fas fa-pen-to-square"></i>
+                    <i class="fas fa-pen-to-square" aria-hidden="true"></i>
                 </div>
                 <div class="header-text-area">
                     <h1>Getting Started with CaseNoter</h1>
